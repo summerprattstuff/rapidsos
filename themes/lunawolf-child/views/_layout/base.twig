@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="{{ site.charset }}" />
+  <meta name="author" content="https://deeq.io">
+  <meta name="referrer" content="origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover shrink-to-fit=no">
+  <meta name="robots" content="all">
+  <meta name="msapplication-TileColor" content="#000000">
+  <meta name="theme-color" content="#000000">
+
+  {{ function('wp_head') }}
+</head>
+<body class="{{ body_class }}{{ bodyClass ? ' ' ~ bodyClass }}">
+  {{ function('wp_body_open') }}
+  <div id="page" class="site">
+    {# Header #}
+    {% include "_layout/_header.twig" %}
+
+    <div id="content" class="site__content">
+      <div id="main" role="main" class="site__main main">
+        <div class="page__content">
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+
+    {# Footer #}
+    {% include "_layout/_footer.twig" %}
+  </div>
+  {{ function('wp_footer') }}
+</body>
+</html>
+
+
+
+

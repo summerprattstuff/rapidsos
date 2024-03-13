@@ -1,0 +1,12 @@
+@import '_base/print';
+@import '_base/grid';
+//@import '_components/btn';
+
+.acfe-flexible-icon {
+
+  &.dashicons-admin-generic {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+}

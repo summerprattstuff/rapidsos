@@ -1,0 +1,27 @@
+.g-small-desc.wc-block-featured-product .wc-block-featured-product__variation {
+    font-size: 12px;
+}
+
+.single-product {
+
+    .woocommerce-Tabs-panel > h2:first-child {
+        display: none;
+    }
+
+    .ct-container {
+
+        .product {
+
+            .ct-share-box {
+                padding-left: 0 !important;
+            }
+        }
+    }
+}
+
+.woocommerce-message {
+
+    &.kwsb-snackbar-notice {
+        padding-left: 50px !important;
+    }
+}

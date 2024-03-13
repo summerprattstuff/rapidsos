@@ -1,0 +1,24 @@
+body {
+
+  .skip-link-text {
+    background: $focusColor;
+    color: $black;
+    display: block;
+    font-weight: 500;
+    line-height: 3rem;
+    padding: 0 3rem 0 6rem;
+    position: absolute;
+    text-transform: uppercase;
+    top: 14rem; left: -3rem;
+    transition: .3s cubic-bezier(.3, -.01, .57, 1.36);
+    transform: translateX(-100%);
+    text-decoration: none;
+    z-index: 1000;
+
+    &:focus {
+      outline: 3px solid $focusColor !important;
+      transform: translateX(0);
+      box-shadow: none;
+    }
+  }
+}

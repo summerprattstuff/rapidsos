@@ -1,0 +1,82 @@
+//sass-lint:disable no-important no-qualifying-elements force-attribute-nesting force-element-nesting force-pseudo-nesting
+
+@if $enable-print-styles {
+
+    @media print {
+
+        *,
+        *::before,
+        *::after {
+            color: $black !important;
+            text-shadow: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+
+        a {
+
+            &:not(.btn) {
+                text-decoration: underline;
+            }
+        }
+
+        a[href]::after {
+            content: ' (' attr(href) ')';
+        }
+
+        abbr[title]::after {
+            content: ' (' attr(title) ')';
+        }
+
+        // Don't show links that are fragment identifiers,
+        // or use the `javascript:` pseudo protocol
+        a[href^='#']::after,
+        a[href^='javascript:']::after {
+            content: '';
+        }
+
+        pre {
+            white-space: pre-wrap !important;
+        }
+
+        pre,
+        blockquote {
+            border: 1px solid #999;
+            page-break-inside: avoid;
+        }
+
+        thead {
+            display: table-header-group;
+        }
+
+        tr,
+        img {
+            page-break-inside: avoid;
+        }
+
+        p,
+        h2,
+        h3 {
+            orphans: 3;
+            widows: 3;
+        }
+
+        h2,
+        h3 {
+            page-break-after: avoid;
+        }
+
+        // Specify a size and min-width to make printing closer across browsers.
+        @page {
+            size: $print-page-size;
+        }
+
+        body {
+            min-width: $print-body-min-width !important;
+        }
+
+        .wrapper {
+            min-width: $print-body-min-width !important;
+        }
+    }
+}

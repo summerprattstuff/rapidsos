@@ -1,0 +1,50 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/@wordpress/scripts/node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/sass/blocks.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+  --primary-color: #000;
+  --accent: #0175ff;
+}
+
+.acfe-flexible-placeholder.-preview {
+  background: var(--primary-color);
+  color: var(--text-color);
+}
+.acfe-flexible-placeholder.-preview section {
+  position: relative;
+}
+.acfe-flexible-placeholder.-preview,
+.acfe-flexible-placeholder.-preview * {
+  box-sizing: border-box;
+}
+.acfe-flexible-placeholder.-preview h1,
+.acfe-flexible-placeholder.-preview h2,
+.acfe-flexible-placeholder.-preview h3,
+.acfe-flexible-placeholder.-preview h4,
+.acfe-flexible-placeholder.-preview h5,
+.acfe-flexible-placeholder.-preview h6 {
+  color: inherit;
+}
+
+.acfe-fc-placeholder.acfe-fc-preview .acfe-fc-overlay {
+  z-index: 20 !important;
+}
+.acfe-fc-placeholder.acfe-fc-preview > .button {
+  z-index: 25;
+}
+.acfe-fc-placeholder.acfe-fc-preview:hover .acfe-fc-overlay {
+  background: rgba(11, 16, 41, 0.7);
+}
+
+.b--hero {
+  padding: 0 0 130px;
+}
+@media (min-width: 768px) {
+  .b--hero {
+    padding: 0 0 160px;
+  }
+}
+
+/*# sourceMappingURL=blocks.css.map*/

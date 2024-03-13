@@ -1,0 +1,16 @@
+{% set text  = block.text %}
+{% set image = block.image.url %}
+
+{% if not is_preview %}
+  {{ dump(settings) }}
+{% endif %}
+
+<section id="{{ settings.block_id }}">
+  <div class="test">
+    <div><h3>{{ text }}</h3></div>
+    <div><img src="{{ image }}" alt=""></div>
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>

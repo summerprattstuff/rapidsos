@@ -1,0 +1,15 @@
+{% set thumbnail = post.thumbnail %}
+{% set postType  = post.post_type %}
+{% set url       = post.link %}
+{% set title     = post.title %}
+{% set id        = post.ID %}
+
+<article class="tease tease-{{ postType }}" id="tease-{{ id }}">
+	{% block content %}
+		<h2 class="h2"><a href="{{ url }}">{{ title }}</a></h2>
+		<p>{{ post.excerpt }}</p>
+		{% if thumbnail %}
+			<img src="{{ thumbnail.src }}" />
+		{% endif %}
+	{% endblock %}
+</article>

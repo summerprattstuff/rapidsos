@@ -1,0 +1,67 @@
+{
+  "name": "elune",
+  "version": "1.0.0",
+  "description": "elune theme packages",
+  "main": "main.js",
+  "scripts": {
+    "start": "wp-scripts start src/js/main.js --output-path=../build/theme",
+    "build": "wp-scripts build src/js/main.js --output-path=../build/theme",
+    "start:acf": "wp-scripts start src/js/acf.js --output-path=../build/acf",
+    "build:acf": "wp-scripts build src/js/acf.js --output-path=../build/acf",
+    "start:blocks": "wp-scripts start src/js/blocks.js --output-path=../build/blocks",
+    "build:blocks": "wp-scripts build src/js/blocks.js --output-path=../build/blocks",
+    "sync": "browser-sync start --proxy \"hollymolly-local.dev.deeq.io\" --notify true --reload-delay 50 --files=[\"**/*.css\", \"wp-content/themes/**/*.php\"]",
+    "dev": "npm-run-all --parallel start start:acf start:blocks"
+  },
+  "keywords": [
+    "wordpress",
+    "themes"
+  ],
+  "author": "Bojan Krsmanovic",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
+    "@svgr/cli": "^8.1.0",
+    "@wordpress/scripts": "^26.16.0",
+    "autoprefixer": "^10.4.16",
+    "babel-loader": "^9.1.3",
+    "browser-sync": "^2.29.3",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "cssnano": "^6.0.1",
+    "eslint": "^8.53.0",
+    "eslint-plugin-jsdoc": "^46.8.2",
+    "eslint-webpack-plugin": "4",
+    "file-loader": "^6.2.0",
+    "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^2.7.6",
+    "node-sass": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.31",
+    "postcss-loader": "^7.3.3",
+    "sass-loader": "^13.3.2",
+    "sass-mq": "^6.0.0",
+    "style-loader": "^3.3.3",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-notifier": "^1.15.0"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "_id": "elune@1.0.0",
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.27",
+    "@splidejs/splide": "^4.1.4",
+    "aos": "next",
+    "jquery-custom-select": "^1.6.4",
+    "swiper": "^11.0.4"
+  }
+}

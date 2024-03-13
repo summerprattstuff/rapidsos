@@ -1,0 +1,7 @@
+.b--hero {
+  padding: 0 0 130px;
+
+  @include media-up(m) {
+    padding: 0 0 160px;
+  }
+}

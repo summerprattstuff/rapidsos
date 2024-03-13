@@ -1,0 +1,35 @@
+.post-php {
+
+    //&[class*='/template-home.php'],
+    &:not([class*='/template-']).post-type-page { // This one is for Default template
+
+        .wp-block {
+            max-width: 1024px;
+        }
+
+        .block-editor-editor-skeleton__content,
+        .interface-interface-skeleton__content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .edit-post-visual-editor {
+                order: 1;
+            }
+
+            .edit-post-layout__metaboxes {
+                order: 0;
+                border-bottom: 3px solid #000;
+
+                .edit-post-meta-boxes-area {
+                    margin: 0;
+                }
+
+                iframe {
+                    height: 120px !important;
+                    min-height: 120px;
+                }
+            }
+        }
+    }
+}

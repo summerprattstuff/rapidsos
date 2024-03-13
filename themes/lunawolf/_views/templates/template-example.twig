@@ -1,0 +1,28 @@
+{% set bodyClass = 't-example' %}
+
+{% extends "_layout/base.twig" %}
+
+{% block content %}
+  <div>
+    <section>
+      <div class="container ">
+        {{ content }}
+        Test content
+      </div>
+    </section>
+    
+    <section class="test-section">
+      <div class="container ">
+        <div class="inner variable-grid grid--1-2">
+          <div class="media-wrapper">
+            <img src="https://lh3.googleusercontent.com/g4LSCiEc-F9muGnxxmu8pQpsbmDt0FUIYpicdDuuiXqzk8ygp_xGNNSTmCNfC0uTKWZO1AjlcseZ01j4rxa8aRlbrztLH2cw60m71A=w1000" alt="">
+          </div>
+          <div class="text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque corporis cupiditate debitis dicta fuga, in ipsum iusto minus modi, molestiae, nihil nobis perferendis suscipit tempora! Aliquid expedita odit unde!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque corporis cupiditate debitis dicta fuga, in ipsum iusto minus modi, molestiae, nihil nobis perferendis suscipit tempora! Aliquid expedita odit unde!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias atque corporis cupiditate debitis dicta fuga, in ipsum iusto minus modi, molestiae, nihil nobis perferendis suscipit tempora! Aliquid expedita odit unde!
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+{% endblock %}

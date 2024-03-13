@@ -1,0 +1,26 @@
+{% set portrait  = block.mobile.portrait %}
+{% set landscape = block.mobile.landscape %}
+{% set tablet    = block.desktop.tablet %}
+{% set desktop   = block.desktop.lap_top %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="b--hero">
+  <div class="wrapper">
+    <div class="_w">
+      <div class="img _m10 ofs_m1">
+        <picture>
+          <source media="(max-width: 430px)" srcset="{{ get_image(portrait) }} 430w">
+          <source media="(max-width: 767px)" srcset="{{ get_image(landscape) }} 767w">
+          <source media="(max-width: 992px)" srcset="{{ get_image(tablet) }} 992w">
+          <img src="{{ get_image(desktop) }}" alt="Pangos Platform" srcset="{{ get_image(desktop) }} 993w">
+        </picture>
+      </div>
+    </div>
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>
