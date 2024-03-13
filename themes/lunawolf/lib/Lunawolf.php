@@ -242,7 +242,7 @@ class Lunawolf extends Site {
 		$context['block'] = get_row(true);
 		$context['is_preview'] = $is_preview;
 		// Settings configuration
-		$settings = $row['layout_settings'];
+		$settings = $row['layout_settings'] ?? null;
 
 		$context['settings'] = $this->settings->settings($settings);
 

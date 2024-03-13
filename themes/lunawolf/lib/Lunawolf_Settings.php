@@ -16,6 +16,11 @@ class Lunawolf_Settings {
 
 	public function settings($settings): array
 	{
+    if (!$settings) return [
+      'block_id' => '',
+			'styles' => '',
+    ];
+
 		$block_id = isset($settings['block_id']) && $settings['block_id'] ? $settings['block_id'] : '';
 		$settings['block_id'] = $block_id;
 

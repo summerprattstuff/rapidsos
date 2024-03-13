@@ -100,13 +100,15 @@
                     ],
                     "min": "",
                     "max": "",
-                    "acfe_flexible_render_template": false,
-                    "acfe_flexible_render_style": false,
-                    "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
-                    "acfe_flexible_settings": false,
+                    "acfe_flexible_render_template": "",
+                    "acfe_flexible_render_style": "",
+                    "acfe_flexible_render_script": "",
+                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_settings": [
+                        "group_65c69ec9ddce7"
+                    ],
                     "acfe_flexible_settings_size": "medium",
-                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_thumbnail": "",
                     "acfe_flexible_category": false
                 },
                 "layout_65f1a27845214": {
@@ -166,19 +168,21 @@
                     ],
                     "min": "",
                     "max": "",
-                    "acfe_flexible_render_template": false,
-                    "acfe_flexible_render_style": false,
-                    "acfe_flexible_render_script": false,
-                    "acfe_flexible_thumbnail": false,
-                    "acfe_flexible_settings": false,
+                    "acfe_flexible_render_template": "",
+                    "acfe_flexible_render_style": "",
+                    "acfe_flexible_render_script": "",
+                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_settings": [
+                        "group_65c69ec9ddce7"
+                    ],
                     "acfe_flexible_settings_size": "medium",
-                    "acfe_flexible_modal_edit_size": false,
+                    "acfe_flexible_thumbnail": "",
                     "acfe_flexible_category": false
                 }
             },
             "min": "",
             "max": "",
-            "button_label": "Add Row",
+            "button_label": "Add Module",
             "acfe_flexible_hide_empty_message": false,
             "acfe_flexible_empty_message": "",
             "acfe_flexible_layouts_placeholder": false,
@@ -196,8 +200,8 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
-    "label_placement": "left",
+    "style": "seamless",
+    "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
         "block_editor",
@@ -223,5 +227,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710335052
+    "modified": 1710336296
 }
