@@ -196,6 +196,13 @@ jQuery(document).ready( function($) {
             }
         });
     });
+    
+    // Prevent conflict with ASE CFG that is adding hidden TinyMCE editor metabox with id="postdivrich" beneath CodeMirror
+    // This happens when there's a field group that is not assigned to a certain post type, so, it tries to load on all post types edit screen
+    if ( $('#postdivrich').length > 0 ) {
+    	$('#postdivrich').remove();
+    	// console.log('#postdivrich has been removed.');
+    }
 
     // Disable safe mode on clicking admin bar icon for safe mode status
     $('#disabling-csm-safe-mode').detach().insertAfter('#wpadminbar');

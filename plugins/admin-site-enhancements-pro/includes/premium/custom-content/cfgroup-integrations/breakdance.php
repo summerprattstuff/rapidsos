@@ -61,34 +61,66 @@ class Ase_Breakdance_Integration {
 				foreach ( $cfgroup_ids as $cfgroup_id ) {
 					$cfgroup = get_post( $cfgroup_id );
 					$cfgroup_name = $cfgroup->post_title;
-					$cfgroup_post_types = get_post_meta( $cfgroup_id, 'cfgroup_rules', true );
-					// vi( $cfgroup_post_types, '', 'for ' . $cfgroup_name );
+					$cfgroup_rules = get_post_meta( $cfgroup_id, 'cfgroup_rules', true );
 					
-					// Get indexed array of post type slugs
-					$available_for_post_types = array();
-					switch ( $cfgroup_post_types['post_types']['operator'] ) {
-						case '==':
-							$available_for_post_types = $cfgroup_post_types['post_types']['values']; 
-							break;
-						case '!=':
-							$all_post_types = array_values( get_post_types( array(), 'names' ) );
-							$available_for_post_types = array_values( array_diff( $all_post_types, $cfgroup_post_types['post_types']['values'] ) );
-							break;
+					// Get the placement of custom field group
+					$cfgroup_placement = 'posts'; // default
+					
+					if ( isset( $cfgroup_rules['placement'] ) ) {
+						if ( isset( $cfgroup_rules['placement']['operator'] ) && '==' == $cfgroup_rules['placement']['operator'] ) {
+							$cfgroup_placement = ! empty( $cfgroup_rules['placement']['values'] ) ? $cfgroup_rules['placement']['values'] : 'posts';
+						}
 					}
-					// Add Breakdance post types, e.g. global block, header, footer, pop up
-					$available_for_post_types = array_merge( $available_for_post_types, (array) BREAKDANCE_DYNAMIC_DATA_PREVIEW_POST_TYPES );
+					
+					if ( 'posts' == $cfgroup_placement && isset( $cfgroup_rules['post_types'] ) ) {
+						// Get indexed array of post type slugs
+						$available_for_post_types = array();
+						switch ( $cfgroup_rules['post_types']['operator'] ) {
+							case '==':
+								$available_for_post_types = $cfgroup_rules['post_types']['values']; 
+								break;
+							case '!=':
+								$all_post_types = array_values( get_post_types( array(), 'names' ) );
+								$available_for_post_types = array_values( array_diff( $all_post_types, $cfgroup_rules['post_types']['values'] ) );
+								break;
+						}
+						// Add Breakdance post types, e.g. global block, header, footer, pop up
+						$available_for_post_types = array_merge( $available_for_post_types, (array) BREAKDANCE_DYNAMIC_DATA_PREVIEW_POST_TYPES );
 
-					$cfgroup_fields = CFG()->find_fields( array( 'group_id' => $cfgroup_id ) );
+						$cfgroup_fields = CFG()->find_fields( array( 'group_id' => $cfgroup_id ) );
 
-					if ( ! is_array( $cfgroup_fields ) ) {
-						continue;
-					}
+						if ( ! is_array( $cfgroup_fields ) ) {
+							continue;
+						}
 
-					foreach ( $cfgroup_fields as $field ) {
-						if ( 'tab' != $field['type'] ) {
-							$field['field_group'] = $cfgroup_name;
-							$field['for_post_types'] = $available_for_post_types;
-							$ase_fields[] = $field;							
+						foreach ( $cfgroup_fields as $field ) {
+							if ( 'tab' != $field['type'] ) {
+								$field['field_group'] = $cfgroup_name;
+								$field['for_post_types'] = $available_for_post_types;
+								$ase_fields[] = $field;							
+							}
+						}						
+					} 
+					
+					if ( 'options-pages' == $cfgroup_placement && isset( $cfgroup_rules['options_pages'] ) ) {
+						$is_for_an_option_page = false;
+						// $available_for_options_pages = array();
+						if ( ! empty( $cfgroup_rules['options_pages']['values'] ) ) {
+							$is_for_an_option_page = true;
+						}
+
+						$cfgroup_fields = CFG()->find_fields( array( 'group_id' => $cfgroup_id ) );
+
+						if ( ! is_array( $cfgroup_fields ) ) {
+							continue;
+						}
+
+						foreach ( $cfgroup_fields as $field ) {
+							if ( 'tab' != $field['type'] ) {
+								$field['field_group'] = $cfgroup_name;
+								$field['is_for_an_option_page'] = $is_for_an_option_page;
+								$ase_fields[] = $field;							
+							}
 						}
 					}
 				}

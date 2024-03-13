@@ -5,6 +5,7 @@
 
 #asenha_cpt_meta_box .postbox-header,
 #asenha_ctax_meta_box .postbox-header,
+#asenha_optionp_meta_box .postbox-header,
 .misc-pub-section.misc-pub-visibility,
 .misc-pub-section.misc-pub-curtime {
 	display: none;
@@ -23,12 +24,22 @@
 	padding: 8px 0 16px;
 }
 
+#asenha_optionp_tips_meta_box .inside {
+	padding: 0 10px 10px;
+}
+
 /* === TABS === */
 
 #poststuff #asenha_cpt_meta_box .inside,
-#poststuff #asenha_ctax_meta_box .inside {
+#poststuff #asenha_ctax_meta_box .inside,
+#poststuff #asenha_optionp_meta_box .inside {
 	margin: 0;
 }
+
+#asenha_optionp_meta_box.postbox {
+	margin-top: -21px;
+}
+
 .postbox .container {
 	max-width: 100%;
 	width: 100%;
@@ -276,4 +287,10 @@ input[type="search"]#search-input.has-text-input {
 #asenha_cpt_references_meta_box .dashicons,
 #asenha_ctax_references_meta_box .dashicons {
 	color: #46b450;
+}
+
+/* === OPTIONS PAGES === */
+
+#options_page_capability_custom {
+	margin-top: 8px;
 }

@@ -214,7 +214,7 @@ function asenha_add_settings_page() {
 								<a href="#" id="have-sponsored" class="asenha-have-sponsored">I've sponsored ASE</a>
 							</div>
 							<div class="nudge-stats">
-								<p class="nudge-description">This free version of ASE has consumed more than <a href="https://wordpress.org/plugins/admin-site-enhancements/#developers" target="_blank">250 hours of dev time</a>. At v6.9.0 (released on February 26, 2024) and 50,000+ active installs, there have been <a href="https://bowo.io/asenha-sp-gth-ndg" target="_blank">6 monthly sponsors</a> and <a href="https://bowo.io/asenha-sp-ppl-ndg" target="_blank">59 one-time sponsors</a>. You can be one today!</p>
+								<p class="nudge-description">This free version of ASE has consumed more than <a href="https://wordpress.org/plugins/admin-site-enhancements/#developers" target="_blank">250 hours of dev time</a>. At v6.9.3 (released on March 12, 2024) and 50,000+ active installs, there have been <a href="https://bowo.io/asenha-sp-gth-ndg" target="_blank">6 monthly sponsors</a> and <a href="https://bowo.io/asenha-sp-ppl-ndg" target="_blank">59 one-time sponsors</a>. You can be one today!</p>
 							</div>
 						</div>
 						<div class="nudge-secondary">
@@ -612,11 +612,11 @@ function asenha_admin_scripts( $hook_suffix ) {
 	
     if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 		// Content Management >> Custom Content Types: On CPT and custom taxonomy creation screens
-		if ( ( $pagenow == 'post-new.php' && ( $typenow == 'asenha_cpt' || $typenow == 'asenha_ctax' ) ) 
-			|| ( $pagenow == 'post.php' && ( $typenow == 'asenha_cpt' || $typenow == 'asenha_ctax' ) )
+		if ( ( $pagenow == 'post-new.php' && ( $typenow == 'asenha_cpt' || $typenow == 'asenha_ctax' || $typenow == 'options_page_config' ) ) 
+			|| ( $pagenow == 'post.php' && ( $typenow == 'asenha_cpt' || $typenow == 'asenha_ctax' || $typenow == 'options_page_config' ) )
 		) {
-			wp_enqueue_style( 'asenha-cpt-ctax', ASENHA_URL . 'includes/premium/custom-content/assets/css/cpt-ctax.css', array(), ASENHA_VERSION );
-			wp_enqueue_script( 'asenha-cpt-ctax', ASENHA_URL . 'includes/premium/custom-content/assets/js/cpt-ctax.js', array(), ASENHA_VERSION, false );
+			wp_enqueue_style( 'asenha-cpt-ctax-optionp', ASENHA_URL . 'includes/premium/custom-content/assets/css/cpt-ctax-optionp.css', array(), ASENHA_VERSION );
+			wp_enqueue_script( 'asenha-cpt-ctax-optionp', ASENHA_URL . 'includes/premium/custom-content/assets/js/cpt-ctax-optionp.js', array(), ASENHA_VERSION, false );
 		}
 		if ( ( $pagenow == 'post-new.php' || $pagenow == 'post.php' ) && $typenow == 'asenha_cfgroup' ) {
 			wp_enqueue_style( 'asenha-cfgroup', ASENHA_URL . 'includes/premium/custom-content/assets/css/cfgroup.css', array(), ASENHA_VERSION );
@@ -833,6 +833,9 @@ function asenha_dequeue_scritps() {
 
 		// https://wordpress.org/plugins/us-weather-widget-willyweather/
 		wp_dequeue_script( 'self' );
+		
+		// iThemes Security Pro / Solid Security Pro
+		wp_dequeue_script( 'itsec-core-admin-notices' );		
 
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-wp_nonce_field( 'asenha_cpt_ctax_meta_box_nonce_action', 'asenha_cpt_ctax__meta_box_nonce_field' );
+wp_nonce_field( 'asenha_cpt_ctax_optionp_meta_box_nonce_action', 'asenha_cpt_ctax_optionp__meta_box_nonce_field' );
 
 ?>
 <section class="container">
@@ -133,7 +133,7 @@ wp_nonce_field( 'asenha_cpt_ctax_meta_box_nonce_action', 'asenha_cpt_ctax__meta_
 		            ?>
 		            <div class="icon-picker">
 				    	<div id="selected-menu-icon" class="selected-menu-icon"><?php echo $cpt_menu_icon_svg; ?></div>		
-			            <input type="text" name="cpt_menu_icon" id="cpt_menu_icon" value="<?php echo $cpt_menu_icon; ?>" placeholder="e.g. dashicons-media-video" />
+			            <input type="text" name="cpt_menu_icon" id="the_menu_icon" value="<?php echo $cpt_menu_icon; ?>" placeholder="e.g. dashicons-media-video" />
 		            </div>
 		            <div class="input-description" style="display: none;"><a href="https://developer.wordpress.org/resource/dashicons/" target="_blank">Dashicons</a> slug or <a href="https://developer.wordpress.org/reference/functions/register_post_type/#menu_icon" target="_blank">base64-encoded SVG</a>.</div>
 		            <div class="choose-search-icon">
@@ -144,7 +144,7 @@ wp_nonce_field( 'asenha_cpt_ctax_meta_box_nonce_action', 'asenha_cpt_ctax__meta_
 		    	<div id="menu-icons-row" class="cct-form-input cct-form-input-full-width zero-margin-bottom">
 		    		<span id="close-icon-picker" style="display: none;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16"><path fill="currentColor" d="M15.1 3.1L12.9.9L8 5.9L3.1.9L.9 3.1l5 4.9l-5 4.9l2.2 2.2l4.9-5l4.9 5l2.2-2.2l-5-4.9z"/></svg></span>
 		    	<?php
-					require_once ASENHA_PATH . 'includes/premium/custom-content/cpt/cpt-menu-icons.php';
+					require_once ASENHA_PATH . 'includes/premium/custom-content/assets/img/menu-icons.php';
 		    	?>
 				</div>		    	
 		    	<div class="cct-form-input cct-form-input-thirds">

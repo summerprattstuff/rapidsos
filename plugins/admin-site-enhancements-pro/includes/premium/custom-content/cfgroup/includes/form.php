@@ -402,7 +402,7 @@ CFG['repeater_buffer'] = [];
                                 ?>
 
                                 <div class="field-column-<?php echo $field->column_width; ?>">
-                                    <div class="field field-<?php echo $field->name; ?>" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>"">
+                                    <div class="field field-<?php echo $field->name; ?>" data-type="<?php echo $field->type; ?>" data-name="<?php echo $field->name; ?>">
                                         <?php if ( 'repeater' == $field->type ) : ?>
                                         <a href="javascript:;" class="cfgroup_repeater_toggle" title="<?php esc_html_e( 'Toggle row visibility', 'admin-site-enhancements' ); ?>"></a>
                                         <?php endif; ?>

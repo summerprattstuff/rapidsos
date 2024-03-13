@@ -428,6 +428,21 @@ label[for="code_snippet_side-admin"] {
     border-bottom: 0;
     background: none;
 }
+#wp-code_snippet_description-editor-tools {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+}
+.tmce-active #wp-code_snippet_description-editor-tools .switch-tmce,
+.html-active #wp-code_snippet_description-editor-tools .switch-html {
+    background: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+#qt_code_snippet_description_toolbar.quicktags-toolbar {
+    padding: 5px;
+    background: #fff;
+}
 
 /* Hide dashicons in Options meta box */
 .options_meta_box .dashicons-before::before {

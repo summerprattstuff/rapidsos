@@ -494,18 +494,26 @@
             $('.show-in-rest-related-field').show();         
       }
       
+      // ===== OPTIONS PAGES ======
+      
+      $(document).on('change','#options_page_capability', function() {
+         if ( $('#options_page_capability').find(':selected').val() == 'custom' ) {
+            $('#options_page_capability_custom').show();
+         } else {
+            $('#options_page_capability_custom').hide();
+         }
+      });
+
+      var cptCapabilityType = $('#options_page_capability').find(":selected").val();
+      if ( cptCapabilityType == 'custom' ) {
+            $('#options_page_capability_custom').show();
+      }
+      
       // ===== MENU ICON SELECTOR ======
 
       $('#icon-picker-button').click(function(e) {
          e.preventDefault();
          $('#close-icon-picker').show();
-         $('#search-input').show();
-         $('#menu-icons-list').show();
-         $('#menu-icons-row').removeClass('zero-margin-bottom');
-      });
-
-      $('#icon-picker-button').click(function(e) {
-         e.preventDefault();
          $('#search-input').show();
          $('#menu-icons-list').show();
          $('#menu-icons-row').removeClass('zero-margin-bottom');
@@ -525,7 +533,7 @@
          var iconSvgBase64 = btoa(iconSvg);
          var menuIcon = 'data:image/svg+xml;base64,'+iconSvgBase64
          $('#selected-menu-icon').html(iconSvg);
-         $('#cpt_menu_icon').val(menuIcon);
+         $('#the_menu_icon').val(menuIcon);
          // $('#menu-icons-list').hide();
       });
 

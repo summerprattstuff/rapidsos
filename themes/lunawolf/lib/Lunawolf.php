@@ -205,7 +205,7 @@ class Lunawolf extends Site {
 	/**
 	 * Updates Twig environment options.
 	 *
-	 * @link https://twig.symfony.com/doc/2.x/api.html#environment-options
+	 * @link https://twig.symfony.com/doc/245.x/api.html#environment-options
 	 *
 	 * \@param array $options An array of environment options.
 	 *

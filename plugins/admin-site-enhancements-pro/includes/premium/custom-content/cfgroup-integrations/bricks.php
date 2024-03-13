@@ -227,8 +227,18 @@ class Provider_Ase extends Base {
 	 * @return mixed The tag value.
 	 */
 	public function get_tag_value( $tag, $post, $args, $context ) {
-		$tag_info = $this->tags[$tag];		
-		$post_id = isset( $post->ID ) ? $post->ID : '';
+		$tag_info = $this->tags[$tag];
+        $field_info = $tag_info['field'];
+
+		// Get the post ID and account for the possibility of field being part of an options page
+        if ( isset( $field_info['option_pages'] ) && ! empty( $field_info['option_pages'] ) ) {
+            $options_pages_ids = array_keys( $field_info['option_pages'] );
+            // Use the first ID for now, which is the most common use case.
+            // i.e. a field group is most probably only assigned to a singe option page
+            $post_id = $options_pages_ids[0];
+        } else {
+			$post_id = isset( $post->ID ) ? $post->ID : '';    	
+        }
 	
 		$filters = $this->get_filters_from_args( $args ); // defined in base.php
 		

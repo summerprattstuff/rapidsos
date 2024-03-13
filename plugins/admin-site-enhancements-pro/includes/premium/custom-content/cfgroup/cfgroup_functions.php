@@ -1,5 +1,79 @@
 <?php
 
+function get_options_pages_ids() {
+    $options_page_ids = array();
+
+    // We use get_posts() here instaed of WP_Query to get a static loop and not interfere with the main loop
+    // If we use WP_Query, it will for example break the output of Query Loop block in the block editor
+    // Ref: https://developer.wordpress.org/reference/functions/get_posts/
+    // Ref: https://kinsta.com/blog/wordpress-get_posts/
+    // Ref: https://digwp.com/2011/05/loops/
+    $args = array(
+        'post_type'         => 'asenha_options_page',
+        'post_status'       => 'publish',
+        'numberposts'    => -1, // use this instead of posts_per_page
+        'orderby'           => 'title',
+        'order'             => 'ASC',
+    );
+    
+    $options_pages = get_posts( $args );
+    
+    if ( ! empty( $options_pages ) ) {
+        foreach ( $options_pages as $options_page ) {
+            $options_page_ids[] = get_the_ID();
+        }
+    }
+    
+    return $options_page_ids;    
+}
+
+function get_options_pages_cf() {
+    $options_pages_fields = array();
+    $options_page_ids = get_options_pages_ids();
+    
+    if ( ! empty( $options_page_ids ) ) {
+        foreach ( $options_page_ids as $id ) {
+            $fields = CFG()->find_fields( array( 'post_id' => $id ) );
+            foreach ( $fields as $field ) {
+                $options_pages_fields[$field['name']] = $id; // array of field_name => options_page_post_id pairs
+            }
+        }
+    }
+    
+    return $options_pages_fields;
+}
+
+function get_cf_info( $field_name = false, $post_id = false ) {
+    
+    // Normalizing for getting all field values
+    if ( false == $field_name || 'all' == $field_name ) {
+        $field_name = false; 
+    }
+    
+    // Get post ID
+    global $post;        
+
+    if ( false === $post_id ) {
+        
+        // Array of field_name => asenha_options_page post ID pairs
+        $options_pages_fields = get_options_pages_cf();
+        $options_pages_field_names = array_keys( $options_pages_fields );
+        
+        if ( in_array( $field_name, $options_pages_field_names ) ) {
+            // We assign the post ID of the options page
+            $post_id = $options_pages_fields[$field_name];
+        } else {
+            // This is a request for a value of a field that's part of a page / post / custom post
+            $post_id = ( ! empty( $post-> ID ) ) ? $post->ID : get_the_ID();        
+        }
+    }
+    
+    // Get custom field info
+    $cf_info = CFG()->get_field_info( $field_name, $post_id );
+    
+    return $cf_info;
+}
+
 function get_cf( $field_name = false, $output_format = 'default', $post_id = false ) {
     
     // Normalizing for getting all field values
@@ -13,36 +87,70 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
     // Get post ID
     global $post;        
     if ( false === $post_id ) {
-        $post_id = ( ! empty( $post-> ID ) ) ? $post->ID : get_the_ID();
-    }
+        if ( 'option' == $output_format || false !== strpos( $output_format, 'option__' ) ) {
+            // This is a request for a value of a field that's part of an options page. 
+            // Let's try to get the post ID of that page.
 
+            // Array of field_name => asenha_options_page post ID pairs
+            $options_pages_fields = get_options_pages_cf();
+            $options_pages_field_names = array_keys( $options_pages_fields );
+            
+            // We assign the post ID of the options page
+            if ( in_array( $field_name, $options_pages_field_names ) ) {
+                $post_id = $options_pages_fields[$field_name];
+            }
+        } else {
+            // Check if this field is part of an options page
+            $field_info = get_cf_info( $field_name );
+
+            if ( isset( $field_info['option_pages'] ) && ! empty( $field_info['option_pages'] ) ) {
+                $options_pages_ids = array_keys( $field_info['option_pages'] );
+                // Use the first ID for now, which is the most common use case.
+                // i.e. a field group is most probably only assigned to a singe option page
+                $post_id = $options_pages_ids[0];
+            } else {
+                // This is a request for a value of a field that's part of a page / post / custom post
+                $post_id = ( ! empty( $post-> ID ) ) ? $post->ID : get_the_ID();                
+            }
+        }
+    }
+    
     // Get custom field info
     $cf_info = CFG()->get_field_info( $field_name, $post_id );
     $cf_type = isset( $cf_info['type'] ) ? $cf_info['type'] : 'text';
 
     // Set the base format when getting CFG()->get() return value
     if ( 'default' == $output_format ) {
-    	$base_format = 'api';
+        $base_format = 'api';
     } elseif ( 'raw' == $output_format) {
-        $base_format = 'raw';           
+        $base_format = 'raw';
+    } elseif ( 'option' == $output_format || false !== strpos( $output_format, 'option__' ) ) { 
+        // For getting the value of a field that's part of an options page
+        $base_format = 'api';
     } else {
-    	if ( 'radio' == $cf_type || 'select' == $cf_type || 'checkbox' == $cf_type ) {
-    		// So we get the option values and labels intact and not as an indexed array
-	    	$base_format = 'api';		
-    	} else {
-	    	$base_format = 'raw';
-    	}
+        if ( 'radio' == $cf_type || 'select' == $cf_type || 'checkbox' == $cf_type ) {
+            // So we get the option values and labels intact and not as an indexed array
+            $base_format = 'api';       
+        } else {
+            $base_format = 'raw';
+        }
     }
     
+    // Get the exact format from a request for field value in an options page
+    // e.g. from 'option__link' into 'link'
+    if ( false !== strpos( $output_format, 'option__' ) ) {
+        $output_format = str_replace( 'option__', '',$output_format );
+    }
+        
     // Get the value of custom field
     $options = array( 'format' => $base_format );
     $cf_value = CFG()->get( $field_name, $post_id, $options );
 
     // Process custom field value further
             
-    if ( 'text' == $cf_type || 'textarea' == $cf_type || 'wysiwyg' == $cf_type || 'color' == $cf_type || 'number' == $cf_type ) {
+    if ( 'text' == $cf_type || 'textarea' == $cf_type || 'wysiwyg' == $cf_type || 'color' == $cf_type ) {
 
-    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
 	    	return $cf_value;		
     	}
         
@@ -54,10 +162,44 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
             return '<a href="mailto:' . $cf_value . '">' . $cf_value . '</a>';
         }
 
+    } elseif ( 'number' == $cf_type ) {
+
+        if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
+            return $cf_value;       
+        }
+
+        if ( false !== strpos( $output_format, 'format__' ) ) {
+            $output_parts = explode( '__', $output_format );
+            $locale = ! empty( $output_parts[1] ) ? $output_parts[1] : 'en_US'; // e.g. en_US
+            
+            switch ( $locale ) {
+                case 'comma':
+                    $locale = 'en_US';
+                    break;
+
+                case 'dot':
+                    $locale = 'de_DE';
+                    break;
+
+                case 'space':
+                    $locale = 'fr_FR';
+                    break;
+            }
+
+            if ( class_exists( 'NumberFormatter' ) ) {
+                $formatter = new NumberFormatter( $locale, NumberFormatter::DECIMAL );
+                return $formatter->format( $cf_value );             
+            } else {
+                return $cf_value;
+            }
+
+        }
+                
     } elseif ( 'true_false' == $cf_type ) {
 
         switch ( $output_format ) {
             case 'default':
+            case 'option':
                 return ( 1 == $cf_value ) ? true : false;
                 break;
             case 'raw':
@@ -84,7 +226,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
     } elseif ( 'radio' == $cf_type || 'select' == $cf_type || 'checkbox' == $cf_type ) {
         
 		// Return array
-    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
     		return $cf_value;
     	}
 
@@ -124,7 +266,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
 
     } elseif ( 'date' == $cf_type ) {
     	
-    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
     		return $cf_value;
     	} else {
     		return wp_date( $output_format, strtotime( $cf_value ) );
@@ -132,7 +274,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
     	
     } elseif ( 'hyperlink' == $cf_type ) {
     	
-    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
 	    	return $cf_value;		
     	}
         
@@ -163,7 +305,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
     	if ( 'image' === $file_type ) {
     		
 	     	// Output attachment ID
-	    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+	    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
 	    		return $cf_value;
 	    	}
             
@@ -187,7 +329,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
 
     	if ( 'video' === $file_type ) {
 	     	// Output attachment ID
-	    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+	    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
 	    		return $cf_value;
 	    	}
 
@@ -200,7 +342,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
 
     	if ( 'audio' === $file_type ) {
 	     	// Output attachment ID
-	    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+	    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
 	    		return $cf_value;
 	    	}
 
@@ -213,7 +355,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
 
     	if ( 'pdf' === $file_type ) {
 	     	// Output attachment ID
-	    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+	    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
 	    		return $cf_value;
 	    	}
 
@@ -226,14 +368,14 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
 
     	if ( 'any' === $file_type || 'file' === $file_type ) {
 	     	// Output attachment ID
-	    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+	    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
 	    		return $cf_value;
 	    	}
 	    }
 
     } elseif ( 'gallery' === $cf_type ) {
 
-        if ( 'raw' == $output_format || 'default' == $output_format ) {
+        if ( 'raw' == $output_format || 'default' == $output_format || 'option' == $output_format ) {
             // raw: comma separated attachment IDs
             // default: indexed array of attachment IDs
             return $cf_value;
@@ -260,7 +402,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
         
     } elseif ( 'term' == $cf_type ) {
         
-        if ( 'default' == $output_format || 'raw' == $output_format ) {
+        if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
             return $cf_value;       
         } else {
             return get_cf_terms( $cf_value, $output_format );            
@@ -268,7 +410,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
         
     } elseif ( 'user' == $cf_type ) {
         
-        if ( 'default' == $output_format || 'raw' == $output_format ) {
+        if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
             return $cf_value;       
         } else {
             return get_cf_users( $cf_value, $output_format );
@@ -276,7 +418,7 @@ function get_cf( $field_name = false, $output_format = 'default', $post_id = fal
         
     } else {
 
-    	if ( 'default' == $output_format || 'raw' == $output_format ) {
+    	if ( 'default' == $output_format || 'raw' == $output_format || 'option' == $output_format ) {
 	        return $cf_value;
     	}
 

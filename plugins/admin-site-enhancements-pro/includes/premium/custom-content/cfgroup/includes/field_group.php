@@ -172,7 +172,7 @@ class cfgroup_field_group
      * @param array $params
      */
     function save( $params = [] ) {
-        global $wpdb;
+        global $wpdb, $options_pages_screens;
 
         $post_id = $params['post_id'];
 
@@ -186,9 +186,28 @@ class cfgroup_field_group
         // $next_field_id = (int) get_option( 'cfgroup_next_field_id' );
         $options = get_option( ASENHA_SLUG_U . '_extra', array() );
         $next_field_id = (int) $options['cfgroup_next_field_id'];
-        $existing_fields = get_post_meta( $post_id, 'cfgroup_fields', true );
-        // vi( $existing_fields );
 
+        // Get info on whether the field group placement is for options pages
+        $existing_rules = get_post_meta( $post_id, 'cfgroup_rules', true );
+        if ( isset( $existing_rules['placement']['values'] ) && 'options-pages' == $existing_rules['placement']['values'] ) {
+            $is_for_option_page = true;
+        } else {
+            $is_for_option_page = false;
+        }
+        
+        $options_pages = array();
+
+        if ( $is_for_option_page ) {
+            foreach ( $options_pages_screens as $options_page_screen ) {
+                if ( in_array( $post_id, $options_page_screen['field_groups'] ) ) {
+                    $options_pages[$options_page_screen['id']] = $options_page_screen['name'];
+                }
+            }
+        }
+        
+        // Get existing fields for the field group
+        $existing_fields = get_post_meta( $post_id, 'cfgroup_fields', true );
+        
         if ( ! empty( $existing_fields ) ) {
             foreach ( $existing_fields as $item ) {
                 $prev_fields[ $item['id'] ] = $item['name'];
@@ -247,6 +266,7 @@ class cfgroup_field_group
                 'weight'        => $weight,
                 'options'       => $field['options'],
                 'column_width'  => $field['column_width'],
+                'option_pages'  => $options_pages,
             ];
 
             $new_fields[] = $data;
@@ -288,7 +308,7 @@ class cfgroup_field_group
         ---------------------------------------------------------------------------------------------*/
 
         $data = [];
-        $rule_types = [ 'post_types', 'post_formats', 'user_roles', 'post_ids', 'term_ids', 'page_templates' ];
+        $rule_types = [ 'placement', 'post_types', 'post_formats', 'user_roles', 'post_ids', 'term_ids', 'page_templates', 'options_pages' ];
 
         foreach ( $rule_types as $type ) {
             if ( ! empty( $params['rules'][ $type ] ) ) {

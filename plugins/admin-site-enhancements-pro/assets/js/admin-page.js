@@ -112,6 +112,7 @@
       $('.enable-duplication').appendTo('.fields-content-management > table > tbody');
       $('.duplication-redirect-destination').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
       /*! <fs_premium_only> */
+      $('.enable-duplication-link-at').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
       $('.heading-for-enable-duplication-for').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
       $('.enable-duplication-for').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
       /*! </fs_premium_only> */
@@ -326,6 +327,7 @@
       media_frame_init( '#maintenance-page-background-image', '#maintenance-page-background-image-button' );
       $('.maintenance-page-background-color').appendTo('.fields-utilities .maintenance-mode .asenha-subfields');
       $('#maintenance-page-background-color.color-picker').wpColorPicker();
+      $('.maintenance-page-custom-css').appendTo('.fields-utilities .maintenance-mode .asenha-subfields');
       /*! </fs_premium_only> */
       $('.maintenance-mode-description').appendTo('.fields-utilities .maintenance-mode .asenha-subfields');
       $('.redirect-404-to-homepage').appendTo('.fields-utilities > table > tbody');
@@ -413,6 +415,17 @@
       });
       footerCodeEditor.setSize("100%",300);
 
+      /*! <fs_premium_only> */
+      // Enable Maintenance Page Custom CSS => Initialize CodeMirror
+      var maintenanceModeCssTextarea = document.getElementById("admin_site_enhancements[maintenance_page_custom_css]");
+      var maintenanceModeCssEditor = CodeMirror.fromTextArea(maintenanceModeCssTextarea, {
+         mode: "css",
+         lineNumbers: true,
+         lineWrapping: true
+      });
+      maintenanceModeCssEditor.setSize("100%",300);
+      /*! </fs_premium_only> */
+
       // Show and hide corresponding fields on tab clicks
 
       $('#tab-content-management + label').click( function() {
@@ -449,6 +462,9 @@
          bodyCodeEditor.refresh(); // Insert <head>, <body> and <footer> code >> CodeMirror
          footerCodeEditor.refresh(); // Insert <head>, <body> and <footer> code >> CodeMirror
          robotsTxtEditor.refresh(); // Manage robots.txt >> CodeMirror
+         /*! <fs_premium_only> */
+         maintenanceModeCssEditor.refresh(); // Maintenance page >> CodeMirror
+         /*! </fs_premium_only> */
       });
 
       $('#tab-disable-components + label').click( function() {
@@ -667,6 +683,9 @@
       });
 
       subfieldsToggler( 'maintenance_mode', 'maintenance-mode' );
+      /*! <fs_premium_only> */
+      subfieldsToggler( 'maintenance_mode', 'maintenance-mode', '', {maintenanceModeCssEditor} );
+      /*! </fs_premium_only> */
 
       /*! <fs_premium_only> */
       // Reset admin menu via AJAX

@@ -49,11 +49,15 @@ class Ase_Gallery extends GalleryField {
      * @return bool
      */
     public function availableForPostType( $post_type ) {
-    	if ( in_array( $post_type, $this->field['for_post_types'] ) ) {
-	        return true;		
-    	}
-    	
-    	return false;
+        if ( isset( $this->field['for_post_types'] ) && in_array( $post_type, $this->field['for_post_types'] ) ) {
+            return true;        
+        }
+        
+        if ( isset( $this->field['is_for_an_option_page'] ) && $this->field['is_for_an_option_page'] ) {
+            return true;
+        }
+        
+        return false;
     }
 
     /**
@@ -64,7 +68,11 @@ class Ase_Gallery extends GalleryField {
 
         $breakdance_ase_field = new Breakdance_Ase_Field( $post_id, $this->field, 'gallery' );
         $attachment_ids = $breakdance_ase_field->get_field_value(); // Comma-separated IDs
-        $attachment_ids = explode( ',', $attachment_ids );
+        if ( ! is_null( $attachment_ids ) && is_string( $attachment_ids ) ) {
+            $attachment_ids = explode( ',', $attachment_ids );        
+        } else {
+            $attachment_ids = '';
+        }
 
         if ( empty( $attachment_ids ) ) {
             return new GalleryData();

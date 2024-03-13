@@ -115,7 +115,7 @@ class Code_Snippets_Manager_Install {
             'public'                 => true,
             'publicly_queryable'     => false,
             'show_ui'                => true,
-            'show_in_menu'           => false,
+            'show_in_menu'           => true,
             // https://icon-sets.iconify.design/heroicons/code-bracket-20-solid/
             'menu_icon'              => 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTYuMjggNS4yMmEuNzUuNzUgMCAwIDEgMCAxLjA2TDIuNTYgMTBsMy43MiAzLjcyYS43NS43NSAwIDAgMS0xLjA2IDEuMDZMLjk3IDEwLjUzYS43NS43NSAwIDAgMSAwLTEuMDZsNC4yNS00LjI1YS43NS43NSAwIDAgMSAxLjA2IDBabTcuNDQgMGEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUuNzUgMCAwIDEgMCAxLjA2bC00LjI1IDQuMjVhLjc1Ljc1IDAgMCAxLTEuMDYtMS4wNkwxNy40NCAxMGwtMy43Mi0zLjcyYS43NS43NSAwIDAgMSAwLTEuMDZabS0yLjM0My0zLjIwOWEuNzUuNzUgMCAwIDEgLjYxMi44NjdsLTIuNSAxNC41YS43NS43NSAwIDAgMS0xLjQ3OC0uMjU1bDIuNS0xNC41YS43NS43NSAwIDAgMSAuODY2LS42MTJaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=',
             'query_var'              => false,

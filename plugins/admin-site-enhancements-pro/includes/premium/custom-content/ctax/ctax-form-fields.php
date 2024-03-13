@@ -1,6 +1,6 @@
 <?php
 
-wp_nonce_field( 'asenha_cpt_ctax_meta_box_nonce_action', 'asenha_cpt_ctax__meta_box_nonce_field' );
+wp_nonce_field( 'asenha_cpt_ctax_optionp_meta_box_nonce_action', 'asenha_cpt_ctax_optionp__meta_box_nonce_field' );
 
 ?>
 <section class="container">
@@ -25,7 +25,7 @@ wp_nonce_field( 'asenha_cpt_ctax_meta_box_nonce_action', 'asenha_cpt_ctax__meta_
 		    	</div>
 		    	<div class="cct-form-input cct-form-input-thirds">
 		            <label for="ctax_key">Key / Slug <span class="required">*</span></label>
-		            <input type="text" name="ctax_key" id="ctax_key" placeholder="e.g. genre (max. 32 characters)" value="<?php echo $ctax_key; ?>" maxlength="20" required />
+		            <input type="text" name="ctax_key" id="ctax_key" placeholder="e.g. genre (max. 32 characters)" value="<?php echo $ctax_key; ?>" maxlength="32" required />
 		            <div class="input-description">Only lowercase alphanumeric characters, dashes, and underscores.</div>
 		    	</div>
 		    	<div class="cct-form-input cct-form-input-thirds">

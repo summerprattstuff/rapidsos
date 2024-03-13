@@ -1,5 +1,4 @@
 <?php
-
 global $post, $wpdb, $wp_roles;
 
 $equals_text = __( 'equals', 'admin-site-enhancements' );
@@ -8,12 +7,14 @@ $rules = (array) get_post_meta( $post->ID, 'cfgroup_rules', true );
 
 // Populate rules if empty
 $rule_types = [
+    'placement',
     'post_types',
     'post_formats',
     'user_roles',
     'post_ids',
     'term_ids',
-    'page_templates'
+    'page_templates',
+    'options_pages'
 ];
 
 foreach ( $rule_types as $type ) {
@@ -22,11 +23,15 @@ foreach ( $rule_types as $type ) {
     }
 }
 
+// Placement location
+$post_meta = get_post_custom( $post->ID );
+$placement = isset( $rules['placement']['values'] ) && ! empty( $rules['placement']['values'] ) ? $rules['placement']['values'] : 'posts';
+
 // Post types
 $post_types = [];
 $types = get_post_types();
 foreach ( $types as $post_type ) {
-    if ( ! in_array( $post_type, [ 'asenha_cfgroup', 'attachment', 'revision', 'nav_menu_item' ] ) ) {
+    if ( ! in_array( $post_type, [ 'asenha_cfgroup', 'attachment', 'revision', 'nav_menu_item', 'options_page_config' ] ) ) {
         $post_types[ $post_type ] = $post_type;
     }
 }
@@ -99,10 +104,47 @@ foreach ( $templates as $template_name => $filename ) {
     $page_templates[ $filename ] = $template_name;
 }
 
-?>
+// Options Pages
+$options_pages = array();
 
+$args = array(
+    'post_type'         => 'options_page_config',
+    'post_status'       => 'publish',
+    'posts_per_page'    => -1,
+    'orderby'           => 'title',
+    'order'             => 'ASC',
+);
+
+$query = new WP_Query( $args );
+
+if ( $query->have_posts() ) {
+    while ( $query->have_posts() ) {
+        $query->the_post();
+        $options_pages[get_post_meta( get_the_ID(), 'options_page_menu_slug', true )] = get_the_title();
+    }
+}
+wp_reset_postdata();
+
+?>
 <script>
 (function($) {
+    $(document).ready( function() {
+        if ( $('#on-posts').is(':checked') ) {
+            $('#posts-placement-options').show();            
+            $('#options-pages-placement-options').hide();            
+        }
+
+        if ( $('#on-options-pages').is(':checked') ) {
+            $('#posts-placement-options').hide();            
+            $('#options-pages-placement-options').show();            
+        }
+
+        $("input[name='cfgroup[rules][placement]']").change(function(){
+            $('#posts-placement-options').toggle();            
+            $('#options-pages-placement-options').toggle();            
+        });
+    });
+
     $(function() {
         var cfgroup_nonce = '<?php echo wp_create_nonce( 'cfgroup_admin_nonce' ); ?>';
 
@@ -143,7 +185,19 @@ foreach ( $templates as $template_name => $filename ) {
 })(jQuery);
 </script>
 
-<table>
+<div class="field-group-placement-radio">
+    <div>
+        <input type="radio" id="on-posts" name="cfgroup[rules][placement]" value="posts" <?php checked( $placement, 'posts' ); ?> />
+        <label for="on-posts">On Posts</label>
+    </div>
+    <div>
+        <input type="radio" id="on-options-pages" name="cfgroup[rules][placement]" value="options-pages" <?php checked( $placement, 'options-pages' ); ?> />
+        <label for="on-options-pages">On Options Pages</label>
+    </div>
+    <input type="hidden" name="cfgroup[rules][operator][placement]" value="==" />
+</div>
+
+<table id="posts-placement-options">
     <tr>
         <td class="label">
             <label><?php _e( 'Post Types', 'admin-site-enhancements' ); ?></label>
@@ -326,6 +380,41 @@ foreach ( $templates as $template_name => $filename ) {
                     'input_name' => "cfgroup[rules][page_templates]",
                     'options' => [ 'multiple' => '1', 'choices' => $page_templates ],
                     'value' => $rules['page_templates']['values'],
+                ] );
+            ?>
+        </td>
+    </tr>
+</table>
+
+<table id="options-pages-placement-options">
+    <tr>
+        <td class="label">
+            <label><?php _e( 'Option Pages', 'admin-site-enhancements' ); ?></label>
+        </td>
+        <td style="width:80px; vertical-align:top">
+            <?php
+                CFG()->create_field( [
+                    'type' => 'select',
+                    'input_name' => "cfgroup[rules][operator][options_pages]",
+                    'options' => [
+                        'choices' => [
+                            '==' => $equals_text,
+                            '!=' => $not_equals_text,
+                        ],
+                        'force_single' => true,
+                    ],
+                    'value' => $rules['options_pages']['operator'],
+                ] );
+            ?>
+        </td>
+        <td>
+            <?php
+                CFG()->create_field( [
+                    'type' => 'select',
+                    'input_class' => 'select2',
+                    'input_name' => "cfgroup[rules][options_pages]",
+                    'options' => [ 'multiple' => '1', 'choices' => $options_pages ],
+                    'value' => $rules['options_pages']['values'],
                 ] );
             ?>
         </td>

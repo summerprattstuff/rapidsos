@@ -48,11 +48,15 @@ class Ase_Image extends ImageField {
      * @return bool
      */
     public function availableForPostType( $post_type ) {
-    	if ( in_array( $post_type, $this->field['for_post_types'] ) ) {
-	        return true;		
-    	}
-    	
-    	return false;
+        if ( isset( $this->field['for_post_types'] ) && in_array( $post_type, $this->field['for_post_types'] ) ) {
+            return true;        
+        }
+        
+        if ( isset( $this->field['is_for_an_option_page'] ) && $this->field['is_for_an_option_page'] ) {
+            return true;
+        }
+        
+        return false;
     }
 
     /**

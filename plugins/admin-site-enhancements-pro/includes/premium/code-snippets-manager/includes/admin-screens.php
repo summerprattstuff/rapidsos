@@ -72,15 +72,15 @@ class Code_Snippets_Manager_Admin {
 	 */
 	function admin_menu() {
 		$menu_slug    = 'edit.php?post_type=asenha_code_snippet';
-		add_menu_page(
-			__( 'Code Snippets', 'admin-site-enhancements' ),
-			__( 'Code Snippets', 'admin-site-enhancements' ),
-			'publish_code_snippetss',
-			$menu_slug,
-			'',
-			'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTYuMjggNS4yMmEuNzUuNzUgMCAwIDEgMCAxLjA2TDIuNTYgMTBsMy43MiAzLjcyYS43NS43NSAwIDAgMS0xLjA2IDEuMDZMLjk3IDEwLjUzYS43NS43NSAwIDAgMSAwLTEuMDZsNC4yNS00LjI1YS43NS43NSAwIDAgMSAxLjA2IDBabTcuNDQgMGEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUuNzUgMCAwIDEgMCAxLjA2bC00LjI1IDQuMjVhLjc1Ljc1IDAgMCAxLTEuMDYtMS4wNkwxNy40NCAxMGwtMy43Mi0zLjcyYS43NS43NSAwIDAgMSAwLTEuMDZabS0yLjM0My0zLjIwOWEuNzUuNzUgMCAwIDEgLjYxMi44NjdsLTIuNSAxNC41YS43NS43NSAwIDAgMS0xLjQ3OC0uMjU1bDIuNS0xNC41YS43NS43NSAwIDAgMSAuODY2LS42MTJaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=',
-			21
-		);
+		// add_menu_page(
+		// 	__( 'Code Snippets', 'admin-site-enhancements' ),
+		// 	__( 'Code Snippets', 'admin-site-enhancements' ),
+		// 	'publish_code_snippetss',
+		// 	$menu_slug,
+		// 	'',
+		// 	'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTYuMjggNS4yMmEuNzUuNzUgMCAwIDEgMCAxLjA2TDIuNTYgMTBsMy43MiAzLjcyYS43NS43NSAwIDAgMS0xLjA2IDEuMDZMLjk3IDEwLjUzYS43NS43NSAwIDAgMSAwLTEuMDZsNC4yNS00LjI1YS43NS43NSAwIDAgMSAxLjA2IDBabTcuNDQgMGEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUuNzUgMCAwIDEgMCAxLjA2bC00LjI1IDQuMjVhLjc1Ljc1IDAgMCAxLTEuMDYtMS4wNkwxNy40NCAxMGwtMy43Mi0zLjcyYS43NS43NSAwIDAgMSAwLTEuMDZabS0yLjM0My0zLjIwOWEuNzUuNzUgMCAwIDEgLjYxMi44NjdsLTIuNSAxNC41YS43NS43NSAwIDAgMS0xLjQ3OC0uMjU1bDIuNS0xNC41YS43NS43NSAwIDAgMSAuODY2LS42MTJaIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=',
+		// 	21
+		// );
 
 		// Remove default "Add New"
 		$submenu_slug = 'post-new.php?post_type=asenha_code_snippet';
@@ -1100,7 +1100,7 @@ class Code_Snippets_Manager_Admin {
 			'wpautop' 			=> true,
 			'media_buttons'		=> false,
 			'tinymce'			=> true,
-			'quicktags'			=> false,
+			'quicktags'			=> true,
 			'teeny'				=> true, // minimal editor, less buttons/options in TinyMCE
 			'drag_drop_upload'	=> false,
 			'textarea_rows'		=> 4,

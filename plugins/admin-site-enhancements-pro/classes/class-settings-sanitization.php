@@ -53,6 +53,9 @@ class Settings_Sanitization {
 		if ( ! isset( $options['duplication_redirect_destination'] ) ) $options['duplication_redirect_destination'] = 'edit';
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			if ( ! isset( $options['enable_duplication_link_at'] ) ) $options['enable_duplication_link_at'] = array();
+			$options['enable_duplication_link_at'] = ( ! empty( $options['enable_duplication_link_at'] ) ? $options['enable_duplication_link_at'] : array() );
+
 			if ( is_array( $roles ) ) {
 				foreach ( $roles as $role_slug => $role_label ) { // e.g. $role_slug is administrator, $role_label is Administrator
 					if ( ! isset( $options['enable_duplication_for'][$role_slug] ) ) $options['enable_duplication_for'][$role_slug] = false;
@@ -724,10 +727,18 @@ class Settings_Sanitization {
 		$options['maintenance_mode'] = ( 'on' == $options['maintenance_mode'] ? true : false );
 
 		if ( ! isset( $options['maintenance_page_heading'] ) ) $options['maintenance_page_heading'] = 'We\'ll be back soon.';
-		$options['maintenance_page_heading'] = ( ! empty( $options['maintenance_page_heading'] ) ) ? sanitize_text_field( $options['maintenance_page_heading'] ) : 'We\'ll be back soon.';
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$options['maintenance_page_heading'] = ( ! empty( $options['maintenance_page_heading'] ) ) ? wp_kses_post( $options['maintenance_page_heading'] ) : 'We\'ll be back soon.';
+		} else {
+			$options['maintenance_page_heading'] = ( ! empty( $options['maintenance_page_heading'] ) ) ? sanitize_text_field( $options['maintenance_page_heading'] ) : 'We\'ll be back soon.';
+		}
 
 		if ( ! isset( $options['maintenance_page_description'] ) ) $options['maintenance_page_description'] = 'This site is undergoing maintenance for an extended period today. Thanks for your patience.';
-		$options['maintenance_page_description'] = ( ! empty( $options['maintenance_page_description'] ) ) ? sanitize_text_field( $options['maintenance_page_description'] ) : 'This site is undergoing maintenance for an extended period today. Thanks for your patience.';
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$options['maintenance_page_description'] = ( ! empty( $options['maintenance_page_description'] ) ) ? wp_kses_post( $options['maintenance_page_description'] ) : 'This site is undergoing maintenance for an extended period today. Thanks for your patience.';		
+		} else {
+			$options['maintenance_page_description'] = ( ! empty( $options['maintenance_page_description'] ) ) ? sanitize_text_field( $options['maintenance_page_description'] ) : 'This site is undergoing maintenance for an extended period today. Thanks for your patience.';			
+		}
 
 		if ( ! isset( $options['maintenance_page_background'] ) ) $options['maintenance_page_background'] = 'stripes';
 		$options['maintenance_page_background'] = ( ! empty( $options['maintenance_page_background'] ) ) ? $options['maintenance_page_background'] : 'stripes';
@@ -738,6 +749,9 @@ class Settings_Sanitization {
 
 			if ( ! isset( $options['maintenance_page_background_color'] ) ) $options['maintenance_page_background_color'] = '#ffffff';
 			$options['maintenance_page_background_color'] = ( ! empty( $options['maintenance_page_background_color'] ) ) ? $options['maintenance_page_background_color'] : '#ffffff';	
+
+			if ( ! isset( $options['maintenance_page_custom_css'] ) ) $options['maintenance_page_custom_css'] = '';
+			$options['maintenance_page_custom_css'] = ( ! empty( $options['maintenance_page_custom_css'] ) ) ? $options['maintenance_page_custom_css'] : '';
         }
 
 		if ( ! isset( $options['maintenance_mode_description'] ) ) $options['maintenance_mode_description'] = '';

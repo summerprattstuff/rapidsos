@@ -319,12 +319,14 @@ class cfgroup_init
             global $wpdb;
 
             $labels = [
-                'post_types'        => __( 'Post Types', 'admin-site-enhancements' ),
-                'user_roles'        => __( 'User Roles', 'admin-site-enhancements' ),
-                'post_ids'          => __( 'Posts', 'admin-site-enhancements' ),
-                'term_ids'          => __( 'Term IDs', 'admin-site-enhancements' ),
-                'page_templates'    => __( 'Page Templates', 'admin-site-enhancements' ),
-                'post_formats'      => __( 'Post Formats', 'admin-site-enhancements' )
+                'placement'             => __( 'Placement', 'admin-site-enhancements' ),
+                'post_types'            => __( 'Post Types', 'admin-site-enhancements' ),
+                'user_roles'            => __( 'User Roles', 'admin-site-enhancements' ),
+                'post_ids'              => __( 'Posts', 'admin-site-enhancements' ),
+                'term_ids'              => __( 'Term IDs', 'admin-site-enhancements' ),
+                'page_templates'        => __( 'Page Templates', 'admin-site-enhancements' ),
+                'post_formats'          => __( 'Post Formats', 'admin-site-enhancements' ),
+                'options_pages'         => __( 'Options Pages', 'admin-site-enhancements' ),
             ];
 
             $field_groups = CFG()->field_group->load_field_groups();
@@ -334,22 +336,65 @@ class cfgroup_init
             if ( isset( $field_groups[ $post_id ] ) ) {
                 $rules = $field_groups[ $post_id ]['rules'];
             }
+            
+            // if ( '7894' == $post_id ) {
+            //     vi ( $rules );            
+            // }
+
+            $posts_placement_criterias = array(
+                'post_types',
+                'user_roles',
+                'post_ids',
+                'term_ids',
+                'page_templates',
+                'post_formats'
+            );
+
+            $options_pages_placement_criterias = array(
+                'options_pages'
+            );                                        
+
+            $showable_placement_criterias = array();
+
+            if ( ! isset( $rules['placement'] ) ) {
+                $showable_placement_criterias = $posts_placement_criterias;                
+            }
 
             foreach ( $rules as $criteria => $data ) {
-                $label = $labels[ $criteria ];
-                $values = $data['values'];
-                $operator = ( '==' == $data['operator'] ) ? '=' : '!=';
-
-                // Get post titles
-                if ( 'post_ids' == $criteria ) {
-                    $temp = [];
-                    foreach ( $values as $val ) {
-                        $temp[] = get_the_title( (int) $val );
+                if ( 'placement' == $criteria ) {
+                    if ( empty( $data['values'] ) || 'posts' == $data['values'] ) {
+                        $showable_placement_criterias = $posts_placement_criterias;                
                     }
-                    $values = $temp;
-                }
+                    
+                    if ( 'options-pages' == $data['values'] ) {
+                        $showable_placement_criterias = $options_pages_placement_criterias;                                        
+                    }                    
+                }                
+            }
 
-                echo "<div><strong>$label</strong> " . $operator . ' ' . esc_html( implode( ', ', $values ) ) . '</div>';
+            foreach ( $rules as $criteria => $data ) {
+                if ( in_array( $criteria, $showable_placement_criterias ) ) {
+                    $label = $labels[ $criteria ];
+                    $values = $data['values'];
+                    $operator = ( '==' == $data['operator'] ) ? '=' : '!=';
+
+                    // Get post titles
+                    if ( 'post_ids' == $criteria ) {
+                        $temp = [];
+                        foreach ( $values as $val ) {
+                            $temp[] = get_the_title( (int) $val );
+                        }
+                        $values = $temp;
+                    }
+                    
+                    if ( is_array( $values ) ) {
+                        $values = implode( ', ', $values );
+                    }
+
+                    // if ( 'placement' != $criteria ) {
+                        echo "<div><strong>$label</strong> " . $operator . ' ' . esc_html( $values ) . '</div>';                
+                    // }
+                }
             }
         }
     }

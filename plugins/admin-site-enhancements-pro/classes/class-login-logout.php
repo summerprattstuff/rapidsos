@@ -232,7 +232,26 @@ class Login_Logout {
 		}
 
 	}
+	
+	/**
+	 * Add login error message on top of the login form. 
+	 * Only shown if there's a failed_login URL parameter, and Limit Login Attempts module is not enabled. 
+	 * If LLA module is enabled, the same custom login error message is handled there.
+	 *
+	 * @since 6.9.1
+	 */
+	public function add_failed_login_message( $message ) {
+		global $asenha_limit_login;
 
+		if ( isset( $_REQUEST['failed_login'] ) && $_REQUEST['failed_login'] == 'true' ) {
+			if ( is_null( $asenha_limit_login ) ) {
+				$message = '<div id="login_error" class="notice notice-error"><b>Error:</b> Invalid username/email or incorrect password.</div>';				
+			}
+		}
+
+		return $message;
+	}
+	
 	/**
 	 * Redirect to custom login URL on successful logout
 	 *

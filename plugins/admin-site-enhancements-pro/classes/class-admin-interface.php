@@ -747,54 +747,56 @@ class Admin_Interface {
 			}
 
 	        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-				foreach( $menu_always_hidden as $hidden_menu_item_id => $info ) {
-					$hidden_menu_item_id = $common_methods->restore_menu_item_id( $hidden_menu_item_id );
-					if ( $hidden_menu_item_id == $menu_item_id 
-						// Special case where Yoast SEO is showing Yoast SEO menu only to editors using a different $menu_item_id
-						|| ( 'toplevel_page_wpseo_dashboard' == $hidden_menu_item_id && 'toplevel_page_wpseo_workouts' == $menu_item_id  )
-					) {
+	        	if ( is_array( $menu_always_hidden ) && ! empty( $menu_always_hidden ) ) {
+					foreach( $menu_always_hidden as $hidden_menu_item_id => $info ) {
+						$hidden_menu_item_id = $common_methods->restore_menu_item_id( $hidden_menu_item_id );
+						if ( $hidden_menu_item_id == $menu_item_id 
+							// Special case where Yoast SEO is showing Yoast SEO menu only to editors using a different $menu_item_id
+							|| ( 'toplevel_page_wpseo_dashboard' == $hidden_menu_item_id && 'toplevel_page_wpseo_workouts' == $menu_item_id  )
+						) {
 
-						// Append 'always-hidden' class to always hide menu item
-						if ( isset( $info['always_hide'] )
-							&& $info['always_hide'] 
-							&& ( $info['always_hide_for'] == 'all-roles' ) 
-							) { // for all roles
+							// Append 'always-hidden' class to always hide menu item
+							if ( isset( $info['always_hide'] )
+								&& $info['always_hide'] 
+								&& ( $info['always_hide_for'] == 'all-roles' ) 
+								) { // for all roles
 
-							$menu[$menu_key][4] = $menu[$menu_key][4] . ' always-hidden';
+								$menu[$menu_key][4] = $menu[$menu_key][4] . ' always-hidden';
 
-						} elseif ( isset( $info['always_hide'] ) 
-							&& $info['always_hide']
-							&& $info['always_hide_for'] == 'all-roles-except'
-							&& ! empty( $info['which_roles'] )
-							) { // for all roles except
+							} elseif ( isset( $info['always_hide'] ) 
+								&& $info['always_hide']
+								&& $info['always_hide_for'] == 'all-roles-except'
+								&& ! empty( $info['which_roles'] )
+								) { // for all roles except
 
-							foreach ( $current_user_roles as $current_user_role ) {
-								if ( ! in_array( $current_user_role, $info['which_roles'] ) ) {
-
-									$menu[$menu_key][4] = $menu[$menu_key][4] . ' always-hidden';
-
-								}
-							}
-							
-						} elseif ( isset( $info['always_hide'] )
-							&& $info['always_hide'] 
-							&& $info['always_hide_for'] == 'selected-roles'
-							&& ! empty( $info['which_roles'] )
-							) { // for selected roles
-							
-							foreach ( $current_user_roles as $current_user_role ) {
-								foreach( $info['which_roles'] as $role_menu_is_hidden_for ) {
-									if ( $current_user_role == $role_menu_is_hidden_for ) {
+								foreach ( $current_user_roles as $current_user_role ) {
+									if ( ! in_array( $current_user_role, $info['which_roles'] ) ) {
 
 										$menu[$menu_key][4] = $menu[$menu_key][4] . ' always-hidden';
-										
+
 									}
 								}
+								
+							} elseif ( isset( $info['always_hide'] )
+								&& $info['always_hide'] 
+								&& $info['always_hide_for'] == 'selected-roles'
+								&& ! empty( $info['which_roles'] )
+								) { // for selected roles
+								
+								foreach ( $current_user_roles as $current_user_role ) {
+									foreach( $info['which_roles'] as $role_menu_is_hidden_for ) {
+										if ( $current_user_role == $role_menu_is_hidden_for ) {
+
+											$menu[$menu_key][4] = $menu[$menu_key][4] . ' always-hidden';
+											
+										}
+									}
+								}
+								
 							}
-							
 						}
-					}
-				}
+					}	        		
+	        	}
 			}
 
 		}
@@ -2210,7 +2212,8 @@ class Admin_Interface {
 		}
 
 		if ( 'permalink' === $column_name ) {
-			return get_the_permalink( $post_id );
+			// return get_the_permalink( $post_id );
+			return str_replace( get_site_url(), '', get_the_permalink( $post_id ) );
 		}
 
 		if ( 'password_protected' === $column_name ) {

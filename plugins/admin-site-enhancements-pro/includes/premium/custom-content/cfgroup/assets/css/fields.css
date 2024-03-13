@@ -420,6 +420,22 @@ span.cfgroup_delete_field:hover {
     padding: 0;
 }
 
+.field-group-placement-radio {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px 16px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.field-group-placement-radio div {
+    margin-right: 20px;
+}
+
+.field-group-placement-radio label {
+    font-weight: 600;
+}
+
 #cfgroup_rules table,
 #cfgroup_extras table {
     width: 100%;

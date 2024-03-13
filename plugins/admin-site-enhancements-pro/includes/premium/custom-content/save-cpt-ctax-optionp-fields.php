@@ -8,8 +8,8 @@ if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 	return;
 }
 
-if ( ! isset( $_POST['asenha_cpt_ctax__meta_box_nonce_field'] ) 
-	|| ! wp_verify_nonce( $_POST['asenha_cpt_ctax__meta_box_nonce_field'], 'asenha_cpt_ctax_meta_box_nonce_action' )
+if ( ! isset( $_POST['asenha_cpt_ctax_optionp__meta_box_nonce_field'] ) 
+	|| ! wp_verify_nonce( $_POST['asenha_cpt_ctax_optionp__meta_box_nonce_field'], 'asenha_cpt_ctax_optionp_meta_box_nonce_action' )
 ) {
 	return;
 }
@@ -205,6 +205,30 @@ if ( 'asenha_ctax' === $post->post_type ) {
 	foreach ( $label_keys as $label_key ) {
 		$common_methods->update_post_meta_after_sanitization__premium_only( $post_id, $label_key, 'sanitize_text_field' );	
 	}
+
+	$options = get_option( ASENHA_SLUG_U );
+	$options['custom_content_types_flush_rewrite_rules_needed'] = true;
+	update_option( ASENHA_SLUG_U, $options );
+
+}
+
+if ( 'options_page_config' === $post->post_type ) {
+
+	// $posted = $_POST;
+
+	// MAIN
+	$common_methods->update_post_meta_after_sanitization__premium_only( $post_id, 'options_page_title', 'sanitize_text_field' );
+	$common_methods->update_post_meta_after_sanitization__premium_only( $post_id, 'options_page_menu_title', 'sanitize_text_field' );
+	$common_methods->update_post_meta_after_sanitization__premium_only( $post_id, 'options_page_menu_slug', 'sanitize_title_underscore' );
+	$options_page_menu_icon = isset( $_POST['options_page_menu_icon'] ) ? $_POST['options_page_menu_icon'] : '';
+	update_post_meta( 
+		$post_id, 
+		'options_page_menu_icon', 
+		$options_page_menu_icon 
+	);
+	$common_methods->update_post_meta_after_sanitization__premium_only( $post_id, 'options_page_parent_menu', 'sanitize_text_field', 'none' );
+	$common_methods->update_post_meta_after_sanitization__premium_only( $post_id, 'options_page_capability', 'sanitize_text_field', 'manage_options' );
+	$common_methods->update_post_meta_after_sanitization__premium_only( $post_id, 'options_page_capability_custom', 'sanitize_text_field', 'manage_options' );
 
 	$options = get_option( ASENHA_SLUG_U );
 	$options['custom_content_types_flush_rewrite_rules_needed'] = true;

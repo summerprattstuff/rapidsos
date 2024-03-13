@@ -37,28 +37,38 @@ class Ase_Oxygen_Integration {
 			// $relationship_fields = CFG()->find_fields( array( 'field_type' => 'relationship' ) );
 
 			if ( is_array( $post_types ) ) {
-				foreach( $post_types as $applicable_post_type ) {
-					$most_recent_post_id = $common_methods->get_most_recent_post_id( $applicable_post_type );
-					$fields = array_merge( $fields, CFG()->find_fields( array( 'post_id' => $most_recent_post_id ) ) );
+				if ( ! empty( $post_types ) ) {
+					foreach( $post_types as $applicable_post_type ) {
+						$most_recent_post_id = $common_methods->get_most_recent_post_id( $applicable_post_type );
+						$fields = array_merge( $fields, CFG()->find_fields( array( 'post_id' => $most_recent_post_id ) ) );
 
-					// Include relationship field if related to the post type the Oxygen template is applicable to
-					// $fields_count = count( $fields );
-					// if ( is_array( $relationship_fields ) && ! empty( $relationship_fields ) ) {
-					// 	foreach ( $relationship_fields as $relationship_field ) {
-					// 		$relationship_field_to_add = array();
-					// 		$relationship_post_types = $relationship_field['options']['post_types'];
-					// 		if ( is_array( $relationship_post_types ) 
-					// 			&& ! empty( $relationship_post_types ) 
-					// 			&& in_array( $applicable_post_type, $relationship_post_types ) 
-					// 		) {
-					// 			$fields[$fields_count] = $relationship_field;
-					// 			$fields_count++;
-					// 		}
-					// 	}
-					// }
+						// Include relationship field if related to the post type the Oxygen template is applicable to
+						// $fields_count = count( $fields );
+						// if ( is_array( $relationship_fields ) && ! empty( $relationship_fields ) ) {
+						// 	foreach ( $relationship_fields as $relationship_field ) {
+						// 		$relationship_field_to_add = array();
+						// 		$relationship_post_types = $relationship_field['options']['post_types'];
+						// 		if ( is_array( $relationship_post_types ) 
+						// 			&& ! empty( $relationship_post_types ) 
+						// 			&& in_array( $applicable_post_type, $relationship_post_types ) 
+						// 		) {
+						// 			$fields[$fields_count] = $relationship_field;
+						// 			$fields_count++;
+						// 		}
+						// 	}
+						// }
 
+					}
 				}
 			}
+
+			// Add fields coming from options pages
+	        $options_pages_ids = get_options_pages_ids(); // indexed array of post IDs
+	        if ( ! empty( $options_pages_ids ) ) {
+				foreach( $options_pages_ids as $options_page_id ) {
+					$fields = array_merge( $fields, CFG()->find_fields( array( 'post_id' => $options_page_id ) ) );
+				}			        	
+	        }
 		} else {
 			// Not an oxygen template
 			$current_post_id = isset( $post->ID ) ? $post->ID : 0;
@@ -861,9 +871,20 @@ class Ase_Oxygen_Integration {
      */
     public function get_ase_field_data( $field_name, $settings_page = false ) {
 		global $post;
+		
+		$field_info = get_cf_info( $field_name );
 
-        $field = CFG()->get_field_info( $field_name, $post->ID );
-        $field['value'] = CFG()->get( $field_name, $post->ID, array( 'format' => 'raw' ) );
+        if ( isset( $field_info['option_pages'] ) && ! empty( $field_info['option_pages'] ) ) {
+            $options_pages_ids = array_keys( $field_info['option_pages'] );
+            // Use the first ID for now, which is the most common use case.
+            // i.e. a field group is most probably only assigned to a singe option page
+            $post_id = $options_pages_ids[0];
+        } else {
+        	$post_id = $post->ID;
+        }
+
+        $field = CFG()->get_field_info( $field_name, $post_id );
+        $field['value'] = CFG()->get( $field_name, $post_id, array( 'format' => 'raw' ) );
 
         return $field;
     }

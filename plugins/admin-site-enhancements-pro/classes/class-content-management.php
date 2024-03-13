@@ -18,7 +18,8 @@ class Content_Management {
 	 * 
 	 * @since 5.1.0
 	 */
-	public function register_asenha_cpts_to_manage_cpts_and_ctaxs__premium_only() {
+	public function register_asenha_cpts__premium_only() {
+		// Custom Post Types
 		register_post_type(
 			'asenha_cpt',
 			array(
@@ -72,6 +73,7 @@ class Content_Management {
 			)
 		);
 
+		// Custom Taxonomies
 		register_post_type(
 			'asenha_ctax',
 			array(
@@ -131,7 +133,7 @@ class Content_Management {
 	 * 
 	 * @since 5.1.0
 	 */
-	public function add_meta_boxes_to_new_cpts_and_ctaxs_screens__premium_only() {
+	public function add_meta_boxes_for_asenha_cpts__premium_only() {
 		
 		add_meta_box(
 			'asenha_cpt_meta_box',
@@ -241,12 +243,12 @@ class Content_Management {
 	 * @link https://developer.wordpress.org/reference/hooks/save_post/
 	 * @since 5.1.0
 	 */
-	public function save_cpt_ctax_fields__premium_only( $post_id, $post, $update ) {
+	public function save_asenha_cpt_ctax_optionp_fields__premium_only( $post_id, $post, $update ) {
 
 		$common_methods = new Common_Methods;
 
-		// Sanitize and save CPT fields values in post meta
-		require_once ASENHA_PATH . 'includes/premium/custom-content/save-cpt-ctax-fields.php';
+		// Sanitize and save custom post type, custom taxonomy or options page fields values in post meta
+		require_once ASENHA_PATH . 'includes/premium/custom-content/save-cpt-ctax-optionp-fields.php';
 		
 	}
 	
@@ -255,7 +257,7 @@ class Content_Management {
 	 * 
 	 * @since 5.1.0
 	 */
-	public function cpts_ctaxs_flush_rewrite_rules__premium_only() {
+	public function asenha_cpts_flush_rewrite_rules__premium_only() {
 		$options = get_option( ASENHA_SLUG_U );
 		
 		if ( true === $options['custom_content_types_flush_rewrite_rules_needed'] ) {
@@ -634,6 +636,10 @@ class Content_Management {
 			}
 		}
 		
+		if ( $data['post_type'] == 'options_page_config' && isset( $_POST['options_page_title'] ) ) {
+				$data['post_title'] = $_POST['options_page_title'];
+		}
+		
 		return $data;
 	}
 
@@ -1004,51 +1010,21 @@ class Content_Management {
 	 *
 	 * @since 1.0.0
 	 */
-	public function add_duplication_action_link( $actions, $post ) {
-		$allow_duplication = false;
-
-        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-			global $roles_duplication_enabled;
-			if ( is_null( $roles_duplication_enabled ) ) {
-				$roles_duplication_enabled = array();
-			}
-
-			$current_user = wp_get_current_user();
-			$current_user_roles = (array) $current_user->roles; // single dimensional array of role slugs
-
-			if ( count( $roles_duplication_enabled ) > 0 ) {
-
-				// Add mime type for user roles set to enable SVG upload
-				foreach ( $current_user_roles as $role ) {
-					if ( in_array( $role, $roles_duplication_enabled ) ) {
-						// Do something here
-						$allow_duplication = true;
-					}
-				}	
-
-			}
-        } else {
-        	if ( current_user_can( 'edit_posts' ) ) {
-        		$allow_duplication = true;
-        	}
-        }
+	public function add_duplication_action_link( $actions, $post ) {		
+		$duplication_link_locations = $this->get_duplication_link_locations();
+		
+		$allow_duplication = $this->is_user_allowed_to_duplicate_content();
         
 		$post_type = $post->post_type;
 
 		if ( $allow_duplication ) {
-
 			// Not WooCommerce product
-			
-			if ( 'product' != $post_type ) {
-
+			if ( in_array( 'post-action', $duplication_link_locations ) && 'product' != $post_type ) {
 				$actions['asenha-duplicate'] = '<a href="admin.php?action=duplicate_content&amp;post=' . $post->ID . '&amp;nonce=' . wp_create_nonce( 'asenha-duplicate-' . $post->ID ) . '" title="Duplicate this as draft">Duplicate</a>';
-				
 			}
-
 		}
 
 		return $actions;
-
 	}
 	
 	/**
@@ -1056,7 +1032,117 @@ class Content_Management {
 	 * 
 	 * @since 6.3.0
 	 */
-	public function add_admin_bar_duplication_link( WP_Admin_Bar $wp_admin_bar ) {
+	public function add_admin_bar_duplication_link( WP_Admin_Bar $wp_admin_bar ) {		
+		$duplication_link_locations = $this->get_duplication_link_locations();
+
+		$allow_duplication = $this->is_user_allowed_to_duplicate_content();
+        
+		global $pagenow, $typenow, $post;
+		$inapplicable_post_types = array( 'attachment' );
+
+		if ( $allow_duplication ) {
+			if ( ( 'post.php' == $pagenow && ! in_array( $typenow, $inapplicable_post_types ) ) || is_singular() ) {
+				if ( in_array( 'admin-bar', $duplication_link_locations ) ) {
+					if ( is_object( $post ) ) {
+						$common_methods = new Common_Methods;
+						$post_type_singular_label = $common_methods->get_post_type_singular_label( $post );
+
+	                    if ( property_exists( $post, 'ID' ) ) {
+							$wp_admin_bar->add_menu( array(
+								'id'    => 'duplicate-content',
+								'parent' => null,
+								'group'  => null,
+								'title' => 'Duplicate ' . $post_type_singular_label, 
+								'href'  => admin_url( 'admin.php?action=duplicate_content&amp;post=' . $post->ID . '&amp;nonce=' . wp_create_nonce( 'asenha-duplicate-' . $post->ID ) ),
+							) );                    	
+	                    }
+					}					
+				}
+			}
+		}
+		
+	}
+
+    /**
+     * Add duplication link in post submit/update box
+     * 
+     * @since 6.9.3
+     */
+    public function add_submitbox_duplication_link__premium_only() {
+		$duplication_link_locations = $this->get_duplication_link_locations();
+
+		$allow_duplication = $this->is_user_allowed_to_duplicate_content();
+
+        global $post, $pagenow;
+
+		if ( $allow_duplication && is_object( $post ) && 'post.php' == $pagenow && in_array( 'publish-section', $duplication_link_locations ) ) {
+			$common_methods = new Common_Methods;
+			$post_type_singular_label = $common_methods->get_post_type_singular_label( $post );
+
+	        $duplication_link_section = '<div class="additional-actions"><span id="duplication"><a href="admin.php?action=duplicate_content&amp;post=' . $post->ID . '&amp;nonce=' . wp_create_nonce( 'asenha-duplicate-' . $post->ID ) . '" title="Duplicate this as draft">Duplicate ' . $post_type_singular_label . '</a></span></div>';
+	        echo wp_kses_post( $duplication_link_section );
+		}
+    }
+    
+    /**
+     * Add duplication button in the block editor
+     * 
+     * @since 6.9.3
+     */
+    public function add_gutenberg_duplication_link__premium_only() {
+        global $post, $pagenow;
+		$common_methods = new Common_Methods;
+		$duplication_link_locations = $this->get_duplication_link_locations();
+
+		$allow_duplication = $this->is_user_allowed_to_duplicate_content();
+
+		if ( $allow_duplication && is_object( $post ) && 'post.php' == $pagenow && in_array( 'publish-section', $duplication_link_locations ) ) {
+			// Check if we're inside the block editor. Ref: https://wordpress.stackexchange.com/a/309955.
+		    if ( $common_methods->is_in_block_editor() ) {
+				$post_type_singular_label = $common_methods->get_post_type_singular_label( $post );
+
+				// Ref: https://plugins.trac.wordpress.org/browser/duplicate-page/tags/4.5/duplicatepage.php#L286
+	            wp_enqueue_style( 'asenha-gutenberg-content-duplication', ASENHA_URL . 'assets/css/gutenberg-content-duplication.css' );
+
+	            wp_register_script( 'asenha-gutenberg-content-duplication', ASENHA_URL . 'assets/js/gutenberg-content-duplication.js', array( 'wp-edit-post', 'wp-plugins', 'wp-i18n', 'wp-element' ), ASENHA_VERSION);
+
+	            wp_localize_script( 'asenha-gutenberg-content-duplication', 'cd_params', array(
+	                'cd_post_id' 		=> intval($post->ID),
+	                'cd_nonce' 			=> wp_create_nonce( 'asenha-duplicate-' . $post->ID ),
+	                'cd_post_text' 		=> 'Duplicate ' . $post_type_singular_label,
+	                'cd_post_title'		=> 'Duplicate this as draft',
+	                'cd_duplicate_link' => "admin.php?action=duplicate_content"
+	                )
+	            );
+
+	            wp_enqueue_script( 'asenha-gutenberg-content-duplication' );
+		    }
+        }
+    }
+
+	/**
+	 * Check at which locations duplication link should enabled
+	 * 
+	 * @since 6.9.3
+	 */
+	public function get_duplication_link_locations() {
+		$options = get_option( ASENHA_SLUG_U, array() );
+		
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$duplication_link_locations = isset( $options['enable_duplication_link_at'] ) ? $options['enable_duplication_link_at'] : array( 'post-action', 'admin-bar', 'publish-section' );		
+		} else {
+			$duplication_link_locations = array( 'post-action', 'admin-bar' );
+		}
+
+		return $duplication_link_locations;
+	}
+
+    /**
+     * Check if a user role is allowed to duplicate content
+     * 
+     * @since 6.9.3
+     */
+    public function is_user_allowed_to_duplicate_content() {
 		$allow_duplication = false;
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
@@ -1085,34 +1171,9 @@ class Content_Management {
         	}
         }
         
-		global $pagenow, $typenow, $post;
-		$inapplicable_post_types = array( 'attachment' );
-
-		if ( $allow_duplication ) {
-			if ( ( 'post.php' == $pagenow && ! in_array( $typenow, $inapplicable_post_types ) ) || is_singular() ) {
-				if ( is_object( $post ) ) {
-					$post_type_singular_label = '';
-                    if ( property_exists( $post, 'post_type' ) ) {
-						$post_type_object = get_post_type_object( $post->post_type );
-						if ( is_object( $post_type_object ) && property_exists( $post_type_object, 'label' ) ) {
-							$post_type_singular_label = ' ' . $post_type_object->labels->singular_name;		
-						}
-                    }
-                    if ( property_exists( $post, 'ID' ) ) {
-						$wp_admin_bar->add_menu( array(
-							'id'    => 'duplicate-content',
-							'parent' => null,
-							'group'  => null,
-							'title' => 'Duplicate' . $post_type_singular_label, 
-							'href'  => admin_url( 'admin.php?action=duplicate_content&amp;post=' . $post->ID . '&amp;nonce=' . wp_create_nonce( 'asenha-duplicate-' . $post->ID ) ),
-						) );                    	
-                    }
-				}
-			}
-		}
-		
-	}
-
+        return $allow_duplication;
+    }
+    
 	/**
 	 * Modify the 'Edit' link to be 'Edit or Replace'
 	 * 

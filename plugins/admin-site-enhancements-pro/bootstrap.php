@@ -37,7 +37,7 @@ class Admin_Site_Enhancements {
 	 * Initialize plugin functionalities
 	 */
 	private function __construct() {
-		global $pagenow;
+		global $pagenow, $typenow;
 		
 		// Setup admin menu, admin page, settings, settings sections, sections fields, admin scripts, plugin action links, etc.
 	
@@ -113,11 +113,11 @@ class Admin_Site_Enhancements {
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 			// Content Managememnt >> Custom Content Types
 			if ( array_key_exists( 'custom_content_types', $options ) && $options['custom_content_types'] ) {
-				add_action( 'init', [ $content_management, 'register_asenha_cpts_to_manage_cpts_and_ctaxs__premium_only' ] );
-				add_action( 'add_meta_boxes', [ $content_management, 'add_meta_boxes_to_new_cpts_and_ctaxs_screens__premium_only' ] );
-				add_action( 'save_post', [ $content_management, 'save_cpt_ctax_fields__premium_only' ], 10, 3 );
+				add_action( 'init', [ $content_management, 'register_asenha_cpts__premium_only' ] );
+				add_action( 'add_meta_boxes', [ $content_management, 'add_meta_boxes_for_asenha_cpts__premium_only' ] );
+				add_action( 'save_post', [ $content_management, 'save_asenha_cpt_ctax_optionp_fields__premium_only' ], 10, 3 );
 				add_filter( 'wp_insert_post_data', [ $content_management, 'use_plural_name_as_cpt_ctax_title__premium_only' ], 99 );
-				add_action( 'admin_init', [ $content_management, 'cpts_ctaxs_flush_rewrite_rules__premium_only' ] );
+				add_action( 'admin_init', [ $content_management, 'asenha_cpts_flush_rewrite_rules__premium_only' ] );
 				add_action( 'init', [ $content_management, 'register_cpts_and_ctaxs_created_by_asenha__premium_only' ] );
 				add_action( 'manage_asenha_cpt_posts_columns', [ $content_management, 'cpt_posts_define_columns__premium_only' ] );
 				add_action( 'manage_asenha_cpt_posts_custom_column', [ $content_management, 'cpt_posts_custom_columns_content__premium_only' ], 10, 2 );
@@ -125,8 +125,9 @@ class Admin_Site_Enhancements {
 				add_action( 'manage_asenha_ctax_posts_custom_column', [ $content_management, 'ctax_posts_custom_columns_content__premium_only' ], 10, 2 );
 				add_action( 'admin_menu', [ $content_management, 'remove_cpt_ctax_submenus_for_nonadmins__premium_only' ], 999 );
 				
-				if ( array_key_exists( 'custom_field_groups', $options ) && $options['custom_field_groups'] ) {
+				// if ( array_key_exists( 'custom_field_groups', $options ) && $options['custom_field_groups'] ) {
 					require_once ASENHA_PATH . 'includes/premium/custom-content/cfgroup/cfgroup.php';
+					require_once ASENHA_PATH . 'includes/premium/custom-content/options-pages/options_pages.php';
 
 					// Maybe enable Oxygen builder integration
 					if ( is_plugin_active( 'oxygen/functions.php' ) ) {
@@ -152,7 +153,7 @@ class Admin_Site_Enhancements {
 					if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 						require_once ASENHA_PATH . 'includes/premium/custom-content/cfgroup-integrations/elementor.php';
 					}
-				}
+				// }
 			}
         }
 
@@ -179,6 +180,10 @@ class Admin_Site_Enhancements {
 			add_filter( 'page_row_actions', [ $content_management, 'add_duplication_action_link' ], 10, 2 );
 			add_filter( 'post_row_actions', [ $content_management, 'add_duplication_action_link' ], 10, 2 );
 			add_action( 'admin_bar_menu', [ $content_management, 'add_admin_bar_duplication_link' ], 100 );
+	        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+	        	add_action( 'post_submitbox_misc_actions', [ $content_management, 'add_submitbox_duplication_link__premium_only' ] );
+	        	add_action( 'admin_head', [ $content_management, 'add_gutenberg_duplication_link__premium_only' ] );
+	        }
 		}
 
 		// Content Order
@@ -495,6 +500,7 @@ class Admin_Site_Enhancements {
 				add_filter( 'register_url', [ $login_logout, 'customize_register_url' ] );
 				add_action( 'wp_loaded', [ $login_logout, 'redirect_on_default_login_urls' ] );
 				add_action( 'wp_login_failed', [ $login_logout, 'redirect_to_custom_login_url_on_login_fail' ] );
+				add_filter( 'login_message', [ $login_logout, 'add_failed_login_message' ] );
 				add_action( 'wp_logout', [ $login_logout, 'redirect_to_custom_login_url_on_logout_success' ] );
 			}
 		}

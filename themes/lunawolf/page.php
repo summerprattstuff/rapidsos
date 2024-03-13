@@ -25,6 +25,6 @@ $context = Timber::context();
 
 $timber_post     = Timber::get_post();
 $context['post'] = $timber_post;
-$context['content'] = get_flexible('flexible');
+$context['content'] = get_flexible('content');
 
 Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );

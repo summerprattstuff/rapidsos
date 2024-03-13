@@ -124,30 +124,30 @@ class Settings_Sections_Fields {
 					'field_id'			=> $field_id, // Custom argument
 					'field_slug'		=> $field_slug, // Custom argument
 					'field_name'		=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
-					'field_description'	=> 'Conveniently register and edit custom post types and custom taxonomies without writing a single line of code. Optionally enable the creation of custom field groups for your post types.', // Custom argument
+					'field_description'	=> 'Conveniently register and edit custom post types and custom taxonomies. Enable the creation of custom field groups for your post types and options pages to store data for display on any part of your website.', // Custom argument
 					'field_options_wrapper'		=> true, // Custom argument. Add container for additional options
 					'field_options_moreless'	=> true,  // Custom argument. Add show more/less toggler.
 					'class'				=> 'asenha-toggle content-management ' . $field_slug, // Custom class for the <tr> element
 				)
 			);
 
-			$field_id = 'custom_field_groups';
-			$field_slug = 'custom-field-groups';
+			// $field_id = 'custom_field_groups';
+			// $field_slug = 'custom-field-groups';
 
-			add_settings_field(
-				$field_id, // Field ID
-				'', // Field title
-				[ $render_field, 'render_checkbox_plain' ], // Callback to render field with custom arguments in the array below
-				ASENHA_SLUG, // Settings page slug
-				'main-section', // Section ID
-				array(
-					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
-					'field_id'				=> $field_id, // Custom argument
-					'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
-					'field_label'			=> 'Enable the creation of custom field groups for your post types', // Custom argument
-					'class'					=> 'asenha-checkbox asenha-hide-th content-management ' . $field_slug, // Custom class for the <tr> element
-				)
-			);
+			// add_settings_field(
+			// 	$field_id, // Field ID
+			// 	'', // Field title
+			// 	[ $render_field, 'render_checkbox_plain' ], // Callback to render field with custom arguments in the array below
+			// 	ASENHA_SLUG, // Settings page slug
+			// 	'main-section', // Section ID
+			// 	array(
+			// 		'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+			// 		'field_id'				=> $field_id, // Custom argument
+			// 		'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
+			// 		'field_label'			=> 'Enable the creation of custom field groups for your post types', // Custom argument
+			// 		'class'					=> 'asenha-checkbox asenha-hide-th content-management ' . $field_slug, // Custom class for the <tr> element
+			// 	)
+			// );
 
 			$field_id = 'custom_content_types_description';
 			$field_slug = 'custom-content-types-description';
@@ -213,6 +213,31 @@ class Settings_Sections_Fields {
 		);
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$field_id = 'enable_duplication_link_at';
+			$field_slug = 'enable-duplication-link-at';
+			
+			$options = array(
+				'List view post action row'		=> 'post-action',
+				'Admin bar'						=> 'admin-bar',
+				'Edit screen publish section'	=> 'publish-section',
+			);
+
+			add_settings_field(
+				$field_id, // Field ID
+				'Show duplication link on:', // Field title
+				[ $render_field, 'render_checkboxes_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'field_id'				=> $field_id, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . '][]', // Custom argument
+					'field_options'			=> $options,
+					'field_default'			=> array( 'post-action', 'admin-bar', 'publish-section' ),
+					'layout'				=> 'vertical', // 'horizontal' or 'vertical'
+					'class'					=> 'asenha-checkboxes content-management ' . $field_slug, // Custom class for the <tr> element
+				)
+			);
+
 			$field_id = 'heading_for_enable_duplication_for';
 			$field_slug = 'heading-for-enable-duplication-for';
 
@@ -252,6 +277,8 @@ class Settings_Sections_Fields {
 
 				}
 			}
+
+
         }
 
 		// Content Order
@@ -557,7 +584,7 @@ class Settings_Sections_Fields {
 					'field_id'					=> $field_id, // Custom argument
 					'field_slug'				=> $field_slug, // Custom argument
 					'field_name'				=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
-					'field_description'			=> 'Enable uploading <a href="https://www.smashingmagazine.com/2021/09/modern-image-formats-avif-webp/" target="_blank">AVIF</a> files in the Media Library. You can convert your existing PNG, JPG and GIF files using a tool like <a href="https://squoosh.app/" target="_blank">Squoosh</a> or <a href="https://avif.io/" target="_blank">avif.io</a>.', // Custom argument
+					'field_description'			=> 'Enable uploading <a href="https://www.smashingmagazine.com/2021/09/modern-image-formats-avif-webp/" target="_blank">AVIF</a> files in the Media Library. You can convert your existing PNG, JPG and GIF files using a tool like <a href="https://squoosh.app/" target="_blank">Squoosh</a>.', // Custom argument
 					'field_options_wrapper'		=> true, // Custom argument. Add container for additional options
 					'field_options_moreless'	=> true,  // Custom argument. Add show more/less toggler.
 					'class'						=> 'asenha-toggle content-management ' . $field_slug, // Custom class for the <tr> element
@@ -1473,6 +1500,21 @@ class Settings_Sections_Fields {
 		$field_id = 'custom_admin_footer_left';
 		$field_slug = 'custom-admin-footer-left';
 
+		// https://developer.wordpress.org/reference/classes/_wp_editors/parse_settings/
+		// https://www.tiny.cloud/docs/advanced/available-toolbar-buttons/
+		$editor_settings = array(
+			'media_buttons'		=> false,
+			'textarea_name'		=> ASENHA_SLUG_U . '['. $field_id .']',
+			'textarea_rows'		=> 3,
+			'tiny_mce'			=> true,
+			'tinymce'			=> array(
+				'toolbar1'		=> 'bold,italic,underline,separator,link,unlink,undo,redo',
+				'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
+			),
+			'editor_css'		=> '',
+			'quicktags'			=> false,
+		);
+
 		add_settings_field(
 			$field_id, // Field ID
 			'Left Side', // Field title
@@ -1485,16 +1527,31 @@ class Settings_Sections_Fields {
 				'field_slug'			=> $field_slug, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
 				'field_type'			=> 'textarea', // Custom argument
-				'field_rows'			=> 3,
 				'field_intro'			=> '', // Custom argument
 				'field_description'		=> 'Default text is: <em>Thank you for creating with <a href="https://wordpress.org/">WordPress</a></em>.', // Custom argument
 				'field_placeholder'		=> '',
+				'editor_settings'		=> $editor_settings,
 				'class'					=> 'asenha-textarea utilities ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
 		$field_id = 'custom_admin_footer_right';
 		$field_slug = 'custom-admin-footer-right';
+
+		// https://developer.wordpress.org/reference/classes/_wp_editors/parse_settings/
+		// https://www.tiny.cloud/docs/advanced/available-toolbar-buttons/
+		$editor_settings = array(
+			'media_buttons'		=> false,
+			'textarea_name'		=> ASENHA_SLUG_U . '['. $field_id .']',
+			'textarea_rows'		=> 3,
+			'tiny_mce'			=> true,
+			'tinymce'			=> array(
+				'toolbar1'		=> 'bold,italic,underline,separator,link,unlink,undo,redo',
+				'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
+			),
+			'editor_css'		=> '',
+			'quicktags'			=> false,
+		);
 
 		add_settings_field(
 			$field_id, // Field ID
@@ -1512,6 +1569,7 @@ class Settings_Sections_Fields {
 				'field_intro'			=> '', // Custom argument
 				'field_description'		=> 'Default text is: <em>Version ' . $wp_version . '</em>', // Custom argument
 				'field_placeholder'		=> '',
+				'editor_settings'		=> $editor_settings,
 				'class'					=> 'asenha-textarea utilities ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
@@ -3857,50 +3915,140 @@ class Settings_Sections_Fields {
 		$field_id = 'maintenance_page_heading';
 		$field_slug = 'maintenance-page-heading';
 
-		add_settings_field(
-			$field_id, // Field ID
-			'Heading', // Field title
-			[ $render_field, 'render_text_subfield' ], // Callback to render field with custom arguments in the array below
-			ASENHA_SLUG, // Settings page slug
-			'main-section', // Section ID
-			array(
-				'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
-				'field_id'				=> $field_id, // Custom argument
-				'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
-				'field_type'			=> '', // Custom argument
-				'field_prefix'			=> '', // Custom argument
-				'field_suffix'			=> '', // Custom argument
-				'field_description'		=> '', // Custom argument
-				'field_placeholder'		=> 'We\'ll be back soon.',
-				'class'					=> 'asenha-text utilities full-width ' . $field_slug, // Custom class for the <tr> element
-			)
-		);
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			// https://developer.wordpress.org/reference/classes/_wp_editors/parse_settings/
+			// https://www.tiny.cloud/docs/advanced/available-toolbar-buttons/
+			$editor_settings = array(
+				'media_buttons'		=> false,
+				'textarea_name'		=> ASENHA_SLUG_U . '['. $field_id .']',
+				'textarea_rows'		=> 3,
+				'tiny_mce'			=> true,
+				'tinymce'			=> array(
+					// 'toolbar1'		=> 'bold,italic,underline,separator,link,unlink,undo,redo',
+					'toolbar1'		=> 'bold,italic,underline,strikethrough,superscript,subscript,blockquote,bullist,numlist,alignleft,aligncenter,alignjustify,alignright,alignnone,link,unlink,fontsizeselect,forecolor,undo,redo,removeformat',
+					'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
+				),
+				'editor_css'		=> '',
+				'quicktags'			=> true,
+			);
 
+			add_settings_field(
+				$field_id, // Field ID
+				'Heading', // Field title
+				[ $render_field, 'render_wpeditor_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+					'field_id'				=> $field_id, // Custom argument
+					'field_slug'			=> $field_slug, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
+					'field_type'			=> 'textarea', // Custom argument
+					'field_intro'			=> '', // Custom argument
+					'field_description'		=> '', // Custom argument
+					'field_placeholder'		=> 'We\'ll be back soon.',
+					'editor_settings'		=> $editor_settings,
+					'class'					=> 'asenha-textarea utilities has-wpeditor ' . $field_slug, // Custom class for the <tr> element
+				)
+			);
+        } else {
+			add_settings_field(
+				$field_id, // Field ID
+				'Heading', // Field title
+				[ $render_field, 'render_text_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+					'field_id'				=> $field_id, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
+					'field_type'			=> '', // Custom argument
+					'field_prefix'			=> '', // Custom argument
+					'field_suffix'			=> '', // Custom argument
+					'field_description'		=> '', // Custom argument
+					'field_placeholder'		=> 'We\'ll be back soon.',
+					'class'					=> 'asenha-text utilities full-width ' . $field_slug, // Custom class for the <tr> element
+				)
+			);        	
+        }
+		
 		$field_id = 'maintenance_page_description';
 		$field_slug = 'maintenance-page-description';
 
-		add_settings_field(
-			$field_id, // Field ID
-			'Description', // Field title
-			[ $render_field, 'render_textarea_subfield' ], // Callback to render field with custom arguments in the array below
-			ASENHA_SLUG, // Settings page slug
-			'main-section', // Section ID
-			array(
-				'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
-				'field_id'				=> $field_id, // Custom argument
-				'field_slug'			=> $field_slug, // Custom argument
-				'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
-				'field_type'			=> 'textarea', // Custom argument
-				'field_rows'			=> 5,
-				'field_intro'			=> '', // Custom argument
-				'field_description'		=> '', // Custom argument
-				'field_placeholder'		=> 'This site is undergoing maintenance for an extended period today. Thanks for your patience.',
-				'class'					=> 'asenha-textarea utilities ' . $field_slug, // Custom class for the <tr> element
-			)
-		);
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$editor_settings = array(
+				'media_buttons'		=> false,
+				'textarea_name'		=> ASENHA_SLUG_U . '['. $field_id .']',
+				'textarea_rows'		=> 3,
+				'tiny_mce'			=> true,
+				'tinymce'			=> array(
+					// 'toolbar1'		=> 'bold,italic,underline,separator,link,unlink,undo,redo',
+					'toolbar1'		=> 'bold,italic,underline,strikethrough,superscript,subscript,blockquote,bullist,numlist,alignleft,aligncenter,alignjustify,alignright,alignnone,link,unlink,fontsizeselect,forecolor,undo,redo,removeformat',
+					'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
+				),
+				'editor_css'		=> '',
+				'quicktags'			=> true,
+			);
+
+			add_settings_field(
+				$field_id, // Field ID
+				'Description', // Field title
+				[ $render_field, 'render_wpeditor_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+					'field_id'				=> $field_id, // Custom argument
+					'field_slug'			=> $field_slug, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
+					'field_type'			=> 'textarea', // Custom argument
+					'field_intro'			=> '', // Custom argument
+					'field_description'		=> '', // Custom argument
+					'field_placeholder'		=> 'This site is undergoing maintenance for an extended period today. Thanks for your patience.',
+					'editor_settings'		=> $editor_settings,
+					'class'					=> 'asenha-textarea utilities has-wpeditor ' . $field_slug, // Custom class for the <tr> element
+				)
+			);
+        } else {
+			add_settings_field(
+				$field_id, // Field ID
+				'Description', // Field title
+				[ $render_field, 'render_textarea_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+					'field_id'				=> $field_id, // Custom argument
+					'field_slug'			=> $field_slug, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
+					'field_type'			=> 'textarea', // Custom argument
+					'field_rows'			=> 5,
+					'field_intro'			=> '', // Custom argument
+					'field_description'		=> '', // Custom argument
+					'field_placeholder'		=> 'This site is undergoing maintenance for an extended period today. Thanks for your patience.',
+					'class'					=> 'asenha-textarea utilities ' . $field_slug, // Custom class for the <tr> element
+				)
+			);
+        }
 
 		$field_id = 'maintenance_page_background';
 		$field_slug = 'maintenance-page-background';
+
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+        	$field_radios = array(
+					'Stripes'	=> 'stripes',
+					'Curves'	=> 'curves',
+					'Lines'		=> 'lines',
+					'Image'		=> 'image',
+					'Color'		=> 'solid_color',
+				);
+        } else {
+        	$field_radios = array(
+					'Stripes'	=> 'stripes',
+					'Curves'	=> 'curves',
+					'Lines'		=> 'lines',
+				);        	
+        }
 
 		add_settings_field(
 			$field_id, // Field ID
@@ -3913,13 +4061,7 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				// 'field_label'			=> 'Temporary label', // Custom argument
-				'field_radios'			=> array(
-					'Stripes'	=> 'stripes',
-					'Curves'	=> 'curves',
-					'Lines'		=> 'lines',
-					'Image'		=> 'image',
-					'Color'		=> 'solid_color',
-				),
+				'field_radios'			=> $field_radios,
 				'field_default'			=> 'default',
 				'class'					=> 'asenha-radio-buttons utilities ' . $field_slug, // Custom class for the <tr> element
 			)
@@ -3970,6 +4112,28 @@ class Settings_Sections_Fields {
 					'class'							=> 'asenha-textarea utilities ' . $field_slug, // Custom class for the <tr> element
 				)
 			);	
+
+			$field_id = 'maintenance_page_custom_css';
+			$field_slug = 'maintenance-page-custom-css';
+
+			add_settings_field(
+				$field_id, // Field ID
+				'Custom CSS', // Field title
+				[ $render_field, 'render_textarea_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+					'field_id'				=> $field_id, // Custom argument
+					'field_slug'			=> $field_slug, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
+					'field_type'			=> 'textarea', // Custom argument
+					'field_rows'			=> 20,
+					'field_intro'			=> '', // Custom argument
+					'field_description'		=> '', // Custom argument
+					'class'					=> 'asenha-textarea syntax-highlighted utilities ' . $field_slug, // Custom class for the <tr> element
+				)
+			);
         }
 
 		$field_id = 'maintenance_mode_description';
