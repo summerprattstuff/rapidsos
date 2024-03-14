@@ -1,0 +1,18 @@
+{% set title = block.title %}
+{% set link  = block.link %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__ctaBanner">
+  <div class="wrapper">
+    <div class="container">
+      <h1 class="m__title m__ctaBanner__title">{{ title }}</h1>
+      <a class="btn m__ctaBanner__btn" href="{{ link.url }}">{{ link.title }}</a>
+    </div>
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>
