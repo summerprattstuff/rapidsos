@@ -3,7 +3,7 @@
     "title": "Theme Settings",
     "fields": [
         {
-            "key": "field_65db70da3e6d7",
+            "key": "field_65f1de524af1f",
             "label": "Header",
             "name": "",
             "aria-label": "",
@@ -16,17 +16,16 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0,
-            "no_preference": 0
+            "placement": "top",
+            "endpoint": 0
         },
         {
-            "key": "field_65d9c57c9a1b4",
-            "label": "Announcement",
-            "name": "announcement",
+            "key": "field_65f1de097f9ae",
+            "label": "Site Logo",
+            "name": "site_logo",
             "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "Add global announcement.",
+            "type": "image",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -34,59 +33,8 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "acfe_wysiwyg_height": 300,
-            "acfe_wysiwyg_max_height": "",
-            "acfe_wysiwyg_valid_elements": "",
-            "acfe_wysiwyg_custom_style": "",
-            "acfe_wysiwyg_disable_wp_style": 0,
-            "acfe_wysiwyg_autoresize": 0,
-            "acfe_wysiwyg_disable_resize": 0,
-            "acfe_wysiwyg_remove_path": 0,
-            "acfe_wysiwyg_menubar": 0,
-            "acfe_wysiwyg_transparent": 0,
-            "acfe_wysiwyg_merge_toolbar": 0,
-            "acfe_wysiwyg_custom_toolbar": 1,
-            "acfe_wysiwyg_toolbar_buttons": {
-                "acfe_wysiwyg_toolbar_1": {
-                    "row-row-1": {
-                        "acfe_wysiwyg_toolbar_row": "bold"
-                    },
-                    "row-row-2": {
-                        "acfe_wysiwyg_toolbar_row": "italic"
-                    },
-                    "row-row-9": {
-                        "acfe_wysiwyg_toolbar_row": "link"
-                    }
-                },
-                "acfe_wysiwyg_toolbar_2": "",
-                "acfe_wysiwyg_toolbar_3": "",
-                "acfe_wysiwyg_toolbar_4": ""
-            },
-            "tabs": "visual",
-            "toolbar": "basic",
-            "media_upload": 0,
-            "delay": 0,
-            "acfe_wysiwyg_auto_init": 0,
-            "acfe_wysiwyg_min_height": 300
-        },
-        {
-            "key": "field_65d4aa787a0ed",
-            "label": "Light Logo",
-            "name": "light_logo",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33.33",
-                "class": "",
-                "id": ""
-            },
             "uploader": "",
             "return_format": "array",
-            "upload_folder": "",
             "acfe_thumbnail": 0,
             "min_width": "",
             "min_height": "",
@@ -97,165 +45,6 @@
             "mime_types": "",
             "preview_size": "medium",
             "library": "all"
-        },
-        {
-            "key": "field_65d4aaae7a0ee",
-            "label": "Dark Logo",
-            "name": "dark_logo",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33.33",
-                "class": "",
-                "id": ""
-            },
-            "uploader": "",
-            "return_format": "array",
-            "upload_folder": "",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium",
-            "library": "all"
-        },
-        {
-            "key": "field_65db7eede138a",
-            "label": "Animation Logo",
-            "name": "animation_logo",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "33.33",
-                "class": "",
-                "id": ""
-            },
-            "uploader": "",
-            "return_format": "array",
-            "upload_folder": "",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium",
-            "library": "all"
-        },
-        {
-            "key": "field_65dba61451792",
-            "label": "Enable Animation?",
-            "name": "enable_animation",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
-            "ui": 1,
-            "style": ""
-        },
-        {
-            "key": "field_65db9ab448716",
-            "label": "Animation Delay",
-            "name": "animation_delay",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "How much time should pass before animation begins.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "min": "",
-            "max": "",
-            "placeholder": "",
-            "step": "0.1",
-            "prepend": "",
-            "append": "s"
-        },
-        {
-            "key": "field_65db9ae548717",
-            "label": "Animation Duration",
-            "name": "animation_duration",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "How much time should animation last.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "min": "",
-            "max": "",
-            "placeholder": "",
-            "step": "0.1",
-            "prepend": "",
-            "append": "s"
-        },
-        {
-            "key": "field_65db70c73e6d6",
-            "label": "Footer",
-            "name": "",
-            "aria-label": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0,
-            "no_preference": 0
-        },
-        {
-            "key": "field_65db70e53e6d8",
-            "label": "Footer Copy",
-            "name": "footer_copy",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         }
     ],
     "location": [
@@ -276,12 +65,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "acfe_display_title": "",
     "acfe_autosync": [
         "json"
     ],
     "acfe_form": 0,
-    "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1708893734
+    "modified": 1710349916
 }

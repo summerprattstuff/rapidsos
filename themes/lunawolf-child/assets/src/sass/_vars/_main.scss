@@ -1,8 +1,9 @@
 // CSS Variables
 :root {
   --bg-color: #fff;
-  --text-color: #000;
-  --primary-color: #000;
+  --text-color: #001559;
+  --primary-color: #001559;
+  --gray: #f1f1f1;
   --accent: #0175ff;
 }
 
@@ -10,7 +11,6 @@ $black: #000;
 $white: #fff;
 $primary: #0b1029;
 $accent: #0175ff;
-
 
 
 // Typography
@@ -32,7 +32,7 @@ $grid-breakpoints: (
 
 // Define the maximum width of `.wrapper` for different screen sizes.
 $wrapper-max-widths: (
-  l: 1448px
+  l: 1488px
 ) !default;
 
 @include _assert-ascending($wrapper-max-widths, '$wrapper-max-widths');
@@ -40,7 +40,7 @@ $wrapper-max-widths: (
 // Grid columns
 // Set the number of columns and specify the width of the gutters.
 $grid-columns:                12 !default;
-$grid-gutter-width:           32px !default;
+$grid-gutter-width:           24px !default;
 
 // Options
 $enable-grid-classes:       true !default;

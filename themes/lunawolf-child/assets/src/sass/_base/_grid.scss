@@ -2,11 +2,11 @@
 // Set the wrapper width with media queries.
 @if $enable-grid-classes {
 
-    .wrapper,
-    ._wr {
-        @include make-wrapper;
-        @include make-wrapper-max-widths;
-    }
+  .wrapper,
+  ._wr {
+    @include make-wrapper;
+    @include make-wrapper-max-widths;
+  }
 }
 
 // Fluid wrapper
@@ -14,38 +14,38 @@
 // fluid, full width layouts.
 @if $enable-grid-classes {
 
-    .wrapper-fluid,
-    .wrapper-full,
-    ._wr-fluid,
-    ._wr-full {
-        @include make-wrapper;
-    }
+  .wrapper-fluid,
+  .wrapper-full,
+  ._wr-fluid,
+  ._wr-full {
+    @include make-wrapper;
+  }
 }
 
 // Wrap
 // Wraps contain and clear the floats of your columns.
 @if $enable-grid-classes {
 
-    ._w {
-        @include make-wrap;
-    }
+  ._w {
+    @include make-wrap;
+  }
 
-    // Remove the negative margin from default .wrap, then the horizontal padding
-    // from all immediate children columns (to prevent runaway style inheritance).
-    .no-gutters {
-        margin-right: 0;
-        margin-left: 0;
+  // Remove the negative margin from default .wrap, then the horizontal padding
+  // from all immediate children columns (to prevent runaway style inheritance).
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
 
-        > .col,
-        > [class*='_'] {
-            padding-right: 0;
-            padding-left: 0;
-        }
+    > .col,
+    > [class*='_'] {
+      padding-right: 0;
+      padding-left: 0;
     }
+  }
 }
 
 // Columns
 // Common styles for small and large grid columns
 @if $enable-grid-classes {
-    @include make-grid-columns;
+  @include make-grid-columns;
 }

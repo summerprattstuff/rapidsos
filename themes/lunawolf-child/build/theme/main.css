@@ -11,11 +11,40 @@
   \***********************************************************************************************************************************************************************************************************************************************************************************************************/
 :root {
   --bg-color: #fff;
-  --text-color: #000;
-  --primary-color: #000;
+  --text-color: #001559;
+  --primary-color: #001559;
+  --gray: #f1f1f1;
   --accent: #0175ff;
 }
 
+@font-face {
+  font-family: "Soleil Lt";
+  src: url(fonts/Soleil-Light.09ebba13.woff2) format("woff2"), url(fonts/Soleil-Light.1ef76e5a.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Soleil Bk";
+  src: url(fonts/Soleil-Book.f1e878da.woff2) format("woff2"), url(fonts/Soleil-Book.d520ccea.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Soleil";
+  src: url(fonts/Soleil-Regular.7fa5c01c.woff2) format("woff2"), url(fonts/Soleil-Regular.9d756d5d.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Soleil";
+  src: url(fonts/Soleil-Bold.50c71cc9.woff2) format("woff2"), url(fonts/Soleil-Bold.9cb5fd00.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
 body {
   background: var(--bg-color);
   color: var(--text-color);
@@ -216,7 +245,7 @@ progress {
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: "Soleil", sans-serif;
   font-size: 18px;
   line-height: 1.2;
 }
@@ -243,15 +272,15 @@ p:where(p:last-of-type) {
 .wrapper,
 ._wr {
   width: 100%;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 24px;
+  padding-left: 24px;
   margin-right: auto;
   margin-left: auto;
 }
 @media (min-width: 992px) {
   .wrapper,
   ._wr {
-    max-width: 1448px;
+    max-width: 1488px;
   }
 }
 
@@ -260,8 +289,8 @@ p:where(p:last-of-type) {
 ._wr-fluid,
 ._wr-full {
   width: 100%;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 24px;
+  padding-left: 24px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -269,8 +298,8 @@ p:where(p:last-of-type) {
 ._w {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -16px;
-  margin-left: -16px;
+  margin-right: -12px;
+  margin-left: -12px;
 }
 
 .no-gutters {
@@ -293,8 +322,8 @@ p:where(p:last-of-type) {
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: 12px;
+  padding-left: 12px;
   box-sizing: border-box;
 }
 

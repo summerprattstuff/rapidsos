@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Soleil Lt';
+    src: url('../fonts/Soleil/Soleil-Light.woff2') format('woff2'),
+        url('../fonts/Soleil/Soleil-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Soleil Bk';
+    src: url('../fonts/Soleil/Soleil-Book.woff2') format('woff2'),
+        url('../fonts/Soleil/Soleil-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Soleil';
+    src: url('../fonts/Soleil/Soleil-Regular.woff2') format('woff2'),
+        url('../fonts/Soleil/Soleil-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Soleil';
+    src: url('../fonts/Soleil/Soleil-Bold.woff2') format('woff2'),
+        url('../fonts/Soleil/Soleil-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

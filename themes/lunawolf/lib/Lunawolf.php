@@ -11,6 +11,7 @@ use Timber\Site;
 class Lunawolf extends Site {
 	protected $settings;
 	protected $helpers;
+  protected $layout_count = 1;
 
 	public function __construct() {
 		$this->settings = Lunawolf_Settings::instance();
@@ -243,10 +244,12 @@ class Lunawolf extends Site {
 		$context['is_preview'] = $is_preview;
 		// Settings configuration
 		$settings = $row['layout_settings'] ?? null;
-
-		$context['settings'] = $this->settings->settings($settings);
+		$context['settings'] = $this->settings->settings($settings, $this->layout_count);
 
 		Timber::render(sprintf('views/_blocks/%s.twig', $name), $context);
+
+    // Hackish way to calculate layout count
+    $this->layout_count++;
 	}
 
 	/**

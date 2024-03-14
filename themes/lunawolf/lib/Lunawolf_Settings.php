@@ -14,14 +14,14 @@ class Lunawolf_Settings {
 		return self::$instance;
 	}
 
-	public function settings($settings): array
+	public function settings($settings, $count): array
 	{
     if (!$settings) return [
-      'block_id' => '',
+      'block_id' => 'block-' . $count,
 			'styles' => '',
     ];
 
-		$block_id = isset($settings['block_id']) && $settings['block_id'] ? $settings['block_id'] : '';
+		$block_id = isset($settings['block_id']) && $settings['block_id'] ? $settings['block_id'] : 'block-' . $count;
 		$settings['block_id'] = $block_id;
 
 		$styles = $this->_block_style_settings($settings);

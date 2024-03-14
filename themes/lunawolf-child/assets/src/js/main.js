@@ -1,7 +1,6 @@
 // Import scripts
 // import {Fancybox} from '@fancyapps/ui'; // eslint-disable-line
 // import './vendor/slick.min';
-import AOS from 'aos';
 // Styles
 import '../sass/main.scss';
 
@@ -12,14 +11,8 @@ import '../sass/main.scss';
 // import debounce from './helpers/debounce';
 
 // import siteFocus from './partials/siteFocus';
-import sliders from './components/sliders';
-import animations from './components/animations';
+// import sliders from './components/sliders';
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	sliders();
-	animations();
-	AOS.init({
-		once: true,
-		duration: 600
-	});
+
 });

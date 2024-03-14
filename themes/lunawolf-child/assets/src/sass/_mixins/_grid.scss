@@ -4,8 +4,8 @@
 
 @mixin make-wrapper {
     width: 100%;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: $grid-gutter-width;
+    padding-left: $grid-gutter-width;
     margin-right: auto;
     margin-left: auto;
 }

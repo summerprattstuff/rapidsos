@@ -3,23 +3,24 @@
   \**********************************************************************************************************************************************************************************************************************************************************************************************************/
 :root {
   --bg-color: #fff;
-  --text-color: #000;
-  --primary-color: #000;
+  --text-color: #001559;
+  --primary-color: #001559;
+  --gray: #f1f1f1;
   --accent: #0175ff;
 }
 
 .wrapper,
 ._wr {
   width: 100%;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 24px;
+  padding-left: 24px;
   margin-right: auto;
   margin-left: auto;
 }
 @media (min-width: 992px) {
   .wrapper,
   ._wr {
-    max-width: 1448px;
+    max-width: 1488px;
   }
 }
 
@@ -28,8 +29,8 @@
 ._wr-fluid,
 ._wr-full {
   width: 100%;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 24px;
+  padding-left: 24px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -37,8 +38,8 @@
 ._w {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -16px;
-  margin-left: -16px;
+  margin-right: -12px;
+  margin-left: -12px;
 }
 
 .no-gutters {
@@ -61,8 +62,8 @@
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: 12px;
+  padding-left: 12px;
   box-sizing: border-box;
 }
 
