@@ -111,14 +111,14 @@
                     "acfe_flexible_thumbnail": "",
                     "acfe_flexible_category": false
                 },
-                "layout_65f1a27845214": {
-                    "key": "layout_65f1a27845214",
-                    "name": "secondary_hero",
-                    "label": "Secondary Hero",
+                "layout_65f2d6e852aaf": {
+                    "key": "layout_65f2d6e852aaf",
+                    "name": "simple_centered_text",
+                    "label": "Simple Centered Text",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_65f1a27845215",
+                            "key": "field_65f2d6e852ab0",
                             "label": "Title",
                             "name": "title",
                             "aria-label": "",
@@ -139,11 +139,11 @@
                             "new_lines": "br"
                         },
                         {
-                            "key": "field_65f1a27845216",
-                            "label": "Background Image",
-                            "name": "bg_image",
+                            "key": "field_65f2d72952ab3",
+                            "label": "Subtitle",
+                            "name": "subtitle",
                             "aria-label": "",
-                            "type": "image",
+                            "type": "textarea",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -152,18 +152,12 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "uploader": "",
-                            "return_format": "array",
-                            "library": "all",
-                            "acfe_thumbnail": 0,
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": "",
-                            "preview_size": "medium"
+                            "default_value": "",
+                            "acfe_textarea_code": 0,
+                            "maxlength": "",
+                            "rows": 2,
+                            "placeholder": "",
+                            "new_lines": "br"
                         }
                     ],
                     "min": "",
@@ -227,5 +221,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710336296
+    "modified": 1710414889
 }

@@ -1,0 +1,32 @@
+.m__scText {
+  padding: 100px 0;
+  text-align: center;
+
+  .container {
+    margin-inline: auto;
+
+    @include media-up(m) {
+      max-width: 80%;
+    }
+
+    @include media-up(l) {
+      max-width: 70%;
+    }
+  }
+
+  &__title {
+
+    @include media-up(l) {
+      font-size: 40px;
+      line-height: 55px;
+    }
+  }
+
+  &__text {
+    text-wrap: balance;
+
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+}
