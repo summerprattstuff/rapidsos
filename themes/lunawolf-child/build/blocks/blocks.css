@@ -39,8 +39,50 @@
   background: rgba(11, 16, 41, 0.5);
 }
 
+.btn {
+  padding: 14px 32px;
+  border: solid 1px #fff;
+  color: #fff;
+  border-radius: 40px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #fff;
+  color: #0b1029;
+}
+.btn__black {
+  border-color: #0b1029;
+  color: #0b1029;
+}
+.btn__black:hover {
+  background: #0b1029;
+  color: #fff;
+}
+
 .-preview .m__title {
   font-weight: 700;
+}
+.m__title__white {
+  color: #fff;
+}
+
+.container__center {
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .container__short {
+    max-width: 80%;
+  }
+}
+@media (min-width: 992px) {
+  .container__short {
+    max-width: 70%;
+  }
+}
+
+.btnWrapper:not(:first-child) {
+  margin-top: 25px;
 }
 
 .m__hero {
@@ -56,19 +98,6 @@
   padding: 100px 0;
   text-align: center;
 }
-.m__scText .container {
-  margin-inline: auto;
-}
-@media (min-width: 768px) {
-  .m__scText .container {
-    max-width: 80%;
-  }
-}
-@media (min-width: 992px) {
-  .m__scText .container {
-    max-width: 70%;
-  }
-}
 @media (min-width: 992px) {
   .m__scText__title {
     font-size: 40px;
@@ -80,6 +109,20 @@
 }
 .m__scText__text:not(:first-child) {
   margin-top: 30px;
+}
+
+.m__ctaBanner {
+  background: #0b1029;
+  padding: 55px 47px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .m__ctaBanner {
+    padding: 75px 67px;
+  }
+}
+.m__ctaBanner__title {
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=blocks.css.map*/
