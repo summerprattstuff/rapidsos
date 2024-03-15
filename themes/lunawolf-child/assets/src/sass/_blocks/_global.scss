@@ -28,7 +28,7 @@
   &__short {
 
     @include media-up(m) {
-      max-width: 80%;
+      max-width: 90%;
     }
 
     @include media-up(l) {

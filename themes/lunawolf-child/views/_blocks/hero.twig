@@ -5,7 +5,9 @@
 {% endif %}
 
 <section id="{{ settings.block_id }}" class="m__hero -{{ hero_type }}">
-  {% include '_partials/_blocks/_hero/' ~ hero_type ~ '.twig' %}
+  {% include '_partials/_blocks/_hero/' ~ hero_type ~ '.twig' with {
+    blockId: settings.block_id
+  } %}
   {% if not is_preview %}
     {{ settings.styles | raw }}
   {% endif %}

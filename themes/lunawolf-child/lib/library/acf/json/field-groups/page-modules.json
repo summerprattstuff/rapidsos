@@ -234,6 +234,52 @@
                             "placeholder": ""
                         },
                         {
+                            "key": "field_65f4615f5b50f",
+                            "label": "Full Screen Video?",
+                            "name": "full_screen_video",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Turn on so video isn't scaled, but actually fill up 100% viewport.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_65f45a1358b26",
+                            "label": "Text Color",
+                            "name": "txt_color",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "Choose background color. Add opacity to become overlay over video if available.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_65f4036d88382",
+                                        "operator": "==",
+                                        "value": "hero"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "35",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "enable_opacity": 0,
+                            "return_format": "string"
+                        },
+                        {
                             "key": "field_65f4032088380",
                             "label": "Background Color",
                             "name": "bg_color",
@@ -251,7 +297,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "70",
+                                "width": "35",
                                 "class": "",
                                 "id": ""
                             },
@@ -261,7 +307,7 @@
                         },
                         {
                             "key": "field_65f4034188381",
-                            "label": "Overlay Opacity",
+                            "label": "BG Overlay Opacity",
                             "name": "overlay_opacity",
                             "aria-label": "",
                             "type": "number",
@@ -717,5 +763,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710506353
+    "modified": 1710514563
 }

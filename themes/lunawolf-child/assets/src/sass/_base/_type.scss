@@ -14,15 +14,11 @@ h6 {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 36px;
   line-height: 1.2;
   font-weight: 700;
 
   @include media-up(m) {
-    font-size: 30px;
-  }
-
-  @include media-up(l) {
     font-size: 40px;
   }
 

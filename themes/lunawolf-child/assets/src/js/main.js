@@ -12,6 +12,8 @@ import debounce from './helpers/debounce';
 
 // import siteFocus from './partials/siteFocus';
 // import sliders from './components/sliders';
+import hero from './components/videos/hero';
+
 let vh = window.innerHeight * 0.01;
 
 const adaptVh = () => {
@@ -22,4 +24,6 @@ const adaptVh = () => {
 document.addEventListener("DOMContentLoaded", function(event) {
   adaptVh();
   window.addEventListener('resize', debounce(adaptVh));
+
+  hero();
 });

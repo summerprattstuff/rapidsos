@@ -9,11 +9,74 @@
 
   &__hero {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
     min-height: calc(var(--vh, 1vh) * 100);
 
+    &.-withVideo {
+
+      .-preview & {
+        background: url(../img/placeholder.avif) 50% / cover no-repeat;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: $black;
+      opacity: .6;
+    }
+
     .-preview & {
       min-height: 600px;
+    }
+
+    .container {
+      padding: 60px 0;
+      margin: 0 auto;
+      text-align: center;
+      color: $white;
+
+      @include media-up(m) {
+        max-width: 90%;
+      }
+
+      @include media-up(l) {
+        max-width: 70%;
+      }
+    }
+
+    &__subtitle {
+      font-size: 20px;
+      line-height: 30px;
+      font-weight: 400;
+
+      &:not(:first-child) {
+        margin-top: 16px;
+      }
+    }
+
+    &__ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 24px;
+
+      .btn {
+        color: inherit;
+        border-color: currentColor;
+
+        &:hover {
+          background: var(--primary-color);
+          color: $white;
+          border-color: var(--primary-color);
+        }
+      }
     }
 
     .img {
@@ -24,6 +87,44 @@
       img {
         width: 100%; height: 100%;
         object-fit: cover;
+      }
+    }
+
+    .video {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+
+      .-preview & {
+        display: none;
+      }
+
+      .plyr {
+        height: 100%;
+
+        &__video-wrapper {
+          position: absolute;
+          width: 100%; height: 100%;
+
+          iframe,
+          video {
+            width: 100%; height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      &.-full {
+
+        .plyr {
+
+          &__video-wrapper {
+            left: 50%; top: 50%;
+            width: auto; height: auto;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+          }
+        }
       }
     }
   }
