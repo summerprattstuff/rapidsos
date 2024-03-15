@@ -447,7 +447,7 @@
                             "label": "Link",
                             "name": "link",
                             "aria-label": "",
-                            "type": "link",
+                            "type": "acfe_advanced_link",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -456,7 +456,8 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array"
+                            "post_type": "",
+                            "taxonomy": ""
                         }
                     ],
                     "min": "",
@@ -520,5 +521,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710490898
+    "modified": 1710493183
 }

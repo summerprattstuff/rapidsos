@@ -1,6 +1,6 @@
 .m__ctaBanner {
   background: $primary;
-  padding: 55px 47px;
+  padding: 55px 0 47px 0;
   text-align: center;
 
   @include media-up(m) {
@@ -9,5 +9,12 @@
 
   &__title {
     font-weight: 400;
+  }
+
+  &__btnWrapper {
+
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
   }
 }
