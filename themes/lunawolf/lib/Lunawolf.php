@@ -238,7 +238,8 @@ class Lunawolf extends Site {
 
 	public function acfe_preview_override_timber($file, $field, $layout, $is_preview) {
 		$context = Timber::context();
-		$name = $layout['name'];
+		$name = $layout['name'] ?? '_empty';
+
 		$row = get_row(true);
 		$context['block'] = get_row(true);
 		$context['is_preview'] = $is_preview;

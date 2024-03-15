@@ -1,13 +1,20 @@
-{% set title  = block.title %}
+{% set hero_type       = block.hero_type %}
+{% set title           = block.title %}
+{% set subtitle        = block.subtitle %}
+{% set bg_image        = block.bg_image %}
+{% set bg_image_mobile = block.bg_image_mobile %}
+{% set bg_video_file   = block.bg_video_file %}
+{% set bg_video_url    = block.bg_video_url %}
+{% set bg_color        = block.bg_color %}
+{% set opacity         = block.overlay_opacity %}
+{% set ctas            = block.ctas %}
 
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__hero">
-  <div class="wrapper">
-    <h1>{{ title }}</h1>
-  </div>
+<section id="{{ settings.block_id }}" class="m__hero -{{ hero_type }}">
+  {% include '_partials/_blocks/_hero/' ~ hero_type ~ '.twig' %}
   {% if not is_preview %}
     {{ settings.styles | raw }}
   {% endif %}
