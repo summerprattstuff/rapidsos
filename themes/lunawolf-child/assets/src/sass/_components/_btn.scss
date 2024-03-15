@@ -11,12 +11,12 @@
 
   &:hover {
     background: $white;
-    color: $primary;
+    color: $text-color-primary;
   }
 
   &__black {
     border-color: $primary;
-    color: $primary;
+    color: $text-color-primary;
 
     &:hover {
       background: $primary;

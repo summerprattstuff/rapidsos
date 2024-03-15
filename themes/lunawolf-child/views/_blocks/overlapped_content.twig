@@ -1,0 +1,25 @@
+{% set bgImg     = block.bg_image %}
+{% set leftText  = block.left_text %}
+{% set rightText = block.right_text %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__ovrContent">
+  <div class="wrapper">
+      <div class="m__ovrContent__wrap">
+          <div class="m__ovrContent__bgImg" style="background-image: url({{ get_image(bgImg) }})">
+              <div class="m__ovrContent__left">
+                  <h3 class="m__ovrContent__left__text">{{ leftText }}</h3>
+              </div>
+              <div class="m__ovrContent__right">
+                  <h3 class="m__ovrContent__right__text">{{ rightText }}</h3>
+              </div>
+          </div>
+      </div>
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>
