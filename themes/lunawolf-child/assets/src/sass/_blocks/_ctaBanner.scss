@@ -1,0 +1,13 @@
+.m__ctaBanner {
+  background: $primary;
+  padding: 55px 47px;
+  text-align: center;
+
+  @include media-up(m) {
+    padding: 75px 67px;
+  }
+
+  &__title {
+    font-weight: 400;
+  }
+}

@@ -7,9 +7,11 @@
 
 <section id="{{ settings.block_id }}" class="m__ctaBanner">
   <div class="wrapper">
-    <div class="container">
-      <h1 class="m__title m__ctaBanner__title">{{ title }}</h1>
-      <a class="btn m__ctaBanner__btn" href="{{ link.url }}">{{ link.title }}</a>
+    <div class="container container__center">
+      <h1 class="m__title__white m__ctaBanner__title">{{ title }}</h1>
+      <div class="btnWrapper">
+        <a class="btn m__ctaBanner__btn" href="{{ link.url }}">{{ link.title }}</a>
+      </div>
     </div>
   </div>
   {% if not is_preview %}

@@ -3,4 +3,33 @@
   .-preview & {
     font-weight: 700;
   }
+
+  &__white {
+    color: $white;
+  }
+}
+
+.container {
+
+  &__center {
+    margin-inline: auto;
+  }
+
+  &__short {
+
+    @include media-up(m) {
+      max-width: 80%;
+    }
+
+    @include media-up(l) {
+      max-width: 70%;
+    }
+  }
+}
+
+.btnWrapper {
+
+  &:not(:first-child) {
+    margin-top: 25px;
+  }
 }
