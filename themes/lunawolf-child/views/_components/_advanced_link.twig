@@ -1,0 +1,13 @@
+{% if link %}
+  {% set type   = link.type %}
+  {% set value  = link.value %}
+  {% set url    = link.url %}
+  {% set name   = link.name %}
+  {% set title  = link.title %}
+  {% set target = link.target %}
+  {% set class  = class ? ' ' ~ class : '' %}
+
+  <a href="{{ url }}" target="{{ target }}" class="btn type-{{ type }}{{ class }}">
+    {{ title ?: name ?: 'Read more' }}
+  </a>
+{% endif %}

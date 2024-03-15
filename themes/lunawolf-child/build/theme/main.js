@@ -2,6 +2,34 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/helpers/debounce.js":
+/*!************************************!*\
+  !*** ./src/js/helpers/debounce.js ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function (func, wait, immediate) {
+  var timeout;
+  var waitTime = wait || 100;
+  return function () {
+    var context = this,
+      args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      timeout = null;
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    }, waitTime);
+    if (immediate && !timeout) {
+      func.apply(context, args);
+    }
+  };
+});
+
+/***/ }),
+
 /***/ "./src/sass/main.scss":
 /*!****************************!*\
   !*** ./src/sass/main.scss ***!
@@ -61,6 +89,7 @@ var __webpack_exports__ = {};
   \************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sass_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../sass/main.scss */ "./src/sass/main.scss");
+/* harmony import */ var _helpers_debounce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/debounce */ "./src/js/helpers/debounce.js");
 // Import scripts
 // import {Fancybox} from '@fancyapps/ui'; // eslint-disable-line
 // import './vendor/slick.min';
@@ -71,12 +100,19 @@ __webpack_require__.r(__webpack_exports__);
 // import './images';
 
 // Import javascript
-// import debounce from './helpers/debounce';
+
 
 // import siteFocus from './partials/siteFocus';
 // import sliders from './components/sliders';
-
-document.addEventListener("DOMContentLoaded", function (event) {});
+var vh = window.innerHeight * 0.01;
+var adaptVh = function adaptVh() {
+  vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
+};
+document.addEventListener("DOMContentLoaded", function (event) {
+  adaptVh();
+  window.addEventListener('resize', (0,_helpers_debounce__WEBPACK_IMPORTED_MODULE_1__["default"])(adaptVh));
+});
 }();
 /******/ })()
 ;
