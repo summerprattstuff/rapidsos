@@ -1276,6 +1276,15 @@ p:where(p:last-of-type) {
 .m__title__white {
   color: #fff;
 }
+.-preview .m__title__white {
+  color: #fff !important;
+}
+
+.m_desc {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
 
 .container__center {
   margin-inline: auto;
@@ -1346,11 +1355,54 @@ p:where(p:last-of-type) {
     padding: 75px 67px;
   }
 }
+.m__ctaBanner__gradient {
+  background: linear-gradient(97.03deg, #29A7DD 0%, #001559 92.23%);
+}
 .m__ctaBanner__title {
   font-weight: 400;
 }
 .m__ctaBanner__btnWrapper:not(:first-child) {
   margin-top: 30px;
+}
+
+.m__gradStats {
+  padding: 100px 0 70px;
+}
+@media (min-width: 768px) {
+  .m__gradStats {
+    padding: 100px 0 50px;
+  }
+}
+.m__gradStats ._w {
+  justify-content: center;
+}
+.m__gradStats__block {
+  margin-bottom: 30px;
+}
+@media (min-width: 768px) {
+  .m__gradStats__block {
+    margin-bottom: 50px;
+  }
+}
+.m__gradStats__numb {
+  font-size: 80px;
+  line-height: 100px;
+  font-weight: 700;
+  background: linear-gradient(97.03deg, #29A7DD 0%, #001559 92.23%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 768px) {
+  .m__gradStats__numb {
+    font-size: 100px;
+  }
+}
+.m__gradStats__desc {
+  color: #001559;
+  text-wrap: balance;
 }
 
 /*# sourceMappingURL=main.css.map*/

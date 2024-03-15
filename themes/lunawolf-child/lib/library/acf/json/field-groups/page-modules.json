@@ -422,6 +422,26 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_65f4158cf7d09",
+                            "label": "Background Color",
+                            "name": "bg_color",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Turn on for gradient background color.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
                             "key": "field_65f2ea45ee0e5",
                             "label": "Title",
                             "name": "title",
@@ -458,6 +478,93 @@
                             },
                             "post_type": "",
                             "taxonomy": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": "",
+                    "acfe_flexible_render_style": "",
+                    "acfe_flexible_render_script": "",
+                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_settings": [
+                        "group_65c69ec9ddce7"
+                    ],
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_flexible_thumbnail": "",
+                    "acfe_flexible_category": false
+                },
+                "layout_65f417885ba66": {
+                    "key": "layout_65f417885ba66",
+                    "name": "gradient_stats",
+                    "label": "Gradient Stats",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_65f417c45ba6c",
+                            "label": "Stats",
+                            "name": "stats",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_repeater_stylised_button": 0,
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add New Stat",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_65f417db5ba6d",
+                                    "label": "Count Number",
+                                    "name": "count_number",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "Example: 35M+",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_65f417c45ba6c"
+                                },
+                                {
+                                    "key": "field_65f418405ba6e",
+                                    "label": "Description",
+                                    "name": "desc",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "acfe_textarea_code": 0,
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "br",
+                                    "parent_repeater": "field_65f417c45ba6c"
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -521,5 +628,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710493183
+    "modified": 1710497702
 }

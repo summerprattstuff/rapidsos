@@ -6,7 +6,17 @@
 
   &__white {
     color: $white;
+
+    .-preview & {
+      color: $white !important;
+    }
   }
+}
+
+.m_desc {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
 }
 
 .container {

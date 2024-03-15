@@ -1,0 +1,31 @@
+{% set gradStats = block.stats %}
+{% set count = block.stats|length %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__gradStats">
+    <div class="wrapper">
+        <div class="_w">
+            {% if gradStats %}
+                {% for stat in gradStats %}
+                    {% set number = stat.count_number %}
+                    {% set desc = stat.desc %}
+                    <div class="m__gradStats__block _m6 _l4">
+                        <div class="m__gradStats__stat">
+                            <div class="m__gradStats__numb" title="{{ number }}">{{ number }}</div>
+                            <div class="m_desc m__gradStats__desc">{{ desc }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% elseif is_preview %}
+                <h3>Add at least one stat to show this block.</h3>
+            {% endif %}
+        </div>
+    </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
+</section>
+
