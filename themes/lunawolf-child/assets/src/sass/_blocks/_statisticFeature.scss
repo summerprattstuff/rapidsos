@@ -1,0 +1,84 @@
+.m__statistic {
+  background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
+  margin: 50px 0;
+  padding-top: 60px;
+  color: $white;
+
+  @include media-up(m) {
+    margin: 100px 0;
+    padding-top: 60px;
+  }
+
+  &__top{
+
+    &__title {
+
+      @include media-down(xs) {
+        font-size: 30px;
+      }
+
+      @include media-up(xl) {
+        line-height: 65px;
+      }
+    }
+  }
+
+  &__bot {
+    position: relative;
+    top: 25px;
+    display: flex;
+    flex-direction: column;
+
+    @include media-up(m) {
+      flex-direction: row;
+      align-items: flex-end;
+      top: 30px;
+    }
+
+    @include media-up(l) {
+      top: 45px;
+    }
+
+    &__numb {
+      font-size: 80px;
+      line-height: 1;
+      font-weight: 700;
+      white-space: nowrap;
+
+      @include media-up(xs) {
+        font-size: 100px;
+      }
+
+      @include media-up(m) {
+        font-size: 130px;
+      }
+
+      @include media-up(l) {
+        font-size: 200px;
+      }
+
+      @include media-up(xl) {
+        font-size: 300px;
+      }
+    }
+
+    &__desc {
+      padding-bottom: 40px;
+      order: -1;
+
+      @include media-up(m) {
+        order: 1;
+        padding-left: 10px;
+        padding-bottom: 60px;
+      }
+
+      @include media-up(l) {
+        padding-bottom: 110px;
+      }
+
+      @include media-up(xl) {
+        padding-bottom: 190px;
+      }
+    }
+  }
+}
