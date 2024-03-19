@@ -1,0 +1,35 @@
+{% set title = block.title %}
+{% set desc  = block.desc %}
+{% set logos = block.logos %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__logoReel">
+    <div class="wrapper">
+        <div class="container container__short container__center">
+            {% if title %}
+                <h1 class="m__title m__logoReel__title">{{ title }}</h1>
+            {% endif %}
+        </div>
+        {% if desc %}
+            <h3 class="m__logoReel__desc">{{ desc }}</h3>
+        {% endif %}
+        {#        Add sider for this repeater#}
+        {% if logos %}
+            <div class="m__logoReel__logos">
+                {% for logo in logos %}
+                    {% set logo_img = logo.logo_img %}
+
+                        <div class="m__logoReel__logos__block">
+                            <img class="m__logoReel__logos__block__img" src="{{ get_image(logo_img) }}" alt="" >
+                        </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>

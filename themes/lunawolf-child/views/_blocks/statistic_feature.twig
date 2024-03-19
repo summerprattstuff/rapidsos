@@ -9,12 +9,18 @@
 <section id="{{ settings.block_id }}" class="m__statistic">
   <div class="wrapper">
       <div class="m__statistic__wrap">
-          <div class="m__statistic__top">
-            <h1 class="m__title m__statistic__top__title">{{ title }}</h1>
-          </div>
+          {% if title %}
+              <div class="m__statistic__top">
+                  <h1 class="m__title m__statistic__top__title">{{ title }}</h1>
+              </div>
+          {% endif %}
           <div class="m__statistic__bot">
-              <div class="m__statistic__bot__numb">{{ number }}</div>
-              <h3 class="m__statistic__bot__desc">{{ desc }}</h3>
+              {% if number %}
+                  <div class="m__statistic__bot__numb">{{ number }}</div>
+              {% endif %}
+              {% if desc %}
+                  <h3 class="m__statistic__bot__desc">{{ desc }}</h3>
+              {% endif %}
           </div>
       </div>
   </div>

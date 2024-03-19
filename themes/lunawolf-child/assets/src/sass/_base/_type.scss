@@ -19,6 +19,10 @@ h1 {
   font-weight: 700;
 
   @include media-up(m) {
+    font-size: 36px;
+  }
+
+  @include media-up(l) {
     font-size: 40px;
   }
 
@@ -29,7 +33,21 @@ h1 {
 }
 
 h2 {
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 700;
 
+  @include media-up(m) {
+    font-size: 20px;
+  }
+
+  @include media-up(l) {
+    font-size: 24px;
+  }
+
+  @include media-up(l) {
+    font-size: 28px;
+  }
 }
 
 h3 {

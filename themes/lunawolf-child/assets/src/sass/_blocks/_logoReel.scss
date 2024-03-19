@@ -1,0 +1,60 @@
+.m__logoReel {
+  padding: 80px 0;
+
+  @include media-up(m) {
+    padding: 100px 0;
+  }
+
+  &__title,
+  &__desc {
+    text-align: center;
+  }
+
+  &__desc {
+    text-wrap: balance;
+
+    &:not(:first-child) {
+      margin-top: 25px;
+
+      @include media-up(m) {
+        margin-top: 35px;
+      }
+    }
+
+    @include media-up(l) {
+      font-size: 20px;
+    }
+
+    @include media-up(xl) {
+      font-size: 24px;
+    }
+  }
+
+  &__logos {
+    display: flex;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+
+      @include media-up(m) {
+        margin-top: 50px;
+      }
+    }
+
+    &__block {
+
+      &:not(:first-child) {
+        padding-left: 60px;
+      }
+
+      &__img {
+        height: 45px;
+        width: auto;
+
+        .-preview & {
+          height: 30px;
+        }
+      }
+    }
+  }
+}

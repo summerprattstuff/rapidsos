@@ -25,25 +25,25 @@
 
   &__bot {
     position: relative;
-    top: 25px;
     display: flex;
     flex-direction: column;
 
     @include media-up(m) {
       flex-direction: row;
-      align-items: flex-end;
-      top: 30px;
     }
 
-    @include media-up(l) {
-      top: 45px;
+    .-preview & {
+      top: 15px;
     }
 
     &__numb {
+      position: relative;
+      top: 25px;
       font-size: 80px;
       line-height: 1;
       font-weight: 700;
       white-space: nowrap;
+      align-self: flex-end;
 
       @include media-up(xs) {
         font-size: 100px;
@@ -51,33 +51,42 @@
 
       @include media-up(m) {
         font-size: 130px;
+        top: 30px;
       }
 
       @include media-up(l) {
         font-size: 200px;
+        top: 45px;
       }
 
       @include media-up(xl) {
         font-size: 300px;
       }
+
+      .-preview & {
+        font-size: 100px;
+        top: 0;
+      }
     }
 
     &__desc {
-      padding-bottom: 40px;
       order: -1;
+
+      &:not(:first-child) {
+        margin-top: 30px;
+      }
 
       @include media-up(m) {
         order: 1;
-        padding-left: 10px;
-        padding-bottom: 60px;
+        padding: 45px 0 20px 10px;
+
+        &:not(:first-child) {
+          margin-top: 0;
+        }
       }
 
       @include media-up(l) {
-        padding-bottom: 110px;
-      }
-
-      @include media-up(xl) {
-        padding-bottom: 190px;
+        padding: 60px 0 20px 10px;
       }
     }
   }

@@ -9,15 +9,19 @@
 <section id="{{ settings.block_id }}" class="m__ovrContent">
   <div class="wrapper">
       <div class="_w">
-          <div class="m__ovrContent__left">
-              <h3 class="m__ovrContent__left__text">{{ leftText }}</h3>
-          </div>
+          {% if leftText %}
+              <div class="m__ovrContent__left">
+                  <h3 class="m__ovrContent__left__text">{{ leftText }}</h3>
+              </div>
+          {% endif %}
           <div class="m__ovrContent__wrapImg">
-              <div class="m__ovrContent__wrapImg__bgImg" style="background-image: url({{ get_image(bgImg) }})"></div>
+              <div class="m__ovrContent__wrapImg__bgImg" style="{% if bgImg %}background-image: url({{ get_image(bgImg) }}){% endif %}"></div>
           </div>
-          <div class="m__ovrContent__right">
-              <h3 class="m__ovrContent__right__text">{{ rightText }}</h3>
-          </div>
+          {% if rightText %}
+              <div class="m__ovrContent__right">
+                  <h3 class="m__ovrContent__right__text">{{ rightText }}</h3>
+              </div>
+          {% endif %}
       </div>
   </div>
   {% if not is_preview %}
