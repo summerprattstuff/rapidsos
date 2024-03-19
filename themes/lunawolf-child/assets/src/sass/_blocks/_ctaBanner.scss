@@ -1,0 +1,24 @@
+.m__ctaBanner {
+  background: $primary;
+  padding: 55px 0 47px 0;
+  text-align: center;
+
+  @include media-up(m) {
+    padding: 75px 67px;
+  }
+
+  &__gradient {
+    background: linear-gradient(97.03deg, #29A7DD 0%, #001559 92.23%);
+  }
+
+  &__title {
+    font-weight: 400;
+  }
+
+  &__btnWrapper {
+
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+}

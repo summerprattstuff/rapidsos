@@ -1,0 +1,20 @@
+.m__scText {
+  padding: 100px 0;
+  text-align: center;
+
+  &__title {
+
+    @include media-up(l) {
+      font-size: 40px;
+      line-height: 55px;
+    }
+  }
+
+  &__text {
+    text-wrap: balance;
+
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+}

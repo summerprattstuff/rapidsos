@@ -1,0 +1,159 @@
+.m__ovrContent {
+
+  h3 {
+    font-size: 12px;
+
+    @include media-up(m) {
+      font-size: 14px;
+    }
+
+    @include media-up(l) {
+      font-size: 20px;
+    }
+
+    @include media-up(xl) {
+      font-size: 24px;
+    }
+  }
+
+  ._w {
+    position: relative;
+  }
+
+  &__wrapImg {
+    width: 80%;
+    margin: 0 20px 0 auto;
+    padding-top: 60px;
+    padding-bottom: 40px;
+
+    .-preview & {
+      padding: 20px;
+    }
+
+    @include media-up(xs) {
+      margin: 0 40px 0 auto;
+      padding-bottom: 20px;
+    }
+
+    @include media-up(m) {
+      margin: 0 50px 0 auto;
+      padding-top: 0;
+    }
+
+    @include media-up(l) {
+      margin: 0 65px 0 auto;
+    }
+
+    @include media-up(l) {
+      margin: 0 120px 0 auto;
+    }
+
+    &__bgImg {
+      background: 50% / cover no-repeat #fafafa;
+      padding-top: 57.65%;
+      height: 0;
+    }
+  }
+
+  &__left {
+    position: absolute;
+    top: 0; left: 0;
+    max-width: 80%;
+    background: $white;
+    padding: 20px 15px 20px 12px;
+
+    @include media-up(xs) {
+      max-width: 60%;
+    }
+
+    @include media-up(m) {
+      max-width: 40%;
+      padding: 40px 15px 40px 12px;
+      top: 30px;
+    }
+
+    @include media-up(l) {
+      max-width: 400px;
+      top: 35px;
+    }
+
+    @include media-up(xl) {
+      max-width: 507px;
+      top: 35px;
+    }
+
+    &__text {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+
+      @include media-down(m) {
+        font-size: 16px;
+      }
+
+      @include media-up(m) {
+        -webkit-line-clamp: 7;
+        width: 100%;
+      }
+
+      @include media-up(xl) {
+        -webkit-line-clamp: 10;
+      }
+
+      .-preview & {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__right {
+    padding: 10px 15px;
+    position: absolute;
+    bottom: 0; right: 12px;
+    max-width: 75%;
+    background: $primary;
+    color: $white;
+
+    @include media-up(xs) {
+      max-width: 60%;
+    }
+
+    @include media-up(m) {
+      padding: 15px;
+      max-width: 55%;
+    }
+
+    @include media-up(l) {
+      padding: 20px 30px;
+      max-width: 55%;
+    }
+
+    @include media-up(l) {
+      padding: 20px 30px;
+      width: 85%;
+    }
+
+    &__text {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-wrap: balance;
+
+      @include media-up(xs) {
+        width: 80%;
+      }
+
+      @include media-down(m) {
+        font-size: 16px;
+      }
+
+      .-preview & {
+        font-size: 14px;
+      }
+    }
+  }
+}

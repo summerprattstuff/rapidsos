@@ -1,0 +1,30 @@
+{% set title   = block.title %}
+{% set number  = block.stat_value %}
+{% set desc    = block.desc %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__statistic">
+  <div class="wrapper">
+      <div class="m__statistic__wrap">
+          {% if title %}
+              <div class="m__statistic__top">
+                  <h1 class="m__title m__statistic__top__title">{{ title }}</h1>
+              </div>
+          {% endif %}
+          <div class="m__statistic__bot">
+              {% if number %}
+                  <div class="m__statistic__bot__numb">{{ number }}</div>
+              {% endif %}
+              {% if desc %}
+                  <h3 class="m__statistic__bot__desc">{{ desc }}</h3>
+              {% endif %}
+          </div>
+      </div>
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>

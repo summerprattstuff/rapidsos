@@ -1,0 +1,26 @@
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 2px solid $white;
+  font-size: 16px;
+  color: $white;
+  border-radius: 40px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: .2s;
+
+  &:hover {
+    background: $white;
+    color: $text-color-primary;
+  }
+
+  &__black {
+    border-color: $primary;
+    color: $text-color-primary;
+
+    &:hover {
+      background: $primary;
+      color: $white;
+    }
+  }
+}

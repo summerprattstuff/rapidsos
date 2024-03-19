@@ -1,0 +1,14 @@
+.mainHero {
+
+  &__bottom-bar {
+
+    &::before {
+      position: absolute;
+      content: '';
+      left: -3000px; right: -3000px; top: 0; bottom: 0;
+      background: rgba(255, 255, 255, .1);
+      backdrop-filter: blur(4px);
+      z-index: -1;
+    }
+  }
+}

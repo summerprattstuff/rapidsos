@@ -1,0 +1,39 @@
+.m__gradStats {
+  padding: 100px 0 70px;
+
+  @include media-up(m) {
+    padding: 100px 0 50px;
+  }
+
+  ._w {
+    justify-content: center
+  }
+
+  &__block {
+    margin-bottom: 30px;
+
+    @include media-up(m) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__numb {
+    font-size: 80px;
+    line-height: 100px;
+    font-weight: 700;
+    background: linear-gradient(97.03deg, #29A7DD 0%, #001559 92.23%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include media-up(m) {
+      font-size: 100px;
+    }
+  }
+
+  &__desc {
+    color: $text-color-primary;
+    text-wrap: balance;
+  }
+}

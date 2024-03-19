@@ -1,0 +1,43 @@
+.acfe-flexible-placeholder {
+
+  &.-preview {
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    section {
+      position: relative;
+    }
+
+    &,
+    * {
+      box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: inherit;
+    }
+  }
+}
+
+.acfe-fc-placeholder.acfe-fc-preview {
+
+  .acfe-fc-overlay {
+    z-index: 20 !important;
+  }
+
+  & > .button {
+    z-index: 25;
+  }
+
+  &:hover {
+
+    .acfe-fc-overlay {
+      background: rgba($primary, .5);
+    }
+  }
+}

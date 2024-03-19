@@ -1,0 +1,28 @@
+{% set bgColor = block.bg_color %}
+{% set title   = block.title %}
+{% set link    = block.link %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__ctaBanner m__ctaBanner{{ bgColor ? '__gradient' : '' }}">
+  <div class="wrapper">
+    <div class="container container__center">
+      {% if title %}
+        <h1 class="m__title__white m__ctaBanner__title">{{ title }}</h1>
+      {% endif %}
+      {% if link %}
+        <div class="m__ctaBanner__btnWrapper">
+          {% include '_components/_advanced_link.twig' with {
+            link: link,
+            class: 'm_ctaBanner__btn'
+          } %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>

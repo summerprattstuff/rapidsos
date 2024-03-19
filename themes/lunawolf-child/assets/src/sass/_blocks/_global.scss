@@ -1,0 +1,38 @@
+.m__title {
+
+  .-preview & {
+    font-weight: 700;
+  }
+
+  &__white {
+    color: $white;
+
+    .-preview & {
+      color: $white !important;
+    }
+  }
+}
+
+.m__desc {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.container {
+
+  &__center {
+    margin-inline: auto;
+  }
+
+  &__short {
+
+    @include media-up(m) {
+      max-width: 90%;
+    }
+
+    @include media-up(l) {
+      max-width: 70%;
+    }
+  }
+}

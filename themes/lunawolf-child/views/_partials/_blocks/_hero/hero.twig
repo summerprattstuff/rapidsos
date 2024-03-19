@@ -1,0 +1,62 @@
+{% set title           = block.title %}
+{% set subtitle        = block.subtitle %}
+{% set bg_image        = block.bg_image %}
+{% set bg_image_mobile = block.bg_image_mobile %}
+{% set bg_video_file   = block.bg_video_file %}
+{% set bg_video_url    = block.bg_video_url %}
+{% set full_screen     = block.full_screen_video %}
+{% set bg_color        = block.bg_color %}
+{% set txt_color       = block.txt_color %}
+{% set opacity         = block.overlay_opacity %}
+{% set ctas            = block.ctas %}
+{% set bg_video        = bg_video_file or bg_video_url %}
+
+<div class="m__hero__hero{{ bg_video ? ' -withVideo' }}">
+  {% if bg_image and not bg_video %}
+    <div class="img" role="img">
+      <picture>
+        {% if bg_image_mobile %}
+          <source media="(max-width: 514px)" srcset="{{ get_image(bg_image_mobile) }} 514w" />
+        {% endif %}
+        <img src="{{ get_image(bg_image) }}" alt="{{ bg_image.alt }}" srcset="{{ get_image(bg_image) }} 993w" />
+      </picture>
+  </div>
+  {% endif %}
+  {% if bg_video %}
+    <div class="video{{ full_screen ? ' -full' }}">
+      {% if bg_video_url %}
+        <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtube' in bg_video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ bg_video_url }}"></div>
+      {% endif %}
+      {% if bg_video_file %}
+        <video id="video-{{ blockId }}" class="js-heroVideo" playsinline controls data-poster="{{ get_image(bg_image) }}">
+          <source src="{{ bg_video_file.url }}" type="video/mp4" />
+        </video>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="overlay" style="
+                      {{ bg_color ? 'background: ' ~ bg_color ~ ';' }}
+                      {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}">
+  </div>
+  <div class="wrapper">
+    <div class="container" style="{{ txt_color ? 'color: ' ~ txt_color ~ ';' }}">
+      {% if title %}
+        <h1 class="m__title m__hero__hero__title">{{ title }}</h1>
+      {% endif %}
+      {% if subtitle %}
+        <h2 class="m__subtitle m__hero__hero__subtitle">{{ subtitle }}</h2>
+      {% endif %}
+      {% if ctas %}
+        <div class="m__hero__hero__ctas">
+          {% for row in ctas %}
+            {% set link = row.cta %}
+
+            {% include '_components/_advanced_link.twig' with {
+              link: link
+            } %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+.m__logoReel {
+  padding: 80px 0;
+
+  @include media-up(m) {
+    padding: 100px 0;
+  }
+
+  &__title,
+  &__desc {
+    text-align: center;
+  }
+
+  &__desc {
+    text-wrap: balance;
+
+    &:not(:first-child) {
+      margin-top: 25px;
+
+      @include media-up(m) {
+        margin-top: 35px;
+      }
+    }
+
+    @include media-up(l) {
+      font-size: 20px;
+    }
+
+    @include media-up(xl) {
+      font-size: 24px;
+    }
+  }
+
+  &__logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:not(:first-child) {
+      margin-top: 40px;
+
+      @include media-up(m) {
+        margin-top: 50px;
+      }
+    }
+
+    &__block {
+
+      &:not(:first-child) {
+        padding-left: 60px;
+      }
+
+      &__img {
+        max-height: 45px; max-width: 155px;
+        width: auto; height: auto;
+
+        .-preview & {
+          height: 30px;
+        }
+      }
+    }
+  }
+}

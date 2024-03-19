@@ -1,0 +1,14 @@
+{% extends "_layout/base.twig" %}
+
+{% set thumbnail   = post.thumbnail %}
+{% set postType    = post.post_type %}
+{% set title       = post.title %}
+{% set id          = post.ID %}
+{% set postContent = post.content %}
+
+{% block content %}
+	<div class="content">
+    This is page: {{ title }}
+    {{ content }}
+  </div>
+{% endblock %}

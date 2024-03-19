@@ -1,0 +1,25 @@
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden;
+
+  .site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+  }
+}
+
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  position: relative;
+}
+
+.nobreak {
+  white-space: nowrap;
+}

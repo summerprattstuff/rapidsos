@@ -1,0 +1,55 @@
+//.block-directory-downloadable-blocks-panel {
+//    display: none;
+//}
+//
+//.wp-block.block-editor-block-list__block {
+//
+//    &[data-type^='acf'] {
+//        &::before {
+//            content: attr(data-title);
+//            display: block;
+//            font-size: 14px;
+//            padding: 10px;
+//            background: #ececec;
+//            border-width: 1px 1px 0;
+//            border-style: solid;
+//            border-color: #adb2ad;
+//        }
+//    }
+//
+//    .wp-block-separator.is-style-dots {
+//
+//        &::before {
+//            content: "Diagonals";
+//            color: currentColor;
+//            font-size: 13px;
+//            letter-spacing: .01em;
+//            line-height: 16px;
+//            padding-left: 0;
+//            font-family: sans-serif;
+//        }
+//    }
+//}
+//
+//.editor-styles-wrapper {
+//}
+//
+//.wp-block {
+//    position: relative;
+//
+//    &.block-list-appender {
+//
+//        .acf-chevron-elune {
+//            display: none;
+//        }
+//    }
+//
+//    .acf-chevron-elune {
+//        position: absolute;
+//        left: 0; top: 0;
+//
+//        &.active {
+//            transform: rotate(-180deg);
+//        }
+//    }
+//}
