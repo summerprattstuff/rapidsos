@@ -344,6 +344,23 @@ table.media .column-title .has-media-icon ~ .row-actions {
         height: auto;
     }
 }
+@media only screen and (min-width:783px) {
+    #media-categories-module-tree-view .wp-heading-inline {
+        visibility: hidden;
+    }
+
+    .upload-php .wrap h1.wp-heading-inline,
+    .upload-php .wrap .wp-heading-inline + .page-title-action{
+        position: relative;
+        left: -25%;
+    }
+    
+    .wrap > #media-categories-spinner {
+        position: relative;
+        top: 5px;
+        left: -24.5%;
+    }
+}
 @media only screen and (max-width: 782px) {
     div.media-categories-module-selectize,
     div.media-categories-module-selectize-search {

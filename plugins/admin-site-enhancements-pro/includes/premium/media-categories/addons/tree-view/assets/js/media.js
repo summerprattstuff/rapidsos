@@ -1007,7 +1007,7 @@ wp.media.events.on(
 		( function( $ ) {
 			
 			$('#media-categories-spinner').fadeOut();
-
+			
 			switch ( atts.media_view ) {
 				/**
 				 * List View
@@ -1150,6 +1150,9 @@ wp.media.events.on(
 /**
  * Grid View: When an attachment completes successful upload to the Grid View, reload the Tree View
  * to show the updated Category counts
+ * 
+ * See /assets/js/media.js:197 >> mediaLibraryOrganizerUploaderInitializeEvents() for attachment: events to hook into
+ * e.g. below, asenha-media:grid:attachment:upload:success
  *
  * @since   1.3.1
  *
@@ -1158,7 +1161,19 @@ wp.media.events.on(
 wp.media.events.on(
 	'asenha-media:grid:attachment:upload:success',
 	function( attachment ) {
+		
+		// console.log( attachment );
+		// console.log('ID: '+attachment.id );
+		// console.dir('Tree view: '+JSON.stringify(media_categories_module_tree_view));
+		// console.log('Selected term: '+media_categories_module_tree_view.selected_term);
+		// console.log('Selected term: '+media_categories_module_tree_view.selected_term_id);
 
+		// Assign Attachments to Category.
+		const attachment_ids = []
+		attachment_ids.push(attachment.id);
+		mediaLibraryOrganizerTreeViewAssignAttachmentsToCategory( attachment_ids, media_categories_module_tree_view.selected_term_id );
+		
+		// Reload the Tree View
 		mediaLibraryOrganizerTreeViewGet( media_categories_module_tree_view.taxonomy.name, media_categories_module_tree_view.selected_term );
 
 	}

@@ -326,6 +326,7 @@ class Media_Categories_Module_Tree_View_Media {
 		$args = array(
 			'echo'       => 0,
 			'hide_empty' => 0,
+			// 'exclude' => get_option('default_term_' . $taxonomy_name),
 			'show_count' => 1,
 			'taxonomy'   => $taxonomy_name,
 			'title_li'   => 0,
@@ -358,7 +359,7 @@ class Media_Categories_Module_Tree_View_Media {
 		// Output.
 		$output = '<ul>
             <li class="cat-item-all">
-                <a href="' . $this->get_all_terms_link() . '">' . __( 'All', 'admin-site-enhancements' ) . '</a>
+                <a href="' . $this->get_all_terms_link() . '">' . __( 'All Media', 'admin-site-enhancements' ) . '</a>
             </li>
             <li class="cat-item-unassigned">
                 <a href="' . $this->get_unassigned_term_link( $taxonomy_name ) . '">' . __( 'Uncategorized', 'admin-site-enhancements' ) . '</a>
@@ -401,6 +402,7 @@ class Media_Categories_Module_Tree_View_Media {
 				$this->get_filters(),
 				array(
 					$taxonomy_name => -1,
+					// $taxonomy_name => 'uncategorized',
 				)
 			),
 			'upload.php'

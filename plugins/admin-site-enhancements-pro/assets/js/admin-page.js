@@ -319,6 +319,9 @@
       $('.password-protection-description-url-parameter').appendTo('.fields-utilities .enable-password-protection .asenha-subfields');
       /*! </fs_premium_only> */
       $('.maintenance-mode').appendTo('.fields-utilities > table > tbody');
+      /*! <fs_premium_only> */
+      $('.maintenance-page-title').appendTo('.fields-utilities .maintenance-mode .asenha-subfields');
+      /*! </fs_premium_only> */
       $('.maintenance-page-heading').appendTo('.fields-utilities .maintenance-mode .asenha-subfields');
       $('.maintenance-page-description').appendTo('.fields-utilities .maintenance-mode .asenha-subfields');
       $('.maintenance-page-background').appendTo('.fields-utilities .maintenance-mode .asenha-subfields');
@@ -418,12 +421,14 @@
       /*! <fs_premium_only> */
       // Enable Maintenance Page Custom CSS => Initialize CodeMirror
       var maintenanceModeCssTextarea = document.getElementById("admin_site_enhancements[maintenance_page_custom_css]");
-      var maintenanceModeCssEditor = CodeMirror.fromTextArea(maintenanceModeCssTextarea, {
-         mode: "css",
-         lineNumbers: true,
-         lineWrapping: true
-      });
-      maintenanceModeCssEditor.setSize("100%",300);
+      if ( maintenanceModeCssTextarea ) {
+         var maintenanceModeCssEditor = CodeMirror.fromTextArea(maintenanceModeCssTextarea, {
+            mode: "css",
+            lineNumbers: true,
+            lineWrapping: true
+         });
+         maintenanceModeCssEditor.setSize("100%",300);         
+      }
       /*! </fs_premium_only> */
 
       // Show and hide corresponding fields on tab clicks
@@ -462,9 +467,6 @@
          bodyCodeEditor.refresh(); // Insert <head>, <body> and <footer> code >> CodeMirror
          footerCodeEditor.refresh(); // Insert <head>, <body> and <footer> code >> CodeMirror
          robotsTxtEditor.refresh(); // Manage robots.txt >> CodeMirror
-         /*! <fs_premium_only> */
-         maintenanceModeCssEditor.refresh(); // Maintenance page >> CodeMirror
-         /*! </fs_premium_only> */
       });
 
       $('#tab-disable-components + label').click( function() {
@@ -493,6 +495,11 @@
          $('.asenha-fields:not(.fields-utilities)').hide();
          window.location.hash = 'utilities';
          Cookies.set('asenha_tab', 'utilities', { expires: 1 }); // expires in 1 day
+         /*! <fs_premium_only> */
+         if ( maintenanceModeCssTextarea ) {
+            maintenanceModeCssEditor.refresh(); // Maintenance page >> CodeMirror
+         }
+         /*! </fs_premium_only> */
       });
 
       // Open tab set in 'asenha_tab' cookie set on saving changes. Defaults to content-management tab when cookie is empty
@@ -520,7 +527,9 @@
                $('.asenha-toggle.'+fieldClass+' td .asenha-field-with-options').addClass('is-enabled');
                if ( codeMirrorInstances ) {
                   Object.keys(codeMirrorInstances).forEach(function(key) {
-                     codeMirrorInstances[key].refresh();
+                     if ( codeMirrorInstances[key] ) {
+                        codeMirrorInstances[key].refresh();
+                     }
                   });
                }
 
@@ -548,7 +557,9 @@
                   }
                   if ( codeMirrorInstances ) {
                      Object.keys(codeMirrorInstances).forEach(function(key) {
-                        codeMirrorInstances[key].refresh();
+                        if ( codeMirrorInstances[key] ) {
+                           codeMirrorInstances[key].refresh();                        
+                        }
                      });
                   }
 
@@ -681,10 +692,15 @@
             $(this).val(oldValue);
          }
       });
-
-      subfieldsToggler( 'maintenance_mode', 'maintenance-mode' );
+      
       /*! <fs_premium_only> */
-      subfieldsToggler( 'maintenance_mode', 'maintenance-mode', '', {maintenanceModeCssEditor} );
+      if ( maintenanceModeCssEditor != 'undefined' ) {
+         subfieldsToggler( 'maintenance_mode', 'maintenance-mode', '', {maintenanceModeCssEditor} );
+      } else {
+      /*! </fs_premium_only> */
+         subfieldsToggler( 'maintenance_mode', 'maintenance-mode' );
+      /*! <fs_premium_only> */
+      }
       /*! </fs_premium_only> */
 
       /*! <fs_premium_only> */

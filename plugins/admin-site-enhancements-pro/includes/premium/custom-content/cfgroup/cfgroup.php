@@ -13,6 +13,8 @@ class Custom_Field_Group
     public $form;
     public $fields;
     public $field_group;
+    public $group_ids;
+    public $validators;
     private static $instance;
 
 

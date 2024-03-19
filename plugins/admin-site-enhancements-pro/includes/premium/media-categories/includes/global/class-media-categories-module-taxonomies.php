@@ -105,6 +105,11 @@ class Media_Categories_Module_Taxonomies {
 				'show_in_quick_edit'    => true,
 				'show_admin_column'     => true,
 				'hierarchical'          => $taxonomy['hierarchical'],
+				// 'default_term'			=> array(
+				// 	'name'			=> __( 'Uncategorized', 'admin-site-enhancements' ),
+				// 	'slug'			=> 'uncategorized',
+				// 	'description'	=> '',
+				// ),
 
 				// Force counts on Terms.
 				'update_count_callback' => '_update_generic_term_count',

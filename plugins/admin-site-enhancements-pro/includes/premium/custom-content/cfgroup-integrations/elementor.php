@@ -93,19 +93,20 @@ class Ase_Elementor_Integration {
 		$cf_groups = array();
 		$cf_group_fields = array();
 
+		// We don't use WP_Query and wp_reset_postdata() at the end to prevent messing with the main query
 		$args = array(
 		    'post_type' => 'asenha_cfgroup',
 		    'post_status' => 'publish',
-		    'posts_per_page' => -1,
+		    'numberposts' => -1,
 		);
 
-		$query = new WP_Query( $args );
+	    $cfgroups = get_posts( $args );
 
-		if ( $query->have_posts() ) {
-		    while ( $query->have_posts() ) {
-		        $query->the_post();
-
-		        $cf_group_id = get_the_ID();
+		if ( ! empty( $cfgroups ) ) {
+			foreach ( $cfgroups as $cfgroup ) {
+				// setup_postdata( $cfgroup ); // Not currently needed to access ID and title
+				
+		        $cf_group_id = $cfgroup->ID;
 		        $fields = CFG()->find_fields( array( 'group_id' => $cf_group_id ) );
 		        $cf_group_fields = array();
 
@@ -193,13 +194,13 @@ class Ase_Elementor_Integration {
 			        }
 		        }
 
-		        $post_title = get_the_title();
+		        $post_title = $cfgroup->post_title;
 		        $cf_groups[] = array(
 		        	'label'		=> $post_title,
 		        	'options'	=> $cf_group_fields,
 		        );
 		    }
-		    wp_reset_postdata();
+		    // wp_reset_postdata(); // this breaks the main query, so, we comment out
 		}
 		// vi( $cf_groups );
 		

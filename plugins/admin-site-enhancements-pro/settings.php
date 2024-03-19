@@ -214,7 +214,7 @@ function asenha_add_settings_page() {
 								<a href="#" id="have-sponsored" class="asenha-have-sponsored">I've sponsored ASE</a>
 							</div>
 							<div class="nudge-stats">
-								<p class="nudge-description">This free version of ASE has consumed more than <a href="https://wordpress.org/plugins/admin-site-enhancements/#developers" target="_blank">250 hours of dev time</a>. At v6.9.3 (released on March 12, 2024) and 50,000+ active installs, there have been <a href="https://bowo.io/asenha-sp-gth-ndg" target="_blank">6 monthly sponsors</a> and <a href="https://bowo.io/asenha-sp-ppl-ndg" target="_blank">59 one-time sponsors</a>. You can be one today!</p>
+								<p class="nudge-description">This free version of ASE has consumed more than <a href="https://wordpress.org/plugins/admin-site-enhancements/#developers" target="_blank">250 hours of dev time</a>. At v6.9.4 (released on March 18, 2024) and 50,000+ active installs, there have been <a href="https://bowo.io/asenha-sp-gth-ndg" target="_blank">6 monthly sponsors</a> and <a href="https://bowo.io/asenha-sp-ppl-ndg" target="_blank">59 one-time sponsors</a>. You can be one today!</p>
 							</div>
 						</div>
 						<div class="nudge-secondary">
@@ -581,9 +581,15 @@ function asenha_admin_scripts( $hook_suffix ) {
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker' );
 
+		// We force loading the uncompressed version of TinyMCE. This ensures we load 'wp-tinymce-root' and then 'wp-tinymce', 
+		// which prevents issue where the Visual tab is unusable in some scenarios
+		$wp_scripts = wp_scripts();
+		$wp_scripts->remove( 'wp-tinymce' );
+		wp_register_tinymce_scripts( $wp_scripts, true );
+
 		// Main style and script for the admin page
 		wp_enqueue_style( 'asenha-admin-page', ASENHA_URL . 'assets/css/admin-page.css', array( 'asenha-jbox', 'asenha-codemirror', 'asenha-datatables', 'wp-color-picker' ), ASENHA_VERSION );
-		wp_enqueue_script( 'asenha-admin-page', ASENHA_URL . 'assets/js/admin-page.js', array( 'asenha-jsticky', 'asenha-jbox', 'asenha-js-cookie', 'asenha-codemirror-htmlmixed-mode', 'asenha-codemirror-xml-mode', 'asenha-codemirror-javascript-mode', 'asenha-codemirror-css-mode', 'asenha-codemirror-markdown-mode', 'asenha-datatables', 'asenha-custom-admin-menu', 'wp-color-picker' ), ASENHA_VERSION, false );
+		wp_enqueue_script( 'asenha-admin-page', ASENHA_URL . 'assets/js/admin-page.js', array( 'asenha-jsticky', 'asenha-jbox', 'asenha-js-cookie', 'asenha-codemirror-htmlmixed-mode', 'asenha-codemirror-xml-mode', 'asenha-codemirror-javascript-mode', 'asenha-codemirror-css-mode', 'asenha-codemirror-markdown-mode', 'asenha-datatables', 'asenha-custom-admin-menu', 'wp-color-picker', 'wp-mediaelement', 'wp-tinymce-root', 'wp-tinymce' ), ASENHA_VERSION, false );
 
 		wp_localize_script( 
 			'asenha-admin-page', 

@@ -1,20 +1,50 @@
 ## Changelog
 
-**Admin and Site Enhancements (ASE) v1.0.0** was released on October 17, 2022. Since then, there have been **69 _point_ releases** (e.g. 1.1.0 ) and **81 _patch_ releases** (e.g. 4.9.1). 
+**Admin and Site Enhancements (ASE) v1.0.0** was released on October 17, 2022. Since then, there have been **69 _point_ releases** (e.g. 1.1.0 ) and **82 _patch_ releases** (e.g. 4.9.1). 
 
 Each **_point release_** usually corresponds with the addition of one new module/feature. Each module/feature usually is the equivalent of one (or more) single-purpose plugin. Each **_patch release_** usually contain one or more bugfix or improvements to existing modules/features.
 
 [**Upgrade to ASE Pro**](https://www.wpase.com/chnlg-to-web) now. Lifetime Deal (LTD) available.
 
+### 6.9.4 (2024.03.18) - ASE Free and Pro
+
+* **[IMPROVED in Pro] Content Management >> Media Categories**: when in grid view, parent categories are now properly assigned when uploading new media files to a sub-category view, i.e. after clicking on a sub-category in the categories tree. Props to Alin T. for suggesting the improvement. Also simplified the UI by removing the "Media Categories" title above the categories tree.
+
+* **[IMPROVED in Pro] Content Management >> Custom Content Types >> Custom Field Groups**: "This is a required field" validation now works properly for File, Radio and Checkbox fields, while removing it from the True False field, as an empty checkbox is a valid value as well. Props to Michael S. for testing and reporting this.
+
+* **[IMPROVED in Pro] Utilities >> Maintenance Mode**: add an option to set the title of the maintenance page, which is visible in browser tab title. Props to Gálik J. for the suggestion. Also enabled wpautop() for the output of heading and description. i.e. line breaks now appear on the maintenance page.
+
+* **[IMPROVED in Free and Pro] Disable Components >> Disable Smaller Components >> Disable Emoji Support**: will also now disable conversion of text emojis into picture emojis, a.k.a. smilies. Props to [@ofmarconi](https://wordpress.org/support/users/ofmarconi/) for [reporting the issue](https://wordpress.org/support/topic/even-with-the-option-to-disable-emoji-it-continues-to-be-changed-on-the-front-en/) on their Elementor site.
+
+* **[IMPROVED in Pro] Admin Interface >> Custom Admin Footer Text**: added "Add Media" and "Visual | Text" switcher.
+
+* **[FIXED in Free and Pro] ASE Settings**: fixed an issue in some scenarios, of not being able to enter any value in the TinyMCE Visual editor. Props to Nelson T. who first reported the issue in the Custom Admin Footer Text module and being patient and supportive throughout the troubleshooting process. Additional props to Gustavo F. for reporting the same issue in the Maintenance Mode module and facilitating the troubleshooting process as well.
+
+* **[FIXED in Pro] Custom Code >> Code Snippets Manager**: fixed an issue in some scenarios, of not being able to enter any value in the snippet description's TinyMCE Visual editor. Props to Michael S. for reporting the issue.
+
+* **[FIXED in Free and Pro] Log In | Log Out >> Change Login URL**: fixed an issue where on some circumstances, after a successful login, redirection to the default / custom 404 page instead of the admin dashboard occurs. Props to Ignazio D.M. for reporting the issue.
+
+* **[FIXED in Pro] Content Management >> Custom Content Types >> Custom Field Groups**: fixed an issue with Elementor integration where Loop Grid widget is not showing the correct set of CPT content. Props to Thomas B. for reporting the issue in great detail (problematic URLs and annotated screenshots) and facilitating the troubleshooting process.
+
+* **[FIXED in Pro] Content Management >> Custom Content Types >> Custom Field Groups**: fixed a couple of deprecation notices when in PHP v8.2 for creating dynamic property.
+
+* **[FIXED in Pro] Content Management >> Custom Content Types >> Custom Field Groups**: fixed an issue where custom field group's extra settings were not properly being saved.
+
+* **[FIXED in Free and Pro] Admin Interface >> Hide Admin Notices**: fixed missing settings panels in Loco Translate, e.g. Add New Language panel, as they are using divs with .notice class, which were hidden inside the Notices panel in the admin bar. These panels are now excluded from being hidden. Props to [@inboundbe](https://wordpress.org/support/users/inboundbe/) and [@kirollosa](https://wordpress.org/support/users/kirollosa/) for [reporting the issue](https://wordpress.org/support/topic/issue-with-loco-translate-2/).
+
+* **[FIXED in Free and Pro] Content Mangement >> Media Replacement**: fixed an issue where on certain scenarios, when editing a page / post / CPT with the block editor, there were media frame layout issues when trying to change the featured image. Props to Philipp Z. for reporting the issue and facilitating troubleshooting, which includes recording a 43 seconds screencast of the issue.
+
+* **[FIXED in Free and Pro] Optimizations >> Revisions Control**: fixed an issue when entering 0 revisions as the limit, after saving changes, it will revert back to the default 10 revisions. Props to [@pressthemes1](https://wordpress.org/support/users/pressthemes1/) for [reporting the issue](https://wordpress.org/support/topic/all-setting-revisions-control-to-0/).
+
 ### 6.9.3 (2024.03.12) - ASE Free and Pro
 
 * **[IMPROVED in Pro] Utilities >> Maintenance Mode**: enable WYSIWYG editor for heading and description, which allows for links, some custom HTML and custom styling if you need it. Also added ability to add custom CSS along with addition of a page overlay div element, which you can style to overlay the background image, e.g. make it darker or brighter to increase contrast with the maintenance message.
 
-* **[IMPROVED in Pro] Content Management >> Content Duplication**: added duplication link in the publishin section of post edit screen, both in the classic editor and block editor. Also added an option to choose on which locations to show the duplication link: list view post action row / admin bar / edit screen publish section.
+* **[IMPROVED in Pro] Content Management >> Content Duplication**: added duplication link in the publishing section of post edit screen, both in the classic editor and block editor. Also added an option to choose on which locations to show the duplication link: list view post action row / admin bar / edit screen publish section.
 
 * **[FIXED in Free and Pro] ASE Settings**: prevent JS error when iThemes Security Pro / Solid Security Pro plugin is active.
 
-* **[FIXED in Pro] Content Management >> Custom Content Types >> Custom Field Groups**: fixed an issue where returning the value of a custom field insde a GenerateBlcoks Query Loop returns an empty value after update to v6.9.1. Props to Arne O. for reporting the issue in details and patiently facilitating the troubleshooting process. This also fixed a similar issue with showing custom field values in Breakdance Post Loop Builder. Props to Philipp Z. for reporting it.
+* **[FIXED in Pro] Content Management >> Custom Content Types >> Custom Field Groups**: fixed an issue where returning the value of a custom field inside a GenerateBlocks Query Loop returns an empty value after update to v6.9.1. Props to Arne O. for reporting the issue in details and patiently facilitating the troubleshooting process. This also fixed a similar issue with showing custom field values in Breakdance Post Loop Builder. Props to Philipp Z. for reporting it.
 
 * **[CHANGED in Pro] Content Management >> AVIF Upload**: remove link to avif.io, which is no longer online. This module will likely be removed once WP v6.5 is released and is widely adopted, as built-in AVIF support will be [included in WP core](https://make.wordpress.org/core/2024/02/23/wordpress-6-5-adds-avif-support/).
 

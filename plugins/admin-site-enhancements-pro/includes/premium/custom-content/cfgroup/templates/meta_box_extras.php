@@ -14,14 +14,14 @@ foreach ( $types as $post_type ) {
 
 $extras = (array) get_post_meta( $post->ID, 'cfgroup_extras', true );
 
-if ( ! isset( $extras['hide_editor'] ) ) {
-    $extras['hide_editor'] = '';
-}
 if ( ! isset( $extras['order'] ) ) {
     $extras['order'] = 0;
 }
 if ( ! isset( $extras['context'] ) ) {
     $extras['context'] = 'normal';
+}
+if ( ! isset( $extras['hide_editor'] ) ) {
+    $extras['hide_editor'] = '';
 }
 
 ?>

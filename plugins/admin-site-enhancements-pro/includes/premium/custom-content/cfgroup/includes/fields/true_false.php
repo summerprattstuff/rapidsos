@@ -42,22 +42,6 @@ class cfgroup_true_false extends cfgroup_field
                 ?>
             </td>
         </tr>
-        <tr class="field_option field_option_<?php echo $this->name; ?>">
-            <td class="label validation-label">
-                <label><?php _e( 'Validation', 'admin-site-enhancements' ); ?></label>
-            </td>
-            <td>
-                <?php
-                    CFG()->create_field( [
-                        'type' => 'true_false',
-                        'input_name' => "cfgroup[fields][$key][options][required]",
-                        'input_class' => 'true_false',
-                        'value' => $this->get_option( $field, 'required' ),
-                        'options' => [ 'message' => __( 'This is a required field', 'admin-site-enhancements' ) ],
-                    ] );
-                ?>
-            </td>
-        </tr>
     <?php
     }
 

@@ -626,7 +626,7 @@ class Settings_Sanitization {
 		$options['enable_revisions_control'] = ( 'on' == $options['enable_revisions_control'] ? true : false );
 
 		if ( ! isset( $options['revisions_max_number'] ) ) $options['revisions_max_number'] = 10;
-		$options['revisions_max_number'] = ( ! empty( $options['revisions_max_number'] ) ) ? sanitize_text_field( $options['revisions_max_number'] ) : 10;
+		$options['revisions_max_number'] = ( isset( $options['revisions_max_number'] ) ) ? sanitize_text_field( $options['revisions_max_number'] ) : 10;
 
 		if ( is_array( $asenha_revisions_post_types ) ) {
 			foreach ( $asenha_revisions_post_types as $post_type_slug => $post_type_label ) { // e.g. $post_type_slug is post, 
@@ -726,16 +726,21 @@ class Settings_Sanitization {
 		if ( ! isset( $options['maintenance_mode'] ) ) $options['maintenance_mode'] = false;
 		$options['maintenance_mode'] = ( 'on' == $options['maintenance_mode'] ? true : false );
 
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			if ( ! isset( $options['maintenance_page_title'] ) ) $options['maintenance_page_title'] = 'Under maintenance';
+			$options['maintenance_page_title'] = ( ! empty( $options['maintenance_page_title'] ) ) ? sanitize_text_field( $options['maintenance_page_title'] ) : 'Under maintenance';			
+		}
+
 		if ( ! isset( $options['maintenance_page_heading'] ) ) $options['maintenance_page_heading'] = 'We\'ll be back soon.';
 		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-			$options['maintenance_page_heading'] = ( ! empty( $options['maintenance_page_heading'] ) ) ? wp_kses_post( $options['maintenance_page_heading'] ) : 'We\'ll be back soon.';
+			$options['maintenance_page_heading'] = ( ! empty( $options['maintenance_page_heading'] ) ) ? wp_kses_post( wpautop( $options['maintenance_page_heading'] ) ) : 'We\'ll be back soon.';
 		} else {
 			$options['maintenance_page_heading'] = ( ! empty( $options['maintenance_page_heading'] ) ) ? sanitize_text_field( $options['maintenance_page_heading'] ) : 'We\'ll be back soon.';
 		}
 
 		if ( ! isset( $options['maintenance_page_description'] ) ) $options['maintenance_page_description'] = 'This site is undergoing maintenance for an extended period today. Thanks for your patience.';
 		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-			$options['maintenance_page_description'] = ( ! empty( $options['maintenance_page_description'] ) ) ? wp_kses_post( $options['maintenance_page_description'] ) : 'This site is undergoing maintenance for an extended period today. Thanks for your patience.';		
+			$options['maintenance_page_description'] = ( ! empty( $options['maintenance_page_description'] ) ) ? wp_kses_post( wpautop( $options['maintenance_page_description'] ) ) : 'This site is undergoing maintenance for an extended period today. Thanks for your patience.';		
 		} else {
 			$options['maintenance_page_description'] = ( ! empty( $options['maintenance_page_description'] ) ) ? sanitize_text_field( $options['maintenance_page_description'] ) : 'This site is undergoing maintenance for an extended period today. Thanks for your patience.';			
 		}
