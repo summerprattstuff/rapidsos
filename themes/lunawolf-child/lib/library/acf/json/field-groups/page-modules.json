@@ -920,7 +920,7 @@
                             "label": "Title",
                             "name": "title",
                             "aria-label": "",
-                            "type": "text",
+                            "type": "textarea",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -930,10 +930,11 @@
                                 "id": ""
                             },
                             "default_value": "",
+                            "acfe_textarea_code": 0,
                             "maxlength": "",
+                            "rows": 2,
                             "placeholder": "",
-                            "prepend": "",
-                            "append": ""
+                            "new_lines": "br"
                         },
                         {
                             "key": "field_65f97249ced8b",
@@ -951,7 +952,7 @@
                             },
                             "acfe_repeater_stylised_button": 0,
                             "layout": "table",
-                            "min": 0,
+                            "min": 2,
                             "max": 3,
                             "collapsed": "",
                             "button_label": "Add Step",
@@ -1071,5 +1072,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710847574
+    "modified": 1710861379
 }

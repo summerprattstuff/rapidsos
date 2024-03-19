@@ -32,6 +32,8 @@
 
   &__logos {
     display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:not(:first-child) {
       margin-top: 40px;
@@ -48,8 +50,8 @@
       }
 
       &__img {
-        height: 45px;
-        width: auto;
+        max-height: 45px; max-width: 155px;
+        width: auto; height: auto;
 
         .-preview & {
           height: 30px;

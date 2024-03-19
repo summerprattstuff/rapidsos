@@ -9,6 +9,10 @@
     padding-top: 60px;
   }
 
+  .-preview & {
+    margin: 0;
+  }
+
   &__top{
 
     &__title {
@@ -43,7 +47,6 @@
       line-height: 1;
       font-weight: 700;
       white-space: nowrap;
-      align-self: flex-end;
 
       @include media-up(xs) {
         font-size: 100px;
@@ -51,16 +54,18 @@
 
       @include media-up(m) {
         font-size: 130px;
-        top: 30px;
+        top: 40px;
+        align-self: flex-end;
       }
 
       @include media-up(l) {
         font-size: 200px;
-        top: 45px;
+        top: 55px;
       }
 
       @include media-up(xl) {
         font-size: 300px;
+        top: 75px;
       }
 
       .-preview & {
