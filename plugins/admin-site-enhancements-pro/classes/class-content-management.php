@@ -1641,35 +1641,41 @@ class Content_Management {
 	 * @since 1.1.0
 	 */
 	public function add_media_replacement_button( $fields, $post ) {
-		global $post;
-		
-		$image_mime_type = '';
-		if ( is_object( $post ) ) {
-			if ( property_exists( $post, 'post_mime_type' ) ) {
-				$image_mime_type = $post->post_mime_type;		
-			}
-		}
-				
-		// Enqueues all scripts, styles, settings, and templates necessary to use all media JS APIs.
-		// Reference: https://codex.wordpress.org/Javascript_Reference/wp.media
-		wp_enqueue_media();
+		global $post, $pagenow, $typenow;
 
-		// Add new field to attachment fields for the media replace functionality
-		$fields['asenha-media-replace'] = array();
-		$fields['asenha-media-replace']['label'] = '';
-		$fields['asenha-media-replace']['input'] = 'html';
-		$fields['asenha-media-replace']['html'] = '
-			<div id="media-replace-div" class="postbox">
-				<div class="postbox-header">
-					<h2 class="hndle ui-sortable-handle">Replace Media</h2>
+		// Do not do this on post creation and editing screen
+		// May cause media frame layout / display issues
+		if ( 'attachment' == $typenow ||
+			( 'attachment' != $typenow && 'post-new.php' != $pagenow && 'post.php' != $pagenow )		
+			) {
+			$image_mime_type = '';
+			if ( is_object( $post ) ) {
+				if ( property_exists( $post, 'post_mime_type' ) ) {
+					$image_mime_type = $post->post_mime_type;		
+				}
+			}
+					
+			// Enqueues all scripts, styles, settings, and templates necessary to use all media JS APIs.
+			// Reference: https://codex.wordpress.org/Javascript_Reference/wp.media
+			wp_enqueue_media();
+
+			// Add new field to attachment fields for the media replace functionality
+			$fields['asenha-media-replace'] = array();
+			$fields['asenha-media-replace']['label'] = '';
+			$fields['asenha-media-replace']['input'] = 'html';
+			$fields['asenha-media-replace']['html'] = '
+				<div id="media-replace-div" class="postbox">
+					<div class="postbox-header">
+						<h2 class="hndle ui-sortable-handle">Replace Media</h2>
+					</div>
+					<div class="inside">
+					<button type="button" id="asenha-media-replace" class="button-secondary button-large asenha-media-replace-button" data-old-image-mime-type="' . $image_mime_type . '" onclick="replaceMedia(\'' . $image_mime_type . '\');">Select New Media File</button>
+					<input type="hidden" id="new-attachment-id" name="new-attachment-id" />
+					<div class="asenha-media-replace-notes"><p>The current file will be replaced with the uploaded / selected file (of the same type) while retaining the current ID, publish date and file name. Thus, no existing links will break.</p></div>
+					</div>
 				</div>
-				<div class="inside">
-				<button type="button" id="asenha-media-replace" class="button-secondary button-large asenha-media-replace-button" data-old-image-mime-type="' . $image_mime_type . '" onclick="replaceMedia(\'' . $image_mime_type . '\');">Select New Media File</button>
-				<input type="hidden" id="new-attachment-id" name="new-attachment-id" />
-				<div class="asenha-media-replace-notes"><p>The current file will be replaced with the uploaded / selected file (of the same type) while retaining the current ID, publish date and file name. Thus, no existing links will break.</p></div>
-				</div>
-			</div>
-		';
+			';
+		}
 
 		return $fields;
 

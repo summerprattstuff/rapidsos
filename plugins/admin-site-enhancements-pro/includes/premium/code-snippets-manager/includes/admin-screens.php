@@ -113,6 +113,12 @@ class Code_Snippets_Manager_Admin {
 			return false;
 		}
 
+		// We force loading the uncompressed version of TinyMCE. This ensures we load 'wp-tinymce-root' and then 'wp-tinymce', 
+		// which prevents issue where the Visual editor for the snippet description is unusable in some scenarios
+		$wp_scripts = wp_scripts();
+		$wp_scripts->remove( 'wp-tinymce' );
+		wp_register_tinymce_scripts( $wp_scripts, true );
+
 		// Some handy variables
 		// $a  = plugins_url( '/', CSM_PLUGIN_FILE ) . 'assets';
 		$a = ASENHA_URL . 'includes/premium/code-snippets-manager/assets';

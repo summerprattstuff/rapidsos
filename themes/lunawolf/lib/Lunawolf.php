@@ -28,6 +28,7 @@ class Lunawolf extends Site {
 		add_filter( 'acfe/flexible/render/template', [$this, 'acfe_preview_override_timber'], 10, 4 );
 //		add_filter( 'acfe/flexible/render/style', [$this, 'acfe_style_path'], 10, 4 );
 		add_filter( 'acfe/flexible/enqueue', [$this, 'acfe_style_path_enqueue'], 10, 4 );
+    add_filter( 'acfe/flexible/thumbnail', [$this, 'acfe_custom_layout_path'], 10, 3);
 
 		parent::__construct();
 
@@ -278,4 +279,10 @@ class Lunawolf extends Site {
 
 		wp_enqueue_style('acfe-blocks-styles', LUNAWOLF_BUILD_URI . '/blocks/blocks.css', [], $asset_config_version);
 	}
+
+  public function acfe_custom_layout_path($thumbnail, $field, $layout) {
+    $name = $layout['name'];
+
+    return get_stylesheet_directory_uri() . '/public/blocks/thumbnails/' . $name . '.jpg';
+  }
 }

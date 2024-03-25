@@ -24,7 +24,7 @@ class cfgroup_checkbox extends cfgroup_field
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
             <?php $checked = in_array( $val, (array) $field->value ) ? ' checked' : ''; ?>
     		<label for="<?php echo esc_attr( $field->input_name . '-' . $val ); ?>">
-    			<input type="checkbox" id="<?php echo esc_attr( $field->input_name . '-' . $val ); ?>" name="<?php echo esc_attr( $field->input_name ); ?>" value="<?php echo esc_attr( $val ); ?>"<?php echo $checked; ?>/>
+    			<input type="checkbox" id="<?php echo esc_attr( $field->input_name . '-' . $val ); ?>" name="<?php echo esc_attr( $field->input_name ); ?>" value="<?php echo esc_attr( $val ); ?>" class="checkbox"<?php echo $checked; ?>/>
     			<?php echo esc_attr( $label ); ?>
     		</label>
     		<?php endforeach; ?>

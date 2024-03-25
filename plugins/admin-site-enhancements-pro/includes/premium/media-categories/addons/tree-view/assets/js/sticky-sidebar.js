@@ -310,7 +310,7 @@
 										var dims = this.dimensions;
 
 										// Container of sticky sidebar dimensions.
-										dims.containerTop    = StickySidebar.offsetRelative( this.container ).top;
+										dims.containerTop    = StickySidebar.offsetRelative( this.container ).top + 45;
 										dims.containerHeight = this.container.clientHeight;
 										dims.containerBottom = dims.containerTop + dims.containerHeight;
 

@@ -106,11 +106,13 @@ class Login_Logout {
         }
 		
 		// When logging in
-		if ( ( isset( $_POST['log'] ) && isset( $_POST['pwd'] ) ) ||
-			( isset( $_POST['post_password'] ) )
+		if ( ( isset( $_POST['log'] ) && isset( $_POST['pwd'] ) ) 
+			|| ( isset( $_POST['post_password'] ) )
+			|| is_user_logged_in()
 		) {
 		
 			// Do nothing. i.e. do not redirect to /not_found/ as this contains a login POST request
+			// or the user is already logged in
 			// upon successful login, redirection to logged-in view of /wp-admin/ happens.
 			// Without this condition, login attempt will redirect to /not_found/
 		

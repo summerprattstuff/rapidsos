@@ -1496,6 +1496,16 @@ class Settings_Sections_Fields {
 				'class'						=> 'asenha-toggle utilities ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
+		
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$media_buttons = true;
+			$quicktags = true;
+			$toolbar1 = 'bold,italic,underline,separator,link,unlink,undo,redo';
+		} else {
+			$media_buttons = false;
+			$quicktags = false;
+			$toolbar1 = 'bold,italic,underline';
+		}
 
 		$field_id = 'custom_admin_footer_left';
 		$field_slug = 'custom-admin-footer-left';
@@ -1503,16 +1513,18 @@ class Settings_Sections_Fields {
 		// https://developer.wordpress.org/reference/classes/_wp_editors/parse_settings/
 		// https://www.tiny.cloud/docs/advanced/available-toolbar-buttons/
 		$editor_settings = array(
-			'media_buttons'		=> false,
+			'media_buttons'		=> $media_buttons,
 			'textarea_name'		=> ASENHA_SLUG_U . '['. $field_id .']',
 			'textarea_rows'		=> 3,
+			// 'teeny'				=> true,
 			'tiny_mce'			=> true,
 			'tinymce'			=> array(
-				'toolbar1'		=> 'bold,italic,underline,separator,link,unlink,undo,redo',
+				'toolbar1'		=> $toolbar1,
 				'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
 			),
 			'editor_css'		=> '',
-			'quicktags'			=> false,
+			'quicktags'			=> $quicktags,
+			'default_editor'	=> 'tinymce', // 'tinymce' or 'html'
 		);
 
 		add_settings_field(
@@ -1531,7 +1543,7 @@ class Settings_Sections_Fields {
 				'field_description'		=> 'Default text is: <em>Thank you for creating with <a href="https://wordpress.org/">WordPress</a></em>.', // Custom argument
 				'field_placeholder'		=> '',
 				'editor_settings'		=> $editor_settings,
-				'class'					=> 'asenha-textarea utilities ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-textarea admin-interface has-wpeditor ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -1541,16 +1553,18 @@ class Settings_Sections_Fields {
 		// https://developer.wordpress.org/reference/classes/_wp_editors/parse_settings/
 		// https://www.tiny.cloud/docs/advanced/available-toolbar-buttons/
 		$editor_settings = array(
-			'media_buttons'		=> false,
+			'media_buttons'		=> $media_buttons,
 			'textarea_name'		=> ASENHA_SLUG_U . '['. $field_id .']',
 			'textarea_rows'		=> 3,
+			// 'teeny'				=> true,
 			'tiny_mce'			=> true,
 			'tinymce'			=> array(
-				'toolbar1'		=> 'bold,italic,underline,separator,link,unlink,undo,redo',
+				'toolbar1'		=> $toolbar1,
 				'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
 			),
 			'editor_css'		=> '',
-			'quicktags'			=> false,
+			'quicktags'			=> $quicktags,
+			'default_editor'	=> 'tinymce', // 'tinymce' or 'html'
 		);
 
 		add_settings_field(
@@ -1570,7 +1584,7 @@ class Settings_Sections_Fields {
 				'field_description'		=> 'Default text is: <em>Version ' . $wp_version . '</em>', // Custom argument
 				'field_placeholder'		=> '',
 				'editor_settings'		=> $editor_settings,
-				'class'					=> 'asenha-textarea utilities ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-textarea admin-interface has-wpeditor ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 		// =================================================================
@@ -3912,14 +3926,39 @@ class Settings_Sections_Fields {
 			)
 		);
 
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$field_id = 'maintenance_page_title';
+			$field_slug = 'maintenance-page-title';
+
+			add_settings_field(
+				$field_id, // Field ID
+				'Page Title <span class="faded">(shown in the browser tab)</span>', // Field title
+				[ $render_field, 'render_text_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+					'field_id'				=> $field_id, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
+					'field_type'			=> '', // Custom argument
+					'field_prefix'			=> '', // Custom argument
+					'field_suffix'			=> '', // Custom argument
+					'field_description'		=> '', // Custom argument
+					'field_placeholder'		=> 'Under maintenance',
+					'class'					=> 'asenha-text utilities full-width ' . $field_slug, // Custom class for the <tr> element
+				)
+			);    
+		}
+
 		$field_id = 'maintenance_page_heading';
 		$field_slug = 'maintenance-page-heading';
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+
 			// https://developer.wordpress.org/reference/classes/_wp_editors/parse_settings/
 			// https://www.tiny.cloud/docs/advanced/available-toolbar-buttons/
 			$editor_settings = array(
-				'media_buttons'		=> false,
+				'media_buttons'		=> true,
 				'textarea_name'		=> ASENHA_SLUG_U . '['. $field_id .']',
 				'textarea_rows'		=> 3,
 				'tiny_mce'			=> true,
@@ -3929,7 +3968,9 @@ class Settings_Sections_Fields {
 					'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
 				),
 				'editor_css'		=> '',
+				'wpautop'			=> true,
 				'quicktags'			=> true,
+				'default_editor'	=> 'tinymce', // 'tinymce' or 'html'
 			);
 
 			add_settings_field(
@@ -3977,7 +4018,7 @@ class Settings_Sections_Fields {
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 			$editor_settings = array(
-				'media_buttons'		=> false,
+				'media_buttons'		=> true,
 				'textarea_name'		=> ASENHA_SLUG_U . '['. $field_id .']',
 				'textarea_rows'		=> 3,
 				'tiny_mce'			=> true,
@@ -3987,7 +4028,9 @@ class Settings_Sections_Fields {
 					'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
 				),
 				'editor_css'		=> '',
+				'wpautop'			=> true,
 				'quicktags'			=> true,
+				'default_editor'	=> 'tinymce', // 'tinymce' or 'html'
 			);
 
 			add_settings_field(

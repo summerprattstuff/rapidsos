@@ -2,7 +2,7 @@
     $(function() {
         CFG.validators = {
             'required': {
-                'error': 'Please enter a value',
+                'error': 'Please enter or choose something',
                 'validate': function(val) {
                     return ('' != val && null != val);
                 }
@@ -55,8 +55,17 @@
             'select': function(el) {
                 return el.find('select').val();
             },
+            'radio': function(el) {
+                return el.find('input.radio:checked').val();
+            },
+            'checkbox': function(el) {
+                return el.find('input.checkbox:checked').val();
+            },
             'relationship': function(el) {
                 return el.find('input.relationship').val();
+            },
+            'file': function(el) {
+                return el.find('input.file_value').val();
             },
             'term': function(el) {
                 return el.find('input.term').val();

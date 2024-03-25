@@ -20,7 +20,7 @@ class cfgroup_radio extends cfgroup_field
             <?php $val = ( '{empty}' == $val ) ? '' : $val; ?>
             <?php $checked = in_array( $val, (array) $field->value ) ? ' checked' : ''; ?>
     		<label for="<?php echo esc_attr( $field->input_name . '-' . $val ); ?>">
-    			<input type="radio" id="<?php echo esc_attr( $field->input_name . '-' . $val ); ?>" name="<?php echo esc_attr( $field->input_name ); ?>" value="<?php echo esc_attr( $val ); ?>"<?php echo $checked; ?>/>
+    			<input type="radio" id="<?php echo esc_attr( $field->input_name . '-' . $val ); ?>" name="<?php echo esc_attr( $field->input_name ); ?>" value="<?php echo esc_attr( $val ); ?>" class="radio"<?php echo $checked; ?>/>
     			<?php echo esc_attr( $label ); ?>
     		</label>
     		<?php endforeach; ?>

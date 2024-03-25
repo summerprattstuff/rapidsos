@@ -30,16 +30,9 @@
      margin: 0;
      padding: 0;
 }
- #media-categories-module-tree-view-list ul li.cat-item-all {
-     width: 48%;
-}
- #media-categories-module-tree-view-list ul li.cat-item-unassigned {
-     width: 48%;
-    /* margin: 0 0 20px 0;
-     padding: 0 0 10px 0;
-     border-bottom: 1px solid #e5e5e5;
-     box-shadow: 0 1px 0 0 #f7f7f7;
-     */
+#media-categories-module-tree-view-list ul li.cat-item-all,
+#media-categories-module-tree-view-list ul li.cat-item-unassigned {
+     width: 100%;
 }
  #media-categories-module-tree-view-list ul li.cat-item-all, #media-categories-module-tree-view-list ul li.cat-item-unassigned {
      background: #fafafa;
@@ -47,8 +40,9 @@
      margin-bottom: 8px;
 }
  #media-categories-module-tree-view-list ul li.current-cat > a {
-     background-color: #e5e5e5;
-     font-weight: 700;
+     background-color: #f3f3f3;
+     border: 1px solid #ddd;
+     font-weight: 600;
 }
  #media-categories-module-tree-view-list ul li.jstree-node {
      display: grid;
@@ -102,10 +96,7 @@
      margin-left: -20px;
 }
  #media-categories-module-tree-view-list ul li a:hover {
-    /* margin-left: -8px;
-     padding: 10px;
-     */
-     background-color: #e5e5e5;
+     background-color: #f3f3f3;
 }
  #media-categories-module-tree-view-list ul li a.media-categories-module-tree-view-edit, #media-categories-module-tree-view-list ul li a.media-categories-module-tree-view-delete {
      position: absolute;
@@ -154,12 +145,28 @@
      width: 100%;
      display: flex;
      flex-direction: row;
+     top: -22px;
+}
+.supports-drag-drop .media-categories-module-tree-view {
+     top: 0;
+     padding-top: 8px;    
+}
+#media-categories-spinner {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+#media-categories-spinner svg {
+    margin-right: 6px;
 }
  .media-categories-module-tree-view #media-categories-module-tree-view {
      display: none;
      width: 20%;
      box-sizing: border-box;
      padding: 0 10px 0 0;
+     margin-top: 45px;
+}
+}
 }
  .media-categories-module-tree-view #media-categories-module-tree-view h2.wp-heading-inline {
      float: left;
@@ -242,13 +249,17 @@
     }
 }
  @media only screen and (max-width: 768px) {
+    .media-categories-module-tree-view {
+        flex-direction: column;
+    }
      .media-categories-module-tree-view #media-categories-module-tree-view {
-         width: 35%;
+         width: 100%;
+         margin-bottom: 32px;
     }
      .media-categories-module-tree-view #media-categories-module-tree-view .wp-filter .search-form button {
-         width: 100%;
+         padding: 5px 14px 0;
     }
      .media-categories-module-tree-view .wrap {
-         width: 65%;
+         width: 100%;
     }
 }

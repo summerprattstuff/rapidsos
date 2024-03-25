@@ -1416,7 +1416,10 @@ class Utilities {
 				$description		= $options['maintenance_page_description'];
 				$background			= $options['maintenance_page_background'];
 		        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+		        	$title = isset( $options['maintenance_page_title'] ) && ! empty( $options['maintenance_page_title'] ) ? $options['maintenance_page_title'] : 'Under maintenance';
 					$custom_css 	= isset( $options['maintenance_page_custom_css'] ) && ! empty( $options['maintenance_page_custom_css'] ) ? $options['maintenance_page_custom_css'] : '';
+				} else {
+					$title = '';
 				}
 
 				if ( 'lines' === $background ) { // https://bgjar.com/curve-line
@@ -1448,7 +1451,7 @@ class Utilities {
 				?>
 				<html>
 					<head>
-						<title>Under maintenance</title>
+						<title><?php echo esc_html( $title ); ?></title>
 						<link rel="stylesheet" id="asenha-maintenance" href="<?php echo ASENHA_URL . 'assets/css/maintenance.css' ?>" media="all">
 						<meta name="viewport" content="width=device-width">
 						<style>
@@ -1459,7 +1462,9 @@ class Utilities {
 							}
 							<?php 
 							if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-								echo wp_kses_post( $custom_css ); 									
+								// echo wp_kses_post( $custom_css );
+								$common_methods = new Common_Methods;
+								echo wp_kses( $custom_css, $common_methods->get_kses_extended_ruleset() );
 							}
 							?>
 						</style>

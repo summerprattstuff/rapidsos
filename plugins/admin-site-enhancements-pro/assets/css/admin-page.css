@@ -789,7 +789,7 @@ p.nudge-description.nudge-closing {
     content: '';
     display: block;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     font-size: 12px;
     left: 0;
     right: 0;
@@ -1081,6 +1081,10 @@ p.nudge-description.nudge-closing {
 .asenha-subfields .faded,
 .form-table .asenha-subfields td:not(.datatable-td) label .faded {
     color: #bbb;
+}
+
+.asenha-subfields th .faded {
+    font-weight: normal;
 }
 
 .asenha-subfield-status {
@@ -1595,10 +1599,12 @@ p.nudge-description.nudge-closing {
     border-radius: 5px;
 }
 
-.has-wpeditor.maintenance-page-heading td,
-.has-wpeditor.maintenance-page-description td {
+/*.has-wpeditor.custom-admin-footer-left td,
+.has-wpeditor.custom-admin-footer-right td,
+.has-wpeditor.maintenance-page-description td,
+.has-wpeditor.maintenance-page-heading td {
     margin-top: -36px;
-}
+}*/
 /*! </fs_premium_only> */
 
 /* ======================================================= */

@@ -110,20 +110,18 @@ $options_pages = array();
 $args = array(
     'post_type'         => 'options_page_config',
     'post_status'       => 'publish',
-    'posts_per_page'    => -1,
+    'numberposts'    => -1, // use this instead of posts_per_page
     'orderby'           => 'title',
     'order'             => 'ASC',
 );
 
-$query = new WP_Query( $args );
+$options_page_configs = get_posts( $args );
 
-if ( $query->have_posts() ) {
-    while ( $query->have_posts() ) {
-        $query->the_post();
-        $options_pages[get_post_meta( get_the_ID(), 'options_page_menu_slug', true )] = get_the_title();
+if ( ! empty( $options_page_configs ) ) {
+    foreach ( $options_page_configs as $options_page_config ) {
+        $options_pages[get_post_meta( $options_page_config->ID, 'options_page_menu_slug', true )] = $options_page_config->post_title;
     }
 }
-wp_reset_postdata();
 
 ?>
 <script>
