@@ -1,0 +1,44 @@
+{% set sTitle   = block.section_title %}
+{% set title    = block.title %}
+{% set subtitle = block.subtitle %}
+{% set link     = block.link %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__twoColumns">
+    <div class="wrapper">
+        {% if sTitle %}
+            <h1 class="m__twoColumns__sTitle">{{ sTitle }}</h1>
+        {% endif %}
+        <div class="_w">
+            <div class="m__twoColumns__left _l5">
+                <div class="m__twoColumns__left__inner">
+                    {% if title %}
+                        <h1 class="m__twoColumns__left__title">{{ title }}</h1>
+                    {% endif %}
+                    {% if subtitle %}
+                        <p class="m__twoColumns__left__subtitle">{{ subtitle }}</p>
+                    {% endif %}
+                    {% if link %}
+                        <div class="m__twoColumns__left__btnWrapper">
+                            {% include '_components/_advanced_link.twig' with {
+                                link: link,
+                                class: 'm_twoColumns__btn btn__black'
+                            } %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="m__twoColumns__right _l7">
+                {% include '_partials/_blocks/_parts/dinamicMedia.twig' with {
+                    bg_image: block.bg_image
+                } %}
+            </div>
+        </div>
+    </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
+</section>

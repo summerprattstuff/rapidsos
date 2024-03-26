@@ -1,0 +1,26 @@
+.m__dinamicMedia {
+  position: relative;
+
+  &__wrapImg {
+    width: 100%;
+
+    &__bgImg {
+      background: 50% / cover no-repeat #fafafa;
+      padding-top: 48.92%;
+      height: 0;
+
+      .-preview & {
+        background: 50% / contain no-repeat #fafafa;
+        height: 100%;
+      }
+    }
+  }
+
+  &__video {
+    margin-top: 30px;
+
+    @include media-up(m) {
+      margin-top: 50px;
+    }
+  }
+}

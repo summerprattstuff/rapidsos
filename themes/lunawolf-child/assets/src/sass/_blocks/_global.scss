@@ -36,3 +36,17 @@
     }
   }
 }
+
+.m_wyText {
+
+  @include media-only(s) {
+    font-size: 16px;
+  }
+
+  @include media-up(m) {
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
