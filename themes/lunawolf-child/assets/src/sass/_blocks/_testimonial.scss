@@ -1,0 +1,60 @@
+.m__testimonial {
+  background: $bg-gray;
+  padding: 50px 0;
+
+  @include media-up(m) {
+    padding: 90px 0;
+  }
+
+  .testimonial {
+    position: relative;
+
+    @include media-up(m) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__content {
+    padding-top: 120px;
+
+    @include media-up(m) {
+      padding-left: 140px;
+      padding-top: 0;
+    }
+
+    @include media-up(xl) {
+      padding-left: 160px;
+    }
+  }
+
+  &__quote {
+    font-size: 20px;
+
+    @include media-up(m) {
+      font-size: 38px;
+      line-height: 55px;
+    }
+
+    .-preview & {
+      font-size: 24px;
+    }
+  }
+
+  &__author {
+
+    &:not(:first-child) {
+      margin-top: 20px;
+
+      @include media-up(m) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 0; left: -90px;
+    pointer-events: none;
+  }
+}

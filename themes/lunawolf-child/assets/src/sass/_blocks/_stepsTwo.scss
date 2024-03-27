@@ -27,9 +27,9 @@
         z-index: -5;
       }
 
-      //@media (min-width: 710px) {
-      //  bottom: 89px;
-      //}
+      @media (min-width:758px) and (max-width:767px) {
+        bottom: 90px;
+      }
 
       @include media-up(m) {
         bottom: 127px;

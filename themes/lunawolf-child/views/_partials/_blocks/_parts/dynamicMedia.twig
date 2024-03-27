@@ -1,18 +1,18 @@
-{% set bg_image   = block.bg_image %}
-{% set video      = block.video %}
-{% set video_file = block.video_file %}
-{% set video_url  = block.video_url %}
+{% set bg_image   = blockData.bg_image %}
+{% set video      = blockData.video %}
+{% set video_file = blockData.video_file %}
+{% set video_url  = blockData.video_url %}
 {% set bg_video   = video_file or video_url %}
 
 {% if bg_image and not bg_video %}
-    <div class="m__dinamicMedia{{ bg_video ? ' -withVideo' }}">
-        <div class="m__dinamicMedia__wrapImg">
-            <div class="m__dinamicMedia__wrapImg__bgImg" style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
+    <div class="m__dynamicMedia{{ bg_video ? ' -withVideo' }}">
+        <div class="m__dynamicMedia__wrapImg">
+            <div class="m__dynamicMedia__wrapImg__bgImg" style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
         </div>
     </div>
 {% endif %}
 {% if bg_video %}
-    <div class="m__dinamicMedia__video">
+    <div class="m__dynamicMedia__video">
         {% if video_url %}
             <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
         {% endif %}
