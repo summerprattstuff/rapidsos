@@ -19,13 +19,13 @@
   font-weight: 400;
 }
 
-.container {
+.titleWrapper {
 
-  &__center {
+  &.-center {
     margin-inline: auto;
   }
 
-  &__short {
+  &.-short {
 
     @include media-up(m) {
       max-width: 90%;

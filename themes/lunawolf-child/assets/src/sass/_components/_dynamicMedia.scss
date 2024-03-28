@@ -24,3 +24,20 @@
     }
   }
 }
+
+.m__graphicFeature {
+
+  .m__dynamicMedia__wrapImg{
+    max-width: 80%;
+    margin: 0 auto;
+
+    &__bgImg {
+      padding-top: 52.03%;
+    }
+  }
+
+  .m__dynamicMedia__video {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}

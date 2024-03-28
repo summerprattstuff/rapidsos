@@ -8,7 +8,7 @@
 
 <section id="{{ settings.block_id }}" class="m__logoReel">
     <div class="wrapper">
-        <div class="container container__short container__center">
+        <div class="titleWrapper -short -center">
             {% if title %}
                 <h1 class="m__title m__logoReel__title">{{ title }}</h1>
             {% endif %}
@@ -16,7 +16,6 @@
         {% if desc %}
             <h3 class="m__logoReel__desc">{{ desc }}</h3>
         {% endif %}
-        {#        Add sider for this repeater#}
         {% if logo_gallery %}
             <div class="m__logoReel__logos">
                 <div class="swiper js-logoSlider">

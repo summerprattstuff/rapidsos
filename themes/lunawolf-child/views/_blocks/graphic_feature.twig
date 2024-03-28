@@ -1,0 +1,28 @@
+{% set bg_color   = block.bg_color %}
+{% set text_color = block.text_color %}
+{% set desc       = block.desc %}
+{% set link       = block.link %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__graphicFeature" style="background: {{ bg_color }}">
+    <div class="wrapper">
+        {% if block %}
+            <div class="m__graphicFeature__top">
+                {% include '_partials/_blocks/_parts/dynamicMedia.twig' with {
+                    blockData: block
+                } %}
+            </div>
+        {% endif %}
+        {% if desc %}
+            <div class="m__graphicFeature__bottom">
+                <h3 class="m__graphicFeature__bottom__desc" style="color: {{ text_color }}">{{ desc }}</h3>
+            </div>
+        {% endif %}
+    </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
+</section>

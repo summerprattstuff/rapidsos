@@ -5,10 +5,11 @@
   {#  {{ dump(settings) }}#}
 {% endif %}
 
+{% if steps %}
 <section id="{{ settings.block_id }}" class="m__stepsTwo{{ steps|length == 2 ? ' two' : ''}}">
     <div class="wrapper">
         {% if title %}
-            <div class="container container__short container__center">
+            <div class="titleWrapper -short -center">
                 <h1 class="m_title m__stepsTwo__title">{{ title }}</h1>
             </div>
         {% endif %}
@@ -23,29 +24,29 @@
                     </linearGradient>
                 </defs>
             </svg>
-            {% if steps %}
-                <div class="m__stepsTwo__wrap">
-                    {% for step in steps %}
-                        {% set img  = step.step_img %}
-                        {% set text = step.step_text %}
+            <div class="m__stepsTwo__wrap">
+                {% for step in steps %}
+                    {% set img  = step.step_img %}
+                    {% set text = step.step_text %}
 
-                        {% if img %}
-                            <div class="m__stepsTwo__blockWrap">
-{#                                <div class="m__stepsTwo__blockWrap__bgImg" style="{% if img %}background-image: url({{ get_image(img) }}){% endif %}">#}
-{#                                    <div class="m__stepsTwo__blockWrap__bgImg__banner m__stepsTwo__banner -top"></div>#}
-{#                                </div>#}
-                                <div class="m__stepsTwo__blockWrap__imgWrap">
-                                    <img class="m__stepsTwo__blockWrap__img" src="{{ get_image(img) }}" alt="" >
-                                </div>
-                                <div class="m__stepsTwo__blockWrap__text m_wyText">{{ text }}</div>
+                    {% if img %}
+                        <div class="m__stepsTwo__blockWrap">
+                            <div class="m__stepsTwo__blockWrap__imgWrap">
+                                <img class="m__stepsTwo__blockWrap__img" src="{{ get_image(img) }}" alt="" >
                             </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endif %}
+                            <div class="m__stepsTwo__blockWrap__text m_wyText">{{ text }}</div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
   </div>
   {% if not is_preview %}
     {{ settings.styles | raw }}
   {% endif %}
 </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add at least one step to show on page.
+    </div>
+{% endif %}

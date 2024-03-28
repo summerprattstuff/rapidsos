@@ -5,10 +5,10 @@
   {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__gradStats">
-    <div class="wrapper">
-        <div class="_w">
-            {% if gradStats %}
+{% if gradStats %}
+    <section id="{{ settings.block_id }}" class="m__gradStats">
+        <div class="wrapper">
+            <div class="_w">
                 {% for stat in gradStats %}
                     {% set number = stat.count_number %}
                     {% set desc = stat.desc %}
@@ -19,13 +19,15 @@
                         </div>
                     </div>
                 {% endfor %}
-            {% elseif is_preview %}
-                <h3>Add at least one stat to show this block.</h3>
-            {% endif %}
+            </div>
         </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add at least one stat to show this block.
     </div>
-    {% if not is_preview %}
-        {{ settings.styles | raw }}
-    {% endif %}
-</section>
+{% endif %}
 

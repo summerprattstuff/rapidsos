@@ -7,11 +7,13 @@
 
 <section id="{{ settings.block_id }}" class="m__scText">
   <div class="wrapper">
-    <div class="container container__center container__short">
+    <div class="textWrapper -enter -short">
       {% if title %}
         <h1 class="m__title m__scText__title">{{ title }}</h1>
       {% endif %}
-      <h3 class="m__text m__scText__text">{{ subtitle }}</h3>
+      {% if subtitle %}
+        <h3 class="m__text m__scText__text">{{ subtitle }}</h3>
+      {% endif %}
     </div>
   </div>
   {% if not is_preview %}

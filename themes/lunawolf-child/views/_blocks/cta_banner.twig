@@ -8,15 +8,15 @@
 
 <section id="{{ settings.block_id }}" class="m__ctaBanner m__ctaBanner{{ bgColor ? '__gradient' : '' }}">
   <div class="wrapper">
-    <div class="container container__center">
+    <div class="titleWrapper -center">
       {% if title %}
         <h1 class="m__title__white m__ctaBanner__title">{{ title }}</h1>
       {% endif %}
       {% if link %}
-        <div class="m__ctaBanner__btnWrapper">
+        <div class="m__ctaBanner__btnWrapper btnWrapper">
           {% include '_components/_advanced_link.twig' with {
             link: link,
-            class: 'm_ctaBanner__btn'
+            class: 'btn'
           } %}
         </div>
       {% endif %}

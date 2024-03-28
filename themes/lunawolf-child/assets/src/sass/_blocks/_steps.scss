@@ -1,6 +1,6 @@
 .m__steps {
 
-  .container {
+  .titleWrapper {
 
     .m_title {
       text-align: center;
@@ -67,14 +67,6 @@
   &__blockWrap {
     width: 100%;
     position: relative;
-
-    &:first-child {
-
-      .m__steps__banner {
-
-
-      }
-    }
 
     &__bgImg {
       background: 50% / cover no-repeat #fafafa;

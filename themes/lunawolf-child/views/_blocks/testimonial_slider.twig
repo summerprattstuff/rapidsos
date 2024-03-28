@@ -62,4 +62,8 @@
             {{ settings.styles | raw }}
         {% endif %}
     </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add at least one testimonial to show on page.
+    </div>
 {% endif %}
