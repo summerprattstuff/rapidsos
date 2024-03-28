@@ -21,13 +21,13 @@
             <div class="m__logoReel__logos">
                 <div class="swiper js-logoSlider">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="m__logoReel__logos__block">
-                                {% for logo in logo_gallery %}
+                        {% for logo in logo_gallery %}
+                            <div class="swiper-slide">
+                                <div class="m__logoReel__logos__block">
                                     <img class="m__logoReel__logos__block__img" src="{{ get_image(logo) }}" alt="" >
-                                {% endfor %}
+                                </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>

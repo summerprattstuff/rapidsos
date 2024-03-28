@@ -25,6 +25,21 @@ export default () => {
 		const logoSlider = new Swiper('.js-logoSlider', {
 			modules: [Pagination],
 			slidesPerView: 'auto',
+			spaceBetween: 63,
+
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+
+			on: {
+				lock: function (e) {
+					e.el.classList.add('locked');
+				},
+				unlock: function (e) {
+					e.el.classList.remove('locked');
+				},
+			}
 		})
 	})();
 }

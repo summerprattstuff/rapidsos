@@ -152,7 +152,7 @@
                     data: {
                         action:'update-taxonomy-order', 
                         order: serialize_data, 
-                        nonce : '<?php echo wp_create_nonce( 'update-taxonomy-order' ); ?>' 
+                        nonce : '<?php echo esc_html( wp_create_nonce( 'update-taxonomy-order' ) ); ?>' 
                     },
                     success: function(response) {
                         // console.log('Order updated');
@@ -172,5 +172,5 @@
     }); 
     </script>
 
-    <div id="updating-order-notice" class="updating-order-notice" style="display:none;"><img src="<?php echo ASENHA_URL . 'assets/img/oval.svg'; ?>" id="spinner-img" class="spinner-img" /><span class="dashicons dashicons-saved" style="display:none;"></span>Updating order...</div>
+    <div id="updating-order-notice" class="updating-order-notice" style="display:none;"><img src="<?php echo esc_url( ASENHA_URL ) . 'assets/img/oval.svg'; ?>" id="spinner-img" class="spinner-img" /><span class="dashicons dashicons-saved" style="display:none;"></span>Updating order...</div>
 </div>

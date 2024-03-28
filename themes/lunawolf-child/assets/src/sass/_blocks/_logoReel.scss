@@ -50,7 +50,29 @@
           height: 30px;
         }
       }
-
     }
+  }
+
+  .locked {
+
+    .swiper-wrapper {
+      justify-content: center;
+    }
+  }
+
+  .swiper-wrapper {
+    padding-bottom: 30px;
+  }
+
+  .swiper-slide {
+    width: auto;
+  }
+
+  .swiper-pagination {
+    bottom: 0;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $primary;
   }
 }

@@ -5,7 +5,7 @@ Donate link: https://bowo.io/asenha-sp-rdm
 Tags: enhancements, tweaks, optimizations, tools  
 Requires at least: 4.6  
 Tested up to: 6.4.3  
-Stable tag: 6.9.4  
+Stable tag: 6.9.5  
 Requires PHP: 5.6  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -172,11 +172,43 @@ You can skip step 1 and 2 if you still have access to your wp-admin dashboard.
 
 ## Changelog
 
-**Admin and Site Enhancements (ASE) v1.0.0** was released on October 17, 2022. Since then, there have been **69 _point_ releases** (e.g. 1.1.0 ) and **82 _patch_ releases** (e.g. 4.9.1). 
+**Admin and Site Enhancements (ASE) v1.0.0** was released on October 17, 2022. Since then, there have been **69 _point_ releases** (e.g. 1.1.0 ) and **83 _patch_ releases** (e.g. 4.9.1). 
 
 Each **_point release_** usually corresponds with the addition of one new module/feature. Each module/feature usually is the equivalent of one (or more) single-purpose plugin. Each **_patch release_** usually contain one or more bugfix or improvements to existing modules/features.
 
 [**Upgrade to ASE Pro**](https://www.wpase.com/chnlg-to-web) now. Lifetime Deal (LTD) available.
+
+### 6.9.5 (2024.03.25) - ASE Free and Pro
+
+* **[IMPROVED in Free and Pro] Admin Interface >> Enhance List Tables**: added the option to show file size column in the media library list view. Props to [@tinnyfusion](https://wordpress.org/support/users/tinnyfusion/) for [suggesting this](https://wordpress.org/support/topic/add-file-size-column-to-media-library/) and providing the code snippet to base this upon.
+
+* **[IMPROVED in Free and Pro] Security >> Limit Login Attempts**: change input type for the limit numbers from text to number.
+
+* **[IMPROVED in Free and Pro] Improve security**: properly escape unescaped $variables on ASE settings page and in various modules.
+
+* **[IMPROVED in Pro] Custom Code >> Code Snippets Manager**: when disabling safe mode via the admin bar icon/toggle fails, a message is now shown that links to the [documentation](https://www.wpase.com/documentation/code-snippets-manager/) on how to disable it manually via wp-config.php. Props to Nelson T. for prompting the improvement.
+
+* **[IMPROVED in Pro] Content Management >> Custom Content Types >> Custom Field Groups**: you can now choose default value(s) for radio, select and checkbox fields. Props to Max F. for pointing out this missing option.
+
+* **[IMPROVED in Pro] Disable Components >> Disable Gutenberg & Disable Comments**: added additional option to "Disable only on" or "Disable except on" the selected post types. This should make it easier to include or exclude only certain post types despite new post types being registered on the site. i.e. no need to continually check newly added post types to disable Gutenberg / comments on.
+
+* **[IMPROVED in Pro] Content Management >> Media Categories**: css adjustment to fix toolbar items filling over to the second line in the grid view on certain scenarios.
+
+* **[IMPROVED in Free and Pro] Increase code modularity** across all modules. One is by switching from autoloading vendor libraries using Composer to loading them when the corresponding modules are enabled. The other by breaking down module category classes, e.g. class-content-management.php, that has grown large as new features and modules are added to each category, into smaller ones, e.g. class-content-duplication.php.
+
+* **[CHANGED in Free and Pro] Disable Components >> Disable Block-based Widgets Settings Screen**: is now moved under Disable Smaller Compnents module.
+
+* **[CHANGED in Pro] Content Management >> Terms Order**: custom terms ordering was previously limited to users with 'manage_options' capability, e.g. administrator, and now is available for users with 'manage_categories' capability, e.g. administrator, editor, shop_manager. Props to Marco R. for the feedback.
+
+* **[FIXED in Free and Pro] Security >> Limit Login Attempts**: Fixed an issue where sorting by date-time (Last Attempt On) in the failed login attempts log table did not work as expected. Going forward, the log table will by default be sorted by Last Attempt On in descending order. Props to a user whose name escapes memory at the moment!
+
+* **[FIXED in Free and Pro] ASE Settings**: fixed an issue where TinyMCE Visual editor is not responsive / working in Firefox browser. e.g. in Custom Admin Footer Text and Maintenance Mode modules. Props to Michael S. for reporting the issue. Replaced Text tab/editor with a code button to perform raw HTML editing.
+
+* **[FIXED in Pro] Custom Code >> Code Snippets Manager**: fixed an issue where TinyMCE Visual editor for snippet description is not responsive / working in Firefox browser. Props to Michael S. for hinting at the issue. Replaced Text tab/editor with a code button to perform raw HTML editing.
+
+* **[FIXED in Free and Pro] Admin Interface >> Admin Menu Organizer**: fixed a PHP warning that occurs in certain scenarios.
+
+* **[FIXED in Pro] Utilities >> Maintenance Mode**: fixed an issue where background image is not properly loaded certain scenarios.
 
 ### 6.9.4 (2024.03.18) - ASE Free and Pro
 

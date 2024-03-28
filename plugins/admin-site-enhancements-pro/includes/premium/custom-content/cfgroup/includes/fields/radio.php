@@ -59,6 +59,21 @@ class cfgroup_radio extends cfgroup_field
         </tr>
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
+                <label><?php _e( 'Default Value', 'admin-site-enhancements' ); ?></label>
+                <p class="description"><?php _e( 'Pick a single <code>value</code>', 'admin-site-enhancements' ); ?></p>
+            </td>
+            <td>
+                <?php
+                    CFG()->create_field( [
+                        'type'          => 'text',
+                        'input_name'    => "cfgroup[fields][$key][options][default_value]",
+                        'value'         => $this->get_option( $field, 'default_value' ),
+                    ] );
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
                 <label><?php _e( 'Layout', 'admin-site-enhancements' ); ?></label>
             </td>
             <td>

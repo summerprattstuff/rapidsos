@@ -35,7 +35,20 @@ __webpack_require__.r(__webpack_exports__);
   (function () {
     var logoSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.js-logoSlider', {
       modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination],
-      slidesPerView: 'auto'
+      slidesPerView: 'auto',
+      spaceBetween: 63,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      on: {
+        lock: function lock(e) {
+          e.el.classList.add('locked');
+        },
+        unlock: function unlock(e) {
+          e.el.classList.remove('locked');
+        }
+      }
     });
   })();
 });

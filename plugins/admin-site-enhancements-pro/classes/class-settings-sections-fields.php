@@ -1030,8 +1030,8 @@ class Settings_Sections_Fields {
 		if ( array_key_exists( 'dashboard_widgets', $options_extra ) ) {
 			$dashboard_widgets = $options_extra['dashboard_widgets'];
 		} else {
-			$admin_interface = new Admin_Interface;
-			$dashboard_widgets = $admin_interface->get_dashboard_widgets();
+			$disable_dashboard_widgets = new Disable_Dashboard_Widgets;
+			$dashboard_widgets = $disable_dashboard_widgets->get_dashboard_widgets();
 			$options_extra['dashboard_widgets'] = $dashboard_widgets;
 			update_option( 'admin_site_enhancements_extra', $options_extra );
 		}
@@ -1373,6 +1373,26 @@ class Settings_Sections_Fields {
 			)
 		);
 
+		// Show File Size Column in Media Library
+
+		$field_id = 'show_file_size_column';
+		$field_slug = 'show-file-size-column';
+
+		add_settings_field(
+			$field_id, // Field ID
+			'', // Field title
+			[ $render_field, 'render_checkbox_plain' ], // Callback to render field with custom arguments in the array below
+			ASENHA_SLUG, // Settings page slug
+			'main-section', // Section ID
+			array(
+				'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+				'field_id'				=> $field_id, // Custom argument
+				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
+				'field_label'			=> 'Show file size column in media library', // Custom argument
+				'class'					=> 'asenha-checkbox asenha-hide-th content-management ' . $field_slug, // Custom class for the <tr> element
+			)
+		);
+
 		// Show ID in Action Row
 
 		$field_id = 'show_id_in_action_row';
@@ -1499,8 +1519,8 @@ class Settings_Sections_Fields {
 		
 		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 			$media_buttons = true;
-			$quicktags = true;
-			$toolbar1 = 'bold,italic,underline,separator,link,unlink,undo,redo';
+			$quicktags = false;
+			$toolbar1 = 'bold,italic,underline,separator,link,unlink,undo,redo,code';
 		} else {
 			$media_buttons = false;
 			$quicktags = false;
@@ -1521,6 +1541,7 @@ class Settings_Sections_Fields {
 			'tinymce'			=> array(
 				'toolbar1'		=> $toolbar1,
 				'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
+				// 'wp_skip_init'	=> true,
 			),
 			'editor_css'		=> '',
 			'quicktags'			=> $quicktags,
@@ -2410,6 +2431,31 @@ class Settings_Sections_Fields {
 			)
 		);
 
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$field_id = 'disable_gutenberg_type';
+			$field_slug = 'disable-gutenberg-type';
+
+			add_settings_field(
+				$field_id, // Field ID
+				'', // Field title
+				[ $render_field, 'render_radio_buttons_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+					'field_id'				=> $field_id, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
+					// 'field_label'			=> 'Temporary label', // Custom argument
+					'field_radios'			=> array(
+						'Disable only on'		=> 'only-on',
+						'Disable except on'		=> 'except-on',
+					),
+					'field_default'			=> 'only-on',
+					'class'					=> 'asenha-radio-buttons bold-label shift-up asenha-th-border-bottom disable-components ' . $field_slug, // Custom class for the <tr> element
+				)
+			);
+		}
+
 		$field_id = 'disable_gutenberg_for';
 		$field_slug = 'disable-gutenberg-for';
 
@@ -2451,29 +2497,6 @@ class Settings_Sections_Fields {
 			)
 		);
 
-		// Disable Block-Based Widgets Screen
-
-		$field_id = 'disable_block_widgets';
-		$field_slug = 'disable-block-widgets';
-
-		add_settings_field(
-			$field_id, // Field ID
-			'Disable Block-Based Widgets Settings Screen', // Field title
-			[ $render_field, 'render_checkbox_toggle' ], // Callback to render field with custom arguments in the array below
-			ASENHA_SLUG, // Settings page slug
-			'main-section', // Section ID
-			array(
-				'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
-				'field_id'				=> $field_id, // Custom argument
-				'field_slug'			=> $field_slug, // Custom argument
-				'field_name'			=> ASENHA_SLUG_U . '['. $field_id .']', // Custom argument
-				'field_description'		=> 'Restores the classic widgets settings screen when using a classic (non-block) theme. This has no effect on block themes.', // Custom argument
-				'field_options_wrapper'	=> true, // Custom argument. Add container for additional options
-				'field_options_moreless'	=> true,  // Custom argument. Add show more/less toggler.
-				'class'					=> 'asenha-toggle disable-components ' . $field_slug, // Custom class for the <tr> element
-			)
-		);
-
 		// Disable Comments
 
 		$field_id = 'disable_comments';
@@ -2496,6 +2519,31 @@ class Settings_Sections_Fields {
 				'class'					=> 'asenha-toggle disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
+
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			$field_id = 'disable_comments_type';
+			$field_slug = 'disable-comments-type';
+
+			add_settings_field(
+				$field_id, // Field ID
+				'', // Field title
+				[ $render_field, 'render_radio_buttons_subfield' ], // Callback to render field with custom arguments in the array below
+				ASENHA_SLUG, // Settings page slug
+				'main-section', // Section ID
+				array(
+					'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+					'field_id'				=> $field_id, // Custom argument
+					'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
+					// 'field_label'			=> 'Temporary label', // Custom argument
+					'field_radios'			=> array(
+						'Disable only on'		=> 'only-on',
+						'Disable except on'		=> 'except-on',
+					),
+					'field_default'			=> 'only-on',
+					'class'					=> 'asenha-radio-buttons bold-label shift-up asenha-th-border-bottom disable-components ' . $field_slug, // Custom class for the <tr> element
+				)
+			);			
+		}
 
 		$field_id = 'disable_comments_for';
 		$field_slug = 'disable-comments-for';
@@ -2608,7 +2656,7 @@ class Settings_Sections_Fields {
 				'field_description'		=> 'Prevent smaller components from running or loading. Make the site more secure, load slightly faster and be more optimized for crawling by search engines.', // Custom argument
 				'field_options_wrapper'	=> true, // Custom argument. Add container for additional options
 				'field_options_moreless'	=> true,  // Custom argument. Add show more/less toggler.
-				'class'					=> 'asenha-toggle admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-toggle disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2626,7 +2674,7 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				'field_label'			=> 'Disable the <strong>generator &lt;meta&gt; tag</strong> in &lt;head&gt;, which discloses the WordPress version number. Older versions(s) might contain unpatched security loophole(s).', // Custom argument
-				'class'					=> 'asenha-checkbox asenha-hide-th admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2644,7 +2692,7 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				'field_label'			=> 'Disable <strong>version number</strong> on static resource URLs referenced in &lt;head&gt;, which can disclose WordPress version number. Older versions(s) might contain unpatched security loophole(s). Applies to non-logged-in view of pages. This will also increase cacheability of static assets, but may have unintended consequences. Make sure you know what you are doing.', // Custom argument
-				'class'					=> 'asenha-checkbox asenha-hide-th admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 		$field_id = 'disable_head_wlwmanifest_tag';
@@ -2661,7 +2709,7 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				'field_label'			=> 'Disable the <strong>Windows Live Writer (WLW) manifest &lt;link&gt; tag</strong> in &lt;head&gt;. The WLW app was discontinued in 2017.', // Custom argument
-				'class'					=> 'asenha-checkbox asenha-hide-th admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2679,7 +2727,7 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				'field_label'			=> 'Disable the <strong>Really Simple Discovery (RSD) &lt;link&gt; tag</strong> in &lt;head&gt;. It\'s not needed if your site is not using pingback or remote (XML-RPC) client to manage posts.', // Custom argument
-				'class'					=> 'asenha-checkbox asenha-hide-th admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2697,7 +2745,7 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				'field_label'			=> 'Disable the default <strong>WordPress shortlink &lt;link&gt; tag</strong> in &lt;head&gt;. Ignored by search engines and has minimal practical use case. Usually, a dedicated shortlink plugin or service is preferred that allows for nice names in the short links and tracking of clicks when sharing the link on social media.', // Custom argument
-				'class'					=> 'asenha-checkbox asenha-hide-th admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2715,7 +2763,7 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				'field_label'			=> 'Disable loading of <strong>Dashicons CSS and JS files</strong> on the front-end for public site visitors. This might break the layout or design of custom forms, including custom login forms, if they depend on Dashicons. Make sure to check those forms after disabling.', // Custom argument
-				'class'					=> 'asenha-checkbox asenha-hide-th admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2733,7 +2781,7 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				'field_label'			=> 'Disable <strong>emoji support for pages, posts and custom post types</strong> on the admin and frontend. The support is primarily useful for older browsers that do not have native support for it. Most modern browsers across different OSes and devices now have native support for it.', // Custom argument
-				'class'					=> 'asenha-checkbox asenha-hide-th admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2751,7 +2799,25 @@ class Settings_Sections_Fields {
 				'field_id'				=> $field_id, // Custom argument
 				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
 				'field_label'			=> 'Disable <strong>jQuery Migrate</strong> script on the frontend, which should no longer be needed if your site uses modern theme and plugins.', // Custom argument
-				'class'					=> 'asenha-checkbox asenha-hide-th admin-interface ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
+			)
+		);
+
+		$field_id = 'disable_block_widgets';
+		$field_slug = 'disable-block-widgets';
+
+		add_settings_field(
+			$field_id, // Field ID
+			'', // Field title
+			[ $render_field, 'render_checkbox_plain' ], // Callback to render field with custom arguments in the array below
+			ASENHA_SLUG, // Settings page slug
+			'main-section', // Section ID
+			array(
+				'option_name'			=> ASENHA_SLUG_U, // Option name in wp_options table
+				'field_id'				=> $field_id, // Custom argument
+				'field_name'			=> ASENHA_SLUG_U . '[' . $field_id . ']', // Custom argument
+				'field_label'			=> 'Disable <strong>block-based widgets settings screen</strong>. Restores the classic widgets settings screen when using a classic (non-block) theme. This has no effect on block themes.', // Custom argument
+				'class'					=> 'asenha-checkbox asenha-hide-th disable-components ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2788,7 +2854,7 @@ class Settings_Sections_Fields {
 		add_settings_field(
 			$field_id, // Field ID
 			'', // Field title
-			[ $render_field, 'render_text_subfield' ], // Callback to render field with custom arguments in the array below
+			[ $render_field, 'render_number_subfield' ], // Callback to render field with custom arguments in the array below
 			ASENHA_SLUG, // Settings page slug
 			'main-section', // Section ID
 			array(
@@ -2798,8 +2864,9 @@ class Settings_Sections_Fields {
 				'field_type'			=> 'with-prefix-suffix', // Custom argument
 				'field_prefix'			=> '', // Custom argument
 				'field_suffix'			=> 'failed login attempts allowed before 15 minutes lockout', // Custom argument
+				'field_intro'			=> '', // Custom argument
 				'field_description'		=> '', // Custom argument
-				'class'					=> 'asenha-text with-prefix-suffix narrow no-margin security ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-text with-prefix-suffix extra-narrow no-margin security ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -2809,7 +2876,7 @@ class Settings_Sections_Fields {
 		add_settings_field(
 			$field_id, // Field ID
 			'', // Field title
-			[ $render_field, 'render_text_subfield' ], // Callback to render field with custom arguments in the array below
+			[ $render_field, 'render_number_subfield' ], // Callback to render field with custom arguments in the array below
 			ASENHA_SLUG, // Settings page slug
 			'main-section', // Section ID
 			array(
@@ -2819,8 +2886,9 @@ class Settings_Sections_Fields {
 				'field_type'			=> 'with-prefix-suffix', // Custom argument
 				'field_prefix'			=> '', // Custom argument
 				'field_suffix'			=> 'lockout(s) will block further login attempts for 24 hours', // Custom argument
+				'field_intro'			=> '', // Custom argument
 				'field_description'		=> '', // Custom argument
-				'class'					=> 'asenha-text with-prefix-suffix narrow no-margin security ' . $field_slug, // Custom class for the <tr> element
+				'class'					=> 'asenha-text with-prefix-suffix extra-narrow no-margin security ' . $field_slug, // Custom class for the <tr> element
 			)
 		);
 
@@ -3964,12 +4032,12 @@ class Settings_Sections_Fields {
 				'tiny_mce'			=> true,
 				'tinymce'			=> array(
 					// 'toolbar1'		=> 'bold,italic,underline,separator,link,unlink,undo,redo',
-					'toolbar1'		=> 'bold,italic,underline,strikethrough,superscript,subscript,blockquote,bullist,numlist,alignleft,aligncenter,alignjustify,alignright,alignnone,link,unlink,fontsizeselect,forecolor,undo,redo,removeformat',
+					'toolbar1'		=> 'bold,italic,underline,strikethrough,superscript,subscript,blockquote,bullist,numlist,alignleft,aligncenter,alignjustify,alignright,alignnone,link,unlink,fontsizeselect,forecolor,undo,redo,removeformat,code',
 					'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
 				),
 				'editor_css'		=> '',
 				'wpautop'			=> true,
-				'quicktags'			=> true,
+				'quicktags'			=> false,
 				'default_editor'	=> 'tinymce', // 'tinymce' or 'html'
 			);
 
@@ -4024,12 +4092,12 @@ class Settings_Sections_Fields {
 				'tiny_mce'			=> true,
 				'tinymce'			=> array(
 					// 'toolbar1'		=> 'bold,italic,underline,separator,link,unlink,undo,redo',
-					'toolbar1'		=> 'bold,italic,underline,strikethrough,superscript,subscript,blockquote,bullist,numlist,alignleft,aligncenter,alignjustify,alignright,alignnone,link,unlink,fontsizeselect,forecolor,undo,redo,removeformat',
+					'toolbar1'		=> 'bold,italic,underline,strikethrough,superscript,subscript,blockquote,bullist,numlist,alignleft,aligncenter,alignjustify,alignright,alignnone,link,unlink,fontsizeselect,forecolor,undo,redo,removeformat,code',
 					'content_css'	=> ASENHA_URL . 'assets/css/settings-wpeditor.css',
 				),
 				'editor_css'		=> '',
 				'wpautop'			=> true,
-				'quicktags'			=> true,
+				'quicktags'			=> false,
 				'default_editor'	=> 'tinymce', // 'tinymce' or 'html'
 			);
 

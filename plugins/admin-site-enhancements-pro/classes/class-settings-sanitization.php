@@ -288,6 +288,10 @@ class Settings_Sanitization {
 		if ( ! isset( $options['show_id_column'] ) ) $options['show_id_column'] = false;
 		$options['show_id_column'] = ( 'on' == $options['show_id_column'] ? true : false );
 
+		// Show File Size Column in Media Library
+		if ( ! isset( $options['show_file_size_column'] ) ) $options['show_file_size_column'] = false;
+		$options['show_file_size_column'] = ( 'on' == $options['show_file_size_column'] ? true : false );
+
 		// Show ID in Action Row
 		if ( ! isset( $options['show_id_in_action_row'] ) ) $options['show_id_in_action_row'] = false;
 		$options['show_id_in_action_row'] = ( 'on' == $options['show_id_in_action_row'] ? true : false );
@@ -496,6 +500,11 @@ class Settings_Sanitization {
 		if ( ! isset( $options['disable_gutenberg'] ) ) $options['disable_gutenberg'] = false;
 		$options['disable_gutenberg'] = ( 'on' == $options['disable_gutenberg'] ? true : false );
 
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			if ( ! isset( $options['disable_gutenberg_type'] ) ) $options['disable_gutenberg_type'] = 'only-on';
+			$options['disable_gutenberg_type'] = ( ! empty( $options['disable_gutenberg_type'] ) ) ? sanitize_text_field( $options['disable_gutenberg_type'] ) : 'only-on';
+		}
+
 		if ( is_array( $asenha_gutenberg_post_types ) ) {
 			foreach ( $asenha_gutenberg_post_types as $post_type_slug => $post_type_label ) { // e.g. $post_type_slug is post, 
 				if ( ! isset( $options['disable_gutenberg_for'][$post_type_slug] ) ) $options['disable_gutenberg_for'][$post_type_slug] = false;
@@ -506,13 +515,14 @@ class Settings_Sanitization {
 		if ( ! isset( $options['disable_gutenberg_frontend_styles'] ) ) $options['disable_gutenberg_frontend_styles'] = false;
 		$options['disable_gutenberg_frontend_styles'] = ( 'on' == $options['disable_gutenberg_frontend_styles'] ? true : false );
 
-		// Disable Block-Based Widgets Screen
-		if ( ! isset( $options['disable_block_widgets'] ) ) $options['disable_block_widgets'] = false;
-		$options['disable_block_widgets'] = ( 'on' == $options['disable_block_widgets'] ? true : false );
-
 		// Disable Comments
 		if ( ! isset( $options['disable_comments'] ) ) $options['disable_comments'] = false;
 		$options['disable_comments'] = ( 'on' == $options['disable_comments'] ? true : false );
+
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			if ( ! isset( $options['disable_comments_type'] ) ) $options['disable_comments_type'] = 'only-on';
+			$options['disable_comments_type'] = ( ! empty( $options['disable_comments_type'] ) ) ? sanitize_text_field( $options['disable_comments_type'] ) : 'only-on';
+		}
 
 		if ( is_array( $asenha_public_post_types ) ) {
 			foreach ( $asenha_public_post_types as $post_type_slug => $post_type_label ) { // e.g. $post_type_slug is post, $post_type_label is Posts
@@ -561,6 +571,9 @@ class Settings_Sanitization {
 
 		if ( ! isset( $options['disable_jquery_migrate'] ) ) $options['disable_jquery_migrate'] = false;
 		$options['disable_jquery_migrate'] = ( 'on' == $options['disable_jquery_migrate'] ? true : false );
+
+		if ( ! isset( $options['disable_block_widgets'] ) ) $options['disable_block_widgets'] = false;
+		$options['disable_block_widgets'] = ( 'on' == $options['disable_block_widgets'] ? true : false );
 
 		// =================================================================
 		// SECURITY

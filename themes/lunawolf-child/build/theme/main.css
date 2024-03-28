@@ -2601,6 +2601,21 @@ button.swiper-pagination-bullet {
 .-preview .m__logoReel__logos__block__img {
   height: 30px;
 }
+.m__logoReel .locked .swiper-wrapper {
+  justify-content: center;
+}
+.m__logoReel .swiper-wrapper {
+  padding-bottom: 30px;
+}
+.m__logoReel .swiper-slide {
+  width: auto;
+}
+.m__logoReel .swiper-pagination {
+  bottom: 0;
+}
+.m__logoReel .swiper-pagination-bullet-active {
+  background: #001559;
+}
 
 .m__steps .container .m_title {
   text-align: center;

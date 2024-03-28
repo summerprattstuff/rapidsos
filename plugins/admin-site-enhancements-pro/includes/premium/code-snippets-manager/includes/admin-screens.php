@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-use ScssPhp\ScssPhp\Compiler;
+// use ScssPhp\ScssPhp\Compiler;
 
 /**
  * Code_Snippets_Manager_Admin
@@ -689,6 +689,10 @@ class Code_Snippets_Manager_Admin {
                 echo json_encode( array( 
                     'success' => true 
                 ) );
+			} else {
+                echo json_encode( array( 
+                    'success' => false 
+                ) );				
 			}
 		 }
 	}
@@ -1106,11 +1110,12 @@ class Code_Snippets_Manager_Admin {
 			'wpautop' 			=> true,
 			'media_buttons'		=> false,
 			'tinymce'			=> true,
-			'quicktags'			=> true,
-			'teeny'				=> true, // minimal editor, less buttons/options in TinyMCE
+			'quicktags'			=> false,
+			'teeny'				=> false, // minimal editor, less buttons/options in TinyMCE
 			'drag_drop_upload'	=> false,
 			'textarea_rows'		=> 4,
 			'tinymce'			=> array(
+				'toolbar1'		=> 'bold,italic,underline,strikethrough,forecolor,blockquote,bullist,numlist,link,unlink,indent,outdent,undo,redo,charmap,pastetext,removeformat,code,fullscreen',
 				'content_css'	=> 	ASENHA_URL . 'includes/premium/code-snippets-manager/assets/csm_tinymce.css',
 			),
 		);
@@ -1427,7 +1432,8 @@ class Code_Snippets_Manager_Admin {
 	public function scss_compiler( $scss ) {
 
 		// SCSS compiler
-		$compiler = new Compiler();
+		// $compiler = new Compiler();
+		$compiler = new \ScssPhp\ScssPhp\Compiler();
 		$compiled_css = $compiler->compileString( $scss )->getCss();
 		return $compiled_css;
 

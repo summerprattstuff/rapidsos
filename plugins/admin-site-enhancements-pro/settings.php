@@ -47,10 +47,10 @@ function asenha_add_settings_page() {
 
 		<div id="asenha-header" class="asenha-header">
 			<div class="asenha-header-left">
-				<img src="<?php echo ASENHA_URL . 'assets/img/ase_icon.png'; ?>" class="asenha-icon"/>
+				<img src="<?php echo esc_html( ASENHA_URL ) . 'assets/img/ase_icon.png'; ?>" class="asenha-icon"/>
 				<h1 class="asenha-heading">
 					<?php 
-						echo get_admin_page_title();
+						echo esc_html( get_admin_page_title() );
 					?>
 					(ASE)
 					<?php
@@ -83,15 +83,15 @@ function asenha_add_settings_page() {
 
                 if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
                 ?>
-					<a href="https://wordpress.org/plugins/admin-site-enhancements/#reviews" target="_blank" class="asenha-header-action review"><?php echo $svg_star . esc_html( 'Review', 'admin-site-enhancements' ); ?></a>
+					<a href="https://wordpress.org/plugins/admin-site-enhancements/#reviews" target="_blank" class="asenha-header-action review"><?php echo wp_kses( $svg_star, get_kses_with_svg_ruleset() ) . esc_html( 'Review', 'admin-site-enhancements' ); ?></a>
 					<!-- <a href="https://www.wpase.com/account/" target="_blank" class="asenha-header-action account"><?php // echo $svg_account . esc_html( 'Account', 'admin-site-enhancements' ); ?></a> -->
-					<a href="https://www.wpase.com/documentation/" target="_blank" class="asenha-header-action docs"> <?php echo $svg_docs . esc_html( 'Docs', 'admin-site-enhancements' ); ?></a>                
-					<a href="https://www.wpase.com/support/" target="_blank" class="asenha-header-action support"><?php echo $svg_support . esc_html( 'Support', 'admin-site-enhancements' ); ?></a>
+					<a href="https://www.wpase.com/documentation/" target="_blank" class="asenha-header-action docs"> <?php echo wp_kses( $svg_docs, get_kses_with_svg_ruleset() ) . esc_html( 'Docs', 'admin-site-enhancements' ); ?></a>                
+					<a href="https://www.wpase.com/support/" target="_blank" class="asenha-header-action support"><?php echo wp_kses( $svg_support, get_kses_with_svg_ruleset() ) . esc_html( 'Support', 'admin-site-enhancements' ); ?></a>
                 <?php	
                 } else {
                 ?>
-	 				<a href="https://wordpress.org/plugins/admin-site-enhancements/#reviews" target="_blank" class="asenha-header-action review"><?php echo $svg_star . esc_html( 'Review', 'admin-site-enhancements' ); ?></a>
-					<a href="https://wordpress.org/support/plugin/admin-site-enhancements/" target="_blank" class="asenha-header-action feedback"><?php echo $svg_feedback . esc_html( 'Feedback', 'admin-site-enhancements' ); ?></a>
+	 				<a href="https://wordpress.org/plugins/admin-site-enhancements/#reviews" target="_blank" class="asenha-header-action review"><?php echo wp_kses( $svg_star, get_kses_with_svg_ruleset() ) . esc_html( 'Review', 'admin-site-enhancements' ); ?></a>
+					<a href="https://wordpress.org/support/plugin/admin-site-enhancements/" target="_blank" class="asenha-header-action feedback"><?php echo wp_kses( $svg_feedback, get_kses_with_svg_ruleset() ) . esc_html( 'Feedback', 'admin-site-enhancements' ); ?></a>
 					<!--<a href="https://www.wpasenha.com/docs/" target="_blank" class="asenha-header-action docs"><?php // echo $svg_docs . esc_html( 'Docs', 'admin-site-enhancements' ); ?></a>-->
 					<!--<a id="plugin-sponsor" href="#" class="asenha-header-action sponsor"><?php // echo $svg_sponsor . esc_html( 'Sponsor', 'admin-site-enhancements' ); ?></a>-->
 	                <a href="https://www.wpase.com/upgrade-btn" target="_blank" id="plugin-upgrade" class="button button-primary plugin-upgrade">Get ASE Pro</a>
@@ -199,8 +199,8 @@ function asenha_add_settings_page() {
 					$random_share_quote = $share_quotes[rand(0, count( $share_quotes ) -1 )];
 					?>
 					<div class="nudge-quotes">
-						<div class="user-quote"><?php echo $random_sponsorship_quote; ?></div>
-						<div class="user-quote"><?php echo $random_support_quote; ?></div>
+						<div class="user-quote"><?php echo wp_kses_post( $random_sponsorship_quote ); ?></div>
+						<div class="user-quote"><?php echo wp_kses_post( $random_support_quote ); ?></div>
 					</div>
 					<div class="nudge-content">
 						<div class="nudge-primary">
@@ -214,7 +214,7 @@ function asenha_add_settings_page() {
 								<a href="#" id="have-sponsored" class="asenha-have-sponsored">I've sponsored ASE</a>
 							</div>
 							<div class="nudge-stats">
-								<p class="nudge-description">This free version of ASE has consumed more than <a href="https://wordpress.org/plugins/admin-site-enhancements/#developers" target="_blank">250 hours of dev time</a>. At v6.9.4 (released on March 18, 2024) and 50,000+ active installs, there have been <a href="https://bowo.io/asenha-sp-gth-ndg" target="_blank">6 monthly sponsors</a> and <a href="https://bowo.io/asenha-sp-ppl-ndg" target="_blank">59 one-time sponsors</a>. You can be one today!</p>
+								<p class="nudge-description">This free version of ASE has consumed more than <a href="https://wordpress.org/plugins/admin-site-enhancements/#developers" target="_blank">250 hours of dev time</a>. At v6.9.5 (released on March 25, 2024) and 50,000+ active installs, there have been <a href="https://bowo.io/asenha-sp-gth-ndg" target="_blank">6 monthly sponsors</a> and <a href="https://bowo.io/asenha-sp-ppl-ndg" target="_blank">59 one-time sponsors</a>. You can be one today!</p>
 							</div>
 						</div>
 						<div class="nudge-secondary">
@@ -223,7 +223,7 @@ function asenha_add_settings_page() {
 							<p class="nudge-description">Or, if you find something is lacking or not working as you expect it to, you can provide a good and detailed <a href="https://wordpress.org/support/plugin/admin-site-enhancements/" target="_blank">feature request or feedback</a>, which is much more appreciated than a 4-star review or less. This is how we can work together to improve ASE.</p>
 						</div>
 					</div>
-					<div class="user-quote share-quote"><?php echo $random_share_quote; ?></div>
+					<div class="user-quote share-quote"><?php echo wp_kses_post( $random_share_quote ); ?></div>
 					<p class="nudge-description">Do <a href="https://wordpress.org/plugins/admin-site-enhancements/" target="_blank">share about ASE</a> with your colleagues and/or community.</p>
 					<a href="https://bowo.io" target="_blank" class="nudge-photo-link"><img src="<?php echo esc_attr( ASENHA_URL . 'assets/img/bowo.jpg' ); ?>" class="nudge-photo" /></a>
 					<h3>Thank you!</h3> 
@@ -263,14 +263,14 @@ function asenha_add_settings_page() {
 							// https://icon-sets.iconify.design/iconoir/tools/
 							$icon_utilities = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="m10.05 10.607l-7.07 7.07a2 2 0 0 0 0 2.83v0a2 2 0 0 0 2.828 0l7.07-7.072m4.315.365l3.878 3.878a2 2 0 0 1 0 2.828v0a2 2 0 0 1-2.828 0l-6.209-6.208M6.733 5.904L4.61 6.61L2.49 3.075l1.414-1.414L7.44 3.782l-.707 2.122Zm0 0l2.83 2.83"/><path d="M10.05 10.607c-.844-2.153-.679-4.978 1.061-6.718c1.74-1.74 4.95-2.121 6.717-1.06l-3.04 3.04l-.283 3.111l3.111-.282l3.04-3.041c1.062 1.768.68 4.978-1.06 6.717c-1.74 1.74-4.564 1.905-6.717 1.061"/></g></svg>';
 						?>
-					    <input id="tab-content-management" type="radio" name="tabs" checked><label for="tab-content-management"><?php echo $icon_content_management; ?>Content Management</label>
-					    <input id="tab-admin-interface" type="radio" name="tabs"><label for="tab-admin-interface"><?php echo $icon_admin_interface; ?>Admin Interface</label>
-					    <input id="tab-login-logout" type="radio" name="tabs"><label for="tab-login-logout"><?php echo $icon_login_logout; ?>Log In | Log Out</label>
-					    <input id="tab-custom-code" type="radio" name="tabs"><label for="tab-custom-code"><?php echo $icon_custom_code; ?>Custom Code</label>
-					    <input id="tab-disable-components" type="radio" name="tabs"><label for="tab-disable-components"><?php echo $icon_disable_components; ?>Disable Components</label>
-					    <input id="tab-security" type="radio" name="tabs"><label for="tab-security"><?php echo $icon_security; ?>Security</label>
-					    <input id="tab-optimizations" type="radio" name="tabs"><label for="tab-optimizations"><?php echo $icon_optimizations; ?>Optimizations</label>
-					    <input id="tab-utilities" type="radio" name="tabs"><label for="tab-utilities"><?php echo $icon_utilities; ?>Utilities</label>
+					    <input id="tab-content-management" type="radio" name="tabs" checked><label for="tab-content-management"><?php echo wp_kses( $icon_content_management, get_kses_with_svg_ruleset() ); ?>Content Management</label>
+					    <input id="tab-admin-interface" type="radio" name="tabs"><label for="tab-admin-interface"><?php echo wp_kses( $icon_admin_interface, get_kses_with_svg_ruleset() ); ?>Admin Interface</label>
+					    <input id="tab-login-logout" type="radio" name="tabs"><label for="tab-login-logout"><?php echo wp_kses( $icon_login_logout, get_kses_with_svg_ruleset() ); ?>Log In | Log Out</label>
+					    <input id="tab-custom-code" type="radio" name="tabs"><label for="tab-custom-code"><?php echo wp_kses( $icon_custom_code, get_kses_with_svg_ruleset() ); ?>Custom Code</label>
+					    <input id="tab-disable-components" type="radio" name="tabs"><label for="tab-disable-components"><?php echo wp_kses( $icon_disable_components, get_kses_with_svg_ruleset() ); ?>Disable Components</label>
+					    <input id="tab-security" type="radio" name="tabs"><label for="tab-security"><?php echo wp_kses( $icon_security, get_kses_with_svg_ruleset() ); ?>Security</label>
+					    <input id="tab-optimizations" type="radio" name="tabs"><label for="tab-optimizations"><?php echo wp_kses( $icon_optimizations, get_kses_with_svg_ruleset() ); ?>Optimizations</label>
+					    <input id="tab-utilities" type="radio" name="tabs"><label for="tab-utilities"><?php echo wp_kses( $icon_utilities, get_kses_with_svg_ruleset() ); ?>Utilities</label>
 					</div>
 					<div class="asenha-tab-contents">
 					    <section class="asenha-fields fields-content-management"> 
@@ -364,7 +364,7 @@ function asenha_add_settings_page() {
 							<p>
 								<input type="file" id="upload" name="imported-settings" accept=".json" />
 								<input type="hidden" name="action" value="save" />
-								<input type="hidden" name="max_file_size" value="<?php echo wp_max_upload_size(); ?>" />
+								<input type="hidden" name="max_file_size" value="<?php echo esc_html( wp_max_upload_size() ); ?>" />
 								<?php wp_nonce_field('asenha-import-settings-nonce'); ?>
 							</p>
 							<?php submit_button( 'Import ASE Settings', 'button', 'asenha-upload-json-file'); ?>
@@ -394,7 +394,7 @@ function asenha_add_settings_page() {
 									$import_success = update_option( ASENHA_SLUG_U, $imported_settings );
 									if ( $import_success ) {
 										// Reload the ASE settings page via JS after import success
-										?><script><?php echo "location.href = '" . admin_url( 'tools.php?page=admin-site-enhancements&import=success' ) . "';"; ?></script><?php
+										?><script><?php echo "location.href = '" . esc_html( admin_url( 'tools.php?page=admin-site-enhancements&import=success' ) ) . "';"; ?></script><?php
 									}
 
 								}
@@ -939,11 +939,11 @@ function asenha_footer_version_text()
 {
 	if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 	?>
-		ASE Pro <a href="https://www.wpase.com/documentation/changelog/" target="_blank">v<?php echo ASENHA_VERSION; ?></a>
+		ASE Pro <a href="https://www.wpase.com/documentation/changelog/" target="_blank">v<?php echo esc_html( ASENHA_VERSION ); ?></a>
 	<?php
 	} else {
 	?>
-		ASE <a href="https://www.wpase.com/documentation/changelog/" target="_blank">v<?php echo ASENHA_VERSION; ?></a>
+		ASE <a href="https://www.wpase.com/documentation/changelog/" target="_blank">v<?php echo esc_html( ASENHA_VERSION ); ?></a>
 	<?php		
 	}
 }

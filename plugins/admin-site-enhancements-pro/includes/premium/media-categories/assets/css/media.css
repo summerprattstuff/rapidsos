@@ -152,10 +152,10 @@ table.media .column-title .has-media-icon ~ .row-actions {
 	width: 220px;	
 }
 .attachments-browser .media-toolbar-secondary {
-	max-width: 70%;
+	max-width: 78%;
 }
 .media-frame-content .attachments-browser .media-toolbar-primary.search-form {
-	max-width: 30%;
+	max-width: 22%;
 }
 #posts-filter .search-form label.media-search-input-label,
 .media-frame-content
