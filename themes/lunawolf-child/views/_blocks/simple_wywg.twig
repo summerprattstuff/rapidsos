@@ -1,0 +1,22 @@
+{% set wyswyg = block.wyswyg_editor %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if wyswyg %}
+    <section id="{{ settings.block_id }}" class="m__wyswyg">
+        <div class="wrapper">
+           <div class="content">
+               <div class="m__wyswyg">{{ wyswyg }}</div>
+           </div>
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add some content to show on page.
+    </div>
+{% endif %}

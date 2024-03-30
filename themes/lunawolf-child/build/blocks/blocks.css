@@ -802,6 +802,14 @@ button.swiper-pagination-bullet {
   background: #001559;
   color: #fff;
 }
+.btn.-dark {
+  background: #001559;
+  color: #fff;
+}
+.btn.-dark:hover {
+  background: transparent;
+  color: #001559;
+}
 
 .-preview .m__title {
   font-weight: 700;
@@ -1926,6 +1934,62 @@ button.swiper-pagination-bullet {
 .m__iconBoxes__box__iconWrapper .icon {
   max-height: 123px;
   width: auto;
+}
+
+.m__wyswyg {
+  padding-bottom: 20px;
+}
+.m__wyswyg h2 {
+  margin-bottom: 10px;
+}
+@media (min-width: 768px) {
+  .m__wyswyg h2 {
+    font-size: 24px;
+  }
+}
+@media (min-width: 992px) {
+  .m__wyswyg h2 {
+    font-size: 28px;
+  }
+}
+@media (min-width: 1280px) {
+  .m__wyswyg h2 {
+    font-size: 30px;
+  }
+}
+.m__wyswyg p {
+  font-size: 16px;
+}
+
+.m__imgRows__wrapper {
+  margin-bottom: 20px;
+}
+.m__imgRows__wrapper__inner__wrapImg {
+  width: 100%;
+}
+.m__imgRows__wrapper__inner__bgImg {
+  background: 50%/cover no-repeat;
+  padding-top: 57.65%;
+  height: 0;
+}
+.m__imgRows__wrapper__inner__bottom {
+  display: flex;
+  margin-top: 10px;
+}
+.m__imgRows__wrapper__inner__bottom .numb {
+  display: block;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 700;
+}
+.m__imgRows__wrapper__inner__bottom .desc {
+  margin-left: 5px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 700;
+}
+.m__imgRows + .m__wyswyg {
+  margin-top: 60px;
 }
 
 /*# sourceMappingURL=blocks.css.map*/

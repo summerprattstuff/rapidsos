@@ -1,0 +1,70 @@
+.m__multiCS {
+  padding: 50px 0;
+
+  @include media-up(m) {
+    padding: 80px 0;
+  }
+
+  ._w {
+    justify-content: center;
+  }
+
+  .s_title {
+    text-align: center;
+  }
+
+  .contentInner {
+
+    &:not(:first-child) {
+      margin-top: 20px;
+
+      @include media-up(m) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .title {
+
+    @include media-up(m) {
+      line-height: 28px;
+    }
+
+    @include media-up(xl) {
+      font-size: 20px;
+    }
+  }
+
+  .logoWrapper {
+    max-height: 35px;
+
+    img {
+      height: 100%; width: auto;
+    }
+  }
+
+  &__box {
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @include media-up(m) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 20px;
+      box-shadow: 4px 4px 10px 0 #00000040;
+      padding: 30px 20px;
+      height: 100%;
+
+      .bot {
+        margin-top: 20px;
+      }
+    }
+  }
+}

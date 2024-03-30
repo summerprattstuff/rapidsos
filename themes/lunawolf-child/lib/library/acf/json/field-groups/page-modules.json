@@ -1713,6 +1713,292 @@
                     "acfe_flexible_settings_size": "medium",
                     "acfe_flexible_thumbnail": "",
                     "acfe_flexible_category": false
+                },
+                "layout_66067dd99ec62": {
+                    "key": "layout_66067dd99ec62",
+                    "name": "simple_wywg",
+                    "label": "Simple Wysiwyg Editor",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_66067de79ec6b",
+                            "label": "Wysiwyg Editor",
+                            "name": "wyswyg_editor",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": "",
+                    "acfe_flexible_render_style": "",
+                    "acfe_flexible_render_script": "",
+                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_settings": [
+                        "group_65c69ec9ddce7"
+                    ],
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_flexible_thumbnail": "",
+                    "acfe_flexible_category": false
+                },
+                "layout_66068017733c3": {
+                    "key": "layout_66068017733c3",
+                    "name": "imgs_row",
+                    "label": "Images Row Feature",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_66068046733c5",
+                            "label": "Images Row",
+                            "name": "images_row",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "acfe_repeater_stylised_button": 0,
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add New Image Row",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_66068a315ebe1",
+                                    "label": "Image",
+                                    "name": "image",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "uploader": "",
+                                    "return_format": "array",
+                                    "acfe_thumbnail": 0,
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "parent_repeater": "field_66068046733c5"
+                                },
+                                {
+                                    "key": "field_66068a455ebe2",
+                                    "label": "Serial Number",
+                                    "name": "serial_numb",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "20",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "min": "",
+                                    "max": "",
+                                    "placeholder": "",
+                                    "step": 1,
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_66068046733c5"
+                                },
+                                {
+                                    "key": "field_66068a655ebe3",
+                                    "label": "Description",
+                                    "name": "desc",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "80",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "acfe_textarea_code": 0,
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_66068046733c5"
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": "",
+                    "acfe_flexible_render_style": "",
+                    "acfe_flexible_render_script": "",
+                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_settings": [
+                        "group_65c69ec9ddce7"
+                    ],
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_flexible_thumbnail": "",
+                    "acfe_flexible_category": false
+                },
+                "layout_6606c3d1e0a19": {
+                    "key": "layout_6606c3d1e0a19",
+                    "name": "single_cs_feature",
+                    "label": "Single Case Study Feature",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6606c3d1e0a1a",
+                            "label": "Case Study",
+                            "name": "case_study_feature",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "Choose one case study to show on page.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "case-study"
+                            ],
+                            "post_status": [
+                                "publish"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search"
+                            ],
+                            "return_format": "id",
+                            "acfe_bidirectional": {
+                                "acfe_bidirectional_enabled": "0"
+                            },
+                            "min": "",
+                            "max": 1,
+                            "elements": "",
+                            "bidirectional": 0,
+                            "bidirectional_target": []
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": "",
+                    "acfe_flexible_render_style": "",
+                    "acfe_flexible_render_script": "",
+                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_settings": [
+                        "group_65c69ec9ddce7"
+                    ],
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_flexible_thumbnail": "",
+                    "acfe_flexible_category": false
+                },
+                "layout_6607434fe865a": {
+                    "key": "layout_6607434fe865a",
+                    "name": "multiple_cs_feature",
+                    "label": "Multiple Case Study Feature",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_660743f3c2e7d",
+                            "label": "Section Title",
+                            "name": "s_title",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "acfe_textarea_code": 0,
+                            "maxlength": "",
+                            "rows": 2,
+                            "placeholder": "",
+                            "new_lines": "br"
+                        },
+                        {
+                            "key": "field_6607434fe8660",
+                            "label": "Case Studies",
+                            "name": "case_studies_feature",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "Choose case studies to show on page.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "case-study"
+                            ],
+                            "post_status": [
+                                "publish"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search"
+                            ],
+                            "return_format": "object",
+                            "acfe_bidirectional": {
+                                "acfe_bidirectional_enabled": "0"
+                            },
+                            "min": "",
+                            "max": 3,
+                            "elements": "",
+                            "bidirectional": 0,
+                            "bidirectional_target": []
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": "",
+                    "acfe_flexible_render_style": "",
+                    "acfe_flexible_render_script": "",
+                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_settings": [
+                        "group_65c69ec9ddce7"
+                    ],
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_flexible_thumbnail": "",
+                    "acfe_flexible_category": false
                 }
             },
             "min": "",
@@ -1730,6 +2016,13 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "case-study"
             }
         ]
     ],
@@ -1762,5 +2055,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711633703
+    "modified": 1711754750
 }

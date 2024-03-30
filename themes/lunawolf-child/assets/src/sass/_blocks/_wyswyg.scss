@@ -1,0 +1,23 @@
+.m__wyswyg {
+  padding-bottom: 20px;
+
+  h2 {
+    margin-bottom: 10px;
+
+    @include media-up(m) {
+      font-size: 24px;
+    }
+
+    @include media-up(l) {
+      font-size: 28px;
+    };
+
+    @include media-up(xl) {
+      font-size: 30px;
+    };
+  }
+
+  p {
+    font-size: 16px;
+  }
+}

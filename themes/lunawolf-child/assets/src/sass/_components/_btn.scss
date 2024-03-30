@@ -23,4 +23,14 @@
       color: $white;
     }
   }
+
+  &.-dark {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: transparent;
+      color: $primary;
+    }
+  }
 }

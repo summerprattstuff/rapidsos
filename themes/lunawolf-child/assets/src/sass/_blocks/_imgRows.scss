@@ -1,0 +1,42 @@
+.m__imgRows {
+
+  &__wrapper {
+    margin-bottom: 20px;
+
+    &__inner {
+
+      &__wrapImg {
+        width: 100%;
+      }
+
+      &__bgImg {
+        background: 50% / cover no-repeat;
+        padding-top: 57.65%;
+        height: 0;
+      }
+
+      &__bottom {
+        display: flex;
+        margin-top: 10px;
+
+        .numb {
+          display: block;
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 700;
+        }
+
+        .desc {
+          margin-left: 5px;
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  & +.m__wyswyg {
+    margin-top: 60px;
+  }
+}

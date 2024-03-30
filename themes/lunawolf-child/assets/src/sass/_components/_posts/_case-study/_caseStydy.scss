@@ -1,0 +1,52 @@
+.-caseStudy {
+
+  .titleWrapper {
+    margin-top: 15px;
+  }
+
+  .industry,
+  .customers{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .iLabel,
+    .cLabel {
+      font-weight: 700;
+      margin-right: 5px;
+    }
+  }
+
+  .industry {
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+
+  .customers {
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  .sources {
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    .sLabel {
+      font-weight: 700;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  }
+}

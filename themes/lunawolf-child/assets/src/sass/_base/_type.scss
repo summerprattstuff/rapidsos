@@ -45,7 +45,7 @@ h2 {
     font-size: 24px;
   }
 
-  @include media-up(l) {
+  @include media-up(xl) {
     font-size: 28px;
   }
 }
