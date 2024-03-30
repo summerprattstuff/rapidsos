@@ -297,9 +297,9 @@
                     "append": ""
                 },
                 {
-                    "key": "field_660735f0a783b",
+                    "key": "field_660898812e716",
                     "label": "Sources",
-                    "name": "sources",
+                    "name": "sources_wys",
                     "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
@@ -311,7 +311,7 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "visual",
+                    "tabs": "all",
                     "toolbar": "basic",
                     "media_upload": 0,
                     "delay": 0
@@ -374,12 +374,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfe_display_title": "",
-    "acfe_autosync": [
-        "json"
-    ],
-    "acfe_form": 0,
-    "acfe_meta": "",
-    "acfe_note": "",
-    "modified": 1711750270
+    "modified": 1711839947
 }

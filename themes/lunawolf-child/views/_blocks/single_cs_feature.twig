@@ -5,25 +5,25 @@
 {% endif %}
 
 {% if case_studyID %}
-    {% set case_study   = get_post(case_studyID) %}
-    {% set title        = case_study.title %}
-    {% set link         = case_study.link %}
-    {% set logo         = case_study.meta.logo %}
-    {% set heroTitle    = case_study.meta.hero_title %}
-    {% set subtitle     = case_study.meta.subtitle %}
-    {% set heroImg      = case_study.meta.heroImg %}
-    {% set industry     = case_study.meta.industry %}
-    {% set data_sources = case_study.meta('data_sources') %}
-    {% set customers    = case_study.meta('customers') %}
-    {% set testimonialID  = case_study.meta('single_cs_testimonial')[0] %}
+    {% set case_study    = get_post(case_studyID) %}
+    {% set title         = case_study.title %}
+    {% set link          = case_study.link %}
+    {% set logo          = case_study.meta.logo %}
+    {% set heroTitle     = case_study.meta.hero_title %}
+    {% set subtitle      = case_study.meta.subtitle %}
+    {% set heroImg       = case_study.meta.heroImg %}
+    {% set industry      = case_study.meta.industry %}
+    {% set data_sources  = case_study.meta('data_sources') %}
+    {% set customers     = case_study.meta('customers') %}
+    {% set testimonialID = case_study.meta('single_cs_testimonial')[0] %}
 
-    {% set testimonial = get_post(testimonialID) %}
-    {% set author = testimonial.title %}
-    {% set quote =  testimonial.meta('quote') %}
-    {% set author_title =  testimonial.meta('author_title') %}
+    {% set testimonial   = get_post(testimonialID) %}
+    {% set author        = testimonial.title %}
+    {% set quote         =  testimonial.meta('quote') %}
+    {% set author_title  =  testimonial.meta('author_title') %}
 
-    {% set label        = data_sources.sources_label %}
-    {% set sources      = data_sources.sources %}
+    {% set label         = data_sources.sources_label %}
+    {% set sources       = data_sources.sources_wys %}
 
     {% set cus_label    = customers.cus_label %}
     {% set cus_value    = customers.cus_value %}

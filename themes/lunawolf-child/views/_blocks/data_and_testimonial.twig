@@ -1,0 +1,53 @@
+{% set postType  = post.post_type %}
+{% set testimonialID = post.meta('single_cs_testimonial')[0] %}
+{% set data_sources  = postType.meta('data_sources') %}
+
+{% set label         = data_sources.sources_label %}
+{% set sources       = data_sources.sources_wys %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if testimonialID or data_sources %}
+    <section id="{{ settings.block_id }}" class="m__dataTestimonial -caseStudy">
+        <div class="wrapper">
+            <div class="content">
+                {% if data_sources %}
+                    <div class="m__dataTestimonial__dataBox _m5">
+                        <div class="sources">
+                            <p class="sLabel">{{ label }}</p>
+                            <p class="sContent">{{ sources }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if testimonialID %}
+                    {% set testimonial   = get_post(testimonialID) %}
+                    {% set author        = testimonial.title %}
+                    {% set quote         =  testimonial.meta('quote') %}
+                    {% set author_title  =  testimonial.meta('author_title') %}
+                    <div class="m__dataTestimonial__testimonialBox _m7">
+                        <div class="testimonialWrapper">
+                            {% if quote %}
+                                <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39 32" width="39" height="32"><defs><image  width="39" height="32" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAgCAMAAACmeJG/AAAAAXNSR0IB2cksfwAAAfhQTFRFAAAAFGynFG2rFGupE2qnEFiPDlWVDlWTDlOSEHCfFG+sFG6rFG2qFGmoEFaWD1eVD1aUDlOSEFCPFXCqFXCtFG+sE2ypEGinDlmYD1iWD1eVDVWUFXOxFHGuFXCtE22qEGqqEFiXEFmYD1mXDlSTFnSxFXKvFXGuFW6rEFuZEFqYEFWVFnazFnSwFHCrEF2aEFuZD1mWEFiTFnWxFHCtEF2cEFyaD1qXEFqVFXW1FnayFHKtEV2cEF2bEFaZGHivFne0FHOwEF6fEV6cEFqXFni1FnezFnOwGHCvEGCfEV+dEFuaFXq1F3i0FXKvEGCdF3u2FnaxEGCbEWCeEF2bF3q2FnWyEmKfEGCXFnu3FnavEGCfEWGfEFycF3q3FHSvE2KfEF2bEmOgF3u2FnSxEmOgEF2bF3q2FXOwFXKtFHCrFWqqEmKgEFuZEFqXEFiXDFiTF3y2E26sFG6rD1WWDVWSF3u3E2upFWqlDlSUE2uoDlKSE2qnE2qnDlKSDFCPFnm2E2mmDlGPE2mmEGWlE2OgDlGPEICvEGijEmKfDlKRFny2DlGRGHi3EGGeF3i1EmqoEWCeDVKPFnm0FGinDVOTFGqnEGCdCFCPEHCvFnaxE22qD1SUFHKwFHGvFHCuEm2rEFybEFqaEFuYEFiYD1iXDlWXEFSTWpgJAAAAAKh0Uk5TAEC//2Agn//fEK///3BQ7///EDDf/+8gj///n1/v/98wIL//oH///6Df/2B//4Df/+9A/4Df/+8wMP+Av/9QIN+vf/+An//fICD/nzD/YK+/30D/j/+fnyCfUBD/z99AYLCfcIDP75CfYEAw/3BgYECv33+/YL/fMI/vj/+f/0Cg75D/ML+wEECA36/PIJCQz+9gz0C/gGAgEKDvv6+/v3BAkL+/v5BA1PK1xQAAAhZJREFUeJxt1E9IVEEcB/D5QovuolviiJISiXgJrwVBJAQdhAXDS5kUUUTpGlQHK/AglKxhf4T+IRRh/4gQgiIoiIJAkAgPhXQKE+zg5RHb9mZn2qDfm6dv/rRzenz5zJ83v5kBsxqoVZjXUhSWGUyQpkBkfnksG4UIjGsEQmSw6rIWSgX/YcZro34hx3dHtUd9Qx4EieskJhqXhctqIUM0LEZLj5MuSIhNn90527NQMosFlriuGiVR/8ljHErVY54lbiekkk1z3p/uolTxDyxx3TS84u89tkenb5lxe1GSHK9d1qPneMWMy0GWZOsLb7jeP1IVi0uW2/dXlpqfe6wPQqrmWWZcLl2WpbZnnttfIdf61HL9FXJbn7hsgHZdbn7ILHdYkOuccd2RCrkt9y2XS7Mq7qjy3bFi5Lbddd1xQa7j92PjTgSRk9tBp/RWEg//JKeKu+lIPgi0O7OiHdVXiEN4FB+/gQbtqG50Xg5iktzIknEh8piIXE+H5UJxtuA7ce7e6v8uMzTuuwu4WMWdAsYWXZeaEN76IrdhbV+Mq8EoDTj+1XW1KCx4LnWe3OUvrqsDm/xYxen6Wi4LdnXedTf1Fl6b8+Zl7Po72/HT8U7veGM7Tq5Q99JyLcNx5frKlruUT+7RmrsxtF7iO7OJw9RJfS+nMR27qUHruTrwDbG7MpK8G90be4H87UH33ZiBbv30+Q/LsrjlaHAnLwAAAABJRU5ErkJggg=="/></defs><style></style><use  href="#img1" x="0" y="0"/></svg>
+                                <p class="quote">{{ quote }}</p>
+                            {% endif %}
+                            {% if author or author_title %}
+                                <div class="authorWrapper">
+                                    <p class="author">{{ author }}</p>
+                                    <p class="author_title">{{ author_title }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add one case study to show on page.
+    </div>
+{% endif %}
+
+
