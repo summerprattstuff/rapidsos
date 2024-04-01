@@ -1,0 +1,55 @@
+.site__header {
+  position: relative;
+  padding: 19px 0 25px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    left: 0; bottom: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
+  }
+
+  &__logo {
+    position: relative;
+    flex-shrink: 0;
+    z-index: 10;
+  }
+
+  &__menuToggle {
+    position: relative;
+    display: inline-block;
+    height: 30px; width: 30px;
+    z-index: 10;
+
+    @include media-up(xl) {
+      display: none;
+    }
+
+    &.-active {
+
+      & + .site__navigation {
+        display: block;
+      }
+    }
+
+    svg {
+      height: 30px;
+    }
+  }
+
+  img {
+    height: 34px;
+
+    @include media-up(xl) {
+      height: 52px;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 24px;
+  }
+}

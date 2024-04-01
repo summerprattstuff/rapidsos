@@ -13,6 +13,19 @@
   --accent: #0175ff;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  border: 0;
+}
+
 .acfe-flexible-placeholder.-preview {
   background: var(--bg-color);
   color: var(--text-color);
@@ -805,10 +818,12 @@ button.swiper-pagination-bullet {
 .btn.-dark {
   background: #001559;
   color: #fff;
+  border-color: transparent;
 }
 .btn.-dark:hover {
-  background: transparent;
+  background: #fff;
   color: #001559;
+  border-color: #001559;
 }
 .btn.-simpleLink {
   background: #fff;
@@ -870,8 +885,14 @@ button.swiper-pagination-bullet {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(100vh - 78px);
+  min-height: calc(var(--vh, 1vh) * 100 - 78px);
+}
+@media (min-width: 1280px) {
+  .m__hero__hero {
+    min-height: calc(100vh - 98px);
+    min-height: calc(var(--vh, 1vh) * 100 - 98px);
+  }
 }
 .-preview .m__hero__hero.-withVideo {
   background: url(8db0bce651386ed56a18.avif) 50%/cover no-repeat;
@@ -2120,6 +2141,50 @@ button.swiper-pagination-bullet {
 .m__videosColumns__box__inner__bottom .industry .iLabel {
   font-weight: 700;
   margin-right: 5px;
+}
+
+.m__globalSocialMedia {
+  padding: 54px 0;
+}
+.m__globalSocialMedia .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+.m__globalSocialMedia .container span {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .m__globalSocialMedia .container span {
+    font-size: 24px;
+    line-height: 33px;
+  }
+}
+.m__globalSocialMedia .container ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 12px 24px;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 768px) {
+  .m__globalSocialMedia .container ul {
+    gap: 12px 34px;
+  }
+}
+.m__globalSocialMedia .container img {
+  height: 45px;
+  width: 45px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 /*# sourceMappingURL=blocks.css.map*/

@@ -55,6 +55,33 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/components/utilities/activeTrigger.js":
+/*!******************************************************!*\
+  !*** ./src/js/components/utilities/activeTrigger.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var activeTriggers = document.querySelectorAll('.js-activeTrigger');
+  var ACTIVE_CLASS = '-active';
+  activeTriggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      var dataTarget = trigger.dataset.target;
+      var dataClass = trigger.dataset.class;
+      if (dataTarget) {
+        var targetElement = document.querySelector(dataTarget);
+        targetElement.classList.toggle(dataClass ? dataClass : ACTIVE_CLASS);
+      }
+      trigger.classList.toggle(ACTIVE_CLASS);
+    });
+  });
+});
+
+/***/ }),
+
 /***/ "./src/js/components/videos/index.js":
 /*!*******************************************!*\
   !*** ./src/js/components/videos/index.js ***!
@@ -10532,6 +10559,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_debounce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/debounce */ "./src/js/helpers/debounce.js");
 /* harmony import */ var _components_sliders__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/sliders */ "./src/js/components/sliders/index.js");
 /* harmony import */ var _components_videos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/videos */ "./src/js/components/videos/index.js");
+/* harmony import */ var _components_utilities_activeTrigger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/utilities/activeTrigger */ "./src/js/components/utilities/activeTrigger.js");
 // Import scripts
 // import {Fancybox} from '@fancyapps/ui'; // eslint-disable-line
 // import './vendor/slick.min';
@@ -10548,6 +10576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var vh = window.innerHeight * 0.01;
 var adaptVh = function adaptVh() {
   vh = window.innerHeight * 0.01;
@@ -10559,6 +10588,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   (0,_components_videos__WEBPACK_IMPORTED_MODULE_3__["default"])();
   (0,_components_sliders__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_components_sliders__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  (0,_components_utilities_activeTrigger__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
 }();
 /******/ })()

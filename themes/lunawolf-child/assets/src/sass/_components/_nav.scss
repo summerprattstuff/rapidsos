@@ -1,0 +1,80 @@
+$breakpoint: xl;
+
+.site__navigation {
+
+  @include media-down($breakpoint) {
+    display: none;
+    position: fixed;
+    left: 0; top: 72px; right: 0; bottom: 0;
+    background: $white;
+    padding: 30px;
+    overflow: auto;
+    z-index: 5;
+
+    &::before {
+      position: absolute;
+      content: '';
+      background: $white;
+      bottom: calc(100% - 1px); left: 0; right: 0;
+      height: 100px;
+    }
+  }
+
+  ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include media-down($breakpoint) {
+      flex-wrap: wrap;
+    }
+
+    @include media-up($breakpoint) {
+      align-items: center;
+      gap: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: $primary;
+      transition: .2s;
+      font-size: 16px;
+      line-height: 22px;
+    }
+
+    li {
+
+      @include media-down($breakpoint) {
+        width: 100%;
+      }
+
+      @include media-up($breakpoint) {
+
+        &:not(:first-child) {
+          margin-left: 30px;
+        }
+
+        &:last-child {
+          margin-left: 15px;
+        }
+      }
+
+      &.btn {
+        flex-shrink: 0;
+        text-align: center;
+
+        @include media-between(s, $breakpoint) {
+          max-width: calc(50% - 12px);
+          flex: 0 0 calc(50% - 12px);
+        }
+
+        a {
+          color: inherit;
+          transition: 0s;
+        }
+      }
+    }
+  }
+}

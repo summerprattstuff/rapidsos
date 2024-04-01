@@ -15,4 +15,14 @@ add_action( 'acf/init', function() {
     'position' => 1000,
     'redirect' => false,
   ] );
+
+  acf_add_options_page( [
+    'page_title' => 'Global Modules',
+    'menu_slug' => 'global-modules',
+    'icon_url' => 'dashicons-tagcloud',
+    'menu_title' => 'Global Modules',
+    'parent_slug' => 'theme-settings',
+    'position' => 1000,
+    'redirect' => false,
+  ] );
 } );
