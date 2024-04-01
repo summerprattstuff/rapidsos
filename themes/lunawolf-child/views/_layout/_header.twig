@@ -1,6 +1,6 @@
-{#{% set logo = options['logo'] %}#}
-{#{% set logoURL = get_image(logo) %}#}
-{#{% set logoSVG = function('file_get_contents', siteUrl ~ logoURL.src) %}#}
+{% set logo = options['logo'] %}
+{% set logoURL = get_image(logo) %}
+{% set logoSVG = function('file_get_contents', siteUrl ~ logoURL.src) %}
 
 <header id="header" class="site__header">
 {#  {{ logoSVG }}#}

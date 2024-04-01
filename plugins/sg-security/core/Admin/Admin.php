@@ -233,7 +233,7 @@ class Admin {
 			'wp_nonce'           => wp_create_nonce( 'wp_rest' ),
 			'log_page_url'       => admin_url( 'admin.php?page=activity-log' ),
 			'data_consent_popup' => $this->get_popup_settings(),
-			'assetsPath'         => SG_Security\URL . '/assets/images',
+			'assets_path'         => SG_Security\URL . '/assets',
 		);
 
 		echo '<script>window.addEventListener("load", function(){ SGSecurity.init({page: SGSecurity.PAGE.' . $id . ',config:' . json_encode( $data ) . '})});</script>';

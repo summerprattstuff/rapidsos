@@ -301,31 +301,40 @@ class Supercacher {
 	 * @since  5.0.0
 	 */
 	public function purge_on_options_save() {
+		// Bail if option page is not set.
+		if ( empty( $_POST['option_page'] ) ) {
+			return;
+		}
+
+		// Bail if no nonce is present.
+		if ( empty( $_POST['_wpnonce'] ) )  {
+			return;
+		}
+
+		// Require pluggable.php in order to check_admin_referer.
+		require_once ABSPATH . '/wp-includes/pluggable.php';
+
+		// Bail if we do not have option page and nonce is invalid.
+		if ( false === \wp_verify_nonce( $_POST['_wpnonce'], $_POST['option_page'] . '-options' ) ) {
+			return;
+		}
 
 		if (
-			isset( $_POST['action'] ) && // WPCS: CSRF ok.
-			isset( $_POST['option_page'] ) && // WPCS: CSRF ok.
-			'update' === $_POST['action'] // WPCS: CSRF ok.
+			isset( $_POST['action'] ) &&
+			'update' === $_POST['action']
 		) {
-			$this->purge_everything();
+			$this->authorize_purge_request();
 		}
 	}
 
 	/**
-	 * Purge the cache for other events.
+	 * Method is used to authorize users before performing purge_everything request.
 	 *
-	 * @since  5.0.0
+	 * @since 7.5.0
 	 */
-	public function purge_on_other_events() {
-		if (
-			isset( $_POST['save-header-options'] ) || // WPCS: CSRF ok.
-			isset( $_POST['removeheader'] ) || // WPCS: CSRF ok.
-			isset( $_POST['skip-cropping'] ) || // WPCS: CSRF ok.
-			isset( $_POST['remove-background'] ) || // WPCS: CSRF ok.
-			isset( $_POST['save-background-options'] ) || // WPCS: CSRF ok.
-			( isset( $_POST['submit'] ) && 'Crop and Publish' == $_POST['submit'] ) || // WPCS: CSRF ok.
-			( isset( $_POST['submit'] ) && 'Upload' == $_POST['submit'] ) // WPCS: CSRF ok.
-		) {
+	public function authorize_purge_request() {
+		// Check if user with roles higher than contributor can purge the cache.
+		if ( \current_user_can( 'publish_posts' ) ) {
 			$this->purge_everything();
 		}
 	}

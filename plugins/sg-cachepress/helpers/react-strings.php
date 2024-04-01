@@ -66,7 +66,7 @@ $optimizer_i18n_strings = array(
 	__( '%(number)s URLs', 'sg-cachepress' ),
 	__( 'File-based Caching only works if you have Dynamic Caching enabled. To start using this feature, please enable Dynamic Caching first.', 'sg-cachepress' ),
 	__( 'File-Based Caching', 'sg-cachepress' ),
-	__( 'With file-based caching enabled we will create static HTML versions of your website which will be served to future visitors. The files are stored in the browser memory.', 'sg-cachepress' ),
+	__( 'With file-based caching enabled, we will create static HTML versions of your website for future visitors. The files will be stored in the WordPress cache directory and served from the local browser cache.', 'sg-cachepress' ),
 	__( 'Configure', 'sg-cachepress' ),
 	__( 'Configure File-Based Caching', 'sg-cachepress' ),
 	__( 'Manage the settings of your file-based caching to ensure optimal performance.', 'sg-cachepress' ),

@@ -339,7 +339,7 @@ class Admin {
 				'is_multisite'     => intval( is_multisite() ),
 			),
 			'data_consent_popup'  => $this->get_popup_settings(),
-			'assetsPath' => SiteGround_Optimizer\URL . '/assets/images',
+			'assets_path' => SiteGround_Optimizer\URL . '/assets',
 			'navigation' => $navigation,
 		);
 

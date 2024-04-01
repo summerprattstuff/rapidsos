@@ -719,7 +719,6 @@ class Loader {
 			( defined( 'DOING_AJAX' ) && DOING_AJAX ) ||
 			( defined( 'DOING_CRON' ) && DOING_CRON )
 		) {
-			$class->purge_on_other_events();
 			$class->purge_on_options_save();
 		}
 
