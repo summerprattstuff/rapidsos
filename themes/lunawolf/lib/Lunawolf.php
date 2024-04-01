@@ -55,10 +55,12 @@ class Lunawolf extends Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
+        $theme              = new Timber\Theme('lunawolf-child');
 		$context['menu']    = Timber::get_menu();
 		$context['site']    = $this;
 		$context['options'] = get_fields('options');
 		$context['siteUrl'] = home_url('/');
+        $context['theme']   = $theme;
 
 		return $context;
 	}

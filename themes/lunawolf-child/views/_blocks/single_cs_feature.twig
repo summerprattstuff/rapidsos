@@ -23,6 +23,7 @@
     {% set author_title  =  testimonial.meta('author_title') %}
 
     {% set label         = data_sources.sources_label %}
+    {% set sigl_label    = data_sources.s_s_label %}
     {% set sources       = data_sources.sources_wys %}
 
     {% set cus_label    = customers.cus_label %}
@@ -65,7 +66,7 @@
                             {% endif %}
                             {% if data_sources %}
                                 <div class="sources">
-                                    <p class="sLabel">{{ label }}</p>
+                                    <p class="sLabel">{{ sigl_label ? sigl_label : label}}</p>
                                     <p class="sContent">{{ sources }}</p>
                                 </div>
                             {% endif %}

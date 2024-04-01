@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "no_preference": 0
         },
         {
             "key": "field_66067755797b3",
@@ -44,7 +45,8 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium",
-            "library": "all"
+            "library": "all",
+            "upload_folder": ""
         },
         {
             "key": "field_6606776a797b4",
@@ -156,7 +158,8 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium",
-            "library": "all"
+            "library": "all",
+            "upload_folder": ""
         },
         {
             "key": "field_6607240c5abcb",
@@ -173,7 +176,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "no_preference": 0
         },
         {
             "key": "field_6607229440eda",
@@ -297,6 +301,26 @@
                     "append": ""
                 },
                 {
+                    "key": "field_6609c8ad83cae",
+                    "label": "Single Sources Label",
+                    "name": "s_s_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Add custom source label that you want to show on Single Case Study Module.\r\nDefault: Source Label",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
                     "key": "field_660898812e716",
                     "label": "Sources",
                     "name": "sources_wys",
@@ -314,7 +338,22 @@
                     "tabs": "all",
                     "toolbar": "basic",
                     "media_upload": 0,
-                    "delay": 0
+                    "delay": 0,
+                    "acfe_wysiwyg_auto_init": 0,
+                    "acfe_wysiwyg_height": 300,
+                    "acfe_wysiwyg_min_height": 300,
+                    "acfe_wysiwyg_max_height": "",
+                    "acfe_wysiwyg_valid_elements": "",
+                    "acfe_wysiwyg_custom_style": "",
+                    "acfe_wysiwyg_disable_wp_style": 0,
+                    "acfe_wysiwyg_autoresize": 0,
+                    "acfe_wysiwyg_disable_resize": 0,
+                    "acfe_wysiwyg_remove_path": 0,
+                    "acfe_wysiwyg_menubar": 0,
+                    "acfe_wysiwyg_transparent": 0,
+                    "acfe_wysiwyg_merge_toolbar": 0,
+                    "acfe_wysiwyg_custom_toolbar": 0,
+                    "acfe_wysiwyg_toolbar_buttons": []
                 }
             ],
             "acfe_group_modal_close": 0,
@@ -353,7 +392,9 @@
             "max": 1,
             "elements": "",
             "bidirectional": 0,
-            "bidirectional_target": []
+            "bidirectional_target": [],
+            "acfe_add_post": 0,
+            "acfe_edit_post": 0
         }
     ],
     "location": [
@@ -374,5 +415,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711839947
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_display_title": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1711917386
 }

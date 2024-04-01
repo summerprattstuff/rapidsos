@@ -1,0 +1,39 @@
+{% set sTitle        = post.meta.s_title %}
+{% set valueBlocks   = post.meta('value_blocks') %}
+{% set count         = valueBlocks|length %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if valueBlocks %}
+    <section id="{{ settings.block_id }}" class="m__podcastContent">
+        <div class="wrapper">
+            <div class="content">
+                {% if sTitle %}
+                    <div class="titleWrapper">
+                        <h2 class="title">{{ sTitle }}</h2>
+                    </div>
+                {% endif %}
+                <div class="m__podcastContent__blocks">
+                    <div class="_w">
+                        {% for block in valueBlocks %}
+                            {% set value       = block.value %}
+                            {% set description = block.description %}
+                            <div class="m__podcastContent__blocks__blocksWrapper{{ count == 3 ? ' _m4' : ' _m6'}}">
+                                <div class="m__podcastContent__blocks__blocksWrapper__inner">
+                                    <h2 class="value">{{ value }}</h2>
+                                    <p class="desc">{{ description }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add at least one podcast content block in podcast data content to show on page.
+    </div>
+{% endif %}

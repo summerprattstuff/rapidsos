@@ -10,7 +10,7 @@
     <section id="{{ settings.block_id }}" class="m__iconBoxes">
         <div class="wrapper">
             {% if s_title %}
-                <div class="titleWrapper -short -center">
+                <div class="titleWrapper -center">
                     <h1 class="m_title m__iconBoxes__stitle">{{ s_title }}</h1>
                 </div>
             {% endif %}
@@ -27,20 +27,22 @@
                                 <div class="m__iconBoxes__box__iconWrapper">
                                     <img class="icon" src="{{ get_image(icon) }}" alt="">
                                 </div>
-                                {% if title %}
-                                    <h2 class="m__iconBoxes__box__title">{{ title }}</h2>
-                                {% endif %}
-                                {% if desc %}
-                                    <p class="m__desc m__iconBoxes__box__desc">{{ desc }}</p>
-                                {% endif %}
-                                {% if link %}
-                                    <div class="btnWrapper">
-                                        {% include '_components/_advanced_link.twig' with {
-                                            link: link,
-                                            class: '-black'
-                                        } %}
-                                    </div>
-                                {% endif %}
+                                <div class="m__iconBoxes__box__inner__content">
+                                    {% if title %}
+                                        <h2 class="m__iconBoxes__box__title">{{ title }}</h2>
+                                    {% endif %}
+                                    {% if desc %}
+                                        <p class="m__desc m__iconBoxes__box__desc">{{ desc }}</p>
+                                    {% endif %}
+                                    {% if link %}
+                                        <div class="btnWrapper">
+                                            {% include '_components/_advanced_link.twig' with {
+                                                link: link,
+                                                class: '-black'
+                                            } %}
+                                        </div>
+                                    {% endif %}
+                                </div>
                             </div>
                         </div>
                     {% endfor %}

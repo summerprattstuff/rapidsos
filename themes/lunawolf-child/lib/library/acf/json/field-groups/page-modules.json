@@ -1839,6 +1839,56 @@
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
+                "layout_6609f2e4a0801": {
+                    "key": "layout_6609f2e4a0801",
+                    "name": "podcast_content",
+                    "label": "Podcast Content Three Box Module",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6609f2e4a0802",
+                            "label": "Message",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "required_message": "",
+                            "message": "Content will be automatic displayed.",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": "",
+                    "acfe_flexible_render_template": "",
+                    "acfe_flexible_render_style": "",
+                    "acfe_flexible_render_script": "",
+                    "acfe_flexible_modal_edit_size": "",
+                    "acfe_flexible_settings": [
+                        "group_65c69ec9ddce7"
+                    ],
+                    "acfe_flexible_settings_size": "medium",
+                    "acfe_layout_locations": [
+                        [
+                            {
+                                "param": "post_type",
+                                "operator": "==",
+                                "value": "podcast"
+                            }
+                        ]
+                    ],
+                    "acfe_flexible_thumbnail": "",
+                    "acfe_flexible_category": false,
+                    "acfe_layout_col": "auto",
+                    "acfe_layout_allowed_col": false
+                },
                 "layout_6602b89b57efc": {
                     "key": "layout_6602b89b57efc",
                     "name": "testimonial_slider",
@@ -2506,5 +2556,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711838886
+    "modified": 1711928099
 }
