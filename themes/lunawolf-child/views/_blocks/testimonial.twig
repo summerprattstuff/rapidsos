@@ -1,4 +1,5 @@
 {% set testimonialID = block.testimonial %}
+{% set t_width       = block.reduce_width %}
 
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
@@ -8,8 +9,9 @@
     {% set testimonial = get_post(testimonialID) %}
     {% set author      = testimonial.title %}
     {% set quote       = testimonial.meta('quote') %}
+
     <section id="{{ settings.block_id }}" class="m__testimonial">
-        <div class="wrapper">
+        <div class="wrapper{{ t_width ? ' -limit' : '' }}">
             <div class="container">
                 <div class="testimonial">
                     <svg width="290" height="203" viewBox="0 0 290 203" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

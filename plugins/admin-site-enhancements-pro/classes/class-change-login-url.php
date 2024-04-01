@@ -118,7 +118,7 @@ class Change_Login_URL {
         
             // When landing on the login page
             // At this point /admin, /wp-admin/, /login redirects to /wp-login.php
-            if ( false !== strpos( $url_input, 'wp-login.php' ) ) {
+            if ( false !== strpos( $url_input, 'wp-login' ) ) {
 
                 if ( ( isset( $_GET['action'] ) 
                         && ( 'logout' == $_GET['action'] 

@@ -68,7 +68,8 @@
             "max_size": "",
             "mime_types": "",
             "preview_size": "medium",
-            "library": "all"
+            "library": "all",
+            "upload_folder": ""
         },
         {
             "key": "field_660299251800b",
@@ -156,12 +157,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfe_display_title": "",
     "acfe_autosync": [
         "json"
     ],
     "acfe_form": 0,
+    "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711446450
+    "modified": 1711976940
 }

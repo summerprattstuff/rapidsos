@@ -18,40 +18,91 @@ class Content_Order {
      */
     public function add_content_order_submenu( $context ) {
         $options = get_option( ASENHA_SLUG_U, array() );
-        $content_order_for = $options['content_order_for'];
+        $content_order_for = isset( $options['content_order_for'] ) ? $options['content_order_for'] : array();
         $content_order_enabled_post_types = array();
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+            $content_order_for_other_post_types = isset( $options['content_order_for_other_post_types'] ) ? $options['content_order_for_other_post_types'] : array();
+            $content_order_other_enabled_post_types = array();            
+        }
         
-        foreach ( $options['content_order_for'] as $post_type_slug => $is_custom_order_enabled ) {
-            if ( $is_custom_order_enabled ) {
-                $post_type_object = get_post_type_object( $post_type_slug );
+        if ( is_array( $content_order_for ) && count( $content_order_for ) > 0 ) {
+            foreach ( $content_order_for as $post_type_slug => $is_custom_order_enabled ) {
+                if ( $is_custom_order_enabled ) {
+                    $post_type_object = get_post_type_object( $post_type_slug );
 
-                if ( is_object( $post_type_object ) && property_exists( $post_type_object, 'labels' ) ) {
-                    $post_type_name_plural = $post_type_object->labels->name;
-                    if ( 'post' == $post_type_slug ) {
-                        $hook_suffix = add_posts_page(
-                            $post_type_name_plural . ' Order', // Page title
-                            'Order', // Menu title
-                            'edit_pages', // Capability required
-                            'custom-order-posts', // Menu and page slug
-                            [ $this, 'custom_order_page_output' ] // Callback function that outputs page content
-                        );
-                    } else {
-                        $hook_suffix = add_submenu_page(
-                            'edit.php?post_type=' . $post_type_slug, // Parent (menu) slug. Ref: https://developer.wordpress.org/reference/functions/add_submenu_page/#comment-1404
-                            $post_type_name_plural . ' Order', // Page title
-                            'Order', // Menu title
-                            'edit_pages', // Capability required
-                            'custom-order-' . $post_type_slug, // Menu and page slug
-                            [ $this, 'custom_order_page_output' ],  // Callback function that outputs page content
-                            9999 // position
-                        );
+                    if ( is_object( $post_type_object ) && property_exists( $post_type_object, 'labels' ) ) {
+                        $post_type_name_plural = $post_type_object->labels->name;
+                        if ( 'post' == $post_type_slug ) {
+                            $hook_suffix = add_posts_page(
+                                $post_type_name_plural . ' Order', // Page title
+                                'Order', // Menu title
+                                'edit_pages', // Capability required
+                                'custom-order-posts', // Menu and page slug
+                                [ $this, 'custom_order_page_output' ] // Callback function that outputs page content
+                            );
+                        } else {
+                            $hook_suffix = add_submenu_page(
+                                'edit.php?post_type=' . $post_type_slug, // Parent (menu) slug. Ref: https://developer.wordpress.org/reference/functions/add_submenu_page/#comment-1404
+                                $post_type_name_plural . ' Order', // Page title
+                                'Order', // Menu title
+                                'edit_pages', // Capability required
+                                'custom-order-' . $post_type_slug, // Menu and page slug
+                                [ $this, 'custom_order_page_output' ],  // Callback function that outputs page content
+                                9999 // position
+                            );
+                        }
+
+                        add_action( 'admin_print_styles-' . $hook_suffix, [ $this, 'enqueue_content_order_styles' ] );
+                        add_action( 'admin_print_scripts-' . $hook_suffix, [ $this, 'enqueue_content_order_scripts' ] );                    
                     }
-
-                    add_action( 'admin_print_styles-' . $hook_suffix, [ $this, 'enqueue_content_order_styles' ] );
-                    add_action( 'admin_print_scripts-' . $hook_suffix, [ $this, 'enqueue_content_order_scripts' ] );                    
                 }
             }
-        }       
+        }
+
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+            if ( is_array( $content_order_for_other_post_types ) && count( $content_order_for_other_post_types ) > 0 ) {
+                foreach ( $content_order_for_other_post_types as $post_type_slug => $is_custom_order_enabled ) {
+                    if ( $is_custom_order_enabled ) {
+                        $post_type_object = get_post_type_object( $post_type_slug );
+
+                        if ( is_object( $post_type_object ) && property_exists( $post_type_object, 'labels' ) ) {
+                            $post_type_name_plural = $post_type_object->labels->name;
+                            if ( 'post' == $post_type_slug ) {
+                                $hook_suffix = add_posts_page(
+                                    $post_type_name_plural . ' Order', // Page title
+                                    'Order', // Menu title
+                                    'edit_pages', // Capability required
+                                    'custom-order-posts', // Menu and page slug
+                                    [ $this, 'custom_order_page_output' ] // Callback function that outputs page content
+                                );
+                            } elseif ( 'attachment' == $post_type_slug ) {
+                                $hook_suffix = add_media_page(
+                                    $post_type_name_plural . ' Order', // Page title
+                                    'Order', // Menu title
+                                    'edit_pages', // Capability required
+                                    'custom-order-attachments', // Menu and page slug
+                                    [ $this, 'custom_order_page_output' ] // Callback function that outputs page content
+                                );
+                            } else {
+                                $hook_suffix = add_submenu_page(
+                                    'edit.php?post_type=' . $post_type_slug, // Parent (menu) slug. Ref: https://developer.wordpress.org/reference/functions/add_submenu_page/#comment-1404
+                                    $post_type_name_plural . ' Order', // Page title
+                                    'Order', // Menu title
+                                    'edit_pages', // Capability required
+                                    'custom-order-' . $post_type_slug, // Menu and page slug
+                                    [ $this, 'custom_order_page_output' ],  // Callback function that outputs page content
+                                    9999 // position
+                                );
+                            }
+
+                            add_action( 'admin_print_styles-' . $hook_suffix, [ $this, 'enqueue_content_order_styles' ] );
+                            add_action( 'admin_print_scripts-' . $hook_suffix, [ $this, 'enqueue_content_order_scripts' ] );                    
+                        }
+                    }
+                }                
+            }
+        }
+
     }
     
     /**
@@ -62,9 +113,15 @@ class Content_Order {
      */
     public function custom_order_page_output() {
 
+        $post_status = array( 'publish', 'future', 'draft', 'pending', 'private' );
+
         $parent_slug = get_admin_page_parent();
+        
         if ( 'edit.php' == $parent_slug ) {
             $post_type_slug = 'post';
+        } elseif ( 'upload.php' == $parent_slug ) {
+            $post_type_slug = 'attachment';
+            $post_status = 'inherit';
         } else {
             $post_type_slug = str_replace( 'edit.php?post_type=', '', $parent_slug );
         }
@@ -98,7 +155,7 @@ class Content_Order {
                 'posts_per_page'    => -1, // Get all posts
                 'orderby'           => 'menu_order title', // By menu order then by title
                 'order'             => 'ASC',
-                'post_status'       => array( 'publish', 'future', 'draft', 'pending', 'private' ),
+                'post_status'       => $post_status,
                 'post_parent'       => 0, // In hierarchical post types, only return top-level / parent posts
         ) );
 
@@ -154,6 +211,14 @@ class Content_Order {
 
         $post_status_label_class = ( $post->post_status == 'publish' ) ? ' item-status-hidden' : '';
         $post_status_object = get_post_status_object( $post->post_status );
+        
+        if ( 'attachment' == $post->post_type ) {
+            $post_status_label_separator = '';
+            $post_status_label = ''; // Attachments / media only has the post status 'inherit'. Let's not show it.
+        } else {
+            $post_status_label_separator = ' — ';
+            $post_status_label = $post_status_object->label;        
+        }
 
         if ( empty( wp_trim_excerpt( '', $post ) ) ) {
             $short_excerpt = '';
@@ -188,7 +253,7 @@ class Content_Order {
                 <div class="row-content">
                     <?php 
                     echo    '<div class="content-main">
-                                <span class="dashicons dashicons-menu"></span><a href="' . esc_attr( get_edit_post_link( $post->ID ) ) . '" class="item-title">' . esc_html( $post->post_title ) . '</a><span class="item-status' . esc_attr( $post_status_label_class ) . '"> — ' . esc_html( $post_status_object->label ) . '</span>' . wp_kses_post( $has_child_label ) . wp_kses_post( $taxonomies_and_terms ) . wp_kses_post( $short_excerpt ) . '<div class="fader"></div>
+                                <span class="dashicons dashicons-menu"></span><a href="' . esc_attr( get_edit_post_link( $post->ID ) ) . '" class="item-title">' . esc_html( $post->post_title ) . '</a><span class="item-status' . esc_attr( $post_status_label_class ) . '">' . esc_html( $post_status_label_separator ) . esc_html( $post_status_label ) . '</span>' . wp_kses_post( $has_child_label ) . wp_kses_post( $taxonomies_and_terms ) . wp_kses_post( $short_excerpt ) . '<div class="fader"></div>
                             </div>
                             <div class="content-additional">
                                 <a href="' . esc_attr( get_the_permalink( $post->ID ) ) . '" target="_blank" class="button item-view-link">View</a>
@@ -301,6 +366,11 @@ class Content_Order {
             clean_post_cache( $post_id );
             $items_to_exclude[] = $post_id;
         }
+
+        $post_status = array( 'publish', 'future', 'draft', 'pending', 'private' );
+        if ( 'attachment' == $post_type ) {
+            $post_status = 'inherit';
+        }
         
         // Get all posts from the post type related to ajax request
         $query_args = array(
@@ -310,7 +380,7 @@ class Content_Order {
             'posts_per_page'            => -1, // Get all posts
             'suppress_filters'          => true,
             'ignore_sticky_posts'       => true,
-            'post_status'               => array( 'publish', 'future', 'draft', 'pending', 'private' ),
+            'post_status'               => $post_status,
             'post_parent'               => $item_parent,
             'post__not_in'              => $items_to_exclude,
             'update_post_term_cache'    => false, // Speed up processing by not updating term cache
@@ -361,39 +431,71 @@ class Content_Order {
         global $pagenow, $typenow;
 
         $options = get_option( ASENHA_SLUG_U, array() );
-        $content_order_for = $options['content_order_for'];
+        $content_order_for = isset( $options['content_order_for'] ) ? $options['content_order_for'] : array();
         $content_order_enabled_post_types = array();
-        foreach ( $options['content_order_for'] as $post_type_slug => $is_custom_order_enabled ) {
-            if ( $is_custom_order_enabled ) {
-                $content_order_enabled_post_types[] = $post_type_slug;
+        if ( is_array( $content_order_for ) && count( $content_order_for ) > 0 ) {
+            foreach ( $content_order_for as $post_type_slug => $is_custom_order_enabled ) {
+                if ( $is_custom_order_enabled ) {
+                    $content_order_enabled_post_types[] = $post_type_slug;
+                }
+            }            
+        }
+        $should_be_custom_sorted = false;
+
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+            $content_order_for_other_post_types = isset( $options['content_order_for_other_post_types'] ) ? $options['content_order_for_other_post_types'] : array();
+            $content_order_other_enabled_post_types = array();
+            if ( is_array( $content_order_for_other_post_types ) && count( $content_order_for_other_post_types ) > 0 ) {
+                foreach ( $content_order_for_other_post_types as $post_type_slug => $is_custom_order_enabled ) {
+                    if ( $is_custom_order_enabled ) {
+                        $content_order_other_enabled_post_types[] = $post_type_slug;
+                    }
+                }                
+            }
+
+            if ( in_array( $typenow, $content_order_enabled_post_types ) 
+                || in_array( $typenow, $content_order_other_enabled_post_types ) 
+            ) {
+                $should_be_custom_sorted = true;
+            }
+        } else {
+            if ( in_array( $typenow, $content_order_enabled_post_types ) ) {
+                $should_be_custom_sorted = true;
             }
         }
         
         // Use custom order in wp-admin listing pages/tables for enabled post types
-        if ( is_admin() && 'edit.php' == $pagenow && ! isset( $_GET['orderby'] ) ) {
-            if ( in_array( $typenow, $content_order_enabled_post_types ) 
-                && ( post_type_supports( $typenow, 'page-attributes' ) || is_post_type_hierarchical( $typenow ) ) 
-            ) {
+        if ( is_admin() && ( 'edit.php' == $pagenow || 'upload.php' == $pagenow ) && ! isset( $_GET['orderby'] ) ) {
+            if ( $should_be_custom_sorted ) {
                 $query->set( 'orderby', 'menu_order title' );
-                $query->set( 'order', 'ASC' );              
+                $query->set( 'order', 'ASC' );
+                // vi( $query, '', 'for ' . $pagenow );
             }
         }
         
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+            $should_be_custom_sorted_on_frontend = false;
+            
+            if ( in_array( $query->get('post_type'), $content_order_enabled_post_types ) 
+                || in_array( $query->get('post_type'), $content_order_other_enabled_post_types ) 
+            ) {
+                $should_be_custom_sorted_on_frontend = true;
+            }
+            
             // Use custom order in the frontend for enabled post types
             $content_order_frontend = isset( $options['content_order_frontend'] ) ? $options['content_order_frontend'] : false;
             if ( $content_order_frontend && ! is_admin() && ! $query->is_search() ) {
                 if ( $query->is_main_query() ) {
                     // On post types archive pages
-                    if ( $query->is_post_type_archive()
-                        && in_array( $query->get('post_type'), $content_order_enabled_post_types ) 
+                    if ( $query->is_post_type_archive() && $should_be_custom_sorted_on_frontend
                     ) {
                         $query->set( 'orderby', 'menu_order title' );
                         $query->set( 'order', 'ASC' );
                     }
+
                 } else {
                     // On secondary queries
-                    if ( in_array( $query->get('post_type'), $content_order_enabled_post_types ) ) {
+                    if ( $should_be_custom_sorted_on_frontend ) {
                         $query->set( 'orderby', 'menu_order title' );
                         $query->set( 'order', 'ASC' );                      
                     }
@@ -409,12 +511,14 @@ class Content_Order {
      */
     public function set_menu_order_for_new_posts( $post_id, $post, $update ) {
         $options = get_option( ASENHA_SLUG_U, array() );
-        $content_order_for = $options['content_order_for'];
+        $content_order_for = isset( $options['content_order_for'] ) ? $options['content_order_for'] : array();
         $content_order_enabled_post_types = array();
-        foreach ( $options['content_order_for'] as $post_type_slug => $is_custom_order_enabled ) {
-            if ( $is_custom_order_enabled ) {
-                $content_order_enabled_post_types[] = $post_type_slug;
-            }
+        if ( is_array( $content_order_for ) && count( $content_order_for ) > 0 ) {
+            foreach ( $content_order_for as $post_type_slug => $is_custom_order_enabled ) {
+                if ( $is_custom_order_enabled ) {
+                    $content_order_enabled_post_types[] = $post_type_slug;
+                }
+            }            
         }
 
         // Only assign menu_order if there are none assigned when creating the post, i.e. menu_order is 0

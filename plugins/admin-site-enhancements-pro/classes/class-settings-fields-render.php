@@ -210,13 +210,13 @@ class Settings_Fields_Render {
 		}
 
 		if ( $field_id == 'custom_login_slug' ) {
-			$field_placeholder = 'e.g. backend';
+			$field_placeholder = __( 'e.g. backend', 'admin-site-enhancements' );
 		} elseif ( $field_id == 'default_login_redirect_slug' ) {
-			$field_placeholder = 'e.g. my-account';
+			$field_placeholder = __( 'e.g. my-account', 'admin-site-enhancements' );
 		} elseif ( $field_id == 'redirect_after_login_to_slug' ) {
-			$field_placeholder = 'e.g. my-account';
+			// $field_placeholder = __( 'e.g. my-account', 'admin-site-enhancements' );
 		} elseif ( $field_id == 'redirect_after_logout_to_slug' ) {
-			$field_placeholder = 'e.g. come-visit-again';
+			// $field_placeholder = __( 'e.g. come-visit-again', 'admin-site-enhancements' );
 		} elseif ( $field_id == 'login_fails_allowed' ) {
 			$field_placeholder = '3';
 		} elseif ( $field_id == 'login_lockout_maxcount' ) {
@@ -608,11 +608,11 @@ class Settings_Fields_Render {
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 			?>
-			<div class="subfield-description">Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme's menu item titles or hide some items until toggled by clicking "Show All" at the bottom of the admin menu. You can also choose to always hide menu items for all or some user roles.</div>
+			<div class="subfield-description"><?php echo esc_html__( 'Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme\'s menu item titles or hide some items until toggled by clicking "Show All" at the bottom of the admin menu. You can also choose to always hide menu items for all or some user roles.', 'admin-site-enhancements' ); ?></div>
 			<?php
         } else {
 			?>
-			<div class="subfield-description">Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme's menu item titles or hide some items until toggled by clicking "Show All" at the bottom of the admin menu.</div>
+			<div class="subfield-description"><?php echo esc_html__( 'Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme\'s menu item titles or hide some items until toggled by clicking "Show All" at the bottom of the admin menu.', 'admin-site-enhancements' ); ?></div>
 			<?php        	
         }
 		?>
@@ -754,7 +754,7 @@ class Settings_Fields_Render {
 								        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 											if ( $submenu_exists ) {
 												?>
-												<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text">Submenu</span></div>
+												<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text"><?php echo esc_html__( 'Submenu', 'admin-site-enhancements' ); ?></span></div>
 												<?php
 											}								        	
 								        }
@@ -789,7 +789,7 @@ class Settings_Fields_Render {
 									        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 											?>
 												<div class="options-toggle" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>">
-													<span class="arrow-right">&#9654;</span><span class="options-text">Options</span>
+													<span class="arrow-right">&#9654;</span><span class="options-text"><?php echo esc_html__( 'Options', 'admin-site-enhancements' ); ?></span>
 												</div>
 											<?php
 									        }
@@ -907,7 +907,7 @@ class Settings_Fields_Render {
 									        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 												if ( $submenu_exists ) {
 													?>
-													<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text">Submenu</span></div>
+													<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text"><?php echo esc_html__( 'Submenu', 'admin-site-enhancements' ); ?></span></div>
 													<?php
 												}
 											}
@@ -916,10 +916,10 @@ class Settings_Fields_Render {
 										<div class="options-for-hiding">
 											<?php
 									        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-									        	$hide_text = 'Hide';
+									        	$hide_text = __( 'Hide', 'admin-site-enhancements' );
 									        	$checkbox_class = 'parent-menu-hide-checkbox-prm';
 									        } else {
-									        	$hide_text = 'Hide until toggled';
+									        	$hide_text = __( 'Hide until toggled', 'admin-site-enhancements' );
 									        	$checkbox_class = 'parent-menu-hide-checkbox';	        	
 									        }
 								        	?>
@@ -1032,7 +1032,7 @@ class Settings_Fields_Render {
 							        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 										if ( $submenu_exists ) {
 											?>
-											<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text">Submenu</span></div>
+											<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text"><?php echo esc_html__( 'Submenu', 'admin-site-enhancements' ); ?></span></div>
 											<?php
 										}
 									}
@@ -1041,10 +1041,10 @@ class Settings_Fields_Render {
 								<div class="options-for-hiding">
 									<?php
 							        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-							        	$hide_text = 'Hide';
+							        	$hide_text = __( 'Hide', 'admin-site-enhancements' );
 							        	$checkbox_class = 'parent-menu-hide-checkbox-prm';
 							        } else {
-							        	$hide_text = 'Hide until toggled';
+							        	$hide_text = __( 'Hide until toggled', 'admin-site-enhancements' );
 							        	$checkbox_class = 'parent-menu-hide-checkbox';	        	
 							        }
 						        	?>
@@ -1093,7 +1093,7 @@ class Settings_Fields_Render {
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
         	?>
-        	<div class="reset-menu-wrapper"><img src="<?php echo esc_attr( ASENHA_URL ); ?>assets/img/oval.svg" class="reset-menu-spinner" style="display: none;" /><a href="#" id="reset-menu">Reset Menu</a></div>
+        	<div class="reset-menu-wrapper"><img src="<?php echo esc_attr( ASENHA_URL ); ?>assets/img/oval.svg" class="reset-menu-spinner" style="display: none;" /><a href="#" id="reset-menu"><?php echo esc_html__( 'Reset Menu', 'admin-site-enhancements' ); ?></a></div>
         	<?php
         }
 
@@ -1230,7 +1230,7 @@ class Settings_Fields_Render {
 			<div id="all-selected-roles-options-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="all-selected-roles-options" data-menu-item-id="<?php echo esc_attr( $menu_item_id ); ?>">
 				<label class="menu-item-checkbox-label">
 					<input type="checkbox" id="hide-by-role-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="hide-by-role-checkbox" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>" <?php echo esc_attr( $always_hide_checked_status ); ?>>
-					<span>Always hide for user role(s)</span>
+					<span><?php echo esc_html__( 'Always hide for user role(s)', 'admin-site-enhancements' ); ?></span>
 				</label>
 				<fieldset id="all-selected-roles-radio-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" style="display:none;">
 				    <div>
@@ -1273,7 +1273,13 @@ class Settings_Fields_Render {
 				}
 				?>
 			</div>
-			<div id="menu-required-capability-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="menu-required-capability" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>" style="display:none;">The role(s) above have the '<em><?php echo esc_html( $menu_required_capability ); ?></em>' capability required to view and access the menu item.
+			<div id="menu-required-capability-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="menu-required-capability" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>" style="display:none;"><?php echo wp_kses_post( 
+				sprintf( 
+				/* translators: the required user capability to view menu item */
+				__( 'The role(s) above have the <code>%s</code> capability required to view and access the menu item.', 'admin-site-enhancements' ), 
+				$menu_required_capability 
+				) 
+			); ?>
 			</div>
 		</div><!-- end of .menu-item-settings -->
     	<?php
@@ -1309,9 +1315,9 @@ class Settings_Fields_Render {
 		<table id="login-attempts-log" class="wp-list-table widefat striped datatable">
 			<thead>
 				<tr class="datatable-tr">
-					<th class="datatable-th">IP Address<br />Last Username</th>
-					<th class="datatable-th">Attempts<br />Lockouts</th>
-					<th class="datatable-th">Last Attempt On</th>
+					<th class="datatable-th"><?php echo esc_html__( 'IP Address<br />Last Username', 'admin-site-enhancements' ); ?></th>
+					<th class="datatable-th"><?php echo esc_html__( 'Attempts<br />Lockouts', 'admin-site-enhancements' ); ?></th>
+					<th class="datatable-th"><?php echo esc_html__( 'Last Attempt On', 'admin-site-enhancements' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -1366,14 +1372,14 @@ class Settings_Fields_Render {
 			$gd_version = $gd_info['GD Version'];
 			$gd_avif_support = ( isset( $gd_info['AVIF Support'] ) ) ? isset( $gd_info['AVIF Support'] ) : false ;
 			if ( $gd_avif_support ) {
-				$gd_status = $gd_version . ' <span class="supported">with AVIF support</span>';
+				$gd_status = $gd_version . ' <span class="supported">' . __( 'with AVIF support', 'admin-site-enhancements' ) . '</span>';
 			} else {
-				$gd_status = $gd_version . ' <span class="unsupported">without AVIF support</span>';				
+				$gd_status = $gd_version . ' <span class="unsupported">' . __( 'without AVIF support', 'admin-site-enhancements' ) . '</span>';				
 			}
 		} else {
 			$is_gd_enabled = false;
 			$gd_avif_support = false;
-			$gd_status = 'Not available';
+			$gd_status = __( 'Not available', 'admin-site-enhancements' );
 		}
 
 		// Check status of ImageMagick library and it's AVIF support
@@ -1399,17 +1405,17 @@ class Settings_Fields_Render {
 		} else {
 			$is_imagick_enabled = false;
 			$imagick_avif_support = false;
-			$imagick_status = 'Not available';
+			$imagick_status = __( 'Not available', 'admin-site-enhancements' );
 		}
 
 		echo '<div class="asenha-subfield-status">';
-		echo '<div class="status-title">AVIF Support Status</div>';
+		echo '<div class="status-title">' . __( 'AVIF Support Status', 'admin-site-enhancements' ) . '</div>';
 		echo '<div class="status-body">';
 		echo '<div class="status-item"><span class="status-item-title">PHP</span> : ' . wp_kses_post( phpversion() ) . '</div>';
 		echo '<div class="status-item"><span class="status-item-title">GD</span> : ' . wp_kses_post( $gd_status ) . '</div>';
 		echo '<div class="status-item"><span class="status-item-title">ImageMagick</span> : ' . wp_kses_post( $imagick_status) . '</div>';
 		echo '</div>';
-		echo '<div class="status-footer">Full AVIF support requires that your server / hosting has <a href="https://php.watch/versions/8.1/gd-avif" target="_blank">GD extension</a> compiled with AVIF support in PHP 8.1 or greater, or, <a href="https://avif.io/blog/tutorials/imagemagick/" target="_blank">ImageMagick 7.0.25 or greater</a> installed. Without either, you can still upload AVIF files but without auto-generation of the smaller thumbnail sizes. A majority of <a href="https://avif.io/blog/articles/avif-browser-support/" target="_blank">modern desktop and mobile browsers</a> support the display of AVIF files.</div>';
+		echo '<div class="status-footer">' . __( 'Full AVIF support requires that your server / hosting has <a href="https://php.watch/versions/8.1/gd-avif" target="_blank">GD extension</a> compiled with AVIF support in PHP 8.1 or greater, or, <a href="https://avif.io/blog/tutorials/imagemagick/" target="_blank">ImageMagick 7.0.25 or greater</a> installed. Without either, you can still upload AVIF files but without auto-generation of the smaller thumbnail sizes. A majority of <a href="https://avif.io/blog/articles/avif-browser-support/" target="_blank">modern desktop and mobile browsers</a> support the display of AVIF files.', 'admin-site-enhancements' ) . '</div>';
 		echo '</div>';
 	}
 

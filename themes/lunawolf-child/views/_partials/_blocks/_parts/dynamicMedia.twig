@@ -13,10 +13,10 @@
 {% if bg_video %}
     <div class="m__dynamicMedia__video">
         {% if video_url %}
-            <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+            <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
         {% endif %}
         {% if video_file %}
-            <video id="video-{{ blockId }}" class="js-heroVideo" playsinline controls data-poster="{{ get_image(bg_image) }}">
+            <video id="video-{{ blockId }}" class="js-cardVideo" controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
                 <source src="{{ video_file.url }}" type="video/mp4" />
             </video>
         {% endif %}

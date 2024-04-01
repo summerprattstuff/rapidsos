@@ -33,4 +33,16 @@
       color: $primary;
     }
   }
+
+  &.-simpleLink {
+    background: $white;
+    color: $primary;
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+
+    &:hover {
+      color: rgba(#001559, .8);
+    }
+  }
 }

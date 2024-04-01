@@ -117,39 +117,44 @@ class Media_Categories_Module_Tree_View_Media {
 			'create_term'            => array(
 				'action' => 'media_categories_module_add_term',
 				'nonce'  => wp_create_nonce( 'media_categories_module_add_term' ),
-				'prompt' => sprintf(
-					/* translators: Taxonomy Name, Singular */
-					__( 'Enter a %s Name', 'admin-site-enhancements' ),
-					$taxonomy->labels->singular_name
-				),
+				// 'prompt' => sprintf(
+				// 	/* translators: Taxonomy Name, Singular */
+				// 	__( 'Enter a %s Name', 'admin-site-enhancements' ),
+				// 	$taxonomy->labels->singular_name
+				// ),
+				'prompt' => 'Enter a ' . $taxonomy->labels->singular_name . ' Name',
 			),
 			'edit_term'              => array(
 				'action'       => 'media_categories_module_edit_term',
 				'nonce'        => wp_create_nonce( 'media_categories_module_edit_term' ),
-				'prompt'       => sprintf(
-					/* translators: Taxonomy Name, Singular */
-					__( 'Edit %s Name', 'admin-site-enhancements' ),
-					$taxonomy->labels->singular_name
-				),
-				'no_selection' => sprintf(
-					/* translators: Taxonomy Name, Singular */
-					__( 'You must select a %s first', 'admin-site-enhancements' ),
-					$taxonomy->labels->singular_name
-				),
+				// 'prompt'       => sprintf(
+				// 	/* translators: Taxonomy Name, Singular */
+				// 	__( 'Edit %s Name', 'admin-site-enhancements' ),
+				// 	$taxonomy->labels->singular_name
+				// ),
+				// 'no_selection' => sprintf(
+				// 	/* translators: Taxonomy Name, Singular */
+				// 	__( 'You must select a %s first', 'admin-site-enhancements' ),
+				// 	$taxonomy->labels->singular_name
+				// ),
+				'prompt'       => 'Edit ' . $taxonomy->labels->singular_name . ' Name',
+				'no_selection' => 'You must select a ' . $taxonomy->labels->singular_name . ' first',
 			),
 			'delete_term'            => array(
 				'action'       => 'media_categories_module_delete_term',
 				'nonce'        => wp_create_nonce( 'media_categories_module_delete_term' ),
-				'prompt'       => sprintf(
-					/* translators: Taxonomy Name, Singular */
-					__( 'Delete %s?', 'admin-site-enhancements' ),
-					$taxonomy->labels->singular_name
-				),
-				'no_selection' => sprintf(
-					/* translators: Taxonomy Name, Singular */
-					__( 'You must select a %s first', 'admin-site-enhancements' ),
-					$taxonomy->labels->singular_name
-				),
+				// 'prompt'       => sprintf(
+				// 	/* translators: Taxonomy Name, Singular */
+				// 	__( 'Delete %s?', 'admin-site-enhancements' ),
+				// 	$taxonomy->labels->singular_name
+				// ),
+				// 'no_selection' => sprintf(
+				// 	/* translators: Taxonomy Name, Singular */
+				// 	__( 'You must select a %s first', 'admin-site-enhancements' ),
+				// 	$taxonomy->labels->singular_name
+				// ),
+				'prompt'       => 'Delete ' . $taxonomy->labels->singular_name . '?',
+				'no_selection' => 'You must select a ' . $taxonomy->labels->singular_name . ' first',
 			),
 			'categorize_attachments' => array(
 				'action' => 'media_categories_module_categorize_attachments',

@@ -4,7 +4,7 @@
  * Plugin Name: Admin and Site Enhancements (ASE) Pro
  * Plugin URI:        https://www.wpase.com/
  * Description:       Easily enable enhancements and features that usually require multiple plugins.
- * Version:           6.9.5
+ * Version:           6.9.6.2
  * Update URI: https://api.freemius.com
  * Author:            wpase.com
  * Author URI:        https://www.wpase.com/author-uri
@@ -23,7 +23,7 @@ if ( !defined( 'ABSPATH' ) ) {
 if ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'admin-site-enhancements/admin-site-enhancements.php' ) ) {
     wp_die( 'Please deactivate the free version of ASE before activating the Pro version. You can safely delete the free version after activating the Pro version. <a href="/wp-admin/plugins.php">Return to plugins list &raquo;</a>' );
 } else {
-    define( 'ASENHA_VERSION', '6.9.5' );
+    define( 'ASENHA_VERSION', '6.9.6.2' );
     define( 'ASENHA_ID', 'asenha' );
     define( 'ASENHA_SLUG', 'admin-site-enhancements' );
     define( 'ASENHA_SLUG_U', 'admin_site_enhancements' );

@@ -66,10 +66,10 @@
                     {% if heroVideo %}
                         <div class="hero__podcast__right__inner__video">
                             {% if heroVideoUrl %}
-                                <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtube' in heroVideoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ heroVideoUrl }}"></div>
+                                <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtube' in heroVideoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ heroVideoUrl }}"></div>
                             {% endif %}
                             {% if heroVideoFile %}
-                                <video id="video-{{ blockId }}" class="js-heroVideo" playsinline controls data-poster="{{ get_image(heroBgImg) }}">
+                                <video id="video-{{ blockId }}" class="js-cardVideo" playsinline controls data-poster="{{ get_image(heroBgImg) }}">
                                     <source src="{{ heroVideoFile.url }}" type="video/mp4" />
                                 </video>
                             {% endif %}

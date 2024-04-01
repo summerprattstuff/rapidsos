@@ -14,12 +14,12 @@
 <div id="import_enhanced_media_library" class="panel">
 	<div class="postbox">
 		<header>
-			<h3><?php esc_html_e( 'Import from Enhanced Media Library', 'admin-site-enhancements' ); ?></h3>
+			<h3>Import from Enhanced Media Library</h3>
 		</header>
 
 		<div class="wpzinc-option">
 			<div class="left">
-				<strong><?php esc_html_e( 'Taxonomies', 'admin-site-enhancements' ); ?></strong>
+				<strong>Taxonomies</strong>
 			</div>
 			<div class="right">
 				<?php
@@ -38,13 +38,13 @@
 				?>
 
 				<p class="description">
-					<?php esc_html_e( 'Select the Taxonomies to import.  The Terms from the chosen Enhanced Media Library Taxonomies above will be imported into Media Categories Module\'s Media Categories Taxonomy.', 'admin-site-enhancements' ); ?>
+					Select the Taxonomies to import.  The Terms from the chosen Enhanced Media Library Taxonomies above will be imported into Media Categories Module's Media Categories Taxonomy.
 				</p>
 			</div>
 		</div>
 
 		<div class="wpzinc-option">
-			<input name="import_enhanced_media_library" type="submit" class="button button-primary" value="<?php esc_attr_e( 'Import', 'admin-site-enhancements' ); ?>" />              
+			<input name="import_enhanced_media_library" type="submit" class="button button-primary" value="Import" />              
 		</div>
 	</div>
 </div>

@@ -19,6 +19,13 @@ export default () => {
   })();
 
   (() => {
+    let cardVideos = document.querySelectorAll('.js-cardVideo');
 
+    cardVideos.forEach(video => {
+      const player = new Plyr(video, {
+        // controls: true,
+        // ratio: '16:9'
+      });
+    })
   })();
 }

@@ -23,6 +23,10 @@
     max-width: 1488px;
   }
 }
+.wrapper.-limit,
+._wr.-limit {
+  max-width: 950px;
+}
 
 .wrapper-fluid,
 .wrapper-full,

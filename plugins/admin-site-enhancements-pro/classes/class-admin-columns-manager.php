@@ -1022,7 +1022,9 @@ class Admin_Columns_Manager {
             'status'                    => 'Status',
             // 'actions'                => 'Actions',
             // 'attachment'             => 'Attachments',
-            'date'                  => 'Date',
+            'date'                      => 'Date',
+            'post_parent'               => 'Post Parent',
+            'menu_order'                => 'Menu Order',
             // 'used_by_menu'           => 'Menu',
             // 'before_moretag'         => 'More Tag',
             // 'path'                   => 'Path',
@@ -1068,11 +1070,12 @@ class Admin_Columns_Manager {
         if ( post_type_supports( $post_type, 'trackbacks' ) ) {
             $available_columns['ping_status'] = 'Ping Status';
         }
-
-        if ( post_type_supports( $post_type, 'page-attributes' ) || is_post_type_hierarchical( $post_type ) ) {
-            $available_columns['post_parent'] = 'Post Parent';
-            $available_columns['menu_order'] = 'Menu Order';
-        }
+        
+        // Already included by default
+        // if ( post_type_supports( $post_type, 'page-attributes' ) || is_post_type_hierarchical( $post_type ) ) {
+        //     $available_columns['post_parent'] = 'Post Parent';
+        //     $available_columns['menu_order'] = 'Menu Order';
+        // }
         
         if ( 'wp_block' == $post_type ) {
             $available_columns['wp_pattern_sync_status'] = 'Sync Status';

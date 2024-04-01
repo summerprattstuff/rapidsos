@@ -57,11 +57,11 @@
     &__iconWrapper {
       display: flex;
       align-items: flex-end;
-      height: 88px;
 
       .icon {
         max-height: 100%;
-        width: auto;
+        height: 88px; width: 88px;
+        object-fit: contain;
       }
     }
 

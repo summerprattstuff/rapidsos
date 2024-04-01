@@ -61,7 +61,7 @@
                                         <?php _e( 'Field Name', 'admin-site-enhancements' ); ?>
                                         <div class="cfgroup_tooltip">?
                                             <div class="tooltip_inner">
-                                                <?php _e( 'The field name is passed into get() to retrieve values. Use only lowercase letters, numbers, and underscores.', 'admin-site-enhancements' ); ?>
+                                                <?php _e( 'The field name is passed into get_cf() to retrieve values. Use only lowercase letters, numbers, and underscores.', 'admin-site-enhancements' ); ?>
                                             </div>
                                         </div>
                                     </label>

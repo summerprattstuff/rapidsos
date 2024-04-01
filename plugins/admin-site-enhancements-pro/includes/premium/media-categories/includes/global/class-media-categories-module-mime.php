@@ -86,15 +86,24 @@ class Media_Categories_Module_MIME {
 
 		// Define File Types.
 		$file_types = array(
-			'image'        => __( 'Images', 'admin-site-enhancements' ),
-			'video'        => __( 'Videos', 'admin-site-enhancements' ),
-			'audio'        => __( 'Audio', 'admin-site-enhancements' ),
-			'text'         => __( 'Text', 'admin-site-enhancements' ),
-			'document'     => __( 'Documents', 'admin-site-enhancements' ),
-			'spreadsheet'  => __( 'Spreadsheets', 'admin-site-enhancements' ),
-			'presentation' => __( 'Presentations', 'admin-site-enhancements' ),
-			'archive'      => __( 'Archives', 'admin-site-enhancements' ),
-			'other'        => __( 'Other', 'admin-site-enhancements' ),
+			// 'image'        => __( 'Images', 'admin-site-enhancements' ),
+			// 'video'        => __( 'Videos', 'admin-site-enhancements' ),
+			// 'audio'        => __( 'Audio', 'admin-site-enhancements' ),
+			// 'text'         => __( 'Text', 'admin-site-enhancements' ),
+			// 'document'     => __( 'Documents', 'admin-site-enhancements' ),
+			// 'spreadsheet'  => __( 'Spreadsheets', 'admin-site-enhancements' ),
+			// 'presentation' => __( 'Presentations', 'admin-site-enhancements' ),
+			// 'archive'      => __( 'Archives', 'admin-site-enhancements' ),
+			// 'other'        => __( 'Other', 'admin-site-enhancements' ),
+			'image'        => 'Images',
+			'video'        => 'Videos',
+			'audio'        => 'Audio',
+			'text'         => 'Text',
+			'document'     => 'Documents',
+			'spreadsheet'  => 'Spreadsheets',
+			'presentation' => 'Presentations',
+			'archive'      => 'Archives',
+			'other'        => 'Other',
 		);
 
 		/**

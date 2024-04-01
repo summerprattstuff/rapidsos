@@ -78,6 +78,15 @@ class Settings_Sanitization {
 		}
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			if ( is_array( $asenha_public_post_types ) ) {
+				foreach ( $asenha_public_post_types as $post_type_slug => $post_type_label ) { // e.g. $post_type_slug is post, $post_type_label is Posts
+					if ( ! post_type_supports( $post_type_slug, 'page-attributes' ) && ! is_post_type_hierarchical( $post_type_slug ) ) {
+						if ( ! isset( $options['content_order_for_other_post_types'][$post_type_slug] ) ) $options['content_order_for_other_post_types'][$post_type_slug] = false;
+						$options['content_order_for_other_post_types'][$post_type_slug] = ( 'on' == $options['content_order_for_other_post_types'][$post_type_slug] ? true : false );	
+					}
+				}
+			}
+
 			if ( ! isset( $options['content_order_frontend'] ) ) $options['content_order_frontend'] = false;
 			$options['content_order_frontend'] = ( 'on' == $options['content_order_frontend'] ? true : false );
         }

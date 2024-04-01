@@ -81,7 +81,15 @@ __webpack_require__.r(__webpack_exports__);
       });
     });
   })();
-  (function () {})();
+  (function () {
+    var cardVideos = document.querySelectorAll('.js-cardVideo');
+    cardVideos.forEach(function (video) {
+      var player = new (plyr__WEBPACK_IMPORTED_MODULE_0___default())(video, {
+        // controls: true,
+        // ratio: '16:9'
+      });
+    });
+  })();
 });
 
 /***/ }),

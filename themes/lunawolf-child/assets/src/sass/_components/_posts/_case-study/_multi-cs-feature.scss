@@ -67,8 +67,12 @@
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         flex: 1;
+
+        .btnWrapper {
+          padding-top: 20px;
+          margin-top: auto;
+        }
       }
     }
   }

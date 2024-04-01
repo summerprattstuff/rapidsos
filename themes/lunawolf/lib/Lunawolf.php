@@ -28,7 +28,8 @@ class Lunawolf extends Site {
 		add_filter( 'acfe/flexible/render/template', [$this, 'acfe_preview_override_timber'], 10, 4 );
 //		add_filter( 'acfe/flexible/render/style', [$this, 'acfe_style_path'], 10, 4 );
 		add_filter( 'acfe/flexible/enqueue', [$this, 'acfe_style_path_enqueue'], 10, 4 );
-    add_filter( 'acfe/flexible/thumbnail', [$this, 'acfe_custom_layout_path'], 10, 3);
+        add_filter( 'acfe/flexible/thumbnail', [$this, 'acfe_custom_layout_path'], 10, 3);
+        add_filter( 'acf/fields/wysiwyg/toolbars', [$this, 'custom_wysiwyg_toolbars'], 10, 4 );
 
 		parent::__construct();
 
@@ -287,4 +288,16 @@ class Lunawolf extends Site {
 
     return get_stylesheet_directory_uri() . '/public/blocks/thumbnails/' . $name . '.jpg';
   }
+
+    public function custom_wysiwyg_toolbars($toolbars) {
+        $toolbars['Only Links'] = array();
+        $toolbars['Simple Text'] = array();
+        $toolbars['Only Bold'] = array();
+
+        $toolbars['Only Links'][1] = array('link', 'unlink' );
+        $toolbars['Simple Text'][1] = array('bold', 'italic', 'link', 'unlink', 'bullist' );
+        $toolbars['Only Bold'][1] = array('bold');
+
+        return $toolbars;
+    }
 }

@@ -7,7 +7,7 @@
 
 {% if images_row %}
     <section id="{{ settings.block_id }}" class="m__imgRows">
-        <div class="wrapper">
+        <div class="wrapper -limit">
             <div class="_w">
                 {% for img_row in images_row %}
                     {% set image  = img_row.image %}

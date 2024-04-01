@@ -12,12 +12,12 @@
 ?>
 <form class="wpzinc-tinymce-popup">
 	<div class="notice error" style="display:block;">
-		<?php esc_html_e( 'The shortcode could not be found. Check it is registered and its class initialized.', 'admin-site-enhancements' ); ?>
+		The shortcode could not be found. Check it is registered and its class initialized.
 	</div>
 
 	<div class="wpzinc-option buttons has-wpzinc-vertical-tabbed-ui">
 		<div class="left">
-			<button type="button" class="close button"><?php esc_html_e( 'Cancel', 'admin-site-enhancements' ); ?></button>
+			<button type="button" class="close button">Cancel</button>
 		</div>
 	</div>
 </form>

@@ -39,7 +39,7 @@
 
 					if ( isset( $tab_item['is_pro'] ) && $tab_item['is_pro'] ) {
 						?>
-						<span class="tag"><?php esc_html_e( 'Pro', 'admin-site-enhancements' ); ?></span>
+						<span class="tag">Pro</span>
 						<?php
 					}
 					?>
@@ -56,10 +56,8 @@
 		<div id="general" class="panel">
 			<div class="postbox">
 				<header>
-					<h3><?php esc_html_e( 'Filter Settings', 'admin-site-enhancements' ); ?></h3>
-					<p class="description">
-						<?php esc_html_e( 'Determines which filters should be displayed on list and grid Media Library views.', 'admin-site-enhancements' ); ?>
-					</p>
+					<h3>Filter Settings</h3>
+					<p class="description">Determines which filters should be displayed on list and grid Media Library views.</p>
 				</header>
 
 				<?php
@@ -71,19 +69,20 @@
 						</div>
 						<div class="right">
 							<select name="general[<?php echo esc_attr( $taxonomy_name ); ?>_enabled]" id="general_<?php echo esc_attr( $taxonomy_name ); ?>_enabled" size="1">
-								<option value="1"<?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), 1 ); ?>><?php esc_html_e( 'Enabled', 'admin-site-enhancements' ); ?></option>
-								<option value="0"<?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), 0 ); ?><?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), '' ); ?>><?php esc_html_e( 'Disabled', 'admin-site-enhancements' ); ?></option>
+								<option value="1"<?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), 1 ); ?>>Enabled</option>
+								<option value="0"<?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), 0 ); ?><?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), '' ); ?>>Disabled</option>
 							</select>
 
 							<p class="description">
 								<?php
-								echo esc_html(
-									sprintf(
-									/* translators: Taxonomy Label, Singular */
-										__( 'If enabled, displays a dropdown option to filter Media Library items by %s', 'admin-site-enhancements' ),
-										$asenha_media_taxonomy['singular_name']
-									)
-								);
+								// echo esc_html(
+								// 	sprintf(
+								// 	/* translators: Taxonomy Label, Singular */
+								// 		__( 'If enabled, displays a dropdown option to filter Media Library items by %s', 'admin-site-enhancements' ),
+								// 		$asenha_media_taxonomy['singular_name']
+								// 	)
+								// );
+								echo esc_html( 'If enabled, displays a dropdown option to filter Media Library items by ' . $asenha_media_taxonomy['singular_name'] );
 								?>
 							</p>
 						</div>
@@ -94,32 +93,32 @@
 
 				<div class="wpzinc-option">
 					<div class="left">
-						<label for="general_orderby_enabled"><?php esc_html_e( 'Sorting', 'admin-site-enhancements' ); ?></label>
+						<label for="general_orderby_enabled">Sorting</label>
 					</div>
 					<div class="right">
 						<select name="general[orderby_enabled]" id="general_orderby_enabled" size="1">
-							<option value="1"<?php selected( $this->get_setting( 'general', 'orderby_enabled' ), 1 ); ?>><?php esc_html_e( 'Enabled', 'admin-site-enhancements' ); ?></option>
-							<option value="0"<?php selected( $this->get_setting( 'general', 'orderby_enabled' ), 0 ); ?>><?php esc_html_e( 'Disabled', 'admin-site-enhancements' ); ?></option>
+							<option value="1"<?php selected( $this->get_setting( 'general', 'orderby_enabled' ), 1 ); ?>>Enabled</option>
+							<option value="0"<?php selected( $this->get_setting( 'general', 'orderby_enabled' ), 0 ); ?>>Disabled</option>
 						</select>
 
 						<p class="description">
-							<?php esc_html_e( 'If enabled, displays a dropdown option to select how to order Media Library items', 'admin-site-enhancements' ); ?>
+							If enabled, displays a dropdown option to select how to order Media Library items
 						</p>
 					</div>
 				</div>
 
 				<div class="wpzinc-option">
 					<div class="left">
-						<label for="general_order_enabled"><?php esc_html_e( 'Sort Order', 'admin-site-enhancements' ); ?></label>
+						<label for="general_order_enabled">Sort Order</label>
 					</div>
 					<div class="right">
 						<select name="general[order_enabled]" id="general_order_enabled" size="1">
-							<option value="1"<?php selected( $this->get_setting( 'general', 'order_enabled' ), 1 ); ?>><?php esc_html_e( 'Enabled', 'admin-site-enhancements' ); ?></option>
-							<option value="0"<?php selected( $this->get_setting( 'general', 'order_enabled' ), 0 ); ?>><?php esc_html_e( 'Disabled', 'admin-site-enhancements' ); ?></option>
+							<option value="1"<?php selected( $this->get_setting( 'general', 'order_enabled' ), 1 ); ?>>Enabled</option>
+							<option value="0"<?php selected( $this->get_setting( 'general', 'order_enabled' ), 0 ); ?>>Disabled</option>
 						</select>
 
 						<p class="description">
-							<?php esc_html_e( 'If enabled, displays a dropdown option to select whether to order Media Library items ascending or descending', 'admin-site-enhancements' ); ?>
+							If enabled, displays a dropdown option to select whether to order Media Library items ascending or descending
 						</p>
 					</div>
 				</div>
@@ -132,40 +131,40 @@
 		<div id="user-options" class="panel">
 			<div class="postbox">
 				<header>
-					<h3><?php esc_html_e( 'User Settings', 'admin-site-enhancements' ); ?></h3>
+					<h3>User Settings</h3>
 					<p class="description">
-						<?php esc_html_e( 'Determines which filter settings should persist across different screens for the logged in WordPress User.', 'admin-site-enhancements' ); ?>
+						Determines which filter settings should persist across different screens for the logged in WordPress User.
 					</p>
 				</header>
 
 				<div class="wpzinc-option">
 					<div class="left">
-						<label for="user_options_orderby_enabled"><?php esc_html_e( 'Sorting', 'admin-site-enhancements' ); ?></label>
+						<label for="user_options_orderby_enabled">Sorting</label>
 					</div>
 					<div class="right">
 						<select name="user-options[orderby_enabled]" id="user_options_orderby_enabled" size="1">
-							<option value="1"<?php selected( $this->get_setting( 'user-options', 'orderby_enabled' ), 1 ); ?>><?php esc_html_e( 'Remember', 'admin-site-enhancements' ); ?></option>
-							<option value="0"<?php selected( $this->get_setting( 'user-options', 'orderby_enabled' ), 0 ); ?>><?php esc_html_e( 'Don\'t Remember', 'admin-site-enhancements' ); ?></option>
+							<option value="1"<?php selected( $this->get_setting( 'user-options', 'orderby_enabled' ), 1 ); ?>>Remember</option>
+							<option value="0"<?php selected( $this->get_setting( 'user-options', 'orderby_enabled' ), 0 ); ?>>Don't Remember</option>
 						</select>
 
 						<p class="description">
-							<?php esc_html_e( 'When set to Remembered, the User\'s last chosen Order By filter option will be remembered across all Media Views.  When set to Don\'t Remember, the filters will reset when switching between WordPress Administration screens.', 'admin-site-enhancements' ); ?>
+							When set to Remembered, the User's last chosen Order By filter option will be remembered across all Media Views.  When set to Don't Remember, the filters will reset when switching between WordPress Administration screens.
 						</p>
 					</div>
 				</div>
 
 				<div class="wpzinc-option">
 					<div class="left">
-						<label for="user_options_order_enabled"><?php esc_html_e( 'Sort Order', 'admin-site-enhancements' ); ?></label>
+						<label for="user_options_order_enabled">Sort Order</label>
 					</div>
 					<div class="right">
 						<select name="user-options[order_enabled]" id="user_options_order_enabled" size="1">
-							<option value="1"<?php selected( $this->get_setting( 'user-options', 'order_enabled' ), 1 ); ?>><?php esc_html_e( 'Remember', 'admin-site-enhancements' ); ?></option>
-							<option value="0"<?php selected( $this->get_setting( 'user-options', 'order_enabled' ), 0 ); ?>><?php esc_html_e( 'Don\'t Remember', 'admin-site-enhancements' ); ?></option>
+							<option value="1"<?php selected( $this->get_setting( 'user-options', 'order_enabled' ), 1 ); ?>>Remember</option>
+							<option value="0"<?php selected( $this->get_setting( 'user-options', 'order_enabled' ), 0 ); ?>>Don't Remember</option>
 						</select>
 
 						<p class="description">
-							<?php esc_html_e( 'When set to Remembered, the User\'s last chosen Order filter option will be remembered across all Media Views.  When set to Don\'t Remember, the filters will reset when switching between WordPress Administration screens.', 'admin-site-enhancements' ); ?>
+							When set to Remembered, the User's last chosen Order filter option will be remembered across all Media Views.  When set to Don't Remember, the filters will reset when switching between WordPress Administration screens.
 						</p>
 					</div>
 				</div>
@@ -182,5 +181,5 @@
 
 <!-- Save -->
 <div>
-	<input type="submit" name="submit" value="<?php esc_html_e( 'Save', 'admin-site-enhancements' ); ?>" class="button button-primary" />
+	<input type="submit" name="submit" value="Save" class="button button-primary" />
 </div>

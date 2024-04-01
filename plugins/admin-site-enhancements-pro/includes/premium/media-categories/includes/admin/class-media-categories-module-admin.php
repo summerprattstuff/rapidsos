@@ -275,8 +275,10 @@ class Media_Categories_Module_Admin {
 				'save_settings_action' => 'media_categories_module_save_settings',
 				'save_settings_nonce'  => wp_create_nonce( $this->base->plugin->name . '-save-settings' ),
 				'save_settings_modal'  => array(
-					'title'         => __( 'Saving', 'admin-site-enhancements' ),
-					'title_success' => __( 'Saved!', 'admin-site-enhancements' ),
+					// 'title'         => __( 'Saving', 'admin-site-enhancements' ),
+					// 'title_success' => __( 'Saved!', 'admin-site-enhancements' ),
+					'title'         => 'Saving',
+					'title_success' => 'Saved!',
 				),
 			)
 		);
@@ -375,8 +377,10 @@ class Media_Categories_Module_Admin {
 		$screens = array(
 			'settings' => array(
 				'name'          => 'settings',
-				'label'         => __( 'Settings', 'admin-site-enhancements' ),
-				'description'   => __( 'Defines Plugin-wide settings for Media Categories Module.', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Settings', 'admin-site-enhancements' ),
+				// 'description'   => __( 'Defines Plugin-wide settings for Media Categories Module.', 'admin-site-enhancements' ),
+				'label'         => 'Settings',
+				'description'   => 'Defines Plugin-wide settings for Media Categories Module.',
 				'view'          => $this->base->plugin->folder . 'views/admin/settings-general.php',
 				'columns'       => 2,
 				'data'          => array(),
@@ -428,7 +432,8 @@ class Media_Categories_Module_Admin {
 
 		// Check if the screen exists.
 		if ( ! isset( $screens[ $screen ] ) ) {
-			return new WP_Error( 'screen_missing', __( 'The requested administration screen does not exist', 'admin-site-enhancements' ) );
+			// return new WP_Error( 'screen_missing', __( 'The requested administration screen does not exist', 'admin-site-enhancements' ) );
+			return new WP_Error( 'screen_missing', 'The requested administration screen does not exist' );
 		}
 
 		/**
@@ -503,13 +508,15 @@ class Media_Categories_Module_Admin {
 				$tabs = array(
 					'settings'     => array(
 						'name'          => 'general',
-						'label'         => __( 'Filters', 'admin-site-enhancements' ),
+						// 'label'         => __( 'Filters', 'admin-site-enhancements' ),
+						'label'         => 'Filters',
 						'documentation' => $this->base->plugin->documentation_url . '/settings/#general',
 						'menu_icon'     => 'general',
 					),
 					'user-options' => array(
 						'name'          => 'user-options',
-						'label'         => __( 'User Options', 'admin-site-enhancements' ),
+						// 'label'         => __( 'User Options', 'admin-site-enhancements' ),
+						'label'         => 'User Options',
 						'documentation' => $this->base->plugin->documentation_url . '/settings/#user-options',
 						'menu_icon'     => 'user',
 					),
@@ -547,61 +554,70 @@ class Media_Categories_Module_Admin {
 		$addon_tabs = array(
 			'auto-categorization' => array(
 				'name'          => 'auto-categorization',
-				'label'         => __( 'Auto Categorization', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Auto Categorization', 'admin-site-enhancements' ),
+				'label'         => 'Auto Categorization',
 				'documentation' => $this->base->plugin->documentation_url . '/auto-categorization/setup',
 				'menu_icon'     => 'tag',
 				'is_pro'        => true,
 			),
 			'bulk-quick-edit'     => array(
 				'name'          => 'bulk-quick-edit',
-				'label'         => __( 'Bulk and Quick Edit', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Bulk and Quick Edit', 'admin-site-enhancements' ),
+				'label'         => 'Bulk and Quick Edit',
 				'documentation' => $this->base->plugin->documentation_url . '/bulk-quick-edit/setup',
 				'menu_icon'     => 'edit',
 				'is_pro'        => true,
 			),
 			'defaults'            => array(
 				'name'          => 'defaults',
-				'label'         => __( 'Defaults', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Defaults', 'admin-site-enhancements' ),
+				'label'         => 'Defaults',
 				'documentation' => $this->base->plugin->documentation_url . '/defaults/setup',
 				'is_pro'        => true,
 			),
 			'exif'                => array(
 				'name'          => 'exif',
-				'label'         => __( 'EXIF', 'admin-site-enhancements' ),
+				// 'label'         => __( 'EXIF', 'admin-site-enhancements' ),
+				'label'         => 'EXIF',
 				'documentation' => $this->base->plugin->documentation_url . '/exif/setup',
 				'menu_icon'     => 'camera',
 				'is_pro'        => true,
 			),
 			'iptc'                => array(
 				'name'          => 'iptc',
-				'label'         => __( 'IPTC', 'admin-site-enhancements' ),
+				// 'label'         => __( 'IPTC', 'admin-site-enhancements' ),
+				'label'         => 'IPTC',
 				'documentation' => $this->base->plugin->documentation_url . '/iptc/setup',
 				'menu_icon'     => 'camera',
 				'is_pro'        => true,
 			),
 			'optimizer'           => array(
 				'name'          => 'optimizer',
-				'label'         => __( 'Optimizer', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Optimizer', 'admin-site-enhancements' ),
+				'label'         => 'Optimizer',
 				'documentation' => $this->base->plugin->documentation_url . '/optimizer/setup',
 				'menu_icon'     => 'image',
 				'is_pro'        => true,
 			),
 			'output'              => array(
 				'name'          => 'output',
-				'label'         => __( 'Output', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Output', 'admin-site-enhancements' ),
+				'label'         => 'Output',
 				'documentation' => $this->base->plugin->documentation_url . '/output/setup',
 				'menu_icon'     => 'general',
 				'is_pro'        => true,
 			),
 			'taxonomy-manager'    => array(
 				'name'          => 'taxonomy-manager',
-				'label'         => __( 'Taxonomies', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Taxonomies', 'admin-site-enhancements' ),
+				'label'         => 'Taxonomies',
 				'documentation' => $this->base->plugin->documentation_url . '/taxonomy-manager/setup',
 				'is_pro'        => true,
 			),
 			'zip'                 => array(
 				'name'          => 'zip',
-				'label'         => __( 'ZIP and Unzip', 'admin-site-enhancements' ),
+				// 'label'         => __( 'ZIP and Unzip', 'admin-site-enhancements' ),
+				'label'         => 'ZIP and Unzip',
 				'documentation' => $this->base->plugin->documentation_url . '/zip-unzip/setup',
 				'is_pro'        => true,
 			),
@@ -703,84 +719,103 @@ class Media_Categories_Module_Admin {
 		// Define Setting Panel(s) Titles and Descriptions.
 		$panels = array(
 			'auto-categorization' => array(
-				'title'       => __( 'Auto Categorization Settings', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Automatically categorize images uploaded through WordPress using image recognition with %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+				// 'title'       => __( 'Auto Categorization Settings', 'admin-site-enhancements' ),
+				'title'       => 'Auto Categorization Settings',
+				// 'description' => sprintf(
+				// 	/* translators: Plugin Name */
+				// 	__( 'Automatically categorize images uploaded through WordPress using image recognition with %s Pro', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// ),
+				'description' => 'Automatically categorize images uploaded through WordPress using image recognition with ' . $this->base->plugin->displayName . ' Pro',
 			),
 
 			'bulk-quick-edit'     => array(
-				'title'       => __( 'Bulk and Quick Edit Settings', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Bulk and Quick Edit Titles, Alt Tags, Captions, Descriptions, Categories, EXIF and IPTC metadata from the List and Grid Media Library Views with %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+			// 	'title'       => __( 'Bulk and Quick Edit Settings', 'admin-site-enhancements' ),
+			// 	'description' => sprintf(
+			// 		/* translators: Plugin Name */
+			// 		__( 'Bulk and Quick Edit Titles, Alt Tags, Captions, Descriptions, Categories, EXIF and IPTC metadata from the List and Grid Media Library Views with %s Pro', 'admin-site-enhancements' ),
+			// 		$this->base->plugin->displayName
+			// 	),
+				'title'       => 'Bulk and Quick Edit Settings',
+				'description' => 'Bulk and Quick Edit Titles, Alt Tags, Captions, Descriptions, Categories, EXIF and IPTC metadata from the List and Grid Media Library Views with ' . $this->base->plugin->displayName . ' Pro',
 			),
 
 			'defaults'            => array(
-				'title'       => __( 'Defaults Settings', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Define Default Titles, Alt Tags, Captions, Descriptions and Categories for newly uploaded files where no data is specified with %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+				// 'title'       => __( 'Defaults Settings', 'admin-site-enhancements' ),
+				// 'description' => sprintf(
+				// 	/* translators: Plugin Name */
+				// 	__( 'Define Default Titles, Alt Tags, Captions, Descriptions and Categories for newly uploaded files where no data is specified with %s Pro', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// ),
+				'title'       => 'Defaults Settings',
+				'description' => 'Define Default Titles, Alt Tags, Captions, Descriptions and Categories for newly uploaded files where no data is specified with ' . $this->base->plugin->displayName . ' Pro',
 			),
 
 			'exif'                => array(
-				'title'       => __( 'EXIF Settings', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Read, write and display EXIF image data with %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+				// 'title'       => __( 'EXIF Settings', 'admin-site-enhancements' ),
+				// 'description' => sprintf(
+				// 	/* translators: Plugin Name */
+				// 	__( 'Read, write and display EXIF image data with %s Pro', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// ),
+				'title'       => 'EXIF Settings',
+				'description' => 'Read, write and display EXIF image data with ' . $this->base->plugin->displayName . ' Pro',
+
 			),
 
 			'iptc'                => array(
-				'title'       => __( 'IPTC Settings', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Read, write and display IPTC image data, compatible with Google Image\'s Image Licenses, in %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+				// 'title'       => __( 'IPTC Settings', 'admin-site-enhancements' ),
+				// 'description' => sprintf(
+				// 	/* translators: Plugin Name */
+				// 	__( 'Read, write and display IPTC image data, compatible with Google Image\'s Image Licenses, in %s Pro', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// ),
+				'title'       => 'IPTC Settings',
+				'description' => 'Read, write and display IPTC image data, compatible with Google Image\'s Image Licenses, in ' . $this->base->plugin->displayName . ' Pro',
 			),
 
 			'optimizer'           => array(
-				'title'       => __( 'Optimizer', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Effectively optimizes your images, resulting in faster loading times and better overall website performance with Optimole.', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+				// 'title'       => __( 'Optimizer', 'admin-site-enhancements' ),
+				// 'description' => sprintf(
+				// 	/* translators: Plugin Name */
+				// 	__( 'Effectively optimizes your images, resulting in faster loading times and better overall website performance with Optimole.', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// ),
+				'title'       => 'Optimizer',
+				'description' => 'Effectively optimizes your images, resulting in faster loading times and better overall website performance with Optimole.',
 			),
 
 			'output'              => array(
-				'title'       => __( 'Output', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Display image previews on hover and determine the thumbnail image size the Media Library with %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+				// 'title'       => __( 'Output', 'admin-site-enhancements' ),
+				// 'description' => sprintf(
+				// 	/* translators: Plugin Name */
+				// 	__( 'Display image previews on hover and determine the thumbnail image size the Media Library with %s Pro', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// ),
+				'title'       => 'Output',
+				'description' => 'Display image previews on hover and determine the thumbnail image size the Media Library with ' . $this->base->plugin->displayName . ' Pro',
 			),
 
 			'taxonomy-manager'    => array(
-				'title'       => __( 'Taxonomy Manager', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Define additional Taxonomies that can be used for Attachments in the Media Library with %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+				// 'title'       => __( 'Taxonomy Manager', 'admin-site-enhancements' ),
+				// 'description' => sprintf(
+				// 	/* translators: Plugin Name */
+				// 	__( 'Define additional Taxonomies that can be used for Attachments in the Media Library with %s Pro', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// ),
+				'title'       => 'Taxonomy Manager',
+				'description' => 'Define additional Taxonomies that can be used for Attachments in the Media Library with ' . $this->base->plugin->displayName . ' Pro',
 			),
 
 			'zip'                 => array(
-				'title'       => __( 'ZIP Settings', 'admin-site-enhancements' ),
-				'description' => sprintf(
-					/* translators: Plugin Name */
-					__( 'Automatically unzip files when uploaded to the Media Library, and zip multiple Media Library files with %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				),
+				// 'title'       => __( 'ZIP Settings', 'admin-site-enhancements' ),
+				// 'description' => sprintf(
+				// 	/* translators: Plugin Name */
+				// 	__( 'Automatically unzip files when uploaded to the Media Library, and zip multiple Media Library files with %s Pro', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// ),
+				'title'       => 'ZIP Settings',
+				'description' => 'Automatically unzip files when uploaded to the Media Library, and zip multiple Media Library files with ' . $this->base->plugin->displayName . ' Pro',
 			),
 		);
 
@@ -805,7 +840,8 @@ class Media_Categories_Module_Admin {
 
 		// Invalid nonce.
 		if ( ! wp_verify_nonce( $_REQUEST[ $this->base->plugin->name . '_nonce' ], 'media-categories-module_' . $screen ) ) {
-			$this->base->get_class( 'notices' )->add_error_notice( __( 'Invalid nonce specified. Settings NOT saved.', 'admin-site-enhancements' ) );
+			// $this->base->get_class( 'notices' )->add_error_notice( __( 'Invalid nonce specified. Settings NOT saved.', 'admin-site-enhancements' ) );
+			$this->base->get_class( 'notices' )->add_error_notice( 'Invalid nonce specified. Settings NOT saved.' );
 			return false;
 		}
 
@@ -864,7 +900,8 @@ class Media_Categories_Module_Admin {
 		}
 
 		// OK.
-		$this->base->get_class( 'notices' )->add_success_notice( __( 'Settings saved.', 'admin-site-enhancements' ) );
+		// $this->base->get_class( 'notices' )->add_success_notice( __( 'Settings saved.', 'admin-site-enhancements' ) );
+		$this->base->get_class( 'notices' )->add_success_notice( 'Settings saved.' );
 		return true;
 
 	}

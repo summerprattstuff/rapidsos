@@ -121,6 +121,8 @@
       // $('.content-order-subfields-heading').appendTo('.fields-content-management .content-order .asenha-subfields');
       $('.content-order-for').appendTo('.fields-content-management .content-order .asenha-subfields');
       /*! <fs_premium_only> */
+      $('.content-order-for-non-hierarchical-description').appendTo('.fields-content-management .content-order .asenha-subfields');
+      $('.content-order-for-other-post-types').appendTo('.fields-content-management .content-order .asenha-subfields');
       $('.content-order-frontend').appendTo('.fields-content-management .content-order .asenha-subfields');
       /*! </fs_premium_only> */
       /*! <fs_premium_only> */

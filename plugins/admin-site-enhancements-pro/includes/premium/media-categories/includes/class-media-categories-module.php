@@ -72,12 +72,12 @@ class Media_Categories_Module {
 		$this->plugin->support_url       = '#';
 		$this->plugin->upgrade_url       = '#';
 		$this->plugin->review_name       = 'media-categories-module';
-		$this->plugin->review_notice     = sprintf(
-			/* translators: Plugin Name */
-			__( 'Thanks for using %s to organize your Media Library!', 'admin-site-enhancements' ),
-			$this->plugin->displayName
-		);
-
+		// $this->plugin->review_notice     = sprintf(
+		// 	/* translators: Plugin Name */
+		// 	__( 'Thanks for using %s to organize your Media Library!', 'admin-site-enhancements' ),
+		// 	$this->plugin->displayName
+		// );
+		$this->plugin->review_notice     = 'Thanks for using ' . $this->plugin->displayName . ' to organize your Media Library!';
 		// Dashboard Submodule.
 		if ( ! class_exists( 'WPZincDashboardWidget' ) ) {
 			require_once $this->plugin->folder . '_modules/dashboard/class-wpzincdashboardwidget.php';
@@ -381,12 +381,13 @@ class Media_Categories_Module {
 			// Define the error.
 			$error = new WP_Error(
 				'media_categories_module_get_class',
-				sprintf(
-					/* translators: %1$s: Plugin Name, %2$s: PHP class name */
-					__( '%1$s: Error: Could not load Plugin class %2$s', 'admin-site-enhancements' ),
-					$this->plugin->displayName,
-					$name
-				)
+				// sprintf(
+				// 	/* translators: %1$s: Plugin Name, %2$s: PHP class name */
+				// 	__( '%1$s: Error: Could not load Plugin class %2$s', 'admin-site-enhancements' ),
+				// 	$this->plugin->displayName,
+				// 	$name
+				// )
+				$this->plugin->displayName . ': Error: Could not load Plugin class ' . $name
 			);
 
 			// Depending on the request, return or display an error.
@@ -394,11 +395,7 @@ class Media_Categories_Module {
 			if ( is_admin() ) {
 				wp_die(
 					esc_html( $error->get_error_message() ),
-					sprintf(
-						/* translators: Plugin Name */
-						esc_html__( '%s: Error', 'admin-site-enhancements' ),
-						esc_html( $this->plugin->displayName )
-					),
+					esc_html( $this->plugin->displayName . ': Error' ),
 					array(
 						'back_link' => true,
 					)

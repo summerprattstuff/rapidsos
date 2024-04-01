@@ -65,7 +65,8 @@ class Media_Categories_Module_Import {
 		if ( ! empty( $eml ) && $eml !== false ) {
 			$import_sources['import_enhanced_media_library'] = array(
 				'name'          => 'import_enhanced_media_library',
-				'label'         => __( 'Import from Enhanced Media Library', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Import from Enhanced Media Library', 'admin-site-enhancements' ),
+				'label'         => 'Import from Enhanced Media Library',
 				'view'          => $this->base->plugin->folder . 'views/admin/import-enhanced-media-library.php',
 				'data'          => array(
 					'taxonomies' => get_option( 'wpuxss_eml_taxonomies' ),
@@ -79,7 +80,8 @@ class Media_Categories_Module_Import {
 		if ( $filebird_terms !== false ) {
 			$import_sources['import_filebird'] = array(
 				'name'          => 'import_filebird',
-				'label'         => __( 'Import from FileBird', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Import from FileBird', 'admin-site-enhancements' ),
+				'label'         => 'Import from FileBird',
 				'view'          => $this->base->plugin->folder . 'views/admin/import-filebird.php',
 				'documentation' => $this->base->plugin->documentation_url . '/import-export/import-from-filebird/',
 			);
@@ -90,7 +92,8 @@ class Media_Categories_Module_Import {
 		if ( $folders_terms !== false ) {
 			$import_sources['v'] = array(
 				'name'          => 'import_folders',
-				'label'         => __( 'Import from Folders (Premio)', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Import from Folders (Premio)', 'admin-site-enhancements' ),
+				'label'         => 'Import from Folders (Premio)',
 				'view'          => $this->base->plugin->folder . 'views/admin/import-folders.php',
 				'documentation' => $this->base->plugin->documentation_url . '/import-export/import-from-folders-premio/',
 			);
@@ -101,7 +104,8 @@ class Media_Categories_Module_Import {
 		if ( $happyfiles_terms !== false ) {
 			$import_sources['import_happyfiles'] = array(
 				'name'          => 'import_happyfiles',
-				'label'         => __( 'Import from HappyFiles', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Import from HappyFiles', 'admin-site-enhancements' ),
+				'label'         => 'Import from HappyFiles',
 				'view'          => $this->base->plugin->folder . 'views/admin/import-happyfiles.php',
 				'documentation' => $this->base->plugin->documentation_url . '/import-export/import-from-happyfiles/',
 			);
@@ -112,7 +116,8 @@ class Media_Categories_Module_Import {
 		if ( $wp_media_folder_terms !== false ) {
 			$import_sources['import_wp_media_folder'] = array(
 				'name'          => 'import_wp_media_folder',
-				'label'         => __( 'Import from WP Media Folder', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Import from WP Media Folder', 'admin-site-enhancements' ),
+				'label'         => 'Import from WP Media Folder',
 				'view'          => $this->base->plugin->folder . 'views/admin/import-wp-media-folder.php',
 				'documentation' => $this->base->plugin->documentation_url . '/import-export/import-from-wp-media-folder/',
 			);
@@ -123,7 +128,8 @@ class Media_Categories_Module_Import {
 		if ( $wicked_folders_terms !== false ) {
 			$import_sources['import_wicked_folders'] = array(
 				'name'          => 'import_wicked_folders',
-				'label'         => __( 'Import from Wicked Folders', 'admin-site-enhancements' ),
+				// 'label'         => __( 'Import from Wicked Folders', 'admin-site-enhancements' ),
+				'label'         => 'Import from Wicked Folders',
 				'view'          => $this->base->plugin->folder . 'views/admin/import-wicked-folders.php',
 				'documentation' => $this->base->plugin->documentation_url . '/import-export/import-from-wicked-folders/',
 			);
@@ -146,7 +152,8 @@ class Media_Categories_Module_Import {
 
 		// Bail if no data.
 		if ( ! is_array( $import['data'] ) ) {
-			$this->error_message = __( 'Supplied file is not a valid JSON settings file, or has become corrupt.', 'admin-site-enhancements' ); // @phpstan-ignore-line.
+			// $this->error_message = __( 'Supplied file is not a valid JSON settings file, or has become corrupt.', 'admin-site-enhancements' ); // @phpstan-ignore-line.
+			$this->error_message = 'Supplied file is not a valid JSON settings file, or has become corrupt.'; // @phpstan-ignore-line.
 			return;
 		}
 
@@ -207,7 +214,8 @@ class Media_Categories_Module_Import {
 
 		// Bail if no Taxonomies were selected.
 		if ( ! isset( $import['taxonomies'] ) || empty( $import['taxonomies'] ) ) {
-			return new WP_Error( 'media_categories_module_import_enhanced_media_library', __( 'Import from Enhanced Media Library: Please select at least one Taxonomy to import.', 'admin-site-enhancements' ) );
+			// return new WP_Error( 'media_categories_module_import_enhanced_media_library', __( 'Import from Enhanced Media Library: Please select at least one Taxonomy to import.', 'admin-site-enhancements' ) );
+			return new WP_Error( 'media_categories_module_import_enhanced_media_library', 'Import from Enhanced Media Library: Please select at least one Taxonomy to import.' );
 		}
 
 		/**
@@ -295,12 +303,13 @@ class Media_Categories_Module_Import {
 
 				// Skip if an error occured.
 				if ( is_wp_error( $result ) ) {
-					$terms_errors[] = sprintf(
-						/* translators: %1$s: Term name to create, %2$s: Error message from attempting to create term */
-						__( 'Term Name: %1$s, Error: %2$s', 'admin-site-enhancements' ),
-						$child_term->name,
-						$result->get_error_message()
-					);
+					// $terms_errors[] = sprintf(
+					// 	/* translators: %1$s: Term name to create, %2$s: Error message from attempting to create term */
+					// 	__( 'Term Name: %1$s, Error: %2$s', 'admin-site-enhancements' ),
+					// 	$child_term->name,
+					// 	$result->get_error_message()
+					// );
+					$terms_errors[] = 'Term Name: ' . $child_term->name . ', Error: ' . $result->get_error_message();
 					continue;
 				}
 
@@ -314,16 +323,18 @@ class Media_Categories_Module_Import {
 			if ( count( $terms_errors ) ) {
 				return new WP_Error(
 					'media_categories_module_import_import_third_party_taxonomy_terms',
-					sprintf(
-						/* translators: Errors when trying to import Terms from another Plugin */
-						__( 'No Terms were imported, as the following errors were encountered: %s', 'admin-site-enhancements' ),
-						'<br />' . implode( '<br />', $terms_errors )
-					)
+					// sprintf(
+					// 	/* translators: Errors when trying to import Terms from another Plugin */
+					// 	__( 'No Terms were imported, as the following errors were encountered: %s', 'admin-site-enhancements' ),
+					// 	'<br />' . implode( '<br />', $terms_errors )
+					// )
+					'No Terms were imported, as the following errors were encountered: <br />' . implode( '<br />', $terms_errors )
 				);
 			} else {
 				return new WP_Error(
 					'media_categories_module_import_import_third_party_taxonomy_terms',
-					__( 'No Terms were imported', 'admin-site-enhancements' )
+					// __( 'No Terms were imported', 'admin-site-enhancements' )
+					'No Terms were imported'
 				);
 			}
 		}
@@ -356,13 +367,14 @@ class Media_Categories_Module_Import {
 
 				// Store error if something went wrong.
 				if ( is_wp_error( $result ) ) {
-					$terms_errors[] = sprintf(
-						/* translators: %1$s: Attachment ID, %2$s: Term IDs to assign to Attachment ID, %3$s: Error message when trying to assign Terms to Attachment */
-						__( 'Attachment ID: %1$s, Term IDs: %2$s, Error: %3$s', 'admin-site-enhancements' ),
-						$attachment_id,
-						implode( ',', $term_ids ),
-						$result->get_error_message()
-					);
+					// $terms_errors[] = sprintf(
+					// 	/* translators: %1$s: Attachment ID, %2$s: Term IDs to assign to Attachment ID, %3$s: Error message when trying to assign Terms to Attachment */
+					// 	__( 'Attachment ID: %1$s, Term IDs: %2$s, Error: %3$s', 'admin-site-enhancements' ),
+					// 	$attachment_id,
+					// 	implode( ',', $term_ids ),
+					// 	$result->get_error_message()
+					// );
+					$terms_errors[] = 'Attachment ID: ' . $attachment_id . ', Term IDs: ' . implode( ',', $term_ids ) . ', Error: ' . $result->get_error_message();
 				}
 			}
 		}
@@ -371,11 +383,12 @@ class Media_Categories_Module_Import {
 		if ( count( $terms_errors ) ) {
 			return new WP_Error(
 				'media_categories_module_import_import_third_party_taxonomy_terms',
-				sprintf(
-					/* translators: Errors encountered when trying to import and assign Terms to Attachments */
-					__( 'Terms were imported, however some errors were encountered.  They may have no impact on the import, but you\'ll need to check: %s', 'admin-site-enhancements' ),
-					'<br />' . implode( '<br />', $terms_errors )
-				)
+				// sprintf(
+				// 	/* translators: Errors encountered when trying to import and assign Terms to Attachments */
+				// 	__( 'Terms were imported, however some errors were encountered.  They may have no impact on the import, but you\'ll need to check: %s', 'admin-site-enhancements' ),
+				// 	'<br />' . implode( '<br />', $terms_errors )
+				// )
+				'Terms were imported, however some errors were encountered.  They may have no impact on the import, but you\'ll need to check: <br />' . implode( '<br />', $terms_errors )
 			);
 		}
 

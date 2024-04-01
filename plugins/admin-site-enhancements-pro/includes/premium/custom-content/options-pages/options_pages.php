@@ -77,8 +77,7 @@ class CFG_Options_Screens {
 					&& ! empty( $field_group['has_overrides'] ) ) {
 
 					// set up the note when editing the default
-					$editing_default_note =  __( '<strong>Note:</strong> These defaults can be overridden when editing the applicable page.',
-						'admin-site-enhancements' );
+					$editing_default_note =  '<strong>Note:</strong> These defaults can be overridden when editing the applicable page.';
 					$editing_default_note = apply_filters( 'cfgroup_options_screens_override_note_default',
 						'<div class="cfg-options-screens-note field" style="font-size:1.2em;"><p class="notes" style="padding-top:0.85em;">' . $editing_default_note . '</p></div>',
 						$screen
@@ -86,12 +85,13 @@ class CFG_Options_Screens {
 
 					// set up the note when editing the override
 					/** @noinspection HtmlUnknownTarget */
-					$editing_override_note = sprintf(
-						__( '<strong>Optional:</strong> Editing these fields will <em>override</em> <a href="%s">%s</a> which will be used if these fields are left empty',
-							'admin-site-enhancements' ),
-						esc_url( admin_url() . $this->get_options_screen_edit_slug( $screen['id'] ) ),
-						esc_html( $screen['menu_title'] )
-					);
+					// $editing_override_note = sprintf(
+					// 	__( '<strong>Optional:</strong> Editing these fields will <em>override</em> <a href="%s">%s</a> which will be used if these fields are left empty',
+					// 		'admin-site-enhancements' ),
+					// 	esc_url( admin_url() . $this->get_options_screen_edit_slug( $screen['id'] ) ),
+					// 	esc_html( $screen['menu_title'] )
+					// );
+					$editing_override_note = '<strong>Optional:</strong> Editing these fields will <em>override</em> <a href="' . esc_url( admin_url() . $this->get_options_screen_edit_slug( $screen['id'] ) ) . '">' . esc_html( $screen['menu_title'] ) . '</a> which will be used if these fields are left empty';
 					$editing_override_note = apply_filters( 'cfgroup_options_screens_override_note_override',
 						'<div class="cfg-options-screens-note field" style="font-size:1.2em;"><p class="notes" style="padding-top:0.85em;">' . $editing_override_note . '</p></div>',
 						$screen
