@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-use ScssPhp\ScssPhp\Compiler;
+// use ScssPhp\ScssPhp\Compiler;
 
 /**
  * Code_Snippets_Manager_Admin
@@ -689,6 +689,10 @@ class Code_Snippets_Manager_Admin {
                 echo json_encode( array( 
                     'success' => true 
                 ) );
+			} else {
+                echo json_encode( array( 
+                    'success' => false 
+                ) );				
 			}
 		 }
 	}
@@ -1106,11 +1110,12 @@ class Code_Snippets_Manager_Admin {
 			'wpautop' 			=> true,
 			'media_buttons'		=> false,
 			'tinymce'			=> true,
-			'quicktags'			=> true,
-			'teeny'				=> true, // minimal editor, less buttons/options in TinyMCE
+			'quicktags'			=> false,
+			'teeny'				=> false, // minimal editor, less buttons/options in TinyMCE
 			'drag_drop_upload'	=> false,
 			'textarea_rows'		=> 4,
 			'tinymce'			=> array(
+				'toolbar1'		=> 'bold,italic,underline,strikethrough,forecolor,blockquote,bullist,numlist,link,unlink,indent,outdent,undo,redo,charmap,pastetext,removeformat,code,fullscreen',
 				'content_css'	=> 	ASENHA_URL . 'includes/premium/code-snippets-manager/assets/csm_tinymce.css',
 			),
 		);
@@ -1252,8 +1257,8 @@ class Code_Snippets_Manager_Admin {
 				'default' => 'Some notes here...',
 				'values'  => array(
 					'notes'    => array(
-						'title'    => '<p>The snippet will be executed on page load via the <em>plugins_loaded</em> hook.</p>
-										Use the proper condition(s) in your code for fine-grained control. e.g. is_admin(), is_single(), etc.</p>',
+						'title'    => '<p>The snippet will be executed on page load via the <code>plugins_loaded</code> hook.</p>
+										Use the proper condition(s) in your code for fine-grained control. e.g. <code>is_admin()</code>, <code>is_single()</code>, etc.</p><p>When fatal error occurs and your site is not accessible, <a href="https://www.wpase.com/documentation/code-snippets-manager/" target="_blank">edit wp-config.php</a> to regain access.</p>',
 						'dashicon' => 'id',
 					),
 				),
@@ -1427,7 +1432,8 @@ class Code_Snippets_Manager_Admin {
 	public function scss_compiler( $scss ) {
 
 		// SCSS compiler
-		$compiler = new Compiler();
+		// $compiler = new Compiler();
+		$compiler = new \ScssPhp\ScssPhp\Compiler();
 		$compiled_css = $compiler->compileString( $scss )->getCss();
 		return $compiled_css;
 
@@ -1459,7 +1465,14 @@ class Code_Snippets_Manager_Admin {
 		if ( ! file_exists( $dir ) ) :
 			?>
 			 <div class="notice notice-error is-dismissible">
-			 <p><?php printf( __( 'The %s directory could not be created', 'admin-site-enhancements' ), '<b>code-snippets-manager</b>' ); ?></p>
+			 <p><?php 
+			 printf( 
+			 	/* translators: %s is directory slug 'code-snippets-manager' */
+			 	__( 'The %s directory could not be created', 'admin-site-enhancements' ), 
+			 	'<b>code-snippets-manager</b>' 
+			 	); 
+			 	?>
+		 	</p>
 			 <p><?php _e( 'Please run the following commands in order to make the directory', 'admin-site-enhancements' ); ?>: <br /><strong>mkdir <?php echo $dir; ?>; </strong><br /><strong>chmod 777 <?php echo $dir; ?>;</strong></p>
 			</div>
 			<?php
@@ -1470,7 +1483,12 @@ endif;
 		if ( ! wp_is_writable( $dir ) ) :
 			?>
 			 <div class="notice notice-error is-dismissible">
-			 <p><?php printf( __( 'The %s directory is not writable, therefore the CSS and JS files cannot be saved.', 'admin-site-enhancements' ), '<b>' . $dir . '</b>' ); ?></p>
+			 <p><?php 
+			 	printf( 
+			 		/* translators: %s is the directory path */
+			 		__( 'The %s directory is not writable, therefore the code snippet files cannot be saved.', 'admin-site-enhancements' ), 
+			 		'<b>' . $dir . '</b>' 
+			 		); ?></p>
 			 <p><?php _e( 'Please run the following command to make the directory writable', 'admin-site-enhancements' ); ?>:<br /><strong>chmod 777 <?php echo $dir; ?> </strong></p>
 			</div>
 			<?php

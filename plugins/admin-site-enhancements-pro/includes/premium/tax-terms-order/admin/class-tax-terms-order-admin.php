@@ -80,7 +80,7 @@ class Tax_Terms_Order_Admin {
 	                	'edit.php', 
 	                	'Terms Order', 
 	                	'Terms Order', 
-	                	'manage_options', 
+	                	'manage_categories', 
 	                	$post_type . '-terms-order', 
 	                	array( $this, 'terms_ordering_page' ) 
 	                );
@@ -91,7 +91,7 @@ class Tax_Terms_Order_Admin {
 	                	'upload.php', 
 	                	'Terms Order', 
 	                	'Terms Order', 
-	                	'manage_options', 
+	                	'manage_categories', 
 	                	$post_type . '-terms-order',
 	                	array($this, 'terms_ordering_page') 
 	                );   
@@ -102,7 +102,7 @@ class Tax_Terms_Order_Admin {
 	                	'edit.php?post_type='.$post_type, 
 	                	'Terms Order', 
 	                	'Terms Order', 
-	                	'manage_options', 
+	                	'manage_categories', 
 	                	$post_type . '-terms-order', 
 	                	array( $this, 'terms_ordering_page' ) 
 	                );

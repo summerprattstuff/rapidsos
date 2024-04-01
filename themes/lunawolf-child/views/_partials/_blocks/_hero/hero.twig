@@ -26,8 +26,7 @@
     <div class="video{{ full_screen ? ' -full' }}">
       {% if bg_video_url %}
         <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtube' in bg_video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ bg_video_url }}"></div>
-      {% endif %}
-      {% if bg_video_file %}
+      {% elseif bg_video_file %}
         <video id="video-{{ blockId }}" class="js-heroVideo" playsinline controls data-poster="{{ get_image(bg_image) }}">
           <source src="{{ bg_video_file.url }}" type="video/mp4" />
         </video>

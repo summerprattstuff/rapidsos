@@ -57,7 +57,7 @@ class Code_Snippets_Manager_AdminConfig {
     function admin_menu() {
         $menu_slug = 'edit.php?post_type=asenha_code_snippet';
 
-        add_submenu_page( $menu_slug, __('Settings', 'admin-site-enhancements'), __('Settings', 'admin-site-enhancements'), 'manage_options', 'code-snippets-manager-config', array( $this, 'config_page' ) );
+        add_submenu_page( $menu_slug, 'Settings', 'Settings', 'manage_options', 'code-snippets-manager-config', array( $this, 'config_page' ) );
 
     }
 
@@ -161,7 +161,7 @@ class Code_Snippets_Manager_AdminConfig {
             .form-table { margin-left: 2%; width: 98%;}
             .form-table th { width: 500px; } 
         </style>
-        <h1><?php _e('Custom CSS & JS Settings'); ?></h1>
+        <h1>Custom CSS & JS Settings</h1>
 
         <?php     
     }
@@ -223,29 +223,29 @@ class Code_Snippets_Manager_AdminConfig {
             update_option( ASENHA_SLUG_U . '_extra', $settings );
         }
 
-        $csm_htmlentities_help = __('If you want to use an HTML entity in your code (for example '. htmlentities('&gt; or &quot;').'), but the editor keeps on changing them to its equivalent character (&gt; and &quot; for the previous example), then you might want to enable this option.', 'admin-site-enhancements');
+        $csm_htmlentities_help = 'If you want to use an HTML entity in your code (for example '. htmlentities('&gt; or &quot;').'), but the editor keeps on changing them to its equivalent character (&gt; and &quot; for the previous example), then you might want to enable this option.';
 
-        $csm_htmlentities2_help = __('If you use HTML tags in your code (for example '.htmlentities('<input> or <textarea>').') and you notice that they disappear and the editor looks weird, then you need to enable this option.', 'admin-site-enhancements');
+        $csm_htmlentities2_help = 'If you use HTML tags in your code (for example '.htmlentities('<input> or <textarea>').') and you notice that they disappear and the editor looks weird, then you need to enable this option.';
 
-        $remove_comments_help = __('In your page\'s HTML there is a comment added before and after the internal CSS or JS in order to help you locate your custom code. Enable this option in order to remove that comment.', 'admin-site-enhancements');
+        $remove_comments_help = 'In your page\'s HTML there is a comment added before and after the internal CSS or JS in order to help you locate your custom code. Enable this option in order to remove that comment.';
 
         ?>
 
-        <h2><?php echo __('Editor Settings', 'admin-site-enhancements'); ?></h2>
+        <h2>Editor Settings</h2>
         <table class="form-table">
         <tr>
-        <th scope="row"><label for="csm_htmlentities"><?php _e('Keep the HTML entities, don\'t convert to its character', 'admin-site-enhancements') ?> <span class="dashicons dashicons-editor-help tipsy-no-html" rel="tipsy" title="<?php echo $csm_htmlentities_help; ?>"></span>
+        <th scope="row"><label for="csm_htmlentities">Keep the HTML entities, don't convert to its character <span class="dashicons dashicons-editor-help tipsy-no-html" rel="tipsy" title="<?php echo $csm_htmlentities_help; ?>"></span>
         </label></th>
         <td><input type="checkbox" name="csm_htmlentities" id="csm_htmlentities" value="1" <?php checked($settings['csm_htmlentities'], true); ?> />
         </td>
         </tr>
         <tr>
-        <th scope="row"><label for="csm_htmlentities2"><?php _e('Encode the HTML entities', 'admin-site-enhancements') ?> <span class="dashicons dashicons-editor-help tipsy-no-html" rel="tipsy" title="<?php echo $csm_htmlentities2_help; ?>"></span></label></th>
+        <th scope="row"><label for="csm_htmlentities2">Encode the HTML entities <span class="dashicons dashicons-editor-help tipsy-no-html" rel="tipsy" title="<?php echo $csm_htmlentities2_help; ?>"></span></label></th>
         <td><input type="checkbox" name="csm_htmlentities2" id="csm_htmlentities2" value="1" <?php checked($settings['csm_htmlentities2'], true); ?> />
         </td>
         </tr>
         <tr>
-        <th scope="row"><label for="csm_autocomplete"><?php _e('Autocomplete in the editor', 'admin-site-enhancements') ?></label></th>
+        <th scope="row"><label for="csm_autocomplete">Autocomplete in the editor</label></th>
         <td><input type="checkbox" name="csm_autocomplete" id="csm_autocomplete" value="1" <?php checked($settings['csm_autocomplete'], true); ?> />
         </td>
         </tr>
@@ -257,11 +257,11 @@ class Code_Snippets_Manager_AdminConfig {
 
         
         <?php if ( current_user_can('update_plugins') ) : ?> 
-            <?php $add_role_help = esc_html__('By default only the Administrator will be able to publish/edit/delete Code Snippets. By enabling this option there is also a "Code Snippet Editor" role created which can be assigned to a non-admin user in order to publish/edit/delete Code Snippets.', 'admin-site-enhancements'); ?>
-            <h2><?php echo __('General Settings', 'admin-site-enhancements'); ?></h2>
+            <?php $add_role_help = esc_html('By default only the Administrator will be able to publish/edit/delete Code Snippets. By enabling this option there is also a "Code Snippet Editor" role created which can be assigned to a non-admin user in order to publish/edit/delete Code Snippets.'); ?>
+            <h2>General Settings</h2>
             <table class="form-table">
             <tr>
-            <th scope="row"><label for="add_role"><?php _e('Add the "Code Snippet Editor" role', 'admin-site-enhancements') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php echo $add_role_help; ?>"></span></label></th>
+            <th scope="row"><label for="add_role">Add the "Code Snippet Editor" role <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php echo $add_role_help; ?>"></span></label></th>
             <td><input type="checkbox" name="add_role" id = "add_role" value="1" <?php checked($settings['add_role'], true); ?> />
             </td>
             </tr>
@@ -269,7 +269,7 @@ class Code_Snippets_Manager_AdminConfig {
         <?php endif; ?>
         <table class="form-table">
         <tr>
-        <th scope="row"><label for="remove_comments"><?php _e('Remove the comments from HTML', 'admin-site-enhancements') ?> <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php echo $remove_comments_help; ?>"></span></label></th>
+        <th scope="row"><label for="remove_comments">Remove the comments from HTML <span class="dashicons dashicons-editor-help" rel="tipsy" title="<?php echo $remove_comments_help; ?>"></span></label></th>
         <td><input type="checkbox" name="remove_comments" id = "remove_comments" value="1" <?php checked($settings['remove_comments'], true); ?> />
         </td>
         </tr>
@@ -279,7 +279,7 @@ class Code_Snippets_Manager_AdminConfig {
         <tr>
         <th>&nbsp;</th>
         <td>
-        <input type="submit" name="Submit" class="button-primary" value="<?php _e('Save'); ?>" />
+        <input type="submit" name="Submit" class="button-primary" value="Save" />
         <?php wp_nonce_field('code_snippets_manager_settings', 'code_snippets_manager_settings-nonce', false); ?>
         </td>
         </tr>

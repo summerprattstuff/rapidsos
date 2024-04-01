@@ -19,13 +19,13 @@
   font-weight: 400;
 }
 
-.container {
+.titleWrapper {
 
-  &__center {
+  &.-center {
     margin-inline: auto;
   }
 
-  &__short {
+  &.-short {
 
     @include media-up(m) {
       max-width: 90%;
@@ -33,6 +33,20 @@
 
     @include media-up(l) {
       max-width: 70%;
+    }
+  }
+}
+
+.m_wyText {
+
+  @include media-only(s) {
+    font-size: 16px;
+  }
+
+  @include media-up(m) {
+
+    p {
+      font-size: 20px;
     }
   }
 }

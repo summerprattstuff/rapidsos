@@ -31,9 +31,6 @@
   }
 
   &__logos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     &:not(:first-child) {
       margin-top: 40px;
@@ -45,10 +42,6 @@
 
     &__block {
 
-      &:not(:first-child) {
-        padding-left: 60px;
-      }
-
       &__img {
         max-height: 45px; max-width: 155px;
         width: auto; height: auto;
@@ -58,5 +51,28 @@
         }
       }
     }
+  }
+
+  .locked {
+
+    .swiper-wrapper {
+      justify-content: center;
+    }
+  }
+
+  .swiper-wrapper {
+    padding-bottom: 30px;
+  }
+
+  .swiper-slide {
+    width: auto;
+  }
+
+  .swiper-pagination {
+    bottom: 0;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $primary;
   }
 }

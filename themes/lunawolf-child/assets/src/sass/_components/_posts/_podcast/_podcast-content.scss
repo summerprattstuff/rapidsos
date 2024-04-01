@@ -1,0 +1,71 @@
+.single-podcast {
+
+  .m__testimonial {
+    background: $white;
+    padding: 200px 0;
+
+    @include media-up(m) {
+      padding: 40px 0;
+    }
+
+    .testimonial {
+      display: block;
+    }
+
+    &__content {
+      padding-left: 0;
+
+      @include media-up(m) {
+        padding-top: 90px;
+      }
+    }
+
+    &__quote {
+      font-size: 30px;
+      line-height: 40px;
+    }
+
+    &__author {
+
+      &:not(:first-child) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .m__podcastContent {
+    position: relative;
+    padding: 30px 0;
+    margin-bottom: 35px;
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0; left: -3000px; right: -3000px; bottom: 0;
+      background: $bg-gray;
+      z-index: -1;
+    }
+
+    ._w {
+      justify-content: center;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    &__blocks {
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+
+      &__blocksWrapper {
+
+        &__inner {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

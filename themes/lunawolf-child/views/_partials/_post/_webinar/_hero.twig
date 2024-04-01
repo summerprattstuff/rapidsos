@@ -1,0 +1,65 @@
+{% set postType  = post.post_type %}
+{% set title     = post.title %}
+{% set heroTitle = post.meta.custom_title %}
+{% set subtitle  = post.meta.subtitle %}
+{% set heroImg   = post.meta.hero_image %}
+{% set desc      = post.meta.desc %}
+{% set text      = post.meta.text_box %}
+
+<section class="hero__webinar">
+    <div class="wrapper">
+        <div class="postTag">
+            <img class="tagLogo" src="{{ theme.link ~ '/public/podcast/podcast_tag.png' }}" alt="">
+        </div>
+        <div class="hero__webinar__top">
+            <div class="_w">
+                <div class="hero__webinar__top__left _l6">
+                    <div class="hero__webinar__top__left__box">
+                        <div class="hero__webinar__top__left__box__inner">
+                            <div class="titleWrapper">
+                                <h1 class="title">{{ heroTitle ? heroTitle : title }}</h1>
+                            </div>
+                            {% if subtitle %}
+                                <h2 class="subtitle">{{ subtitle }}</h2>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__webinar__right _l6">
+                    <div class="hero__webinar__top__right__inner">
+                        {% if heroImg %}
+                            <div class="hero__webinar__top__right__inner__wrapImg">
+                                <div class="hero__webinar__top__right__inner__bgImg" style="background-image: url({{ get_image(heroImg) }})"></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__webinar__bottom">
+            <div class="_w">
+                <div class="hero__webinar__bottom__left _l6">
+                    <div class="hero__webinar__bottom__left__box">
+                        <div class="hero__webinar__bottom__left__box__inner">
+                            {% if desc %}
+                                <p class="desc">{{ desc }}</p>
+                            {% endif %}
+                            {% if text %}
+                                <div class="textBox">
+                                    <div class="m__wyswyg">{{ text }}</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__webinar__bottom__right _l6">
+                    <div class="hero__webinar__bottom__right__box">
+                        <div class="hero__webinar__bottom__right__box__inner">
+                           sadasdsa
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

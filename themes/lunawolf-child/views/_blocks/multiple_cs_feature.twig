@@ -1,0 +1,72 @@
+{% set s_title      = block.s_title %}
+{% set case_studieIDs = block.case_studies_feature %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if case_studieIDs %}
+    {% set cases = get_posts(case_studieIDs) %}
+    {% set count = cases|length %}
+    <section id="{{ settings.block_id }}" class="m__multiCS -caseStudy">
+        <div class="wrapper">
+            <div class="content">
+                <div class="s_titleWrapper">
+                    <h1 class="s_title">{{ s_title }}</h1>
+                </div>
+                <div class="contentInner">
+                    <div class="_w">
+                        {% for case in cases %}
+                            {% set title        = case.title %}
+                            {% set link         = case.link %}
+                            {% set logo         = case.meta('logo') %}
+                            {% set heroTitle    = case.meta('hero_title') %}
+                            {% set industry     = case.meta('industry') %}
+                            {% set data_sources = case.meta('data_sources') %}
+
+                            {% set label        = data_sources.sources_label %}
+                            {% set sources      = data_sources.sources_wys %}
+
+                            <div class="m__multiCS__box{{ count < 3 ? ' _m6' : ' _m4' }}">
+                                <div class="m__multiCS__box__inner">
+                                    <div class="logoWrapper">
+                                        {% if logo %}
+                                            <img src="{{ get_image(logo) }}" alt="">
+                                        {% endif %}
+                                    </div>
+                                    <div class="bot">
+                                        <div class="titleWrapper">
+                                            <h3 class="title">{{ heroTitle ? heroTitle : title }}</h3>
+                                        </div>
+                                        {% if industry %}
+                                            <div class="industry">
+                                                <p class="iLabel">Industry: </p>
+                                                <p class="iContent">{{ industry }}</p>
+                                            </div>
+                                        {% endif %}
+                                        {% if data_sources %}
+                                            <div class="sources">
+                                                <p class="sLabel">{{ label }}</p>
+                                                <p class="sContent">{{ sources }}</p>
+                                            </div>
+                                        {% endif %}
+                                        <div class="btnWrapper">
+                                            <a class="btn -black" href="{{ link }}">Read full case study</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add at least one case study to show on page.
+    </div>
+{% endif %}

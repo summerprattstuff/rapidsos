@@ -581,7 +581,13 @@ class cfgroup_api
             $field->value = isset( $values[ $field->id ] ) ? $values[ $field->id ] : null;
 
             if ( ! isset( $field->value ) && isset( $field->options['default_value'] ) ) {
-                $field->value = $field->options['default_value'];
+                if ( false !== strpos( $field->options['default_value'], '|' ) ) {
+                    $default_value = explode( ' | ', trim( $field->options['default_value'] ) );
+                } else {
+                    $default_value = $field->options['default_value'];
+                }
+                // $field->value = $field->options['default_value'];
+                $field->value = $default_value;
             }
 
             $output[ $field->id ] = $field;

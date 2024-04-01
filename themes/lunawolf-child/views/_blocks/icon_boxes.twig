@@ -1,0 +1,60 @@
+{% set s_title  = block.s_title %}
+{% set icon_boxes = block.icon_boxes %}
+{% set count = icon_boxes|length %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if icon_boxes %}
+    <section id="{{ settings.block_id }}" class="m__iconBoxes">
+        <div class="wrapper">
+            {% if s_title %}
+                <div class="titleWrapper -center">
+                    <h1 class="m_title m__iconBoxes__stitle">{{ s_title }}</h1>
+                </div>
+            {% endif %}
+            <div class="m__iconBoxes__wrapper">
+                <div class="_w">
+                    {% for icon_box in icon_boxes %}
+                        {% set icon  = icon_box.icon %}
+                        {% set title = icon_box.title %}
+                        {% set desc  = icon_box.desc %}
+                        {% set link  = icon_box.link %}
+
+                        <div class="m__iconBoxes__box{{ count > 2 ? ' _l4' : ' _m6' }}">
+                            <div class="m__iconBoxes__box__inner">
+                                <div class="m__iconBoxes__box__iconWrapper">
+                                    <img class="icon" src="{{ get_image(icon) }}" alt="">
+                                </div>
+                                <div class="m__iconBoxes__box__inner__content">
+                                    {% if title %}
+                                        <h2 class="m__iconBoxes__box__title">{{ title }}</h2>
+                                    {% endif %}
+                                    {% if desc %}
+                                        <p class="m__desc m__iconBoxes__box__desc">{{ desc }}</p>
+                                    {% endif %}
+                                    {% if link %}
+                                        <div class="btnWrapper">
+                                            {% include '_components/_advanced_link.twig' with {
+                                                link: link,
+                                                class: '-black'
+                                            } %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add icon boxes to show on page.
+    </div>
+{% endif %}

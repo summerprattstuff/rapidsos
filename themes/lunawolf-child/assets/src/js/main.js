@@ -11,8 +11,9 @@ import '../sass/main.scss';
 import debounce from './helpers/debounce';
 
 // import siteFocus from './partials/siteFocus';
-// import sliders from './components/sliders';
-import hero from './components/videos/hero';
+import sliders from './components/sliders';
+import logoSlider from './components/sliders';
+import videos from './components/videos';
 
 let vh = window.innerHeight * 0.01;
 
@@ -25,5 +26,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   adaptVh();
   window.addEventListener('resize', debounce(adaptVh));
 
-  hero();
+  videos();
+  sliders();
+  logoSlider();
 });

@@ -4,6 +4,22 @@ jQuery(document).ready( function($) {
     
     $('#code-snippet-description').appendTo('#code-snippet-description-wrapper');
     $('#code-snippet-description-wrapper').css('border','0');
+    
+    // Re-init wp_editor for snippet description. Required because the wp_editor was moved in the DOM after document ready.
+    // Ref: https://stackoverflow.com/a/21519323.
+    // Ref: https://core.trac.wordpress.org/ticket/19173
+    var id = 'code_snippet_description';
+    tinymce.execCommand('mceRemoveEditor', true, id);
+	var init = tinymce.extend( {}, tinyMCEPreInit.mceInit[ id ] );
+	try { tinymce.init( init ); } catch(e){}
+	$('textarea[id="' + id + '"]').closest('form').find('input[type="submit"]').click(function(){
+	    if( getUserSetting( 'editor' ) == 'tmce' ){
+	        var id = mce.find( 'textarea' ).attr( 'id' );
+	        tinymce.execCommand( 'mceRemoveEditor', false, id );
+	        tinymce.execCommand( 'mceAddEditor', false, id );
+	    }
+	    return true;
+	});
 
     var postID = document.getElementById('post_ID') != null ? document.getElementById('post_ID').value : 0;
 
@@ -233,6 +249,10 @@ jQuery(document).ready( function($) {
 						location.reload(true);
 						// location = window.location.href;
 					}, 2000);
+				} else {
+					// SVG icon: https://icon-sets.iconify.design/bx/error/
+					$('#disabling-csm-safe-mode svg').html('<path fill="#d63638" d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12S5.925 1 12 1m-1 13h2V6.5h-2zm2.004 1.5H11v2.004h2.004z"/>');
+					$('#disabling-csm-safe-mode span').html("<div style=\"display:inline;color:#d63638;\">Unable to turn off safe mode</div> to resume PHP snippets execution. Please <a href=\"https://www.wpase.com/documentation/code-snippets-manager/\" target=\"_blank\">edit wp-config.php</a> directly.");
 				}
             }
         });

@@ -1,0 +1,111 @@
+{% set case_studyID = block.case_study_feature %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if case_studyID %}
+    {% set case_study    = get_post(case_studyID) %}
+    {% set title         = case_study.title %}
+    {% set link          = case_study.link %}
+    {% set logo          = case_study.meta.logo %}
+    {% set heroTitle     = case_study.meta.hero_title %}
+    {% set subtitle      = case_study.meta.subtitle %}
+    {% set heroImg       = case_study.meta.heroImg %}
+    {% set industry      = case_study.meta.industry %}
+    {% set data_sources  = case_study.meta('data_sources') %}
+    {% set customers     = case_study.meta('customers') %}
+    {% set testimonialID = case_study.meta('single_cs_testimonial')[0] %}
+
+    {% set testimonial   = get_post(testimonialID) %}
+    {% set author        = testimonial.title %}
+    {% set quote         =  testimonial.meta('quote') %}
+    {% set author_title  =  testimonial.meta('author_title') %}
+
+    {% set label         = data_sources.sources_label %}
+    {% set sigl_label    = data_sources.s_s_label %}
+    {% set sources       = data_sources.sources_wys %}
+
+    {% set cus_label    = customers.cus_label %}
+    {% set cus_value    = customers.cus_value %}
+
+    <section id="{{ settings.block_id }}" class="m__singleCS -caseStudy">
+        <div class="wrapper">
+            <div class="content">
+                <div class="postTag">
+                    <span>Case study</span>
+                </div>
+                <div class="_w">
+                    <div class="m__singleCS__left _m6">
+                        <div class="m__singleCS__left__inner">
+                            {% if logo %}
+                                <div class="logoWrapper">
+                                    <img src="{{ get_image(logo) }}" alt="">
+                                </div>
+                            {% endif %}
+                            <div class="titleWrapper">
+                                <h1 class="title">{{ heroTitle ? heroTitle : title }}</h1>
+                            </div>
+                            {% if subtitle %}
+                                <h3 class="subtitle">{{ subtitle }}</h3>
+                            {% endif %}
+                            <div class="btnWrapper">
+                                <a class="btn -black" href="{{ link }}">Read more</a>
+                            </div>
+                            {% if industry %}
+                                <div class="industry">
+                                    <p class="iLabel">Industry: </p>
+                                    <p class="iContent">{{ industry }}</p>
+                                </div>
+                            {% endif %}
+                            {% if customers %}
+                                <div class="customers">
+                                    <p class="cLabel">{{ cus_label }}</p>
+                                    <p class="cContent">{{ cus_value }}</p>
+                                </div>
+                            {% endif %}
+                            {% if data_sources %}
+                                <div class="sources">
+                                    <p class="sLabel">{{ sigl_label ? sigl_label : label}}</p>
+                                    <p class="sContent">{{ sources }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="m__singleCS__right _m6">
+                        {% if heroImg %}
+                            <div class="m__singleCS__right__inner">
+                                <div class="m__singleCS__right__wrapImg">
+                                    <div class="m__singleCS__right__bgImg" style="background-image: url({{ get_image(heroImg) }})"></div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if testimonial %}
+                            <div class="m__singleCS__right__testimonial">
+                                <div class="testimonialWrapper">
+                                    {% if quote %}
+                                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39 32" width="39" height="32"><defs><image  width="39" height="32" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAgCAMAAACmeJG/AAAAAXNSR0IB2cksfwAAAfhQTFRFAAAAFGynFG2rFGupE2qnEFiPDlWVDlWTDlOSEHCfFG+sFG6rFG2qFGmoEFaWD1eVD1aUDlOSEFCPFXCqFXCtFG+sE2ypEGinDlmYD1iWD1eVDVWUFXOxFHGuFXCtE22qEGqqEFiXEFmYD1mXDlSTFnSxFXKvFXGuFW6rEFuZEFqYEFWVFnazFnSwFHCrEF2aEFuZD1mWEFiTFnWxFHCtEF2cEFyaD1qXEFqVFXW1FnayFHKtEV2cEF2bEFaZGHivFne0FHOwEF6fEV6cEFqXFni1FnezFnOwGHCvEGCfEV+dEFuaFXq1F3i0FXKvEGCdF3u2FnaxEGCbEWCeEF2bF3q2FnWyEmKfEGCXFnu3FnavEGCfEWGfEFycF3q3FHSvE2KfEF2bEmOgF3u2FnSxEmOgEF2bF3q2FXOwFXKtFHCrFWqqEmKgEFuZEFqXEFiXDFiTF3y2E26sFG6rD1WWDVWSF3u3E2upFWqlDlSUE2uoDlKSE2qnE2qnDlKSDFCPFnm2E2mmDlGPE2mmEGWlE2OgDlGPEICvEGijEmKfDlKRFny2DlGRGHi3EGGeF3i1EmqoEWCeDVKPFnm0FGinDVOTFGqnEGCdCFCPEHCvFnaxE22qD1SUFHKwFHGvFHCuEm2rEFybEFqaEFuYEFiYD1iXDlWXEFSTWpgJAAAAAKh0Uk5TAEC//2Agn//fEK///3BQ7///EDDf/+8gj///n1/v/98wIL//oH///6Df/2B//4Df/+9A/4Df/+8wMP+Av/9QIN+vf/+An//fICD/nzD/YK+/30D/j/+fnyCfUBD/z99AYLCfcIDP75CfYEAw/3BgYECv33+/YL/fMI/vj/+f/0Cg75D/ML+wEECA36/PIJCQz+9gz0C/gGAgEKDvv6+/v3BAkL+/v5BA1PK1xQAAAhZJREFUeJxt1E9IVEEcB/D5QovuolviiJISiXgJrwVBJAQdhAXDS5kUUUTpGlQHK/AglKxhf4T+IRRh/4gQgiIoiIJAkAgPhXQKE+zg5RHb9mZn2qDfm6dv/rRzenz5zJ83v5kBsxqoVZjXUhSWGUyQpkBkfnksG4UIjGsEQmSw6rIWSgX/YcZro34hx3dHtUd9Qx4EieskJhqXhctqIUM0LEZLj5MuSIhNn90527NQMosFlriuGiVR/8ljHErVY54lbiekkk1z3p/uolTxDyxx3TS84u89tkenb5lxe1GSHK9d1qPneMWMy0GWZOsLb7jeP1IVi0uW2/dXlpqfe6wPQqrmWWZcLl2WpbZnnttfIdf61HL9FXJbn7hsgHZdbn7ILHdYkOuccd2RCrkt9y2XS7Mq7qjy3bFi5Lbddd1xQa7j92PjTgSRk9tBp/RWEg//JKeKu+lIPgi0O7OiHdVXiEN4FB+/gQbtqG50Xg5iktzIknEh8piIXE+H5UJxtuA7ce7e6v8uMzTuuwu4WMWdAsYWXZeaEN76IrdhbV+Mq8EoDTj+1XW1KCx4LnWe3OUvrqsDm/xYxen6Wi4LdnXedTf1Fl6b8+Zl7Po72/HT8U7veGM7Tq5Q99JyLcNx5frKlruUT+7RmrsxtF7iO7OJw9RJfS+nMR27qUHruTrwDbG7MpK8G90be4H87UH33ZiBbv30+Q/LsrjlaHAnLwAAAABJRU5ErkJggg=="/></defs><style></style><use  href="#img1" x="0" y="0"/></svg>
+                                        <p class="quote">{{ quote }}</p>
+                                    {% endif %}
+                                    {% if author or author_title %}
+                                        <div class="authorWrapper">
+                                            <p class="author">{{ author }}</p>
+                                            <p class="author_title">{{ author_title }}</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add one case study to show on page.
+    </div>
+{% endif %}

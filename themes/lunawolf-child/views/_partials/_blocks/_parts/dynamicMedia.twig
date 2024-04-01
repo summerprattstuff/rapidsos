@@ -1,0 +1,24 @@
+{% set bg_image   = blockData.bg_image %}
+{% set video_file = blockData.video_file %}
+{% set video_url  = blockData.video_url %}
+{% set bg_video   = video_file or video_url %}
+
+{% if bg_image and not bg_video %}
+    <div class="m__dynamicMedia{{ bg_video ? ' -withVideo' }}">
+        <div class="m__dynamicMedia__wrapImg">
+            <div class="m__dynamicMedia__wrapImg__bgImg" style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
+        </div>
+    </div>
+{% endif %}
+{% if bg_video %}
+    <div class="m__dynamicMedia__video">
+        {% if video_url %}
+            <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+        {% endif %}
+        {% if video_file %}
+            <video id="video-{{ blockId }}" class="js-cardVideo" controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
+                <source src="{{ video_file.url }}" type="video/mp4" />
+            </video>
+        {% endif %}
+    </div>
+{% endif %}

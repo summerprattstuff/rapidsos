@@ -1,0 +1,80 @@
+.m__dataTestimonial {
+  padding: 30px 0;
+
+  &__dataBox {
+
+    &__sources {
+      position: relative;
+      padding: 55px 30px 50px 0;
+
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0; left: -12px; bottom: 0; right: 0;
+        box-shadow: 4px 4px 10px 0 #00000040;
+        background: $bg-gray;
+        z-index: -1;
+
+        @include media-up(m) {
+          left: -3000px;
+        }
+      }
+    }
+
+    .sLabel {
+      font-size: 26px;
+      font-weight: 700;
+
+      @include media-up(m) {
+        font-size: 30px;
+      }
+    }
+
+    .sContent {
+      font-weight: 700;
+
+      &:not(:first-child) {
+        margin-top: 15px;
+      }
+
+      ul {
+        padding-left: 0;
+      }
+
+      li {
+        list-style-type: none;
+
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+
+  &__testimonialBox {
+
+    &__testimonialWrapper {
+      padding: 40px 0;
+
+      .quote {
+        margin-top: 20px;
+        font-size: 20px;
+
+      }
+
+      .authorWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        font-weight: 700;
+
+        &:not(first-child) {
+          margin-top: 20px;
+        }
+
+        .author {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

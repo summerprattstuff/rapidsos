@@ -111,8 +111,10 @@ class Media_Categories_Module_Common {
 
 		// Build options.
 		$options = array(
-			'AND' => __( 'All', 'admin-site-enhancements' ),
-			'OR'  => __( 'Any', 'admin-site-enhancements' ),
+			// 'AND' => __( 'All', 'admin-site-enhancements' ),
+			// 'OR'  => __( 'Any', 'admin-site-enhancements' ),
+			'AND' => 'All',
+			'OR'  => 'Any',
 		);
 
 		/**
@@ -140,9 +142,12 @@ class Media_Categories_Module_Common {
 
 		// Build options.
 		$options = array(
-			'top'        => __( 'Above', 'admin-site-enhancements' ),
-			'bottom'     => __( 'Below', 'admin-site-enhancements' ),
-			'top_bottom' => __( 'Above and Below', 'admin-site-enhancements' ),
+			// 'top'        => __( 'Above', 'admin-site-enhancements' ),
+			// 'bottom'     => __( 'Below', 'admin-site-enhancements' ),
+			// 'top_bottom' => __( 'Above and Below', 'admin-site-enhancements' ),
+			'top'        => 'Above',
+			'bottom'     => 'Below',
+			'top_bottom' => 'Above and Below',
 		);
 
 		/**
@@ -171,15 +176,18 @@ class Media_Categories_Module_Common {
 		global $post_mime_types, $avail_post_mime_types;
 
 		$options = array(
-			'all' => __( 'All media items', 'admin-site-enhancements' ),
+			// 'all' => __( 'All media items', 'admin-site-enhancements' ),
+			'all' => 'All media items',
 		);
 
 		foreach ( $post_mime_types as $mime_type => $label ) {
 			$options[ 'post_mime_type:' . esc_attr( $mime_type ) ] = $label[0];
 		}
 
-		$options['detached'] = __( 'Unattached', 'admin-site-enhancements' );
-		$options['mine']     = _x( 'Mine', 'media items', 'admin-site-enhancements' );
+		// $options['detached'] = __( 'Unattached', 'admin-site-enhancements' );
+		// $options['mine']     = _x( 'Mine', 'media items', 'admin-site-enhancements' );
+		$options['detached'] = 'Unattached';
+		$options['mine']     = 'Mine';
 
 		/**
 		 * Defines the available file type options for WP_Query calls
@@ -209,14 +217,22 @@ class Media_Categories_Module_Common {
 
 		// Build options.
 		$options = array(
-			'ID'        => __( 'Attachment ID', 'admin-site-enhancements' ),
-			'author'    => __( 'Author (Uploader)', 'admin-site-enhancements' ),
-			'date'      => __( 'Date', 'admin-site-enhancements' ),
-			'name'      => __( 'Filename', 'admin-site-enhancements' ),
-			'modified'  => __( 'Modified Date', 'admin-site-enhancements' ),
-			'parent'    => __( 'Uploaded to', 'admin-site-enhancements' ),
-			'title'     => __( 'Title', 'admin-site-enhancements' ),
-			'post_date' => __( 'Uploaded Date', 'admin-site-enhancements' ),
+			// 'ID'        => __( 'Attachment ID', 'admin-site-enhancements' ),
+			// 'author'    => __( 'Author (Uploader)', 'admin-site-enhancements' ),
+			// 'date'      => __( 'Date', 'admin-site-enhancements' ),
+			// 'name'      => __( 'Filename', 'admin-site-enhancements' ),
+			// 'modified'  => __( 'Modified Date', 'admin-site-enhancements' ),
+			// 'parent'    => __( 'Uploaded to', 'admin-site-enhancements' ),
+			// 'title'     => __( 'Title', 'admin-site-enhancements' ),
+			// 'post_date' => __( 'Uploaded Date', 'admin-site-enhancements' ),
+			'ID'        => 'Attachment ID',
+			'author'    => 'Author (Uploader)',
+			'date'      => 'Date',
+			'name'      => 'Filename',
+			'modified'  => 'Modified Date',
+			'parent'    => 'Uploaded to',
+			'title'     => 'Title',
+			'post_date' => 'Uploaded Date',
 		);
 
 		/**
@@ -269,8 +285,10 @@ class Media_Categories_Module_Common {
 
 		// Build options.
 		$options = array(
-			'ASC'  => __( 'Ascending (A-Z)', 'admin-site-enhancements' ),
-			'DESC' => __( 'Descending (Z-A)', 'admin-site-enhancements' ),
+			// 'ASC'  => __( 'Ascending (A-Z)', 'admin-site-enhancements' ),
+			// 'DESC' => __( 'Descending (Z-A)', 'admin-site-enhancements' ),
+			'ASC'  => 'Ascending (A-Z)',
+			'DESC' => 'Descending (Z-A)',
 		);
 
 		/**
@@ -322,10 +340,14 @@ class Media_Categories_Module_Common {
 	public function get_attachment_display_settings_alignment() {
 
 		$options = array(
-			'none'   => __( 'None', 'admin-site-enhancements' ),
-			'left'   => __( 'Left', 'admin-site-enhancements' ),
-			'center' => __( 'Center', 'admin-site-enhancements' ),
-			'right'  => __( 'Right', 'admin-site-enhancements' ),
+			// 'none'   => __( 'None', 'admin-site-enhancements' ),
+			// 'left'   => __( 'Left', 'admin-site-enhancements' ),
+			// 'center' => __( 'Center', 'admin-site-enhancements' ),
+			// 'right'  => __( 'Right', 'admin-site-enhancements' ),
+			'none'   => 'None',
+			'left'   => 'Left',
+			'center' => 'Center',
+			'right'  => 'Right',
 		);
 
 		$options = apply_filters( 'media_categories_module_common_get_attachment_display_settings_alignment', $options );
@@ -351,10 +373,14 @@ class Media_Categories_Module_Common {
 			 */
 			case 'image':
 				$options = array(
-					'none'   => __( 'None', 'admin-site-enhancements' ),
-					'file'   => __( 'Media File', 'admin-site-enhancements' ),
-					'post'   => __( 'Attachment Page', 'admin-site-enhancements' ),
-					'custom' => __( 'Custom URL', 'admin-site-enhancements' ),
+					// 'none'   => __( 'None', 'admin-site-enhancements' ),
+					// 'file'   => __( 'Media File', 'admin-site-enhancements' ),
+					// 'post'   => __( 'Attachment Page', 'admin-site-enhancements' ),
+					// 'custom' => __( 'Custom URL', 'admin-site-enhancements' ),
+					'none'   => 'None',
+					'file'   => 'Media File',
+					'post'   => 'Attachment Page',
+					'custom' => 'Custom URL',
 				);
 				break;
 
@@ -364,9 +390,12 @@ class Media_Categories_Module_Common {
 			case 'video':
 			case 'audio':
 				$options = array(
-					'file'  => __( 'Link to Media File', 'admin-site-enhancements' ),
-					'embed' => __( 'Embed Media Player', 'admin-site-enhancements' ),
-					'post'  => __( 'Link to Attachment Page', 'admin-site-enhancements' ),
+					// 'file'  => __( 'Link to Media File', 'admin-site-enhancements' ),
+					// 'embed' => __( 'Embed Media Player', 'admin-site-enhancements' ),
+					// 'post'  => __( 'Link to Attachment Page', 'admin-site-enhancements' ),
+					'file'  => 'Link to Media File',
+					'embed' => 'Embed Media Player',
+					'post'  => 'Link to Attachment Page',
 				);
 				break;
 
@@ -375,9 +404,12 @@ class Media_Categories_Module_Common {
 			 */
 			case 'document':
 				$options = array(
-					'none' => __( 'None', 'admin-site-enhancements' ),
-					'file' => __( 'Media File', 'admin-site-enhancements' ),
-					'post' => __( 'Attachment Page', 'admin-site-enhancements' ),
+					// 'none' => __( 'None', 'admin-site-enhancements' ),
+					// 'file' => __( 'Media File', 'admin-site-enhancements' ),
+					// 'post' => __( 'Attachment Page', 'admin-site-enhancements' ),
+					'none' => 'None',
+					'file' => 'Media File',
+					'post' => 'Attachment Page',
 				);
 				break;
 
@@ -386,9 +418,12 @@ class Media_Categories_Module_Common {
 			 */
 			default:
 				$options = array(
-					'none' => __( 'None', 'admin-site-enhancements' ),
-					'file' => __( 'Media File', 'admin-site-enhancements' ),
-					'post' => __( 'Attachment Page', 'admin-site-enhancements' ),
+					// 'none' => __( 'None', 'admin-site-enhancements' ),
+					// 'file' => __( 'Media File', 'admin-site-enhancements' ),
+					// 'post' => __( 'Attachment Page', 'admin-site-enhancements' ),
+					'none' => 'None',
+					'file' => 'Media File',
+					'post' => 'Attachment Page',
 				);
 				break;
 
@@ -420,10 +455,14 @@ class Media_Categories_Module_Common {
 		$options = apply_filters(
 			'image_size_names_choose',
 			array(
-				'thumbnail' => __( 'Thumbnail', 'admin-site-enhancements' ),
-				'medium'    => __( 'Medium', 'admin-site-enhancements' ),
-				'large'     => __( 'Large', 'admin-site-enhancements' ),
-				'full'      => __( 'Full Size', 'admin-site-enhancements' ),
+				// 'thumbnail' => __( 'Thumbnail', 'admin-site-enhancements' ),
+				// 'medium'    => __( 'Medium', 'admin-site-enhancements' ),
+				// 'large'     => __( 'Large', 'admin-site-enhancements' ),
+				// 'full'      => __( 'Full Size', 'admin-site-enhancements' ),
+				'thumbnail' => 'Thumbnail',
+				'medium'    => 'Medium',
+				'large'     => 'Large',
+				'full'      => 'Full Size',
 			)
 		);
 

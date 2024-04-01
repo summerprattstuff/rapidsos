@@ -489,8 +489,7 @@ class Ase_Text extends \Elementor\Core\DynamicTags\Tag {
 			$field_value = get_cf_related_to( $field_name, $output_format );
 		}
 		
-		$common_methods = new Common_Methods;
-		echo wp_kses( $field_value, $common_methods->get_kses_extended_ruleset() );
+		echo wp_kses( $field_value, get_kses_with_style_src_ruleset() );
 		// echo '';
 	}
 

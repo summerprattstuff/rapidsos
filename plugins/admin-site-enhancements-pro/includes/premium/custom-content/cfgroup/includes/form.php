@@ -142,6 +142,12 @@ class cfgroup_form
         add_action( 'wp_head', [ $this, 'head_scripts' ] );
         add_action( 'wp_footer', [ $this, 'footer_scripts' ], 25 );
 
+        // We force loading the uncompressed version of TinyMCE. This ensures we load 'wp-tinymce-root' and then 'wp-tinymce', 
+        // which prevents issue where the TinyMCE editor is unusable in some scenarios
+        $wp_scripts = wp_scripts();
+        $wp_scripts->remove( 'wp-tinymce' );
+        wp_register_tinymce_scripts( $wp_scripts, true );
+
         wp_enqueue_script( 'jquery-ui-core' );
         wp_enqueue_script( 'jquery-ui-sortable' );
         wp_enqueue_script( 'cfgroup-validation', CFG_URL . '/assets/js/validation.js', [ 'jquery' ], CFG_VERSION );

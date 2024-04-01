@@ -14,13 +14,36 @@
     color: $text-color-primary;
   }
 
-  &__black {
+  &__black,
+  &.-black {
     border-color: $primary;
     color: $text-color-primary;
 
     &:hover {
       background: $primary;
       color: $white;
+    }
+  }
+
+  &.-dark {
+    background: $primary;
+    color: $white;
+
+    &:hover {
+      background: transparent;
+      color: $primary;
+    }
+  }
+
+  &.-simpleLink {
+    background: $white;
+    color: $primary;
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+
+    &:hover {
+      color: rgba(#001559, .8);
     }
   }
 }

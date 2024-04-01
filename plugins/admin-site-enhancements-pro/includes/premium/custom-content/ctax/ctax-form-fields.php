@@ -20,12 +20,12 @@ wp_nonce_field( 'asenha_cpt_ctax_optionp_meta_box_nonce_action', 'asenha_cpt_cta
 	    	<div class="cct-form-wrapper">
 		    	<div class="cct-form-input cct-form-input-thirds">
 		            <label for="ctax_singular_name">Singular and plural names <span class="required">*</span></label>
-		            <input type="text" name="ctax_singular_name" id="ctax_singular_name" placeholder="e.g. Genre" value="<?php echo $ctax_singular_name; ?>" /required >
-		            <input type="text" name="ctax_plural_name" id="ctax_plural_name" class="second-text-input" placeholder="e.g. Genres" value="<?php echo $ctax_plural_name; ?>" required />
+		            <input type="text" name="ctax_singular_name" id="ctax_singular_name" placeholder="e.g. Genre" value="<?php echo esc_attr( $ctax_singular_name ); ?>" /required >
+		            <input type="text" name="ctax_plural_name" id="ctax_plural_name" class="second-text-input" placeholder="e.g. Genres" value="<?php echo esc_attr( $ctax_plural_name ); ?>" required />
 		    	</div>
 		    	<div class="cct-form-input cct-form-input-thirds">
 		            <label for="ctax_key">Key / Slug <span class="required">*</span></label>
-		            <input type="text" name="ctax_key" id="ctax_key" placeholder="e.g. genre (max. 32 characters)" value="<?php echo $ctax_key; ?>" maxlength="32" required />
+		            <input type="text" name="ctax_key" id="ctax_key" placeholder="e.g. genre (max. 32 characters)" value="<?php echo esc_attr( $ctax_key ); ?>" maxlength="32" required />
 		            <div class="input-description">Only lowercase alphanumeric characters, dashes, and underscores.</div>
 		    	</div>
 		    	<div class="cct-form-input cct-form-input-thirds">
@@ -119,7 +119,7 @@ wp_nonce_field( 'asenha_cpt_ctax_optionp_meta_box_nonce_action', 'asenha_cpt_cta
 	            <label><input type="checkbox" id="ctax_query_var" name="ctax_query_var" <?php checked( $ctax_query_var, true ); ?> > Sets the <a href="https://developer.wordpress.org/reference/functions/register_taxonomy/" target="_blank">query_var</a> key for this taxonomy. Default to taxonomy key. e.g. <span class="highlight">site.com?<span class="taxonomy-key-text">genre</span>=<span class="taxonomy-key-text">genre</span>-title-slug</span>.</label>
 	            <label id="ctax-use-custom-query-var-string"><input type="checkbox" id="ctax_use_custom_query_var_string" name="ctax_use_custom_query_var_string" <?php checked( $ctax_use_custom_query_var_string, true ); ?> > Use a custom query_var key.</label>
 	            <label for="ctax_query_var_string" class="input-heading optional-text-input" style="display:none">Custom query_var key</label>
-	            <input type="text" name="ctax_query_var_string" id="ctax_query_var_string" value="<?php echo $ctax_query_var_string; ?>" placeholder="Enter custom string" style="display:none" />
+	            <input type="text" name="ctax_query_var_string" id="ctax_query_var_string" value="<?php echo esc_attr( $ctax_query_var_string ); ?>" placeholder="Enter custom string" style="display:none" />
 	            <div id="query-var-string-description" class="input-description" style="display:none">e.g. <span class="highlight">site.com?<span class="custom-query-var-string">custom_string</span>=<span class="taxonomy-key-text">genre</span>-title-slug</span></div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
@@ -131,7 +131,7 @@ wp_nonce_field( 'asenha_cpt_ctax_optionp_meta_box_nonce_action', 'asenha_cpt_cta
 	            <label><input type="checkbox" id="ctax_rewrite" name="ctax_rewrite" <?php checked( $ctax_rewrite, true ); ?> > Enable <a href="https://developer.wordpress.org/reference/functions/register_taxonomy/" target="_blank">rewrites</a> for this taxonomy.</label>
 	            <label id="ctax-use-custom-rewrite-slug"><input type="checkbox" id="ctax_use_custom_rewrite_slug" name="ctax_use_custom_rewrite_slug" <?php checked( $ctax_use_custom_rewrite_slug, true ); ?> > Use a custom rewrite slug.</label>
 	            <label for="ctax_rewrite_custom_slug" class="input-heading optional-text-input" style="display:none;">Custom rewrite slug</label>
-	            <input type="text" name="ctax_rewrite_custom_slug" id="ctax_rewrite_custom_slug" value="<?php echo $ctax_rewrite_custom_slug; ?>" placeholder="Enter custom slug" style="display:none;" />
+	            <input type="text" name="ctax_rewrite_custom_slug" id="ctax_rewrite_custom_slug" value="<?php echo esc_attr( $ctax_rewrite_custom_slug ); ?>" placeholder="Enter custom slug" style="display:none;" />
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds enable-rewrite-related-field">
 	            <label for="ctax_with_front">With front</label>
@@ -145,7 +145,7 @@ wp_nonce_field( 'asenha_cpt_ctax_optionp_meta_box_nonce_action', 'asenha_cpt_cta
 	            <label for="ctax_ep_mask">Endpoint mask</label>
 	            <label><input type="checkbox" id="ctax_ep_mask" name="ctax_ep_mask" <?php checked( $ctax_ep_mask, true ); ?> > Assign an <a href="https://developer.wordpress.org/reference/functions/register_taxonomy/" target="_blank">endpoint mask</a> for this taxonomy. Default: <em>EP_NONE</em>.</label>
 	            <label for="ctax_ep_mask_custom" class="input-heading optional-text-input" style="display:none;">Custom endpoint mask</label>
-	            <input type="text" name="ctax_ep_mask_custom" id="ctax_ep_mask_custom" value="<?php echo $ctax_ep_mask_custom; ?>" placeholder="Enter constant" style="display:none;" />
+	            <input type="text" name="ctax_ep_mask_custom" id="ctax_ep_mask_custom" value="<?php echo esc_attr( $ctax_ep_mask_custom ); ?>" placeholder="Enter constant" style="display:none;" />
 	    	</div>
 	    </div>
     </div>
@@ -158,17 +158,17 @@ wp_nonce_field( 'asenha_cpt_ctax_optionp_meta_box_nonce_action', 'asenha_cpt_cta
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds show-in-rest-related-field" style="display:none;">
 	            <label for="ctax_rest_base"> REST API base slug</label>
-	            <input type="text" name="ctax_rest_base" id="ctax_rest_base" value="<?php echo $ctax_rest_base; ?>" />
+	            <input type="text" name="ctax_rest_base" id="ctax_rest_base" value="<?php echo esc_attr( $ctax_rest_base ); ?>" />
 	            <div class="input-description">To change the base URL of REST API route. Default: <em>taxonomy key/slug</em>.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds show-in-rest-related-field" style="display:none;">
 	            <label for="ctax_rest_namespace"> REST API namespace</label>
-	            <input type="text" name="ctax_rest_namespace" id="ctax_rest_namespace" value="<?php echo $ctax_rest_namespace; ?>" />
+	            <input type="text" name="ctax_rest_namespace" id="ctax_rest_namespace" value="<?php echo esc_attr( $ctax_rest_namespace ); ?>" />
 	            <div class="input-description">To change the namespace URL of REST API route. Default: <em>wp/v2</em>.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds show-in-rest-related-field" style="display:none;">
 	            <label for="ctax_rest_controller_class"> REST API controller class</label>
-	            <input type="text" name="ctax_rest_controller_class" id="ctax_rest_controller_class" value="<?php echo $ctax_rest_controller_class; ?>" />
+	            <input type="text" name="ctax_rest_controller_class" id="ctax_rest_controller_class" value="<?php echo esc_attr( $ctax_rest_controller_class ); ?>" />
 	            <div class="input-description">REST API controller class name. Default: <em>WP_REST_Terms_Controller</em>.</div>
 	    	</div>		    	
 	    </div>
@@ -177,140 +177,140 @@ wp_nonce_field( 'asenha_cpt_ctax_optionp_meta_box_nonce_action', 'asenha_cpt_cta
     	<div class="cct-form-wrapper">
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_search_items">Search items</label>
-	            <input type="text" name="ctax_label_search_items" id="ctax_label_search_items" class="ctax-labels-default" value="<?php echo $ctax_label_search_items; ?>" placeholder="e.g. Search Genres" />
+	            <input type="text" name="ctax_label_search_items" id="ctax_label_search_items" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_search_items ); ?>" placeholder="e.g. Search Genres" />
 	            <div class="input-description">Used in the admin list table for managing custom taxonomies.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_popular_items">Popular items</label>
-	            <input type="text" name="ctax_label_popular_items" id="ctax_label_popular_items" class="ctax-labels-default" value="<?php echo $ctax_label_popular_items; ?>" placeholder="e.g. Popular Genres" />
+	            <input type="text" name="ctax_label_popular_items" id="ctax_label_popular_items" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_popular_items ); ?>" placeholder="e.g. Popular Genres" />
 	            <div class="input-description">Used in the admin list table for managing custom taxonomies. This label is only used for non-hierarchical taxonomies.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_all_items">All items</label>
-	            <input type="text" name="ctax_label_all_items" id="ctax_label_all_items" class="ctax-labels-default" value="<?php echo $ctax_label_all_items; ?>" placeholder="e.g. All Genres" />
+	            <input type="text" name="ctax_label_all_items" id="ctax_label_all_items" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_all_items ); ?>" placeholder="e.g. All Genres" />
 	            <div class="input-description">Used as tab text when showing all terms for hierarchical taxonomy while editing post.</div>
 	    	</div>
 
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_parent_item">Parent item</label>
-	            <input type="text" name="ctax_label_parent_item" id="ctax_label_parent_item" class="ctax-labels-default" value="<?php echo $ctax_label_parent_item; ?>" placeholder="e.g. Parent Genre" />
+	            <input type="text" name="ctax_label_parent_item" id="ctax_label_parent_item" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_parent_item ); ?>" placeholder="e.g. Parent Genre" />
 	            <div class="input-description">Used in the admin list table for managing custom taxonomies. This label is only used for hierarchical taxonomies.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_parent_item_colon">Parent item colon</label>
-	            <input type="text" name="ctax_label_parent_item_colon" id="ctax_label_parent_item_colon" class="ctax-labels-default" value="<?php echo $ctax_label_parent_item_colon; ?>" placeholder="e.g. Parent Genre:" />
+	            <input type="text" name="ctax_label_parent_item_colon" id="ctax_label_parent_item_colon" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_parent_item_colon ); ?>" placeholder="e.g. Parent Genre:" />
 	            <div class="input-description">Used in the admin list table for managing custom taxonomies. This label is only used for hierarchical taxonomies.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_name_field_description">Name field description</label>
-	            <input type="text" name="ctax_label_name_field_description" id="ctax_label_name_field_description" class="ctax-labels-default" value="<?php echo $ctax_label_name_field_description; ?>" placeholder="e.g. The name is how it appears on your site" />
+	            <input type="text" name="ctax_label_name_field_description" id="ctax_label_name_field_description" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_name_field_description ); ?>" placeholder="e.g. The name is how it appears on your site" />
 	            <div class="input-description">Description for the Name field on Edit taxonomies screen.</div>
 	    	</div>
 
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_slug_field_description">Slug field description</label>
-	            <input type="text" name="ctax_label_slug_field_description" id="ctax_label_slug_field_description" class="ctax-labels-default" value="<?php echo $ctax_label_slug_field_description; ?>" placeholder="e.g. The “slug” is the URL-friendly version of the name" />
+	            <input type="text" name="ctax_label_slug_field_description" id="ctax_label_slug_field_description" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_slug_field_description ); ?>" placeholder="e.g. The “slug” is the URL-friendly version of the name" />
 	            <div class="input-description">Description for the Slug field on Edit taxonomies screen.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_parent_field_description">Parent field description</label>
-	            <input type="text" name="ctax_label_parent_field_description" id="ctax_label_parent_field_description" class="ctax-labels-default" value="<?php echo $ctax_label_parent_field_description; ?>" placeholder="e.g. Assign a parent term to create a hierarchy" />
+	            <input type="text" name="ctax_label_parent_field_description" id="ctax_label_parent_field_description" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_parent_field_description ); ?>" placeholder="e.g. Assign a parent term to create a hierarchy" />
 	            <div class="input-description">Description for the Parent field on Edit taxonomies screen.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_desc_field_description">Description field description</label>
-	            <input type="text" name="ctax_label_desc_field_description" id="ctax_label_desc_field_description" class="ctax-labels-default" value="<?php echo $ctax_label_desc_field_description; ?>" placeholder="e.g. The description is not prominent by default; however, some themes may show it" />
+	            <input type="text" name="ctax_label_desc_field_description" id="ctax_label_desc_field_description" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_desc_field_description ); ?>" placeholder="e.g. The description is not prominent by default; however, some themes may show it" />
 	            <div class="input-description">Description for the Description field on Edit taxonomies screen.</div>
 	    	</div>
 
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_edit_item">Edit item</label>
-	            <input type="text" name="ctax_label_edit_item" id="ctax_label_edit_item" class="ctax-labels-default" value="<?php echo $ctax_label_edit_item; ?>" placeholder="e.g. Edit Genre" />
+	            <input type="text" name="ctax_label_edit_item" id="ctax_label_edit_item" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_edit_item ); ?>" placeholder="e.g. Edit Genre" />
 	            <div class="input-description">Used at the top of the term editor screen for an existing taxonomy term.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_view_item">View item</label>
-	            <input type="text" name="ctax_label_view_item" id="ctax_label_view_item" class="ctax-labels-default" value="<?php echo $ctax_label_view_item; ?>" placeholder="e.g. View Genre" />
+	            <input type="text" name="ctax_label_view_item" id="ctax_label_view_item" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_view_item ); ?>" placeholder="e.g. View Genre" />
 	            <div class="input-description">Used in the admin bar when viewing editor screen for an existing taxonomy term.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_update_item">Update item</label>
-	            <input type="text" name="ctax_label_update_item" id="ctax_label_update_item" class="ctax-labels-default" value="<?php echo $ctax_label_update_item; ?>" placeholder="e.g. Update Genre" />
+	            <input type="text" name="ctax_label_update_item" id="ctax_label_update_item" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_update_item ); ?>" placeholder="e.g. Update Genre" />
 	            <div class="input-description">Used in the admin list table for managing custom taxonomies.</div>
 	    	</div>
 
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_add_new_item">Add new item</label>
-	            <input type="text" name="ctax_label_add_new_item" id="ctax_label_add_new_item" class="ctax-labels-default" value="<?php echo $ctax_label_add_new_item; ?>" placeholder="e.g. Add New Genre" />
+	            <input type="text" name="ctax_label_add_new_item" id="ctax_label_add_new_item" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_add_new_item ); ?>" placeholder="e.g. Add New Genre" />
 	            <div class="input-description">Used at the top of the term editor screen and button text for a new taxonomy term.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_new_item_name">New item name</label>
-	            <input type="text" name="ctax_label_new_item_name" id="ctax_label_new_item_name" class="ctax-labels-default" value="<?php echo $ctax_label_new_item_name; ?>" placeholder="e.g. New Genre Name" />
+	            <input type="text" name="ctax_label_new_item_name" id="ctax_label_new_item_name" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_new_item_name ); ?>" placeholder="e.g. New Genre Name" />
 	            <div class="input-description">Used in the admin list table for managing custom taxonomies.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_separate_items_with_commas">Separate items with commas</label>
-	            <input type="text" name="ctax_label_separate_items_with_commas" id="ctax_label_separate_items_with_commas" class="ctax-labels-default" value="<?php echo $ctax_label_separate_items_with_commas; ?>" placeholder="e.g. Separate genres with commas" />
+	            <input type="text" name="ctax_label_separate_items_with_commas" id="ctax_label_separate_items_with_commas" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_separate_items_with_commas ); ?>" placeholder="e.g. Separate genres with commas" />
 	            <div class="input-description">Used in the admin list table for managing custom taxonomies. This label is only used for non-hierarchical taxonomies.</div>
 	    	</div>
 
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_add_or_remove_items">Add or remove item</label>
-	            <input type="text" name="ctax_label_add_or_remove_items" id="ctax_label_add_or_remove_items" class="ctax-labels-default" value="<?php echo $ctax_label_add_or_remove_items; ?>" placeholder="e.g. Add or remove genre" />
+	            <input type="text" name="ctax_label_add_or_remove_items" id="ctax_label_add_or_remove_items" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_add_or_remove_items ); ?>" placeholder="e.g. Add or remove genre" />
 	            <div class="input-description">Used in the admin list table for managing custom taxonomies. This label is only used for non-hierarchical taxonomies.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_choose_from_most_used">Choose from most used</label>
-	            <input type="text" name="ctax_label_choose_from_most_used" id="ctax_label_choose_from_most_used" class="ctax-labels-default" value="<?php echo $ctax_label_choose_from_most_used; ?>" placeholder="e.g. Choose from the most used genres" />
+	            <input type="text" name="ctax_label_choose_from_most_used" id="ctax_label_choose_from_most_used" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_choose_from_most_used ); ?>" placeholder="e.g. Choose from the most used genres" />
 	            <div class="input-description">The text displayed via clicking ‘Choose from the most used items’ in the taxonomy meta box when no items are available. This label is only used for non-hierarchical taxonomies.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_not_found">Not found</label>
-	            <input type="text" name="ctax_label_not_found" id="ctax_label_not_found" class="ctax-labels-default" value="<?php echo $ctax_label_not_found; ?>" placeholder="e.g. No genres found" />
+	            <input type="text" name="ctax_label_not_found" id="ctax_label_not_found" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_not_found ); ?>" placeholder="e.g. No genres found" />
 	            <div class="input-description">Used when indicating that there are no terms in the given taxonomy within the meta box and taxonomy list table.</div>
 	    	</div>
 
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_no_terms">No terms</label>
-	            <input type="text" name="ctax_label_no_terms" id="ctax_label_no_terms" class="ctax-labels-default" value="<?php echo $ctax_label_no_terms; ?>" placeholder="e.g. No genres" />
+	            <input type="text" name="ctax_label_no_terms" id="ctax_label_no_terms" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_no_terms ); ?>" placeholder="e.g. No genres" />
 	            <div class="input-description">Used when indicating that there are no terms in the given taxonomy associated with an object.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_filter_by_item">Filter by item</label>
-	            <input type="text" name="ctax_label_filter_by_item" id="ctax_label_filter_by_item" class="ctax-labels-default" value="<?php echo $ctax_label_filter_by_item; ?>" placeholder="e.g. Filter by genre" />
+	            <input type="text" name="ctax_label_filter_by_item" id="ctax_label_filter_by_item" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_filter_by_item ); ?>" placeholder="e.g. Filter by genre" />
 	            <div class="input-description">This label is only used for hierarchical taxonomies. Used in the posts list table.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_items_list_navigation">Items list navigation</label>
-	            <input type="text" name="ctax_label_items_list_navigation" id="ctax_label_items_list_navigation" class="ctax-labels-default" value="<?php echo $ctax_label_items_list_navigation; ?>" placeholder="e.g. Genres list navigation" />
+	            <input type="text" name="ctax_label_items_list_navigation" id="ctax_label_items_list_navigation" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_items_list_navigation ); ?>" placeholder="e.g. Genres list navigation" />
 	            <div class="input-description">Screen reader text for the pagination heading on the term listing screen.</div>
 	    	</div>
 
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_items_list">Items list</label>
-	            <input type="text" name="ctax_label_items_list" id="ctax_label_items_list" class="ctax-labels-default" value="<?php echo $ctax_label_items_list; ?>" placeholder="e.g. Genres list" />
+	            <input type="text" name="ctax_label_items_list" id="ctax_label_items_list" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_items_list ); ?>" placeholder="e.g. Genres list" />
 	            <div class="input-description">Screen reader text for the items list heading on the term listing screen.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_most_used">Most used</label>
-	            <input type="text" name="ctax_label_most_used" id="ctax_label_most_used" class="ctax-labels-default" value="<?php echo $ctax_label_most_used; ?>" placeholder="e.g. Most Used" />
+	            <input type="text" name="ctax_label_most_used" id="ctax_label_most_used" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_most_used ); ?>" placeholder="e.g. Most Used" />
 	            <div class="input-description">Title for the Most Used tab.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_back_to_items">Back to items</label>
-	            <input type="text" name="ctax_label_back_to_items" id="ctax_label_back_to_items" class="ctax-labels-default" value="<?php echo $ctax_label_back_to_items; ?>" placeholder="e.g. Back to genres" />
+	            <input type="text" name="ctax_label_back_to_items" id="ctax_label_back_to_items" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_back_to_items ); ?>" placeholder="e.g. Back to genres" />
 	            <div class="input-description">The text displayed after a term has been updated for a link back to main index.</div>
 	    	</div>
 
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_item_link">Item link</label>
-	            <input type="text" name="ctax_label_item_link" id="ctax_label_item_link" class="ctax-labels-default" value="<?php echo $ctax_label_item_link; ?>" placeholder="e.g. Genre Link" />
+	            <input type="text" name="ctax_label_item_link" id="ctax_label_item_link" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_item_link ); ?>" placeholder="e.g. Genre Link" />
 	            <div class="input-description">Used in the block editor. Title for a navigation link block variation.</div>
 	    	</div>
 	    	<div class="cct-form-input cct-form-input-thirds">
 	            <label for="ctax_label_item_link_description">Item link description</label>
-	            <input type="text" name="ctax_label_item_link_description" id="ctax_label_item_link_description" class="ctax-labels-default" value="<?php echo $ctax_label_item_link_description; ?>" placeholder="e.g. A link to a genre" />
+	            <input type="text" name="ctax_label_item_link_description" id="ctax_label_item_link_description" class="ctax-labels-default" value="<?php echo esc_attr( $ctax_label_item_link_description ); ?>" placeholder="e.g. A link to a genre" />
 	            <div class="input-description">Used in the block editor. Description for a navigation link block variation.</div>
 	    	</div>
 

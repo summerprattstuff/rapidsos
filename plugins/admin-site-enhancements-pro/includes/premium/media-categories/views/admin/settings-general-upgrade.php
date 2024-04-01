@@ -15,17 +15,18 @@
 		<p>
 			<?php
 			echo esc_html(
-				sprintf(
-				/* translators: Plugin Name */
-					__( 'Filter by mutiple Categories and specific File Types with %s Pro', 'admin-site-enhancements' ),
-					$this->base->plugin->displayName
-				)
+				// sprintf(
+				// /* translators: Plugin Name */
+				// 	__( 'Filter by mutiple Categories and specific File Types with %s Pro', 'admin-site-enhancements' ),
+				// 	$this->base->plugin->displayName
+				// )
+				'Filter by mutiple Categories and specific File Types with ' . $this->base->plugin->displayName . ' Pro'
 			);
 			?>
 		</p>
 
 		<a href="<?php echo esc_attr( $this->base->dashboard->get_upgrade_url( 'settings_inline_upgrade' ) ); ?>" class="button button-primary" target="_blank">
-			<?php esc_html_e( 'Upgrade', 'admin-site-enhancements' ); ?>
+			Upgrade
 		</a>
 	</div>
 </div>

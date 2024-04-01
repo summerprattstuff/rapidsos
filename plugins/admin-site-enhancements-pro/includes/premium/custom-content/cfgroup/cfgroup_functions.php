@@ -11,7 +11,7 @@ function get_options_pages_ids() {
     $args = array(
         'post_type'         => 'asenha_options_page',
         'post_status'       => 'publish',
-        'numberposts'    => -1, // use this instead of posts_per_page
+        'numberposts'       => -1, // use this instead of posts_per_page
         'orderby'           => 'title',
         'order'             => 'ASC',
     );
@@ -20,7 +20,7 @@ function get_options_pages_ids() {
     
     if ( ! empty( $options_pages ) ) {
         foreach ( $options_pages as $options_page ) {
-            $options_page_ids[] = get_the_ID();
+            $options_page_ids[] = $options_page->ID;
         }
     }
     

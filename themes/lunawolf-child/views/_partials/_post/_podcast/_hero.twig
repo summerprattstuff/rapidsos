@@ -1,0 +1,82 @@
+{% set postType      = post.post_type %}
+{% set title         = post.title %}
+{% set logos         = post.meta('logos') %}
+{% set heroTitle     = post.meta.hero_title %}
+{% set subtitle      = post.meta.subtitle %}
+{% set links         = post.meta('links') %}
+{% set desc          = post.meta.desc %}
+{% set heroBgImg     = post.meta.bg_img %}
+{% set heroVideoFile = post.meta('video_file') %}
+{% set heroVideoUrl  = post.meta('video_url') %}
+{% set duration      = post.meta.video_duration %}
+
+
+{% set heroVideo = heroVideoFile or heroVideoUrl%}
+
+<section class="hero__podcast">
+    <div class="wrapper">
+        <div class="postTag">
+            <img class="tagLogo" src="{{ theme.link ~ '/public/podcast/podcast_tag.png' }}" alt="">
+        </div>
+        <div class="_w">
+            <div class="hero__podcast__left _m6 _l7">
+                <div class="hero__podcast__left__box">
+                    <div class="hero__podcast__left__inner">
+                        <div class="titleWrapper">
+                            <h1 class="title">{{ heroTitle ? heroTitle : title }}</h1>
+                        </div>
+                        {% if subtitle %}
+                            <h2 class="subtitle">{{ subtitle }}</h2>
+                        {% endif %}
+                        {% if logos %}
+                        <div class="logos__block">
+                            {% for logo in logos %}
+                                <img class="img" src="{{ get_image(logo) }}" alt="" >
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if duration %}
+                            <span class="duration">{{ duration }}</span>
+                        {% endif %}
+                        {% if desc %}
+                            <p class="desc">{{ desc }}</p>
+                        {% endif %}
+                        {% if links %}
+                            <div class="btnWrapper">
+                                {% for item in links %}
+                                    {% set link = item.h_link %}
+
+                                    {% include '_components/_advanced_link.twig' with {
+                                        link: link,
+                                        class: loop.index == 1 ? '-black -dark' : '-black'
+                                    } %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="hero__podcast__right _m6 _l5">
+                <div class="hero__podcast__right__inner">
+                    {% if heroBgImg and not heroVideo %}
+                        <div class="hero__podcast__right__inner__wrapImg">
+                            <div class="hero__podcast__right__inner__bgImg" style="background-image: url({{ get_image(heroBgImg) }})"></div>
+                        </div>
+                    {% endif %}
+                    {% if heroVideo %}
+                        <div class="hero__podcast__right__inner__video">
+                            {% if heroVideoUrl %}
+                                <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtube' in heroVideoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ heroVideoUrl }}"></div>
+                            {% endif %}
+                            {% if heroVideoFile %}
+                                <video id="video-{{ blockId }}" class="js-cardVideo" playsinline controls data-poster="{{ get_image(heroBgImg) }}">
+                                    <source src="{{ heroVideoFile.url }}" type="video/mp4" />
+                                </video>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

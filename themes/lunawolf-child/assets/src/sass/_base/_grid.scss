@@ -6,6 +6,10 @@
   ._wr {
     @include make-wrapper;
     @include make-wrapper-max-widths;
+
+    &.-limit {
+      max-width: 950px;
+    }
   }
 }
 

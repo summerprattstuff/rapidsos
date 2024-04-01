@@ -36,7 +36,7 @@ class Settings_Fields_Render {
 			// For when the options / sub-fields occupy lengthy vertical space, we add show all / less toggler
 			if ( array_key_exists( 'field_options_moreless', $args ) && $args['field_options_moreless'] ) {
 				echo '<div class="asenha-field-with-options field-show-more">';
-				echo '<a id="' . $args['field_slug'] . '-show-moreless" class="show-more-less show-more" href="#">Expand &#9660;</a>';
+				echo '<a id="' . esc_attr( $args['field_slug'] ) . '-show-moreless" class="show-more-less show-more" href="#">Expand &#9660;</a>';
 				echo '<div class="asenha-field-options-wrapper wrapper-show-more">';
 			} else {
 				echo '<div class="asenha-field-with-options">';
@@ -143,7 +143,7 @@ class Settings_Fields_Render {
 		$field_option_value = ( isset( $options[$field_id] ) ) ? $options[$field_id] : $default_value;
 
 		foreach ( $field_radios as $radio_label => $radio_value ) {
-			echo '<input type="radio" id="' . esc_attr( $field_id . '_' . $radio_value ) . '" class="asenha-subfield-radio-button" name="' . esc_attr( $field_name ) . '" value="' . $radio_value . '" ' . checked( $radio_value, $field_option_value, false ) . '>';
+			echo '<input type="radio" id="' . esc_attr( $field_id . '_' . $radio_value ) . '" class="asenha-subfield-radio-button" name="' . esc_attr( $field_name ) . '" value="' . esc_attr( $radio_value ) . '" ' . checked( $radio_value, $field_option_value, false ) . '>';
 			echo '<label for="' . esc_attr( $field_id . '_' . $radio_value ) . '" class="asenha-subfield-radio-button-label">' . wp_kses_post( $radio_label ) . '</label>';
 		}
 
@@ -167,7 +167,7 @@ class Settings_Fields_Render {
 		echo '<div class="wrapper-for-checkboxes ' . esc_attr( $layout ) . '">';
 		foreach ( $field_options as $option_label => $option_value ) {
 			echo '<div>';
-			echo '<input type="checkbox" id="' . esc_attr( $field_id . '_' . $option_value ) . '" class="asenha-subfield-radio-button" name="' . esc_attr( $field_name ) . '" value="' . $option_value . '" ' . checked( in_array( $option_value, $field_option_value ), 1, false ) . '>';
+			echo '<input type="checkbox" id="' . esc_attr( $field_id . '_' . $option_value ) . '" class="asenha-subfield-radio-button" name="' . esc_attr( $field_name ) . '" value="' . esc_attr( $option_value ) . '" ' . checked( in_array( $option_value, $field_option_value ), 1, false ) . '>';
 			echo '<label for="' . esc_attr( $field_id . '_' . $option_value ) . '" class="asenha-subfield-radio-button-label">' . wp_kses_post( $option_label ) . '</label>';
 			echo '</div>';
 		}
@@ -210,20 +210,20 @@ class Settings_Fields_Render {
 		}
 
 		if ( $field_id == 'custom_login_slug' ) {
-			$field_placeholder = 'e.g. backend';
+			$field_placeholder = __( 'e.g. backend', 'admin-site-enhancements' );
 		} elseif ( $field_id == 'default_login_redirect_slug' ) {
-			$field_placeholder = 'e.g. my-account';
+			$field_placeholder = __( 'e.g. my-account', 'admin-site-enhancements' );
 		} elseif ( $field_id == 'redirect_after_login_to_slug' ) {
-			$field_placeholder = 'e.g. my-account';
+			// $field_placeholder = __( 'e.g. my-account', 'admin-site-enhancements' );
 		} elseif ( $field_id == 'redirect_after_logout_to_slug' ) {
-			$field_placeholder = 'e.g. come-visit-again';
+			// $field_placeholder = __( 'e.g. come-visit-again', 'admin-site-enhancements' );
 		} elseif ( $field_id == 'login_fails_allowed' ) {
 			$field_placeholder = '3';
 		} elseif ( $field_id == 'login_lockout_maxcount' ) {
 			$field_placeholder = '3';
 		} else {}
 
-		echo $field_prefix . '<input type="text" id="' . esc_attr( $field_name ) . '" class="asenha-subfield-text' . esc_attr( $field_classname ) . '" name="' . esc_attr( $field_name ) . '" placeholder="' . esc_attr( $field_placeholder ) . '" value="' . esc_attr( $field_option_value ) . '">' . $field_suffix;
+		echo wp_kses_post( $field_prefix ) . '<input type="text" id="' . esc_attr( $field_name ) . '" class="asenha-subfield-text' . esc_attr( $field_classname ) . '" name="' . esc_attr( $field_name ) . '" placeholder="' . esc_attr( $field_placeholder ) . '" value="' . esc_attr( $field_option_value ) . '">' . wp_kses_post( $field_suffix );
 		echo '<label for="' . esc_attr( $field_name ) . '" class="asenha-subfield-checkbox-label">' . esc_html( $field_description ) . '</label>';
 
 	}
@@ -237,7 +237,7 @@ class Settings_Fields_Render {
 
 		$field_description = $args['field_description'];
 
-		echo '<div class="asenha-subfield-description">' . $field_description . '</div>';
+		echo '<div class="asenha-subfield-description">' . wp_kses( $field_description, get_kses_with_custom_html_ruleset() ) . '</div>';
 
 	}
 
@@ -250,7 +250,7 @@ class Settings_Fields_Render {
 
 		$subfields_heading = $args['subfields_heading'];
 
-		echo '<div class="asenha-subfields-heading">' . $subfields_heading . '</div>';
+		echo '<div class="asenha-subfields-heading">' . wp_kses_post( $subfields_heading ) . '</div>';
 
 	}
 
@@ -289,7 +289,7 @@ class Settings_Fields_Render {
 
 		$placeholder = '';
 
-		echo $field_prefix . '<input type="password" id="' . esc_attr( $field_name ) . '" class="asenha-subfield-password' . esc_attr( $field_classname ) . '" name="' . esc_attr( $field_name ) . '" placeholder="' . esc_attr( $placeholder ) . '" size="24" autocomplete="off" value="' . $field_option_value . '">' . $field_suffix;
+		echo wp_kses_post( $field_prefix ) . '<input type="password" id="' . esc_attr( $field_name ) . '" class="asenha-subfield-password' . esc_attr( $field_classname ) . '" name="' . esc_attr( $field_name ) . '" placeholder="' . esc_attr( $placeholder ) . '" size="24" autocomplete="off" value="' . esc_attr( $field_option_value ) . '">' . wp_kses_post( $field_suffix );
 		echo '<label for="' . esc_attr( $field_name ) . '" class="asenha-subfield-checkbox-label">' . esc_html( $field_description ) . '</label>';
 
 	}
@@ -342,7 +342,7 @@ class Settings_Fields_Render {
 			echo '<div class="asenha-subfield-number-intro">' . wp_kses_post( $field_intro ) . '</div>';
 		}
 
-		echo '<div>' . $field_prefix . '<input type="number" id="' . esc_attr( $field_name ) . '" class="asenha-subfield-number' . esc_attr( $field_classname ) . '" name="' . esc_attr( $field_name ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( $field_option_value ) . '">' . $field_suffix . '</div>';
+		echo '<div>' . wp_kses_post( $field_prefix ) . '<input type="number" id="' . esc_attr( $field_name ) . '" class="asenha-subfield-number' . esc_attr( $field_classname ) . '" name="' . esc_attr( $field_name ) . '" placeholder="' . esc_attr( $placeholder ) . '" value="' . esc_attr( $field_option_value ) . '">' . wp_kses_post( $field_suffix ) . '</div>';
 
 		if ( ! empty( $field_description ) ) {
 			echo '<div class="asenha-subfield-number-description">' . wp_kses_post( $field_description ) . '</div>';
@@ -405,15 +405,15 @@ class Settings_Fields_Render {
 			echo '<div class="asenha-subfield-select-intro">' . wp_kses_post( $field_intro ) . '</div>';
 		}
 
-		echo '<div' . $inline_style . ' class="asenha-subfield-select-inner">' . $field_prefix;
-		echo '<select name="' . $field_name . '" class="asenha-subfield-select' . esc_attr( $field_classname ) . '">';
+		echo '<div' . esc_attr( $inline_style ) . ' class="asenha-subfield-select-inner">' . wp_kses_post( $field_prefix );
+		echo '<select name="' . esc_attr( $field_name ) . '" class="asenha-subfield-select' . esc_attr( $field_classname ) . '">';
 
 		foreach ( $field_select_options as $label => $value ) {
-			echo '<option value="' . $value . '" ' . selected( $value, $field_option_value, false ) . '>' . $label . '</option>';
+			echo '<option value="' . esc_attr( $value ) . '" ' . selected( $value, $field_option_value, false ) . '>' . esc_html( $label ) . '</option>';
 		}
 
 		echo '</select>';
-		echo $field_suffix . '</div>';
+		echo wp_kses_post( $field_suffix ) . '</div>';
 
 		if ( ! empty( $field_description ) ) {
 			echo '<div class="asenha-subfield-select-description">' . wp_kses_post( $field_description ) . '</div>';
@@ -483,7 +483,7 @@ class Settings_Fields_Render {
 		}
 
 
-		echo '<textarea rows="' . $field_rows . '" class="asenha-subfield-textarea" id="' . esc_attr( $field_name ) . '" name="' . esc_attr( $field_name ) . '" placeholder="' . esc_attr( $field_placeholder ) . '">' . esc_textarea( $field_option_value ) . '</textarea>';
+		echo '<textarea rows="' . esc_attr( $field_rows ) . '" class="asenha-subfield-textarea" id="' . esc_attr( $field_name ) . '" name="' . esc_attr( $field_name ) . '" placeholder="' . esc_attr( $field_placeholder ) . '">' . esc_textarea( $field_option_value ) . '</textarea>';
 
 		if ( ! empty( $field_description ) ) {
 			echo '<div class="asenha-subfield-textarea-description">' . wp_kses_post( $field_description ) . '</div>';
@@ -525,6 +525,8 @@ class Settings_Fields_Render {
 
 		$content = $field_option_value;
 		$editor_id = str_replace( array( '[', ']' ), array( '--', '' ), $field_name );
+		// vi( $editor_id, '', 'for ' . $field_name );
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		echo wp_editor( $content , $editor_id, $editor_settings );
 
 		if ( ! empty( $field_description ) ) {
@@ -535,14 +537,13 @@ class Settings_Fields_Render {
 	}
 
 	/**
-	 * Render test email subfield for Email Delivery module
+	 * Render custom HTML subfield
 	 *
 	 * @since 5.3.0
 	 */
 	function render_custom_html( $args ) {
 		
-		// name attribute is emptied so this input will be excluded from saving into ASENHA option
-		echo $args['html'];
+		echo wp_kses( $args['html'], get_kses_with_custom_html_ruleset() );
 		
 	}
 	
@@ -593,7 +594,7 @@ class Settings_Fields_Render {
 		$field_option_value = ( isset( $options[$field_id] ) ) ? $options[$field_id] : '';
 		?>
 		<div class="color-subfield-wrapper">
-			<input type="text" id="<?php echo esc_attr( $field_slug ); ?>" name="<?php echo esc_attr( $field_name ); ?>" value="<?php echo $common_methods->sanitize_hex_color( $field_option_value ); ?>" data-default-color="<?php echo $common_methods->sanitize_hex_color( $field_default_value ); ?>" class="color-picker"/>
+			<input type="text" id="<?php echo esc_attr( $field_slug ); ?>" name="<?php echo esc_attr( $field_name ); ?>" value="<?php echo esc_attr( $common_methods->sanitize_hex_color( $field_option_value ) ); ?>" data-default-color="<?php echo esc_attr( $common_methods->sanitize_hex_color( $field_default_value ) ); ?>" class="color-picker"/>
 		</div>
 		<?php
 	}
@@ -607,11 +608,11 @@ class Settings_Fields_Render {
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 			?>
-			<div class="subfield-description">Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme's menu item titles or hide some items until toggled by clicking "Show All" at the bottom of the admin menu. You can also choose to always hide menu items for all or some user roles.</div>
+			<div class="subfield-description"><?php echo esc_html__( 'Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme\'s menu item titles or hide some items until toggled by clicking "Show All" at the bottom of the admin menu. You can also choose to always hide menu items for all or some user roles.', 'admin-site-enhancements' ); ?></div>
 			<?php
         } else {
 			?>
-			<div class="subfield-description">Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme's menu item titles or hide some items until toggled by clicking "Show All" at the bottom of the admin menu.</div>
+			<div class="subfield-description"><?php echo esc_html__( 'Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme\'s menu item titles or hide some items until toggled by clicking "Show All" at the bottom of the admin menu.', 'admin-site-enhancements' ); ?></div>
 			<?php        	
         }
 		?>
@@ -753,7 +754,7 @@ class Settings_Fields_Render {
 								        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 											if ( $submenu_exists ) {
 												?>
-												<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text">Submenu</span></div>
+												<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text"><?php echo esc_html__( 'Submenu', 'admin-site-enhancements' ); ?></span></div>
 												<?php
 											}								        	
 								        }
@@ -788,7 +789,7 @@ class Settings_Fields_Render {
 									        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 											?>
 												<div class="options-toggle" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>">
-													<span class="arrow-right">&#9654;</span><span class="options-text">Options</span>
+													<span class="arrow-right">&#9654;</span><span class="options-text"><?php echo esc_html__( 'Options', 'admin-site-enhancements' ); ?></span>
 												</div>
 											<?php
 									        }
@@ -803,17 +804,19 @@ class Settings_Fields_Render {
 								
 								$always_hide_checked_status = '';
 								$all_or_selected_roles = '';
-								foreach( $menu_always_hidden as $hidden_menu_item_id => $info ) {
-									$hidden_menu_item_id = $common_methods->restore_menu_item_id( $hidden_menu_item_id );
-									if ( $hidden_menu_item_id == $menu_item_id) {
-										if ( isset( $info['always_hide'] ) && $info['always_hide'] ) {
-											$always_hide_checked_status = ' checked';
-										}				
-										if ( isset( $info['always_hide_for'] ) && $info['always_hide_for'] ) {
-											$all_or_selected_roles = $info['always_hide_for'];
-										}
+								if ( is_array( $menu_always_hidden ) && ! empty( $menu_always_hidden ) ) {
+									foreach( $menu_always_hidden as $hidden_menu_item_id => $info ) {
+										$hidden_menu_item_id = $common_methods->restore_menu_item_id( $hidden_menu_item_id );
+										if ( $hidden_menu_item_id == $menu_item_id) {
+											if ( isset( $info['always_hide'] ) && $info['always_hide'] ) {
+												$always_hide_checked_status = ' checked';
+											}				
+											if ( isset( $info['always_hide_for'] ) && $info['always_hide_for'] ) {
+												$all_or_selected_roles = $info['always_hide_for'];
+											}
 
-									}
+										}
+									}									
 								}
 
 								$this->render_sortable_menu_options__premium_only( $menu_item_id, $menu_required_capability, $always_hide_checked_status, $all_or_selected_roles );
@@ -904,7 +907,7 @@ class Settings_Fields_Render {
 									        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 												if ( $submenu_exists ) {
 													?>
-													<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text">Submenu</span></div>
+													<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text"><?php echo esc_html__( 'Submenu', 'admin-site-enhancements' ); ?></span></div>
 													<?php
 												}
 											}
@@ -913,10 +916,10 @@ class Settings_Fields_Render {
 										<div class="options-for-hiding">
 											<?php
 									        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-									        	$hide_text = 'Hide';
+									        	$hide_text = __( 'Hide', 'admin-site-enhancements' );
 									        	$checkbox_class = 'parent-menu-hide-checkbox-prm';
 									        } else {
-									        	$hide_text = 'Hide until toggled';
+									        	$hide_text = __( 'Hide until toggled', 'admin-site-enhancements' );
 									        	$checkbox_class = 'parent-menu-hide-checkbox';	        	
 									        }
 								        	?>
@@ -1029,7 +1032,7 @@ class Settings_Fields_Render {
 							        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
 										if ( $submenu_exists ) {
 											?>
-											<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text">Submenu</span></div>
+											<div class="submenu-toggle"><span class="arrow-right">&#9654;</span><span class="submenu-text"><?php echo esc_html__( 'Submenu', 'admin-site-enhancements' ); ?></span></div>
 											<?php
 										}
 									}
@@ -1038,10 +1041,10 @@ class Settings_Fields_Render {
 								<div class="options-for-hiding">
 									<?php
 							        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-							        	$hide_text = 'Hide';
+							        	$hide_text = __( 'Hide', 'admin-site-enhancements' );
 							        	$checkbox_class = 'parent-menu-hide-checkbox-prm';
 							        } else {
-							        	$hide_text = 'Hide until toggled';
+							        	$hide_text = __( 'Hide until toggled', 'admin-site-enhancements' );
 							        	$checkbox_class = 'parent-menu-hide-checkbox';	        	
 							        }
 						        	?>
@@ -1090,7 +1093,7 @@ class Settings_Fields_Render {
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
         	?>
-        	<div class="reset-menu-wrapper"><img src="<?php echo ASENHA_URL; ?>assets/img/oval.svg" class="reset-menu-spinner" style="display: none;" /><a href="#" id="reset-menu">Reset Menu</a></div>
+        	<div class="reset-menu-wrapper"><img src="<?php echo esc_attr( ASENHA_URL ); ?>assets/img/oval.svg" class="reset-menu-spinner" style="display: none;" /><a href="#" id="reset-menu"><?php echo esc_html__( 'Reset Menu', 'admin-site-enhancements' ); ?></a></div>
         	<?php
         }
 
@@ -1227,7 +1230,7 @@ class Settings_Fields_Render {
 			<div id="all-selected-roles-options-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="all-selected-roles-options" data-menu-item-id="<?php echo esc_attr( $menu_item_id ); ?>">
 				<label class="menu-item-checkbox-label">
 					<input type="checkbox" id="hide-by-role-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="hide-by-role-checkbox" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>" <?php echo esc_attr( $always_hide_checked_status ); ?>>
-					<span>Always hide for user role(s)</span>
+					<span><?php echo esc_html__( 'Always hide for user role(s)', 'admin-site-enhancements' ); ?></span>
 				</label>
 				<fieldset id="all-selected-roles-radio-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" style="display:none;">
 				    <div>
@@ -1270,7 +1273,13 @@ class Settings_Fields_Render {
 				}
 				?>
 			</div>
-			<div id="menu-required-capability-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="menu-required-capability" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>" style="display:none;">The role(s) above have the '<em><?php echo esc_html( $menu_required_capability ); ?></em>' capability required to view and access the menu item.
+			<div id="menu-required-capability-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="menu-required-capability" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>" style="display:none;"><?php echo wp_kses_post( 
+				sprintf( 
+				/* translators: the required user capability to view menu item */
+				__( 'The role(s) above have the <code>%s</code> capability required to view and access the menu item.', 'admin-site-enhancements' ), 
+				$menu_required_capability 
+				) 
+			); ?>
 			</div>
 		</div><!-- end of .menu-item-settings -->
     	<?php
@@ -1306,9 +1315,9 @@ class Settings_Fields_Render {
 		<table id="login-attempts-log" class="wp-list-table widefat striped datatable">
 			<thead>
 				<tr class="datatable-tr">
-					<th class="datatable-th">IP Address<br />Last Username</th>
-					<th class="datatable-th">Attempts<br />Lockouts</th>
-					<th class="datatable-th">Last Attempt On</th>
+					<th class="datatable-th"><?php echo esc_html__( 'IP Address<br />Last Username', 'admin-site-enhancements' ); ?></th>
+					<th class="datatable-th"><?php echo esc_html__( 'Attempts<br />Lockouts', 'admin-site-enhancements' ); ?></th>
+					<th class="datatable-th"><?php echo esc_html__( 'Last Attempt On', 'admin-site-enhancements' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -1334,7 +1343,7 @@ class Settings_Fields_Render {
 			<tr class="datatable-tr">
 				<td class="datatable-td"><?php echo esc_html( $entry['ip_address'] ); ?><br /><?php echo esc_html( $entry['username'] ); ?></td>
 				<td class="datatable-td"><?php echo esc_html( $entry['fail_count'] ); ?><br /><?php echo esc_html( $entry['lockout_count'] ); ?></td>
-				<td class="datatable-td"><?php echo esc_html( $date ); ?><br /><?php echo esc_html( $time ); ?></td>
+				<td class="datatable-td"><span class="unixtime"><?php echo esc_html( $entry['unixtime'] ); ?></span><?php echo esc_html( $date ); ?><br /><?php echo esc_html( $time ); ?></td>
 			</tr>
 			<?php
 		}
@@ -1363,14 +1372,14 @@ class Settings_Fields_Render {
 			$gd_version = $gd_info['GD Version'];
 			$gd_avif_support = ( isset( $gd_info['AVIF Support'] ) ) ? isset( $gd_info['AVIF Support'] ) : false ;
 			if ( $gd_avif_support ) {
-				$gd_status = $gd_version . ' <span class="supported">with AVIF support</span>';
+				$gd_status = $gd_version . ' <span class="supported">' . __( 'with AVIF support', 'admin-site-enhancements' ) . '</span>';
 			} else {
-				$gd_status = $gd_version . ' <span class="unsupported">without AVIF support</span>';				
+				$gd_status = $gd_version . ' <span class="unsupported">' . __( 'without AVIF support', 'admin-site-enhancements' ) . '</span>';				
 			}
 		} else {
 			$is_gd_enabled = false;
 			$gd_avif_support = false;
-			$gd_status = 'Not available';
+			$gd_status = __( 'Not available', 'admin-site-enhancements' );
 		}
 
 		// Check status of ImageMagick library and it's AVIF support
@@ -1396,17 +1405,17 @@ class Settings_Fields_Render {
 		} else {
 			$is_imagick_enabled = false;
 			$imagick_avif_support = false;
-			$imagick_status = 'Not available';
+			$imagick_status = __( 'Not available', 'admin-site-enhancements' );
 		}
 
 		echo '<div class="asenha-subfield-status">';
-		echo '<div class="status-title">AVIF Support Status</div>';
+		echo '<div class="status-title">' . __( 'AVIF Support Status', 'admin-site-enhancements' ) . '</div>';
 		echo '<div class="status-body">';
 		echo '<div class="status-item"><span class="status-item-title">PHP</span> : ' . wp_kses_post( phpversion() ) . '</div>';
 		echo '<div class="status-item"><span class="status-item-title">GD</span> : ' . wp_kses_post( $gd_status ) . '</div>';
 		echo '<div class="status-item"><span class="status-item-title">ImageMagick</span> : ' . wp_kses_post( $imagick_status) . '</div>';
 		echo '</div>';
-		echo '<div class="status-footer">Full AVIF support requires that your server / hosting has <a href="https://php.watch/versions/8.1/gd-avif" target="_blank">GD extension</a> compiled with AVIF support in PHP 8.1 or greater, or, <a href="https://avif.io/blog/tutorials/imagemagick/" target="_blank">ImageMagick 7.0.25 or greater</a> installed. Without either, you can still upload AVIF files but without auto-generation of the smaller thumbnail sizes. A majority of <a href="https://avif.io/blog/articles/avif-browser-support/" target="_blank">modern desktop and mobile browsers</a> support the display of AVIF files.</div>';
+		echo '<div class="status-footer">' . __( 'Full AVIF support requires that your server / hosting has <a href="https://php.watch/versions/8.1/gd-avif" target="_blank">GD extension</a> compiled with AVIF support in PHP 8.1 or greater, or, <a href="https://avif.io/blog/tutorials/imagemagick/" target="_blank">ImageMagick 7.0.25 or greater</a> installed. Without either, you can still upload AVIF files but without auto-generation of the smaller thumbnail sizes. A majority of <a href="https://avif.io/blog/articles/avif-browser-support/" target="_blank">modern desktop and mobile browsers</a> support the display of AVIF files.', 'admin-site-enhancements' ) . '</div>';
 		echo '</div>';
 	}
 

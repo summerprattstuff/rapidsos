@@ -1,6 +1,6 @@
-{% set title = block.title %}
-{% set desc  = block.desc %}
-{% set logos = block.logos %}
+{% set title        = block.title %}
+{% set desc         = block.desc %}
+{% set logo_gallery = block.logo_gallery %}
 
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
@@ -8,7 +8,7 @@
 
 <section id="{{ settings.block_id }}" class="m__logoReel">
     <div class="wrapper">
-        <div class="container container__short container__center">
+        <div class="titleWrapper -short -center">
             {% if title %}
                 <h1 class="m__title m__logoReel__title">{{ title }}</h1>
             {% endif %}
@@ -16,16 +16,20 @@
         {% if desc %}
             <h3 class="m__logoReel__desc">{{ desc }}</h3>
         {% endif %}
-        {#        Add sider for this repeater#}
-        {% if logos %}
+        {% if logo_gallery %}
             <div class="m__logoReel__logos">
-                {% for logo in logos %}
-                    {% set logo_img = logo.logo_img %}
-
-                        <div class="m__logoReel__logos__block">
-                            <img class="m__logoReel__logos__block__img" src="{{ get_image(logo_img) }}" alt="" >
-                        </div>
-                {% endfor %}
+                <div class="swiper js-logoSlider">
+                    <div class="swiper-wrapper">
+                        {% for logo in logo_gallery %}
+                            <div class="swiper-slide">
+                                <div class="m__logoReel__logos__block">
+                                    <img class="m__logoReel__logos__block__img" src="{{ get_image(logo) }}" alt="" >
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
         {% endif %}
   </div>

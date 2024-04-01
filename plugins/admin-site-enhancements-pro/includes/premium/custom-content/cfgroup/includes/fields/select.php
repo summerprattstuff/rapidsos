@@ -100,7 +100,7 @@ class cfgroup_select extends cfgroup_field
         <tr class="field_option field_option_<?php echo $this->name; ?>">
             <td class="label">
                 <label><?php _e( 'Choices', 'admin-site-enhancements' ); ?></label>
-                <p class="description"><?php _e( 'One <code>value : label</code> per line, or just <code>label</code>. Use <code>{empty}</code> for an empty value.', 'admin-site-enhancements' ); ?></p>
+                <p class="description"><?php /* translators: Do not translate {empty}. Keep as is. */ _e( 'One <code>value : label</code> per line, or just <code>label</code>. Use <code>{empty}</code> for an empty value.', 'admin-site-enhancements' ); ?></p>
             </td>
             <td>
                 <?php
@@ -125,6 +125,21 @@ class cfgroup_select extends cfgroup_field
                         'value' => $this->get_option( $field, 'multiple' ),
                         'options' => [ 'message' => __( 'This is a multi-select field', 'admin-site-enhancements' ) ],
                      ] );
+                ?>
+            </td>
+        </tr>
+        <tr class="field_option field_option_<?php echo $this->name; ?>">
+            <td class="label">
+                <label><?php _e( 'Default Value(s)', 'admin-site-enhancements' ); ?></label>
+                <p class="description"><?php _e( 'For multiple values, separate with <code> |</code>, e.g. <code>value1 | value2</code>', 'admin-site-enhancements' ); ?></p>
+            </td>
+            <td>
+                <?php
+                    CFG()->create_field( [
+                        'type'          => 'text',
+                        'input_name'    => "cfgroup[fields][$key][options][default_value]",
+                        'value'         => $this->get_option( $field, 'default_value' ),
+                    ] );
                 ?>
             </td>
         </tr>
