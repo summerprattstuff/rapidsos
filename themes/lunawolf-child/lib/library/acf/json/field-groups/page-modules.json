@@ -29,19 +29,20 @@
             ],
             "acfe_flexible_add_actions": [
                 "title",
+                "toggle",
                 "close"
             ],
             "acfe_flexible_remove_button": [],
             "acfe_flexible_modal_edit": {
                 "acfe_flexible_modal_edit_enabled": "1",
-                "acfe_flexible_modal_edit_size": "large"
+                "acfe_flexible_modal_edit_size": "xlarge"
             },
             "acfe_flexible_modal": {
                 "acfe_flexible_modal_enabled": "1",
                 "acfe_flexible_modal_title": "Add Module",
                 "acfe_flexible_modal_size": "full",
-                "acfe_flexible_modal_col": "4",
-                "acfe_flexible_modal_categories": "0"
+                "acfe_flexible_modal_col": "5",
+                "acfe_flexible_modal_categories": "1"
             },
             "acfe_flexible_grid": {
                 "acfe_flexible_grid_enabled": "0",
@@ -423,13 +424,13 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Hero"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
-                    "acfe_flexible_settings": [
-                        "group_65c69ec9ddce7"
-                    ],
+                    "acfe_flexible_settings": "",
                     "acfe_flexible_settings_size": "medium",
                     "acfe_layout_locations": [
                         [
@@ -446,7 +447,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -501,10 +502,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -524,7 +527,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -596,10 +599,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -619,7 +624,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -678,7 +683,7 @@
                                     "name": "desc",
                                     "aria-label": "",
                                     "type": "textarea",
-                                    "instructions": "",
+                                    "instructions": "Add stat description",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -699,10 +704,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -722,7 +729,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -805,10 +812,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -828,7 +837,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -902,10 +911,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -925,7 +936,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1007,10 +1018,10 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": "",
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1030,7 +1041,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1139,10 +1150,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1162,7 +1175,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1285,10 +1298,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1308,7 +1323,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1483,10 +1498,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1506,7 +1523,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1691,10 +1708,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1714,7 +1733,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1784,10 +1803,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1807,7 +1828,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1838,10 +1859,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Post Type Specific"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1856,7 +1879,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1888,10 +1911,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Post  Type Specifc"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1906,7 +1931,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -1955,10 +1980,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -1978,7 +2005,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -2126,10 +2153,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -2149,7 +2178,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -2197,10 +2226,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -2220,7 +2251,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -2331,10 +2362,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -2354,7 +2387,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -2403,10 +2436,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -2426,7 +2461,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -2496,10 +2531,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -2519,7 +2556,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -2745,10 +2782,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Content"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -2768,7 +2807,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 },
@@ -2799,10 +2838,12 @@
                     ],
                     "min": "",
                     "max": "",
+                    "acfe_flexible_category": [
+                        "Global"
+                    ],
                     "acfe_flexible_render_template": "",
                     "acfe_flexible_render_style": "",
                     "acfe_flexible_render_script": "",
-                    "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
                         "group_65c69ec9ddce7"
                     ],
@@ -2822,7 +2863,7 @@
                         ]
                     ],
                     "acfe_flexible_thumbnail": "",
-                    "acfe_flexible_category": false,
+                    "acfe_flexible_modal_edit_size": false,
                     "acfe_layout_col": "auto",
                     "acfe_layout_allowed_col": false
                 }
@@ -2880,5 +2921,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1712010616
+    "modified": 1712052319
 }
