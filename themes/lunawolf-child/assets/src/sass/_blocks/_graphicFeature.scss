@@ -5,6 +5,23 @@
     padding: 60px 0;
   }
 
+  &__top {
+
+    @include media-up(m) {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    @include media-up(l) {
+      max-width: 65%;
+    }
+
+    .-preview & {
+      margin: 0 auto;
+      max-width: 50%;
+    }
+  }
+
   &__bottom {
     text-align: center;
     text-wrap: balance;

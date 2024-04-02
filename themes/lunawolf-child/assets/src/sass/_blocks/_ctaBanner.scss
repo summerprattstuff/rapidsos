@@ -7,7 +7,7 @@
     padding: 75px 67px;
   }
 
-  &__gradient {
+  &.-gradient {
     background: linear-gradient(97.03deg, #29A7DD 0%, #001559 92.23%);
   }
 
@@ -15,7 +15,7 @@
     font-weight: 400;
   }
 
-  &__btnWrapper {
+  .btnWrapper {
 
     &:not(:first-child) {
       margin-top: 30px;

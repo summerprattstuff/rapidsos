@@ -1,6 +1,10 @@
 .m__scText {
-  padding: 100px 0;
+  padding: 70px 0;
   text-align: center;
+
+  @include media-up(m) {
+    padding: 100px 0;
+  }
 
   &__title {
 

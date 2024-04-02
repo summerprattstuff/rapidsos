@@ -1,16 +1,18 @@
 .m__statistic {
   background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
   margin: 50px 0;
-  padding-top: 60px;
   color: $white;
 
   @include media-up(m) {
     margin: 100px 0;
-    padding-top: 60px;
   }
 
   .-preview & {
     margin: 0;
+  }
+
+  &__inner {
+    padding-top: 75px;
   }
 
   &__top{
@@ -28,70 +30,73 @@
   }
 
   &__bot {
-    position: relative;
-    display: flex;
-    flex-direction: column;
 
-    @include media-up(m) {
-      flex-direction: row;
-    }
-
-    .-preview & {
-      top: 15px;
-    }
-
-    &__numb {
+    &__inner {
       position: relative;
-      top: 25px;
-      font-size: 80px;
-      line-height: 1;
-      font-weight: 700;
-      white-space: nowrap;
-
-      @include media-up(xs) {
-        font-size: 100px;
-      }
+      display: flex;
+      flex-direction: column;
 
       @include media-up(m) {
-        font-size: 130px;
-        top: 40px;
-        align-self: flex-end;
-      }
-
-      @include media-up(l) {
-        font-size: 200px;
-        top: 55px;
-      }
-
-      @include media-up(xl) {
-        font-size: 300px;
-        top: 75px;
+        flex-direction: row;
       }
 
       .-preview & {
-        font-size: 100px;
-        top: 0;
-      }
-    }
-
-    &__desc {
-      order: -1;
-
-      &:not(:first-child) {
-        margin-top: 30px;
+        top: 15px;
       }
 
-      @include media-up(m) {
-        order: 1;
-        padding: 45px 0 20px 10px;
+      &__numb {
+        position: relative;
+        top: 25px;
+        font-size: 80px;
+        line-height: 1;
+        font-weight: 700;
+        white-space: nowrap;
 
-        &:not(:first-child) {
-          margin-top: 0;
+        @include media-up(xs) {
+          font-size: 100px;
+        }
+
+        @include media-up(m) {
+          font-size: 130px;
+          top: 40px;
+          align-self: flex-end;
+        }
+
+        @include media-up(l) {
+          font-size: 200px;
+          top: 55px;
+        }
+
+        @include media-up(xl) {
+          font-size: 300px;
+          top: 75px;
+        }
+
+        .-preview & {
+          font-size: 100px;
+          top: 0;
         }
       }
 
-      @include media-up(l) {
-        padding: 60px 0 20px 10px;
+      &__desc {
+        order: -1;
+
+        &:not(:first-child) {
+          margin-top: 30px;
+        }
+
+        @include media-up(m) {
+          order: 1;
+          padding: 45px 0 20px 10px;
+
+          &:not(:first-child) {
+            margin-top: 0;
+          }
+        }
+
+        @include media-up(l) {
+          padding: 60px 0 20px 10px;
+        }
       }
     }
   }

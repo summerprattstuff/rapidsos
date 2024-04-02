@@ -1,26 +1,52 @@
-.single-case-study {
+.-caseStudy {
 
-  .m__testimonial {
-    background-color: $white;
+  .titleWrapper {
+    margin-top: 15px;
+  }
 
-    @include media-up(m) {
-      width: 70%;
-      margin-left: auto;
+  .industry,
+  .customers{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    p {
+      margin-bottom: 0;
     }
 
-    &__quote {
-      font-size: 24px;
-      line-height: 34px;
-      font-weight: 400;
+    .iLabel,
+    .cLabel {
+      font-weight: 700;
+      margin-right: 5px;
+    }
+  }
+
+  .industry {
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+
+  .customers {
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  .sources {
+
+    &:not(:first-child) {
+      margin-top: 10px;
     }
 
-    &__author {
-      line-height: normal;
-      font-size: 18px;
+    .sLabel {
+      font-weight: 700;
+    }
 
-      &:not(:first-child) {
-        margin-top: 10px;
-      }
+    ul {
+      padding-left: 20px;
     }
   }
 }

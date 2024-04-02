@@ -5,18 +5,24 @@
   {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__scText">
-  <div class="wrapper">
-    <div class="textWrapper -enter -short">
-      {% if title %}
-        <h1 class="m__title m__scText__title">{{ title }}</h1>
-      {% endif %}
-      {% if subtitle %}
-        <h3 class="m__text m__scText__text">{{ subtitle }}</h3>
-      {% endif %}
+{% if title or subtitle %}
+    <section id="{{ settings.block_id }}" class="m__scText">
+        <div class="wrapper">
+            <div class="titleWrapper -center -short">
+                {% if title %}
+                    <h1 class="m__title m__scText__title">{{ title }}</h1>
+                {% endif %}
+                {% if subtitle %}
+                    <h3 class="m__text m__scText__text">{{ subtitle }}</h3>
+                {% endif %}
+            </div>
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add <strong>title</strong> or <strong>subtitle</strong> to show on page.
     </div>
-  </div>
-  {% if not is_preview %}
-    {{ settings.styles | raw }}
-  {% endif %}
-</section>
+{% endif %}

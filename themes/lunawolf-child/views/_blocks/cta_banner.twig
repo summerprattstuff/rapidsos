@@ -6,23 +6,29 @@
   {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__ctaBanner m__ctaBanner{{ bgColor ? '__gradient' : '' }}">
-  <div class="wrapper">
-    <div class="titleWrapper -center">
-      {% if title %}
-        <h1 class="m__title__white m__ctaBanner__title">{{ title }}</h1>
-      {% endif %}
-      {% if link %}
-        <div class="m__ctaBanner__btnWrapper btnWrapper">
-          {% include '_components/_advanced_link.twig' with {
-            link: link,
-            class: ''
-          } %}
+{% if title or link %}
+    <section id="{{ settings.block_id }}" class="m__ctaBanner{{ bgColor ? ' -gradient' }}">
+        <div class="wrapper">
+            <div class="titleWrapper -center">
+                {% if title %}
+                    <h1 class="m__title__white m__ctaBanner__title">{{ title }}</h1>
+                {% endif %}
+                {% if link %}
+                    <div class="btnWrapper">
+                        {% include '_components/_advanced_link.twig' with {
+                            link: link,
+                            class: ''
+                        } %}
+                    </div>
+                {% endif %}
+            </div>
         </div>
-      {% endif %}
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add <strong>title</strong> or <strong>link</strong> to show on page.
     </div>
-  </div>
-  {% if not is_preview %}
-    {{ settings.styles | raw }}
-  {% endif %}
-</section>
+{% endif %}

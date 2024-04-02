@@ -1,0 +1,30 @@
+{% set title        = block.title %}
+{% set s_style      = block.steps_style %}
+
+{% set section_class = s_style ? 'm__stepsTwo' : 'm__steps' %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="{{ section_class }}{{ steps | length == 2 ? ' two' }}">
+    <div class="wrapper">
+        {% if title %}
+            <div class="titleWrapper -short -center">
+                <h1 class="m_title m__steps__title">{{ title }}</h1>
+            </div>
+        {% endif %}
+        {% if s_style %}
+            {% include '_partials/_blocks/_parts/_steps-module/steps_second.twig' with {
+                block: block
+            } %}
+        {% else %}
+            {% include '_partials/_blocks/_parts/_steps-module/steps_first.twig' with {
+                block: block
+            } %}
+        {% endif %}
+    </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
+</section>

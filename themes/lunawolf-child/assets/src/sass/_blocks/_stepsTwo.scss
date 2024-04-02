@@ -22,21 +22,18 @@
       @include media-up(s) {
         display: block;
         position: absolute;
-        bottom: 109px; left: 50%;
+        top: 295px; left: 50%;
         transform: translateX(-50%);
         z-index: -5;
       }
 
-      @media (min-width:758px) and (max-width:767px) {
-        bottom: 90px;
-      }
-
       @include media-up(m) {
-        bottom: 127px;
+        top: 365px;
       }
 
-      @media (min-width: 935px) {
-          bottom: 103px;
+      .-preview & {
+        z-index: 0;
+        top: 365px;
       }
     }
   }

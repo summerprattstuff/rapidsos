@@ -1,0 +1,29 @@
+{% set steps = block.steps %}
+
+<div class="m__stepsTwo__wrapper">
+    <svg width="1036" height="4" viewBox="0 0 1036 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.0703125 2.10547L1035.48 2.10538" stroke="url(#paint0_linear_2_4202)" stroke-width="3" stroke-dasharray="4 4"/>
+        <defs>
+            <linearGradient id="paint0_linear_2_4202" x1="0.0712607" y1="10848.7" x2="1168.55" y2="10848.7" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#25A7DF"/>
+                <stop offset="0.536458" stop-color="#001559"/>
+                <stop offset="1" stop-color="#E82629"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <div class="m__stepsTwo__wrap">
+        {% for step in steps %}
+            {% set img  = step.step_img %}
+            {% set text = step.step_text %}
+
+            {% if img %}
+                <div class="m__stepsTwo__blockWrap">
+                    <div class="m__stepsTwo__blockWrap__imgWrap">
+                        <img class="m__stepsTwo__blockWrap__img" src="{{ get_image(img) }}" alt="" >
+                    </div>
+                    <div class="m__stepsTwo__blockWrap__text m_wyText">{{ text }}</div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

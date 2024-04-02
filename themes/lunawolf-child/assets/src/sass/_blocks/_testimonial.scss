@@ -2,29 +2,25 @@
   background: $bg-gray;
   padding: 50px 0;
 
-  @include media-up(m) {
+  @include media-up(l) {
     padding: 90px 0;
   }
 
   .testimonial {
     position: relative;
 
-    @include media-up(m) {
+    @include media-up(l) {
       display: flex;
       justify-content: center;
     }
   }
 
   &__content {
-    padding-top: 120px;
+    padding-top: 80px;
 
-    @include media-up(m) {
+    @include media-up(l) {
       padding-left: 140px;
       padding-top: 0;
-    }
-
-    @include media-up(xl) {
-      padding-left: 160px;
     }
   }
 
@@ -32,6 +28,11 @@
     font-size: 20px;
 
     @include media-up(m) {
+      font-size: 34px;
+      line-height: 45px;
+    }
+
+    @include media-up(l) {
       font-size: 38px;
       line-height: 55px;
     }
@@ -54,7 +55,12 @@
 
   svg {
     position: absolute;
-    top: 0; left: -90px;
+    top: 0; left: 0;
     pointer-events: none;
+
+    @include media-down(l) {
+      width: 74px;
+      height: 57px;
+    }
   }
 }

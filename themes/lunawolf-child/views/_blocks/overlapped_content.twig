@@ -6,25 +6,31 @@
   {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__ovrContent">
-  <div class="wrapper">
-      <div class="_w">
-          {% if leftText %}
-              <div class="m__ovrContent__left">
-                  <h3 class="m__ovrContent__left__text">{{ leftText }}</h3>
-              </div>
-          {% endif %}
-          <div class="m__ovrContent__wrapImg">
-              <div class="m__ovrContent__wrapImg__bgImg" style="{% if bgImg %}background-image: url({{ get_image(bgImg) }}){% endif %}"></div>
-          </div>
-          {% if rightText %}
-              <div class="m__ovrContent__right">
-                  <h3 class="m__ovrContent__right__text">{{ rightText }}</h3>
-              </div>
-          {% endif %}
-      </div>
-  </div>
-  {% if not is_preview %}
-    {{ settings.styles | raw }}
-  {% endif %}
-</section>
+{% if bgImg or leftText or rightText %}
+    <section id="{{ settings.block_id }}" class="m__ovrContent">
+        <div class="wrapper">
+            <div class="_w">
+                {% if leftText %}
+                    <div class="m__ovrContent__left">
+                        <h3 class="m__ovrContent__left__text">{{ leftText }}</h3>
+                    </div>
+                {% endif %}
+                <div class="m__ovrContent__wrapImg">
+                    <div class="m__ovrContent__wrapImg__bgImg" style="{% if bgImg %}background-image: url({{ get_image(bgImg) }}){% endif %}"></div>
+                </div>
+                {% if rightText %}
+                    <div class="m__ovrContent__right">
+                        <h3 class="m__ovrContent__right__text">{{ rightText }}</h3>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add module content to show on page.
+    </div>
+{% endif %}

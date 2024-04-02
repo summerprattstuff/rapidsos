@@ -36,10 +36,19 @@
     .title {
       font-size: 30px;
       line-height: 41px;
+
+      .-preview & {
+        font-weight: 700;
+      }
     }
 
     .subtitle {
       letter-spacing: -2%;
+
+      .-preview & {
+        padding-left: 0 !important;
+        font-weight: 700;
+      }
     }
 
     .btnWrapper {

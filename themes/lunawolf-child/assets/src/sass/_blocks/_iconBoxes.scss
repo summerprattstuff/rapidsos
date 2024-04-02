@@ -18,6 +18,10 @@
 
   &__stitle {
     text-align: center;
+
+    .-preview & {
+      font-weight: 700;
+    }
   }
 
   &__box {
@@ -67,6 +71,15 @@
 
     &__desc {
       flex: 1;
+    }
+  }
+
+  .m__iconBoxes__box__title {
+
+    .-preview & {
+      padding-left: 0 !important;
+      font-weight: 700;
+      font-size: 24px !important;
     }
   }
 }

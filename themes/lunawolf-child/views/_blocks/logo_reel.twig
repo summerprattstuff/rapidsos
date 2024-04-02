@@ -6,34 +6,40 @@
   {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__logoReel">
-    <div class="wrapper">
-        <div class="titleWrapper -short -center">
-            {% if title %}
-                <h1 class="m__title m__logoReel__title">{{ title }}</h1>
+{% if logo_gallery|length %}
+    <section id="{{ settings.block_id }}" class="m__logoReel">
+        <div class="wrapper">
+            <div class="titleWrapper -short -center">
+                {% if title %}
+                    <h1 class="m__title m__logoReel__title">{{ title }}</h1>
+                {% endif %}
+            </div>
+            {% if desc %}
+                <h3 class="m__logoReel__desc">{{ desc }}</h3>
+            {% endif %}
+            {% if logo_gallery %}
+                <div class="m__logoReel__logos">
+                    <div class="swiper js-logoSlider">
+                        <div class="swiper-wrapper">
+                            {% for logo in logo_gallery %}
+                                <div class="swiper-slide">
+                                    <div class="m__logoReel__logos__block">
+                                        <img class="m__logoReel__logos__block__img" src="{{ get_image(logo) }}" alt="" >
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
             {% endif %}
         </div>
-        {% if desc %}
-            <h3 class="m__logoReel__desc">{{ desc }}</h3>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
         {% endif %}
-        {% if logo_gallery %}
-            <div class="m__logoReel__logos">
-                <div class="swiper js-logoSlider">
-                    <div class="swiper-wrapper">
-                        {% for logo in logo_gallery %}
-                            <div class="swiper-slide">
-                                <div class="m__logoReel__logos__block">
-                                    <img class="m__logoReel__logos__block__img" src="{{ get_image(logo) }}" alt="" >
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        {% endif %}
-  </div>
-  {% if not is_preview %}
-    {{ settings.styles | raw }}
-  {% endif %}
-</section>
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add at least one <strong>logo</strong> to show module on page.
+    </div>
+{% endif %}
