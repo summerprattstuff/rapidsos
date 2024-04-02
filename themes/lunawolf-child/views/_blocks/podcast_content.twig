@@ -1,6 +1,6 @@
 {% set sTitle        = post.meta.s_title %}
 {% set valueBlocks   = post.meta('value_blocks') %}
-{% set count         = valueBlocks|length %}
+{% set count         = valueBlocks | length %}
 
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
@@ -20,6 +20,7 @@
                         {% for block in valueBlocks %}
                             {% set value       = block.value %}
                             {% set description = block.description %}
+
                             <div class="m__podcastContent__blocks__blocksWrapper{{ count == 3 ? ' _m4' : ' _m6'}}">
                                 <div class="m__podcastContent__blocks__blocksWrapper__inner">
                                     <h2 class="value">{{ value }}</h2>

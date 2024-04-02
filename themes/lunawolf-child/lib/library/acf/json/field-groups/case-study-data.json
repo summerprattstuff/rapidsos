@@ -163,7 +163,7 @@
         },
         {
             "key": "field_6607240c5abcb",
-            "label": "Case Case Data",
+            "label": "Case Study Data",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -216,6 +216,9 @@
             "layout": "block",
             "acfe_seamless_style": 0,
             "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_66073c26e779e",
@@ -257,10 +260,7 @@
                     "prepend": "",
                     "append": ""
                 }
-            ],
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large"
+            ]
         },
         {
             "key": "field_660722e740edb",
@@ -279,6 +279,9 @@
             "layout": "block",
             "acfe_seamless_style": 0,
             "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large",
             "sub_fields": [
                 {
                     "key": "field_660735daa783a",
@@ -355,10 +358,7 @@
                     "acfe_wysiwyg_min_height": 300,
                     "acfe_wysiwyg_toolbar_buttons": []
                 }
-            ],
-            "acfe_group_modal_close": 0,
-            "acfe_group_modal_button": "",
-            "acfe_group_modal_size": "large"
+            ]
         },
         {
             "key": "field_6606c621d8bfd",
@@ -422,5 +422,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711974984
+    "modified": 1712075986
 }

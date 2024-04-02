@@ -24,6 +24,7 @@
     .sLabel {
       font-size: 26px;
       font-weight: 700;
+      line-height: 1.2;
 
       @include media-up(m) {
         font-size: 30px;

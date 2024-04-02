@@ -1,0 +1,30 @@
+{% set speakerTitle  = speaker.title %}
+{% set speakerData   = speaker.meta('speaker_data') %}
+{% set speaker_image = speakerData['speaker_image'] %}
+{% set speaker_title = speakerData['speaker_title'] %}
+{% set speaker_info  = speakerData['speaker_info'] %}
+
+<div class="m__speakers__speaker">
+    <div class="inner">
+        {% if speaker_image %}
+            <div class="m__speakers__speaker__left">
+                <img src="{{ get_image(speaker_image) }}" alt="{{ speaker_title }}" />
+            </div>
+        {% endif %}
+        <div class="m__speakers__speaker__right">
+            <div class="m__speakers__speaker__name">
+                {{ speakerTitle }}
+            </div>
+            {% if speaker_title %}
+                <div class="m__speakers__speaker__title">
+                    {{ speaker_title }}
+                </div>
+            {% endif %}
+            {% if speaker_info %}
+                <div class="m__speakers__speaker__info m__wyswyg">
+                    {{ speaker_info }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

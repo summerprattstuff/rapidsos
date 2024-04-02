@@ -6,6 +6,12 @@
   }
 
   &__top {
+    position: relative;
+    overflow: hidden;
+
+    @include media-up(l) {
+      padding-bottom: 80px;
+    }
 
     &__left {
 
@@ -69,6 +75,10 @@
 
     &__right {
 
+      @include media-up(l) {
+        display: none;
+      }
+
       &__inner {
         margin-top: 10px;
 
@@ -87,9 +97,32 @@
         }
       }
     }
+
+    &__imgWrapper {
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 50%;
+
+      @include media-down(l) {
+        display: none;
+      }
+    }
+
+    &__img {
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: 50% / cover no-repeat;
+    }
   }
 
   &__bottom {
+
+    &__left {
+
+      @include media-up(l) {
+        padding-right: 46px;
+      }
+    }
 
     .desc {
       margin-top: 30px;
@@ -120,6 +153,7 @@
 
       @include media-up(l) {
         margin-top: -100px;
+        padding-left: 46px;
       }
 
       &__box {

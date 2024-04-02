@@ -56,11 +56,8 @@
 
     &__blocks {
 
-      &:not(:first-child) {
-        margin-top: 20px;
-      }
-
       &__blocksWrapper {
+        margin-top: 20px;
 
         &__inner {
           text-align: center;

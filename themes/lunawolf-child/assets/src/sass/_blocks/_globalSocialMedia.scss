@@ -20,19 +20,8 @@
       }
     }
 
-    ul {
-      display: flex;
-      align-items: center;
+    ul.social {
       justify-content: center;
-      flex-wrap: wrap;
-      list-style: none;
-      gap: 12px 24px;
-      margin: 0;
-      padding: 0;
-
-      @include media-up(m) {
-        gap: 12px 34px;
-      }
     }
 
     img {

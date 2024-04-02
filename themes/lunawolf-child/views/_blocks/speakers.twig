@@ -1,0 +1,50 @@
+{% set s_title        = block.s_title %}
+{% set speakers_left  = block.speakers_left %}
+{% set speakers_right = block.speakers_right %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if speakers_left | length or speakers_right | length %}
+    <section id="{{ settings.block_id }}" class="m__speakers">
+        <div class="wrapper{{ t_width ? ' -limit' : '' }}">
+            <div class="container">
+                <div class="s_titleWrapper">
+                    <h1 class="s_title">{{ s_title ?: 'Speakers' }}</h1>
+                </div>
+                <div class="m__speakers__list _w">
+                    {% if speakers_left | length %}
+                        <div class="m__speakers__list__left _m6">
+                            {% for speakerId in speakers_left %}
+                                {% set speaker = get_post(speakerId) %}
+
+                                {% include '_partials/_blocks/_parts/_speakers/speaker.twig' with {
+                                    speaker: speaker
+                                } %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if speakers_right | length %}
+                        <div class="m__speakers__list__right _m6">
+                            {% for speakerId in speakers_right %}
+                                {% set speaker = get_post(speakerId) %}
+
+                                {% include '_partials/_blocks/_parts/_speakers/speaker.twig' with {
+                                    speaker: speaker
+                                } %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add speakers before being able to select them.
+    </div>
+{% endif %}

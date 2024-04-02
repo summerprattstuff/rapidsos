@@ -7,11 +7,16 @@
 {% set text      = post.meta.text_box %}
 
 <section class="hero__webinar">
-    <div class="wrapper">
-        <div class="postTag">
-            <img class="tagLogo" src="{{ theme.link ~ '/public/podcast/podcast_tag.png' }}" alt="">
-        </div>
-        <div class="hero__webinar__top">
+    <div class="hero__webinar__top">
+        {% if heroImg %}
+            <div class="hero__webinar__top__imgWrapper">
+                <div class="hero__webinar__top__img" style="background-image: url({{ get_image(heroImg) }})"></div>
+            </div>
+        {% endif %}
+        <div class="wrapper">
+            <div class="postTag">
+                <img class="tagLogo" src="{{ theme.link ~ '/public/podcast/podcast_tag.png' }}" alt="">
+            </div>
             <div class="_w">
                 <div class="hero__webinar__top__left _l6">
                     <div class="hero__webinar__top__left__box">
@@ -25,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="hero__webinar__right _l6">
+                <div class="hero__webinar__top__right _l6">
                     <div class="hero__webinar__top__right__inner">
                         {% if heroImg %}
                             <div class="hero__webinar__top__right__inner__wrapImg">
@@ -36,7 +41,9 @@
                 </div>
             </div>
         </div>
-        <div class="hero__webinar__bottom">
+    </div>
+    <div class="hero__webinar__bottom">
+        <div class="wrapper">
             <div class="_w">
                 <div class="hero__webinar__bottom__left _l6">
                     <div class="hero__webinar__bottom__left__box">
@@ -55,7 +62,7 @@
                 <div class="hero__webinar__bottom__right _l6">
                     <div class="hero__webinar__bottom__right__box">
                         <div class="hero__webinar__bottom__right__box__inner">
-                           sadasdsa
+                            Form will be here
                         </div>
                     </div>
                 </div>
