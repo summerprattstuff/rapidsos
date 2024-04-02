@@ -2,9 +2,9 @@
 Contributors: Hristo Sg, siteground, sstoqnov, stoyangeorgiev, elenachavdarova, ignatggeorgiev
 Tags: security, firewall, malware scanner, web application firewall, two factor authentication, block hackers, country blocking, clean hacked site, blocklist, waf, login security, free
 Requires at least: 4.7
-Tested up to: 6.4
+Tested up to: 6.5
 Requires PHP: 7.0
-Stable tag: 1.4.12
+Stable tag: 1.4.13
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -143,6 +143,12 @@ By enforcing a password reset, you can ensure that all users are prompted to cha
 1. Go to Plugins -> Installed Plugins and click the 'Activate' link under the WordPress Security Optimizer by SiteGround listing
 
 == Changelog ==
+
+= Version 1.4.13 =
+
+Release Date: Mar 27th, 2024
+
+* Plugin optimization.
 
 = Version 1.4.12 =
 

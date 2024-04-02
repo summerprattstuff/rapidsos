@@ -359,17 +359,12 @@ class Front_End_Optimization {
 		// Remove the jet popup action to prevent fatal errros.
 		remove_all_actions( 'elementor/editor/after_enqueue_styles', 10 );
 
-		$wp_scripts->queue[] = 'wc-jilt';
-
 		ob_start();
 		// Call the action to load the assets.
 		do_action( 'wp', $wp );
 		do_action( 'wp_enqueue_scripts' );
 		do_action( 'elementor/editor/after_enqueue_styles' );
 		ob_get_clean();
-
-		unset( $wp_scripts->queue['wc-jilt'] );
-
 
 		// Build the assets data.
 		return array(

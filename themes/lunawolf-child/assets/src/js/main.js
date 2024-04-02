@@ -14,6 +14,7 @@ import debounce from './helpers/debounce';
 import sliders from './components/sliders';
 import logoSlider from './components/sliders';
 import videos from './components/videos';
+import activeTrigger from "./components/utilities/activeTrigger";
 
 let vh = window.innerHeight * 0.01;
 
@@ -29,4 +30,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
   videos();
   sliders();
   logoSlider();
+  activeTrigger();
 });

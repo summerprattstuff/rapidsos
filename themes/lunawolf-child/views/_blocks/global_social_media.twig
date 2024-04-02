@@ -1,0 +1,34 @@
+{% set global_social_media = options['g_social_media'] %}
+{% set custom_title        = global_social_media['custom_title'] %}
+{% set social_media        = global_social_media['social_media'] %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id }}" class="m__globalSocialMedia">
+  <div class="wrapper">
+    <div class="container">
+      {% if social_media | length %}
+        <span>{{ custom_title ?: 'Share now:' }}</span>
+        <ul>
+          {% for media in social_media %}
+            {% set icon = media.icon %}
+            {% set link = media.link %}
+
+            <li>
+              <a href="{{ link }}" target="_blank" aria-label="Go to our {{ link }} page">
+                <img src="{{ get_image(icon) }}" alt="{{ icon.alt }}" />
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="_center">Add social media in <strong>global modules</strong> to show it on a page.</p>
+      {% endif %}
+    </div>
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>

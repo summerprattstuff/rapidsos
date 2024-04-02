@@ -1,10 +1,10 @@
 {
-    "key": "group_6606b542c4ad1",
+    "key": "group_660b33eae1c3a",
     "title": "Global Modules",
     "fields": [
         {
-            "key": "field_6606b54394c28",
-            "label": "Global Testimonial",
+            "key": "field_660b347bb413a",
+            "label": "Social Media",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -17,15 +17,16 @@
                 "id": ""
             },
             "placement": "left",
-            "endpoint": 0
+            "endpoint": 0,
+            "no_preference": 0
         },
         {
-            "key": "field_6606b64472aa9",
-            "label": "Testimonial",
-            "name": "global_testimonial",
+            "key": "field_660b33eb438d8",
+            "label": "",
+            "name": "g_social_media",
             "aria-label": "",
-            "type": "relationship",
-            "instructions": "Choose testimonial to show.",
+            "type": "group",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -33,25 +34,110 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "testimonial"
+            "layout": "block",
+            "acfe_seamless_style": 1,
+            "sub_fields": [
+                {
+                    "key": "field_660b3419438d9",
+                    "label": "Custom Title",
+                    "name": "custom_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_660b3428438da",
+                    "label": "Social Media",
+                    "name": "social_media",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "acfe_repeater_stylised_button": 0,
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_660b3431438db",
+                    "button_label": "Add Social Media",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_660b3431438db",
+                            "label": "Icon",
+                            "name": "icon",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "uploader": "",
+                            "return_format": "array",
+                            "upload_folder": "",
+                            "acfe_thumbnail": 0,
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "parent_repeater": "field_660b3428438da"
+                        },
+                        {
+                            "key": "field_660b343e438dc",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "required_message": "",
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_660b3428438da"
+                        }
+                    ]
+                }
             ],
-            "post_status": [
-                "publish"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "return_format": "object",
-            "acfe_bidirectional": {
-                "acfe_bidirectional_enabled": "0"
-            },
-            "min": "",
-            "max": 1,
-            "elements": "",
-            "bidirectional": 0,
-            "bidirectional_target": []
+            "acfe_group_modal": 0,
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         }
     ],
     "location": [
@@ -59,7 +145,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "theme-settings"
+                "value": "global-modules"
             }
         ]
     ],
@@ -72,12 +158,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "acfe_display_title": "",
     "acfe_autosync": [
         "json"
     ],
     "acfe_form": 0,
+    "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711716676
+    "modified": 1712010409
 }

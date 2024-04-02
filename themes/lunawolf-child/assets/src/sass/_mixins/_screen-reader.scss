@@ -34,3 +34,7 @@
         clip-path: none;
     }
 }
+
+.sr-only {
+  @include sr-only;
+}

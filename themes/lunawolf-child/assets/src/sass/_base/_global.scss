@@ -3,6 +3,10 @@ body {
   color: var(--text-color);
   overflow-x: hidden;
 
+  &.-menuOpen {
+    overflow: hidden;
+  }
+
   .site {
     display: flex;
     flex-direction: column;

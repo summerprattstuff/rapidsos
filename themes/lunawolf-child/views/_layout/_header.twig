@@ -1,7 +1,16 @@
-{#{% set logo = options['logo'] %}#}
-{#{% set logoURL = get_image(logo) %}#}
-{#{% set logoSVG = function('file_get_contents', siteUrl ~ logoURL.src) %}#}
+{% set logo = options['site_logo'] %}
+{% set logoURL = get_image(logo) %}
 
 <header id="header" class="site__header">
-{#  {{ logoSVG }}#}
+  <div class="wrapper">
+    <div class="container">
+      <a href="{{ siteUrl }}" class="site__header__logo">
+        <img src="{{ logoURL }}" alt="RapidSOS">
+      </a>
+      <a href="javascript:;" class="site__header__menuToggle js-activeTrigger" data-target="body" data-class="-menuOpen">
+        {% include 'icons/hamburger.twig' %}
+      </a>
+      {% include '_layout/_nav.twig' %}
+    </div>
+  </div>
 </header>
