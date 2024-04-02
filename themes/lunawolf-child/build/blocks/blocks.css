@@ -794,11 +794,11 @@ button.swiper-pagination-bullet {
   background: #fff;
   color: #001559;
 }
-.btn.-black {
+.btn__black, .btn.-black {
   border-color: #001559;
   color: #001559;
 }
-.btn.-black:hover {
+.btn__black:hover, .btn.-black:hover {
   background: #001559;
   color: #fff;
 }
