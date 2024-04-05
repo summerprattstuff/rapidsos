@@ -36,7 +36,10 @@
   .m__podcastContent {
     position: relative;
     padding: 30px 0;
-    margin-bottom: 35px;
+
+    &:not(:last-child) {
+      margin-bottom: 35px;
+    }
 
     &:before {
       position: absolute;

@@ -38,14 +38,15 @@
   }
 
   &.-simpleLink {
-    background: $white;
-    color: $primary;
+    background: transparent;
+    color: $text-color-primary;
     border: none;
     text-decoration: underline;
     padding: 0;
 
     &:hover {
-      color: rgba(#001559, .8);
+      color: rgba(#001559, .7) !important;
+      background: none !important;
     }
   }
 }

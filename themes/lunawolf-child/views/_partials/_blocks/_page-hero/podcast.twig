@@ -1,0 +1,38 @@
+{% set title           = block.title %}
+{% set subtitle        = block.subtitle %}
+{% set bg_image        = block.bg_image %}
+{% set ctas            = block.ctas %}
+
+<div class="heroPodcast">
+    <div class="heroPodcast__inner">
+        <div class="imgWrapper">
+            <img src="{{ get_image(bg_image) }}" alt="{{ bg_image.alt }}" srcset="{{ get_image(bg_image) }}" />
+        </div>
+        <div class="wrapper">
+            <div class="_w">
+                <div class="container _m7 ofs_m5">
+                    <div class="container__inner">
+                        {% if title %}
+                            <h1 class="m__title heroPodcast__title">{{ title }}</h1>
+                        {% endif %}
+                        {% if subtitle %}
+                            <p class="heroPodcast__subtitle">{{ subtitle }}</p>
+                        {% endif %}
+                        {% if ctas %}
+                            <div class="heroPodcast__ctas">
+                                {% for row in ctas %}
+                                    {% set link = row.cta %}
+
+                                    {% include '_components/_advanced_link.twig' with {
+                                        link: link,
+                                        class: ''
+                                    } %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

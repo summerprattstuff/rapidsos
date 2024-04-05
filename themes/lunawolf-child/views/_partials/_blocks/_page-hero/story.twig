@@ -1,0 +1,38 @@
+{% set title           = block.title %}
+{% set subtitle        = block.subtitle %}
+{% set bg_image        = block.bg_image %}
+
+<section class="heroStory">
+    {% if bg_image %}
+        <div class="hero__webinar__top__imgWrapper">
+            <div class="hero__webinar__top__img" style="background-image: url({{ get_image(bg_image) }})"></div>
+        </div>
+    {% endif %}
+    <div class="wrapper">
+        <div class="heroStory__top">
+            <div class="_w">
+                <div class="heroStory__top__left _l6">
+                    <div class="heroStory__top__left__box">
+                        <div class="heroStory__top__left__box__inner">
+                            <div class="titleWrapper">
+                                <h1 class="title">{{ heroTitle ? heroTitle : title }}</h1>
+                            </div>
+                            {% if subtitle %}
+                                <p class="subtitle">{{ subtitle }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="heroStory__top__right _l6">
+                    <div class="heroStory__top__right__inner">
+                        {% if bg_image %}
+                            <div class="heroStory__top__right__inner__wrapImg">
+                                <div class="heroStory__top__right__inner__bgImg" style="background-image: url({{ get_image(bg_image) }})"></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
