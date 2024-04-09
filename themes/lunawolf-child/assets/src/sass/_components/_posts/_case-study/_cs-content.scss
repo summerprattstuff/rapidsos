@@ -5,7 +5,8 @@
   }
 
   .industry,
-  .customers{
+  .customers,
+  .location {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -15,7 +16,8 @@
     }
 
     .iLabel,
-    .cLabel {
+    .cLabel,
+    .lLabel {
       font-weight: 700;
       margin-right: 5px;
     }
@@ -29,6 +31,13 @@
   }
 
   .customers {
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+  .location {
 
     &:not(:first-child) {
       margin-top: 10px;

@@ -6,9 +6,11 @@
 {% endif %}
 
 {% if testimonialID %}
-    {% set testimonial = get_post(testimonialID) %}
-    {% set author      = testimonial.title %}
-    {% set quote       = testimonial.meta('quote') %}
+    {% set testimonial  = get_post(testimonialID) %}
+    {% set author       = testimonial.title %}
+    {% set author_title = testimonial.meta('author_title') %}
+    {% set author_icon  = testimonial.meta('author_icon') %}
+    {% set quote        = testimonial.meta('quote') %}
 
     <section id="{{ settings.block_id }}" class="m__testimonial">
         <div class="wrapper{{ t_width ? ' -limit' : '' }}">
@@ -22,7 +24,15 @@
                     </svg>
                     <div class="m__testimonial__content">
                         <h3 class="m__testimonial__quote">{{ quote }}</h3>
-                        <h4 class="m__testimonial__author">{{ author }}</h4>
+                        {% if author_title %}
+                            <div class="authorWrapper">
+                                {% if icon %}
+                                    <img src="{{ get_image(author_icon) }}" alt="">
+                                {% endif %}
+                                <h4 class="author">{{ author }}</h4>
+                                <h4 class="author_title">{{ author_title }}</h4>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

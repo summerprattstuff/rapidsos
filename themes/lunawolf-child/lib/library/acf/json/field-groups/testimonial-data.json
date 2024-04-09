@@ -3,6 +3,34 @@
     "title": "Testimonial Data",
     "fields": [
         {
+            "key": "field_660fdb41e7897",
+            "label": "Author Icon",
+            "name": "author_icon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "array",
+            "upload_folder": "",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
             "key": "field_6602986e3a1e4",
             "label": "Author Title",
             "name": "author_title",
@@ -164,5 +192,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711976940
+    "modified": 1712315247
 }

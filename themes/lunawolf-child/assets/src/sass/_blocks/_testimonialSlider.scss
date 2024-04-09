@@ -1,4 +1,9 @@
 .m__testimonialSlider {
+  padding: 60px 0 40px;
+
+  @include media-up(m) {
+    padding: 90px 0 70px;
+  }
 
   p {
     display: block;
@@ -72,7 +77,7 @@
   }
 
   .swiper-wrapper {
-    padding-bottom: 90px;
+    padding-bottom: 20px;
   }
 
   .swiper-slide {

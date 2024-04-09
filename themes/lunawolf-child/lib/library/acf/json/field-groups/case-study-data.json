@@ -200,6 +200,26 @@
             "append": ""
         },
         {
+            "key": "field_660fd0b3a720f",
+            "label": "Location",
+            "name": "location",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_66073b4614eac",
             "label": "Customers",
             "name": "customers",
@@ -422,5 +442,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1712075986
+    "modified": 1712312514
 }

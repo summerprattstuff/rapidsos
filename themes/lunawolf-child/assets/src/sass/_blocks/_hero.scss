@@ -134,6 +134,147 @@
     }
   }
 
+  &__secondary {
+    overflow: hidden;
+
+    &__imgWrapper {
+      position: absolute;
+      left: 40%; top: 0; bottom: 0;
+      width: 60%;
+
+      @include media-down(l) {
+        display: none;
+      }
+    }
+
+    &__img {
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: 50% / cover no-repeat;
+    }
+
+    .title {
+
+      @include media-up(xl) {
+        font-size: 40px;
+        line-height: 50px;
+      }
+    }
+
+    .subtitle {
+
+      @include media-up(xl) {
+        line-height: 30px;
+      }
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
+
+    &__left {
+      position: relative;
+
+      &__box {
+
+        &:before {
+          position: absolute;
+          content: '';
+          top: 60%; left: 0;
+          height: 100%; width: 100%;
+          background: linear-gradient(0deg, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
+          transform: rotate(180deg);
+          z-index: 1;
+
+          @include media-up(l) {
+            transform: rotate(90deg);
+            top: 0; left: 55%;
+          }
+        }
+      }
+
+      &__inner {
+        position: relative;
+        padding: 80px 0 20px;
+        z-index: 10;
+
+        @include media-up(l) {
+          padding: 80px 0 60px;
+        }
+      }
+    }
+
+    &__right {
+
+      &__inner {
+
+        @include media-up(l) {
+          display: none;
+        }
+
+        &__wrapImg {
+          width: 100%;
+        }
+
+        &__bgImg {
+          background: 50% / cover no-repeat #fafafa;
+          padding-top: 56%;
+          height: 0;
+        }
+      }
+    }
+  }
+
+  &__tertiary {
+
+    &__imgWrapper {
+      position: relative;
+      width: 100%;
+      min-height: 250px;
+
+      @include media-up(m) {
+        min-height: 350px;
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        bottom: 0; left: 0;
+        height: 100px; width: 100%;
+        background: linear-gradient(0deg, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
+        z-index: 1;
+      }
+    }
+
+    &__img {
+      position: absolute;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: 50% / cover no-repeat;
+    }
+
+    &__bottom {
+      position: relative;
+      text-align: center;
+      z-index: 10;
+
+      &__inner {
+        padding: 10px 0 50px;
+
+        @include media-up(m) {
+          padding: 30px 0 50px;
+        }
+
+        .title {
+
+          @include media-up(xl) {
+            font-size: 60px;
+          }
+        }
+      }
+    }
+
+  }
+
   .wrapper {
     position: relative;
   }

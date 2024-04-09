@@ -2,3 +2,32 @@
 {% set subtitle        = block.subtitle %}
 {% set bg_image        = block.bg_image %}
 {% set bg_image_mobile = block.bg_image_mobile %}
+
+<div class="m__hero__secondary">
+    {% if bg_image %}
+        <div class="m__hero__secondary__imgWrapper">
+            <div class="m__hero__secondary__img" style="background-image: url({{ get_image(bg_image) }})"></div>
+        </div>
+    {% endif %}
+    <div class="wrapper">
+        <div class="_w">
+            <div class="m__hero__secondary__left _l5">
+                <div class="m__hero__secondary__left__box">
+                    <div class="m__hero__secondary__left__inner">
+                        <h1 class="m_title title">{{ title }}</h1>
+                        <p class="subtitle">{{ subtitle }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="m__hero__secondary__right _l7">
+                <div class="m__hero__secondary__right__inner">
+                    {% if bg_image %}
+                        <div class="m__hero__secondary__right__inner__wrapImg">
+                            <div class="m__hero__secondary__right__inner__bgImg" style="background-image: url({{ get_image(bg_image) }})"></div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

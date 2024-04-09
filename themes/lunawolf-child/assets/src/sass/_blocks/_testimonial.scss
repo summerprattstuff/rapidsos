@@ -42,7 +42,10 @@
     }
   }
 
-  &__author {
+  .authorWrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 
     &:not(:first-child) {
       margin-top: 20px;
@@ -50,6 +53,10 @@
       @include media-up(m) {
         margin-top: 30px;
       }
+    }
+
+    .author {
+      margin-right: 10px;
     }
   }
 
