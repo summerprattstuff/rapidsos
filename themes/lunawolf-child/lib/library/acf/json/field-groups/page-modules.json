@@ -1811,6 +1811,32 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_66169b6f8c762",
+                            "label": "Module Layout",
+                            "name": "module_layout",
+                            "aria-label": "",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "media": "Media",
+                                "form": "Form",
+                                "content": "Content"
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
+                        },
+                        {
                             "key": "field_66013f6e8008a",
                             "label": "Section Title",
                             "name": "section_title",
@@ -1931,6 +1957,32 @@
                             "taxonomy": ""
                         },
                         {
+                            "key": "field_6616fcdb8c763",
+                            "label": "Content",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b6f8c762",
+                                        "operator": "==",
+                                        "value": "content"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "no_preference": 0
+                        },
+                        {
                             "key": "field_66013f6e8008c",
                             "label": "Image",
                             "name": "bg_image",
@@ -1938,7 +1990,15 @@
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b6f8c762",
+                                        "operator": "==",
+                                        "value": "content"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "50",
                                 "class": "",
@@ -1946,6 +2006,7 @@
                             },
                             "uploader": "",
                             "return_format": "array",
+                            "upload_folder": "",
                             "acfe_thumbnail": 0,
                             "min_width": "",
                             "min_height": "",
@@ -1955,8 +2016,7 @@
                             "max_size": "",
                             "mime_types": "",
                             "preview_size": "medium",
-                            "library": "all",
-                            "upload_folder": ""
+                            "library": "all"
                         },
                         {
                             "key": "field_6601537c4912b",
@@ -1966,7 +2026,15 @@
                             "type": "file",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b6f8c762",
+                                        "operator": "==",
+                                        "value": "content"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -1996,9 +2064,331 @@
                             "type": "url",
                             "instructions": "Add YouTube \/ Vimeo video URL",
                             "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b6f8c762",
+                                        "operator": "==",
+                                        "value": "content"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6616fd198c764",
+                            "label": "Form",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b6f8c762",
+                                        "operator": "==",
+                                        "value": "form"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "no_preference": 0
+                        },
+                        {
+                            "key": "field_6616fd2d8c765",
+                            "label": "Form Shortcode",
+                            "name": "form_shortcode",
+                            "aria-label": "",
+                            "type": "acfe_code_editor",
+                            "instructions": "Add form shortcode",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b6f8c762",
+                                        "operator": "==",
+                                        "value": "form"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "mode": "text\/html",
+                            "lines": 1,
+                            "indent_unit": 4,
+                            "maxlength": "",
+                            "rows": 4,
+                            "max_rows": "",
+                            "return_format": []
+                        },
+                        {
+                            "key": "field_6616fe198c766",
+                            "label": "Media",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b6f8c762",
+                                        "operator": "==",
+                                        "value": "dm"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "no_preference": 0
+                        },
+                        {
+                            "key": "field_6616fe2a8c767",
+                            "label": "oEmbed",
+                            "name": "oembed",
+                            "aria-label": "",
+                            "type": "oembed",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b6f8c762",
+                                        "operator": "==",
+                                        "value": "dm"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "width": "",
+                            "height": ""
+                        },
+                        {
+                            "key": "field_661699c08c75c",
+                            "label": "Color \/ Background Settings",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
                                 "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "no_preference": 0
+                        },
+                        {
+                            "key": "field_66169a558c75d",
+                            "label": "Linear Gradient Background Color?",
+                            "name": "lg_bg_color",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
+                        },
+                        {
+                            "key": "field_66169a888c75e",
+                            "label": "Background Color",
+                            "name": "bg_color",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "Choose background color.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "enable_opacity": 0,
+                            "return_format": "string",
+                            "display": "default",
+                            "button_label": "Select Color",
+                            "color_picker": 1,
+                            "absolute": 0,
+                            "input": 1,
+                            "allow_null": 1,
+                            "theme_colors": 0,
+                            "colors": {
+                                "#001559": "Primary",
+                                "#F1F1F1": "Gray",
+                                "#000000": "Black",
+                                "#ffffff": "White"
+                            }
+                        },
+                        {
+                            "key": "field_66169ab98c75f",
+                            "label": "BG Overlay Opacity",
+                            "name": "overlay_opacity",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Choose overlay opacity from 0 to 1.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": 0,
+                            "max": 1,
+                            "placeholder": "",
+                            "step": "0.1",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_66169add8c760",
+                            "label": "Text Color",
+                            "name": "text_color",
+                            "aria-label": "",
+                            "type": "color_picker",
+                            "instructions": "Choose text color.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "enable_opacity": 0,
+                            "return_format": "string",
+                            "display": "default",
+                            "button_label": "Select Color",
+                            "color_picker": 1,
+                            "absolute": 0,
+                            "input": 1,
+                            "allow_null": 1,
+                            "theme_colors": 0,
+                            "colors": {
+                                "#001559": "Primary",
+                                "#ffffff": "White"
+                            }
+                        },
+                        {
+                            "key": "field_66169b1f8c761",
+                            "label": "Background Video?",
+                            "name": "bg_video",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Check the button if you want background to be video.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
+                        },
+                        {
+                            "key": "field_661703a6d1851",
+                            "label": "Bg Video File",
+                            "name": "bg_video_file",
+                            "aria-label": "",
+                            "type": "file",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b1f8c761",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "uploader": "",
+                            "return_format": "array",
+                            "upload_folder": "",
+                            "multiple": 0,
+                            "max": "",
+                            "min_size": "",
+                            "max_size": "",
+                            "mime_types": "mp4",
+                            "library": "all",
+                            "preview_style": "default",
+                            "placeholder": "Select",
+                            "button_label": "Add File",
+                            "stylised_button": 0,
+                            "file_count": 0,
+                            "min": ""
+                        },
+                        {
+                            "key": "field_661703bbd1852",
+                            "label": "Bg Video Url",
+                            "name": "bg_video_url",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66169b1f8c761",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -4156,5 +4546,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1712752184
+    "modified": 1712786193
 }

@@ -1,15 +1,44 @@
 {% set sTitle     = block.section_title %}
+{% set moduleLayout = block.module_layout %}
 {% set labelAbove = block.label_above %}
 {% set title      = block.title %}
 {% set subtitle   = block.subtitle %}
 {% set link       = block.link %}
 
+{% set bg_color    = block.bg_color %}
+{% set txt_color   = block.text_color %}
+{% set lg_bg_color = block.lg_bg_color %}
+{% set opacity     = block.overlay_opacity %}
+
+
+{% set bg_video      = block.bg_video %}
+{% set bg_video_file = block.bg_video_file %}
+{% set bg_video_url  = block.bg_video_url %}
+
+{% set bg_video_active   = bg_video_file or bg_video_url %}
+
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__twoColumns">
-    <div class="wrapper">
+<section id="{{ settings.block_id }}" class="m__twoColumns {{ moduleLayout }}{{ lg_bg_color ? ' -linear'}}{{ bg_video ? ' -bgVideo' }}" style="{{ bg_color ? 'background: ' ~ bg_color ~ ';' }}">
+    {% if bg_video_active %}
+        <div class="bgVideoActive">
+            {% if bg_video_url and not bg_video_file %}
+                {% if bg_video_url %}
+                    <div id="video-{{ blockId }}" class="js-bgVideo" data-plyr-provider="{{ 'youtube' in bg_video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ bg_video_url }}"></div>
+                {% endif %}
+            {% elseif (bg_video_url and bg_video_file) or bg_video_file %}
+                {% if bg_video_file %}
+                    <video id="video-{{ blockId }}" class="js-bgVideo" controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
+                        <source src="{{ bg_video_file.url }}" type="video/mp4" />
+                    </video>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endif %}
+    <div class="overlay" style="{{ opacity ? 'opacity: ' ~ opacity ~ ';' }}">
+    <div class="wrapper" style="{{ txt_color ? 'color: ' ~ txt_color ~ ';' }}">
         {% if sTitle %}
             <h1 class="m__twoColumns__sTitle">{{ sTitle }}</h1>
         {% endif %}

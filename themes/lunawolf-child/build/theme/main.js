@@ -155,6 +155,19 @@ __webpack_require__.r(__webpack_exports__);
       });
     });
   })();
+  (function () {
+    var bgVideos = document.querySelectorAll('.js-bgVideo');
+    bgVideos.forEach(function (video) {
+      var player = new (plyr__WEBPACK_IMPORTED_MODULE_0___default())(video, {
+        controls: false,
+        muted: true,
+        autoplay: true
+      });
+      player.on('ready', function () {
+        player.play();
+      });
+    });
+  })();
 });
 
 /***/ }),

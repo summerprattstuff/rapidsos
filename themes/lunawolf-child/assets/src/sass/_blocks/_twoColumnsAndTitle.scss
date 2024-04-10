@@ -1,8 +1,25 @@
 .m__twoColumns {
+  position: relative;
+  margin: 30px 0;
   padding: 50px 0;
 
   @include media-up(m) {
+    margin: 50px 0;
     padding: 90px 0;
+  }
+
+  &.-linear {
+    background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
+  }
+
+  &.-bgVideo {
+
+    .bgVideoActive {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
   }
 
   &__sTitle {
@@ -100,5 +117,10 @@
         }
       }
     }
+  }
+
+  .btn {
+    color: inherit;
+    border-color: inherit;
   }
 }

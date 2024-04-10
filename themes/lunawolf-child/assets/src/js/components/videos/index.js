@@ -28,4 +28,20 @@ export default () => {
       });
     })
   })();
+
+  (() => {
+    let bgVideos = document.querySelectorAll('.js-bgVideo');
+
+    bgVideos.forEach(video => {
+      const player = new Plyr(video, {
+        controls: false,
+        muted: true,
+        autoplay: true,
+      });
+
+      player.on('ready', () => {
+        player.play();
+      })
+    })
+  })();
 }
