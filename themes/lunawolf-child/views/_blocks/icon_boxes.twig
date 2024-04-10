@@ -1,4 +1,6 @@
 {% set s_title    = block.s_title %}
+{% set s_subtitle = block.s_subtitle %}
+{% set s_link     = block.s_link %}
 {% set icon_boxes = block.icon_boxes %}
 {% set count      = icon_boxes|length %}
 
@@ -14,6 +16,11 @@
                     <h1 class="m_title m__iconBoxes__stitle">{{ s_title }}</h1>
                 </div>
             {% endif %}
+            {% if s_subtitle %}
+                <div class="subtitleWrapper">
+                    <h3 class="m__iconBoxes__subtitle">{{ s_subtitle }}</h3>
+                </div>
+            {% endif %}
             <div class="m__iconBoxes__wrapper">
                 <div class="_w">
                     {% for icon_box in icon_boxes %}
@@ -24,9 +31,11 @@
 
                         <div class="m__iconBoxes__box{{ count > 2 ? ' _l4' : ' _m6' }}">
                             <div class="m__iconBoxes__box__inner">
-                                <div class="m__iconBoxes__box__iconWrapper">
-                                    <img class="icon" src="{{ get_image(icon) }}" alt="">
-                                </div>
+                                {% if icon %}
+                                    <div class="m__iconBoxes__box__iconWrapper">
+                                        <img class="icon" src="{{ get_image(icon) }}" alt="">
+                                    </div>
+                                {% endif %}
                                 <div class="m__iconBoxes__box__inner__content">
                                     {% if title %}
                                         <h2 class="m__iconBoxes__box__title">{{ title }}</h2>
@@ -48,6 +57,14 @@
                     {% endfor %}
                 </div>
             </div>
+            {% if s_link %}
+                <div class="btnWrapper">
+                    {% include '_components/_advanced_link.twig' with {
+                        link: s_link,
+                        class: '-black'
+                    } %}
+                </div>
+            {% endif %}
         </div>
         {% if not is_preview %}
             {{ settings.styles | raw }}

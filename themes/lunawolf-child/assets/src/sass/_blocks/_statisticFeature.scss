@@ -12,7 +12,13 @@
   }
 
   &__inner {
-    padding-top: 75px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include media-up(m) {
+      padding-top: 75px;
+      padding-bottom: 0;
+    }
   }
 
   &__top{
@@ -35,9 +41,11 @@
       position: relative;
       display: flex;
       flex-direction: column;
+      margin-top: 20px;
 
       @include media-up(m) {
         flex-direction: row;
+        margin-top: 0;
       }
 
       .-preview & {
@@ -46,20 +54,20 @@
 
       &__numb {
         position: relative;
-        top: 25px;
-        font-size: 80px;
+        font-size: 100px;
         line-height: 1;
         font-weight: 700;
         white-space: nowrap;
 
         @include media-up(xs) {
-          font-size: 100px;
+          font-size: 130px;
         }
 
         @include media-up(m) {
-          font-size: 130px;
+          font-size: 160px;
           top: 40px;
           align-self: flex-end;
+          margin-top: -80px;
         }
 
         @include media-up(l) {
@@ -79,15 +87,17 @@
       }
 
       &__desc {
-        order: -1;
-
-        &:not(:first-child) {
-          margin-top: 30px;
-        }
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.2;
 
         @include media-up(m) {
           order: 1;
-          padding: 45px 0 20px 10px;
+          padding: 0 0 20px 40px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          font-size: 30px;
 
           &:not(:first-child) {
             margin-top: 0;
@@ -95,8 +105,75 @@
         }
 
         @include media-up(l) {
-          padding: 60px 0 20px 10px;
+          font-size: 36px;
+          padding: 0 0 40px 40px;
         }
+      }
+    }
+  }
+
+  &.-aboveText {
+
+    .inner {
+      padding: 30px 0;
+    }
+
+    .numb {
+      position: relative;
+      font-size: 100px;
+      line-height: 1;
+      font-weight: 700;
+      white-space: nowrap;
+
+      @include media-up(xs) {
+        font-size: 130px;
+      }
+
+      @include media-up(m) {
+        font-size: 200px;
+      }
+
+      @include media-up(xl) {
+        font-size: 300px;
+      }
+
+      .-preview & {
+        font-size: 100px;
+        top: 0;
+      }
+    }
+
+    .text {
+
+      &:not(:first-child) {
+
+        @include media-up(l) {
+          margin-top: -10px;
+        }
+
+        @include media-up(xl) {
+          margin-top: -30px;
+        }
+      }
+    }
+
+    .desc {
+      font-size: 26px;
+      line-height: 1.2;
+      padding: 0;
+      font-weight: 700;
+
+      @include media-up(l) {
+        font-size: 36px;
+      }
+    }
+
+    .label {
+      font-size: 16px;
+      line-height: 1.2;
+
+      &:not(:first-child) {
+        margin-top: 15px;
       }
     }
   }

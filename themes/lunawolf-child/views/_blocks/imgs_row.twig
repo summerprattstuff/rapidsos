@@ -1,3 +1,5 @@
+{% set title      = block.title %}
+{% set titleLeft  = block.left %}
 {% set images_row = block.images_row %}
 {% set count      = images_row | length %}
 
@@ -8,6 +10,11 @@
 {% if images_row %}
     <section id="{{ settings.block_id }}" class="m__imgRows">
         <div class="wrapper -limit">
+            {% if title %}
+                <div class="titleWrapper{{ titleLeft ? ' -left' }}">
+                    <h2 class="title">{{ title }}</h2>
+                </div>
+            {% endif %}
             <div class="_w">
                 {% for img_row in images_row %}
                     {% set image  = img_row.image %}

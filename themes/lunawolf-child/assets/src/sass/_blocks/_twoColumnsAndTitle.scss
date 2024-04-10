@@ -29,6 +29,12 @@
       justify-content: center;
     }
 
+    &__labelAbove {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 700;
+    }
+
     &__title {
       font-size: 26px;
 
@@ -61,7 +67,7 @@
 
   &__right {
 
-    .m__dinamicMedia {
+    &__inner  {
       margin-top: 30px;
 
       @include media-up(m) {
@@ -71,6 +77,9 @@
       @include media-up(l) {
         margin-top: 0;
       }
+    }
+
+    .m__dynamicMedia {
 
       .-preview & {
         height: 100%;

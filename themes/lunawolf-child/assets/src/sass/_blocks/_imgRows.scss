@@ -3,6 +3,14 @@
   &__wrapper {
     margin-bottom: 20px;
 
+    .titleWrapper {
+      text-align: center;
+
+      &.-left {
+        text-align: left;
+      }
+    }
+
     &__inner {
 
       &__wrapImg {

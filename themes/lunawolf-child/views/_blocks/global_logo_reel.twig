@@ -1,31 +1,35 @@
-{% set title        = block.title %}
-{% set desc         = block.desc %}
-{% set label        = block.label %}
-{% set logo_gallery = block.logo_gallery %}
+{% set global_logo_reel = options['g_logo_reel'] %}
+{% set g_title          = global_logo_reel['g_title'] %}
+{% set g_subtitle       = global_logo_reel['g_subtitle'] %}
+{% set g_label          = global_logo_reel['g_label'] %}
+{% set g_logos          = global_logo_reel['g_logos'] %}
+{% set custom_title     = block.custom_title %}
+{% set custom_subtitle  = block.custom_subtitle %}
+{% set custom_label     = block.custom_label %}
 
 {% if not is_preview %}
-  {#  {{ dump(settings) }}#}
+    {#  {{ dump(settings) }}#}
 {% endif %}
 
-{% if logo_gallery|length %}
-    <section id="{{ settings.block_id }}" class="m__logoReel">
+{% if g_logos | length %}
+    <section id="{{ settings.block_id }}" class="m__logoReel g__logoReel">
         <div class="wrapper">
             <div class="titleWrapper -short -center">
-                {% if title %}
-                    <h1 class="m__title m__logoReel__title">{{ title }}</h1>
+                {% if g_title or custom_title %}
+                    <h1 class="m__title m__logoReel__title">{{ custom_title ? custom_title : g_title }}</h1>
                 {% endif %}
             </div>
-            {% if desc %}
-                <h3 class="m__logoReel__desc">{{ desc }}</h3>
+            {% if g_subtitle or custom_subtitle %}
+                <h3 class="m__logoReel__desc">{{ custom_subtitle ? custom_subtitle : g_subtitle }}</h3>
             {% endif %}
-            {% if label %}
-                <p class="m__logoReel__label">{{ label }}</p>
+            {% if g_label or custom_label %}
+                <p class="m__logoReel__label">{{ custom_label ? custom_label : g_label }}</p>
             {% endif %}
-            {% if logo_gallery %}
+            {% if g_logos %}
                 <div class="m__logoReel__logos">
                     <div class="swiper js-logoSlider">
                         <div class="swiper-wrapper">
-                            {% for logo in logo_gallery %}
+                            {% for logo in g_logos %}
                                 <div class="swiper-slide">
                                     <div class="m__logoReel__logos__block">
                                         <img class="m__logoReel__logos__block__img" src="{{ get_image(logo) }}" alt="" >

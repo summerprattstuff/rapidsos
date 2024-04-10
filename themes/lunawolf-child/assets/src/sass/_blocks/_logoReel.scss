@@ -30,6 +30,25 @@
     }
   }
 
+  &__label {
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #3dacdd;
+
+    @include media-up(m) {
+      font-size: 20px;
+    }
+
+    &:not(:first-child) {
+      margin-top: 25px;
+
+      @include media-up(m) {
+        margin-top: 35px;
+      }
+    }
+  }
+
   &__logos {
 
     &:not(:first-child) {
@@ -62,6 +81,7 @@
 
     .swiper-wrapper {
       justify-content: center;
+      align-items: center;
     }
   }
 
@@ -71,13 +91,5 @@
 
   .swiper-slide {
     width: auto;
-  }
-
-  .swiper-pagination {
-    bottom: 0;
-  }
-
-  .swiper-pagination-bullet-active {
-    background: $primary;
   }
 }

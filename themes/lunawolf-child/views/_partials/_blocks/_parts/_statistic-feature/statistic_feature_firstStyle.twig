@@ -1,0 +1,28 @@
+{% set title     = block.title %}
+{% set number    = block.stat_value %}
+{% set desc      = block.desc %}
+{% set aboveText = block.above_text %}
+
+<div class="wrapper">
+    <div class="m__statistic__inner">
+        {% if title %}
+            <div class="m__statistic__top">
+                <div class="titleWrapper">
+                    <h1 class="m__title m__statistic__top__title">{{ title }}</h1>
+                </div>
+            </div>
+        {% endif %}
+        {% if number or desc %}
+            <div class="m__statistic__bot">
+                <div class="m__statistic__bot__inner">
+                    {% if number %}
+                        <div class="m__statistic__bot__inner__numb">{{ number }}</div>
+                    {% endif %}
+                    {% if desc %}
+                        <h3 class="m__statistic__bot__inner__desc">{{ desc }}</h3>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>

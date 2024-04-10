@@ -1,0 +1,37 @@
+{% set image_gallery = block.image_gallery %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if image_gallery | length %}
+    <section id="{{ settings.block_id }}" class="m__imgGallery">
+        <div class="wrapper">
+            {% if image_gallery %}
+                <div class="m__imgGallery__images">
+                    <div class="swiper js-imgSlider">
+                        <div class="swiper-wrapper">
+                            {% for image in image_gallery %}
+                                <div class="swiper-slide">
+                                    <div class="m__imgGallery__images__block">
+                                        <img class="m__imgGallery__images__block__img" src="{{ get_image(image) }}" alt="" >
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add at least one <strong>image</strong> to show module on page.
+    </div>
+{% endif %}

@@ -1,9 +1,23 @@
 .m__scText {
-  padding: 70px 0;
   text-align: center;
+  margin: 30px 0;
+  padding: 30px 0;
 
   @include media-up(m) {
-    padding: 100px 0;
+    margin: 50px 0;
+    padding: 50px 0;
+  }
+
+  &.-linear {
+    background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
+  }
+
+  .overlay {
+    padding: 70px 0;
+
+    @include media-up(m) {
+      padding: 100px 0;
+    }
   }
 
   &__title {
@@ -20,5 +34,17 @@
     &:not(:first-child) {
       margin-top: 30px;
     }
+  }
+
+  .btnWrapper {
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+  }
+
+  .btn {
+    color: inherit;
+    border-color: inherit;
   }
 }

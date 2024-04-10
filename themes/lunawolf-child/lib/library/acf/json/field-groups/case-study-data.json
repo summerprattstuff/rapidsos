@@ -21,6 +21,34 @@
             "no_preference": 0
         },
         {
+            "key": "field_66067809797b8",
+            "label": "Hero Image",
+            "name": "hero_img",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "array",
+            "upload_folder": "",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
             "key": "field_66067755797b3",
             "label": "Logo",
             "name": "logo",
@@ -51,7 +79,7 @@
         {
             "key": "field_6606776a797b4",
             "label": "Title",
-            "name": "hero_title",
+            "name": "custom_title",
             "aria-label": "",
             "type": "textarea",
             "instructions": "Add custom title to be displayed in case study page.",
@@ -132,34 +160,6 @@
                     "parent_repeater": "field_66067797797b6"
                 }
             ]
-        },
-        {
-            "key": "field_66067809797b8",
-            "label": "Hero Image",
-            "name": "heroImg",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "uploader": "",
-            "return_format": "array",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium",
-            "library": "all",
-            "upload_folder": ""
         },
         {
             "key": "field_6607240c5abcb",
@@ -442,5 +442,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1712312514
+    "modified": 1712745631
 }

@@ -7,11 +7,12 @@
 {% set full_screen     = block.full_screen_video %}
 {% set bg_color        = block.bg_color %}
 {% set txt_color       = block.txt_color %}
+{% set lg_bg_color     = block.lg_bg_color %}
 {% set opacity         = block.overlay_opacity %}
 {% set ctas            = block.ctas %}
 {% set bg_video        = bg_video_file or bg_video_url %}
 
-<div class="m__hero__hero{{ bg_video ? ' -withVideo' }}">
+<div class="m__hero__hero{{ bg_video ? ' -withVideo' }}{{ lg_bg_color ? ' -linear' }}">
   {% if bg_image and not bg_video %}
     <div class="img" role="img">
       <picture>
@@ -46,7 +47,7 @@
         <h2 class="m__subtitle m__hero__hero__subtitle">{{ subtitle }}</h2>
       {% endif %}
       {% if ctas %}
-        <div class="m__hero__hero__ctas">
+        <div class="m__ctas m__hero__hero__ctas">
           {% for row in ctas %}
             {% set link = row.cta %}
 

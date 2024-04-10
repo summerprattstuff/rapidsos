@@ -157,4 +157,17 @@
       }
     }
   }
+
+  .btnWrapper {
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    .btn {
+      @include media-down(m) {
+        padding: 5px 32px;
+      }
+    }
+  }
 }

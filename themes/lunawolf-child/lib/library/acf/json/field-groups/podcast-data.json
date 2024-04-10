@@ -23,7 +23,7 @@
         {
             "key": "field_6609d691a4aca",
             "label": "Title",
-            "name": "hero_title",
+            "name": "custom_title",
             "aria-label": "",
             "type": "textarea",
             "instructions": "Add custom title to be displayed in podcast page.",
@@ -175,7 +175,7 @@
         {
             "key": "field_6609dd3adfc93",
             "label": "Background Image",
-            "name": "bg_img",
+            "name": "hero_img",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -399,5 +399,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711927916
+    "modified": 1712745629
 }

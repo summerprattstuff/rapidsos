@@ -21,6 +21,34 @@
             "no_preference": 0
         },
         {
+            "key": "field_660a91c12b2f5",
+            "label": "Hero Image",
+            "name": "hero_img",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "array",
+            "upload_folder": "",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
             "key": "field_660a917b2b2f3",
             "label": "Title",
             "name": "custom_title",
@@ -61,34 +89,6 @@
             "rows": 2,
             "placeholder": "",
             "new_lines": "br"
-        },
-        {
-            "key": "field_660a91c12b2f5",
-            "label": "Hero Image",
-            "name": "hero_image",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "uploader": "",
-            "return_format": "array",
-            "upload_folder": "",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium",
-            "library": "all"
         },
         {
             "key": "field_660a91d32b2f6",
@@ -190,5 +190,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711971779
+    "modified": 1712745626
 }

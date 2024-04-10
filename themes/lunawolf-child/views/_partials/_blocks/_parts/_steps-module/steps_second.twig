@@ -13,15 +13,19 @@
     </svg>
     <div class="m__stepsTwo__wrap">
         {% for step in steps %}
-            {% set img  = step.step_img %}
-            {% set text = step.step_text %}
+            {% set img        = step.step_img %}
+            {% set stepTitle = step.step_title %}
+            {% set text_2     = step.step_text %}
 
             {% if img %}
                 <div class="m__stepsTwo__blockWrap">
                     <div class="m__stepsTwo__blockWrap__imgWrap">
                         <img class="m__stepsTwo__blockWrap__img" src="{{ get_image(img) }}" alt="" >
                     </div>
-                    <div class="m__stepsTwo__blockWrap__text m_wyText">{{ text }}</div>
+                    <div class="m__stepsTwo__blockWrap__textWrap">
+                        <div class="m__stepsTwo__blockWrap__textWrap__title">{{ stepTitle }}</div>
+                        <div class="m__stepsTwo__blockWrap__textWrap__text m_wyText">{{ text_2 }}</div>
+                    </div>
                 </div>
             {% endif %}
         {% endfor %}

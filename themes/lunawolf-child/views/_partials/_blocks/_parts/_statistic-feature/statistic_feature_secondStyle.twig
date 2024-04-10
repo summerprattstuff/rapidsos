@@ -1,0 +1,20 @@
+{% set number    = block.stat_value %}
+{% set desc      = block.desc %}
+{% set label     = block.label_desc %}
+{% set aboveText = block.above_text %}
+
+<div class="wrapper">
+    <div class="inner">
+        {% if number %}
+            <div class="numb">{{ number }}</div>
+        {% endif %}
+        <div class="text">
+            {% if desc %}
+                <h3 class="desc">{{ desc }}</h3>
+            {% endif %}
+            {% if label %}
+                <div class="label">{{ label }}</div>
+            {% endif %}
+        </div>
+    </div>
+</div>

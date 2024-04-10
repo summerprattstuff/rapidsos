@@ -13,6 +13,23 @@
 
   &__title {
     font-weight: 400;
+
+    @include media-down(m) {
+      font-size: 20px;
+    }
+  }
+
+  &__subtitle {
+    color: $white;
+    font-weight: 400;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    .-preview & {
+      color: $white !important;
+    }
   }
 
   .btnWrapper {

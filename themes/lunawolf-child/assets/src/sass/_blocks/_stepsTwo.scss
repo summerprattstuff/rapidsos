@@ -22,18 +22,18 @@
       @include media-up(s) {
         display: block;
         position: absolute;
-        top: 295px; left: 50%;
+        top: 305px; left: 50%;
         transform: translateX(-50%);
         z-index: -5;
       }
 
       @include media-up(m) {
-        top: 365px;
+        top: 374px;
       }
 
       .-preview & {
         z-index: 0;
-        top: 365px;
+        top: 374px;
       }
     }
   }
@@ -88,7 +88,7 @@
             display: block;
             position: absolute;
             content: '';
-            bottom: -27px; right: 50%;
+            bottom: -36px; right: 50%;
             width: 500px; height: 20px;
             background: $white;
             z-index: -1;
@@ -122,7 +122,7 @@
             display: block;
             position: absolute;
             content: '';
-            bottom: -27px; left: 50%;
+            bottom: -36px; left: 50%;
             width: 500px; height: 20px;
             z-index: -1;
             background: $white;
@@ -137,14 +137,14 @@
       &:after {
         position: absolute;
         content: '';
-        bottom: -25px; left: 50%;
+        bottom: -35px; left: 50%;
         transform: translateX(-50%);
         height: 17px; width: 17px;
         border-radius: 50%;
         background-color: #25A7DF;
 
         @include media-up(s) {
-          bottom: -25px;
+          bottom: -35px;
         }
       }
     }
@@ -163,14 +163,24 @@
       }
     }
 
-    &__text {
+    &__textWrap {
       text-align: center;
 
       &:not(:first-child) {
-        margin-top: 30px;
+        margin-top: 50px;
+      }
 
-        @include media-up(s) {
-          margin-top: 50px;
+      &__title {
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      &__text {
+        font-size: 20px;
+
+        &:not(:first-child) {
+          margin-top: 10px;
         }
       }
     }

@@ -36,10 +36,48 @@ __webpack_require__.r(__webpack_exports__);
     var logoSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.js-logoSlider', {
       modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination],
       slidesPerView: 'auto',
+      loop: true,
       spaceBetween: 63,
       pagination: {
         el: '.swiper-pagination',
         clickable: true
+      },
+      on: {
+        lock: function lock(e) {
+          e.el.classList.add('locked');
+        },
+        unlock: function unlock(e) {
+          e.el.classList.remove('locked');
+        }
+      }
+    });
+  })();
+  (function () {
+    var imgSlider = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.js-imgSlider', {
+      modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation, swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Pagination],
+      loop: true,
+      spaceBetween: 20,
+      slidesPerView: 1,
+      breakpoints: {
+        576: {
+          slidesPerView: 2
+        },
+        992: {
+          slidesPerView: 3
+        },
+        1200: {
+          slidesPerView: 4
+        }
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+        dynamicMainBullets: 4
       },
       on: {
         lock: function lock(e) {
@@ -10577,6 +10615,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var vh = window.innerHeight * 0.01;
 var adaptVh = function adaptVh() {
   vh = window.innerHeight * 0.01;
@@ -10586,6 +10625,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   adaptVh();
   window.addEventListener('resize', (0,_helpers_debounce__WEBPACK_IMPORTED_MODULE_1__["default"])(adaptVh));
   (0,_components_videos__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  (0,_components_sliders__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_components_sliders__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_components_sliders__WEBPACK_IMPORTED_MODULE_2__["default"])();
   (0,_components_utilities_activeTrigger__WEBPACK_IMPORTED_MODULE_4__["default"])();

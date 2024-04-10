@@ -5,12 +5,12 @@
     width: 100%;
 
     &__bgImg {
-      background: 50% / cover no-repeat #fafafa;
+      background: 0 50% / contain no-repeat;
       padding-top: 48.92%;
       height: 0;
 
       .-preview & {
-        background: 50% / contain no-repeat #fafafa;
+        background: 50% / contain no-repeat;
         height: 100%;
       }
     }

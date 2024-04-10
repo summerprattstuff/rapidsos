@@ -1,5 +1,6 @@
 {% set title           = block.title %}
 {% set subtitle        = block.subtitle %}
+{% set ctas            = block.ctas %}
 {% set bg_image        = block.bg_image %}
 {% set bg_image_mobile = block.bg_image_mobile %}
 
@@ -14,8 +15,24 @@
             <div class="m__hero__secondary__left _l5">
                 <div class="m__hero__secondary__left__box">
                     <div class="m__hero__secondary__left__inner">
-                        <h1 class="m_title title">{{ title }}</h1>
-                        <p class="subtitle">{{ subtitle }}</p>
+                        {% if title %}
+                            <h1 class="m_title title">{{ title }}</h1>
+                        {% endif %}
+                        {% if subtitle %}
+                            <p class="subtitle">{{ subtitle }}</p>
+                        {% endif %}
+                        {% if ctas %}
+                            <div class="m__ctas m__hero__secondary__left__inner__ctas">
+                                {% for row in ctas %}
+                                    {% set link = row.cta %}
+
+                                    {% include '_components/_advanced_link.twig' with {
+                                        link: link,
+                                        class: '-black'
+                                    } %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

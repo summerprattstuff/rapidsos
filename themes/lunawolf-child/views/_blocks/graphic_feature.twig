@@ -1,13 +1,19 @@
-{% set bg_color   = block.bg_color %}
-{% set text_color = block.text_color %}
-{% set desc       = block.desc %}
-{% set link       = block.link %}
+{% set bg_color    = block.bg_color %}
+{% set txt_color   = block.text_color %}
+{% set opacity     = block.overlay_opacity %}
+{% set lg_bg_color = block.lg_bg_color %}
+{% set desc        = block.desc %}
+{% set link        = block.link %}
 
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__graphicFeature" style="background: {{ bg_color }}">
+<section id="{{ settings.block_id }}" class="m__graphicFeature{{ lg_bg_color ? ' -linear'}}" style="{{ bg_color ? 'background: ' ~ bg_color ~ ';' }}">
+    <div class="overlay" style="
+    {{ bg_color ? 'background: ' ~ bg_color ~ ';' }}
+                      {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}">
+    </div>
     <div class="wrapper">
         {% if block %}
             <div class="m__graphicFeature__top">
@@ -17,8 +23,8 @@
             </div>
         {% endif %}
         {% if desc %}
-            <div class="m__graphicFeature__bottom">
-                <h3 class="m__graphicFeature__bottom__desc" style="color: {{ text_color }}">{{ desc }}</h3>
+            <div class="m__graphicFeature__bottom" style="{{ txt_color ? 'color: ' ~ txt_color ~ ';' }}">
+                <div class="m__wyswyg m__graphicFeature__bottom__desc">{{ desc }}</div>
             </div>
         {% endif %}
     </div>

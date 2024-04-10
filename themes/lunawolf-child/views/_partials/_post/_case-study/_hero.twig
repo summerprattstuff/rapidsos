@@ -1,10 +1,10 @@
-{% set postType  = post.post_type %}
-{% set title     = post.title %}
-{% set logo      = post.meta.logo %}
-{% set heroTitle = post.meta.hero_title %}
-{% set subtitle  = post.meta.subtitle %}
-{% set links     = post.meta('links') %}
-{% set heroImg   = post.meta.heroImg %}
+{% set postType    = post.post_type %}
+{% set title       = post.title %}
+{% set logo        = post.meta.logo %}
+{% set customTitle = post.meta.custom_title %}
+{% set subtitle    = post.meta.subtitle %}
+{% set links       = post.meta('links') %}
+{% set heroImg     = post.meta.hero_img %}
 
 <section class="hero__cs">
     <div class="wrapper">
@@ -21,7 +21,7 @@
                             </div>
                         {% endif %}
                         <div class="titleWrapper">
-                            <h1 class="title">{{ heroTitle ? heroTitle : title }}</h1>
+                            <h1 class="title">{{ customTitle ? customTitle : title }}</h1>
                         </div>
                         {% if subtitle %}
                             <h2 class="subtitle">{{ subtitle }}</h2>

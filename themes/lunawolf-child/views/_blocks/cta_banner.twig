@@ -1,6 +1,7 @@
-{% set bgColor = block.bg_color %}
-{% set title   = block.title %}
-{% set link    = block.link %}
+{% set bgColor  = block.bg_color %}
+{% set title    = block.title %}
+{% set subtitle = block.subtitle %}
+{% set link     = block.link %}
 
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
@@ -9,9 +10,14 @@
 {% if title or link %}
     <section id="{{ settings.block_id }}" class="m__ctaBanner{{ bgColor ? ' -gradient' }}">
         <div class="wrapper">
-            <div class="titleWrapper -center">
+            <div class="content">
                 {% if title %}
-                    <h1 class="m__title__white m__ctaBanner__title">{{ title }}</h1>
+                    <div class="titleWrapper -center">
+                        <h2 class="m__title__white m__ctaBanner__title">{{ title }}</h2>
+                    </div>
+                {% endif %}
+                {% if subtitle %}
+                    <h3 class="m__ctaBanner__subtitle">{{ subtitle }}</h3>
                 {% endif %}
                 {% if link %}
                     <div class="btnWrapper">
