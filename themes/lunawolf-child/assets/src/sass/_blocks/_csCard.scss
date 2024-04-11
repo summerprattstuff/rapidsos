@@ -1,5 +1,13 @@
 .m__csCard {
 
+  &.fancybox__content {
+    background: transparent;
+
+    .wrapper {
+      padding: 0;
+    }
+  }
+
   .content {
     max-width: 950px;
     margin: -40px auto 0;

@@ -12,8 +12,7 @@ import debounce from './helpers/debounce';
 
 // import siteFocus from './partials/siteFocus';
 import sliders from './components/sliders';
-import logoSlider from './components/sliders';
-import imgSlider from './components/sliders';
+import fancybox from './components/fancybox';
 import videos from './components/videos';
 import activeTrigger from "./components/utilities/activeTrigger";
 
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   videos();
   sliders();
-  logoSlider();
-  imgSlider();
   activeTrigger();
+  fancybox();
 });
