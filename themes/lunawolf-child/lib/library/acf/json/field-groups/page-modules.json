@@ -4306,9 +4306,29 @@
                 "layout_660fc90a9eb69": {
                     "key": "layout_660fc90a9eb69",
                     "name": "case_study_card",
-                    "label": "Case Study Card",
+                    "label": "Popup - Case Study Card",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_661847a478a77",
+                            "label": "Popup ID",
+                            "name": "popup_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Add popup ID. This ID can be used in any button to trigger this popup.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
                         {
                             "key": "field_660fcab29eb6f",
                             "label": "Case Study Card",

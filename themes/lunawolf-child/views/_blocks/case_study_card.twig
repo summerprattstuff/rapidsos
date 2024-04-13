@@ -1,8 +1,23 @@
-{% set case_studyID = block.case_study_single_card %}
+{% set popup_ID      = block.popup_id %}
+{% set case_studyID  = block.case_study_single_card %}
 {% set links         = block.custom_links %}
 
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if is_preview %}
+  {% if popup_ID %}
+    <p class="_center">
+      Popup ID for this block is: <strong>{{ popup_ID }}</strong><br />
+      Add CTA anywhere on page with URL: <strong>#popup={{ popup_ID }}</strong>
+    </p>
+  {% else %}
+    <p class="_center">
+      Make sure to add Popup ID in order to be able to trigger this popup.<br />
+      You trigger it by adding on any CTA url with: <strong>#popup=POPUP_ID</strong> (replace POPUP_ID with your Popup ID of this block).
+    </p>
+  {% endif %}
 {% endif %}
 
 {% if case_studyID %}
@@ -21,7 +36,7 @@
     {% set author_title  = testimonial.meta('author_title') %}
     {% set author_icon   = testimonial.meta('author_icon') %}
 
-    <section id="{{ settings.block_id }}" class="m__csCard -caseStudy">
+    <section id="{{ settings.block_id }}"{% if popup_ID %} data-popup="{{ popup_ID }}"{% endif %} class="m__csCard -caseStudy" style="{{ not is_preview ? 'display: none;' }}">
         <div class="wrapper">
             <div class="content">
                 <div class="content__inner">
