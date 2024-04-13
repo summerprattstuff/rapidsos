@@ -1,9 +1,9 @@
 {
-    "key": "group_65c69ec9ddce7",
-    "title": "Block Settings",
+    "key": "group_661a6b3053c13",
+    "title": "Block Settings (copy)",
     "fields": [
         {
-            "key": "field_661a6b23b8a54",
+            "key": "field_661a6b305be82",
             "label": "Block Settings",
             "name": "",
             "aria-label": "",
@@ -21,7 +21,7 @@
             "no_preference": 0
         },
         {
-            "key": "field_65c6a0464057c",
+            "key": "field_661a6b305beba",
             "label": "Information",
             "name": "",
             "aria-label": "",
@@ -39,7 +39,7 @@
             "esc_html": 0
         },
         {
-            "key": "field_65c69ecaa91bb",
+            "key": "field_661a6b305bef2",
             "label": "Spacing Top",
             "name": "spacing_top",
             "aria-label": "",
@@ -61,7 +61,7 @@
             "append": "px"
         },
         {
-            "key": "field_65c69f2ba91bc",
+            "key": "field_661a6b305bf2a",
             "label": "Spacing Bot",
             "name": "spacing_bot",
             "aria-label": "",
@@ -83,7 +83,7 @@
             "append": "px"
         },
         {
-            "key": "field_65c69f3fa91bd",
+            "key": "field_661a6b305bf61",
             "label": "Block ID",
             "name": "block_id",
             "aria-label": "",
@@ -133,5 +133,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713007404
+    "modified": 1713007408
 }

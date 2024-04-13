@@ -767,119 +767,6 @@
                             },
                             "post_type": "",
                             "taxonomy": ""
-                        },
-                        {
-                            "key": "field_661676ecb6bfc",
-                            "label": "Color Settings",
-                            "name": "",
-                            "aria-label": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "placement": "top",
-                            "endpoint": 0,
-                            "no_preference": 0
-                        },
-                        {
-                            "key": "field_66167710807f4",
-                            "label": "Linear Gradient Background Color?",
-                            "name": "lg_bg_color",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": "",
-                            "style": ""
-                        },
-                        {
-                            "key": "field_6618400e236e4",
-                            "label": "Background Color",
-                            "name": "bg_color",
-                            "aria-label": "",
-                            "type": "radio",
-                            "instructions": "Choose background color.<\/br>\r\nDefault: White",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "#001559": "Primary",
-                                "#F1F1F1": "Gray",
-                                "#0000": "Black",
-                                "#FFFF": "White"
-                            },
-                            "default_value": "",
-                            "return_format": "value",
-                            "allow_null": 1,
-                            "other_choice": 0,
-                            "layout": "vertical",
-                            "save_other_choice": 0
-                        },
-                        {
-                            "key": "field_6614f7191bede",
-                            "label": "BG Overlay Opacity",
-                            "name": "overlay_opacity",
-                            "aria-label": "",
-                            "type": "number",
-                            "instructions": "Choose overlay opacity from 0 to 1.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "min": 0,
-                            "max": 1,
-                            "placeholder": "",
-                            "step": "0.1",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_6614f6bd1bedc",
-                            "label": "Text Color",
-                            "name": "text_color",
-                            "aria-label": "",
-                            "type": "radio",
-                            "instructions": "Choose text color.<\/br>\r\nDefault: Primary",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "#001559": "Primary",
-                                "#FFFFFF": "White"
-                            },
-                            "default_value": "",
-                            "return_format": "value",
-                            "allow_null": 0,
-                            "other_choice": 0,
-                            "layout": "vertical",
-                            "save_other_choice": 0
                         }
                     ],
                     "min": "",
@@ -892,7 +779,8 @@
                     "acfe_flexible_render_script": "",
                     "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
-                        "group_65c69ec9ddce7"
+                        "group_65c69ec9ddce7",
+                        "group_661a6b3053c13"
                     ],
                     "acfe_flexible_settings_size": "medium",
                     "acfe_layout_locations": [
@@ -1803,6 +1691,24 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_661a7edfeb5bd",
+                            "label": "Main Data",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "top",
+                            "endpoint": 0,
+                            "no_preference": 0
+                        },
+                        {
                             "key": "field_66169b6f8c762",
                             "label": "Module Layout",
                             "name": "module_layout",
@@ -2184,7 +2090,7 @@
                         },
                         {
                             "key": "field_661699c08c75c",
-                            "label": "Color \/ Background Settings",
+                            "label": "Background Settings",
                             "name": "",
                             "aria-label": "",
                             "type": "tab",
@@ -2199,81 +2105,6 @@
                             "placement": "top",
                             "endpoint": 0,
                             "no_preference": 0
-                        },
-                        {
-                            "key": "field_66169a888c75e",
-                            "label": "Background Color",
-                            "name": "bg_color",
-                            "aria-label": "",
-                            "type": "radio",
-                            "instructions": "Choose background color.<\/br>\r\nDefault: White",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "30",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "#001559": "Primary",
-                                "#F1F1F1": "Gray",
-                                "#000000": "Black",
-                                "#ffffff": "White",
-                                "lg_bg_color": "Linear Gardient"
-                            },
-                            "default_value": "",
-                            "return_format": "value",
-                            "allow_null": 1,
-                            "other_choice": 0,
-                            "layout": "vertical",
-                            "save_other_choice": 0
-                        },
-                        {
-                            "key": "field_66169ab98c75f",
-                            "label": "BG Overlay Opacity",
-                            "name": "overlay_opacity",
-                            "aria-label": "",
-                            "type": "number",
-                            "instructions": "Choose overlay opacity from 0 to 1.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "30",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "min": 0,
-                            "max": 1,
-                            "placeholder": "",
-                            "step": "0.1",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_66169add8c760",
-                            "label": "Text Color",
-                            "name": "text_color",
-                            "aria-label": "",
-                            "type": "radio",
-                            "instructions": "Choose text color.<\/br>\r\nDefault: Primary",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "30",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "#001559": "Primary",
-                                "#ffffff": "White"
-                            },
-                            "default_value": "",
-                            "return_format": "value",
-                            "allow_null": 0,
-                            "other_choice": 0,
-                            "layout": "vertical",
-                            "save_other_choice": 0
                         },
                         {
                             "key": "field_66185dcf7d9fb",
@@ -2410,7 +2241,8 @@
                     "acfe_flexible_render_script": "",
                     "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
-                        "group_65c69ec9ddce7"
+                        "group_65c69ec9ddce7",
+                        "group_661a6b3053c13"
                     ],
                     "acfe_flexible_settings_size": "medium",
                     "acfe_layout_locations": [
@@ -2570,119 +2402,6 @@
                             },
                             "post_type": "",
                             "taxonomy": ""
-                        },
-                        {
-                            "key": "field_66167cee2e425",
-                            "label": "Color Settings",
-                            "name": "",
-                            "aria-label": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "placement": "top",
-                            "endpoint": 0,
-                            "no_preference": 0
-                        },
-                        {
-                            "key": "field_66167cfb2e426",
-                            "label": "Linear Gradient Background Color?",
-                            "name": "lg_bg_color",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": "",
-                            "style": ""
-                        },
-                        {
-                            "key": "field_66055a72795eb",
-                            "label": "Background Color",
-                            "name": "bg_color",
-                            "aria-label": "",
-                            "type": "radio",
-                            "instructions": "Choose background color.<\/br>\r\nDefault: White",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "#001559": "Primary",
-                                "#F1F1F1": "Gray",
-                                "#000000": "Black",
-                                "#ffffff": "White"
-                            },
-                            "default_value": "",
-                            "return_format": "value",
-                            "allow_null": 1,
-                            "other_choice": 0,
-                            "layout": "vertical",
-                            "save_other_choice": 0
-                        },
-                        {
-                            "key": "field_66167d782e427",
-                            "label": "BG Overlay Opacity",
-                            "name": "overlay_opacity",
-                            "aria-label": "",
-                            "type": "number",
-                            "instructions": "Choose overlay opacity from 0 to 1.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "min": 0,
-                            "max": 1,
-                            "placeholder": "",
-                            "step": "0.1",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_660564fe141c7",
-                            "label": "Text Color",
-                            "name": "text_color",
-                            "aria-label": "",
-                            "type": "radio",
-                            "instructions": "Choose text color.<\/br>\r\nDefault: Primary",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "#001559": "Primary",
-                                "#ffffff": "White"
-                            },
-                            "default_value": "",
-                            "return_format": "value",
-                            "allow_null": 0,
-                            "other_choice": 0,
-                            "layout": "vertical",
-                            "save_other_choice": 0
                         }
                     ],
                     "min": "",
@@ -2695,7 +2414,8 @@
                     "acfe_flexible_render_script": "",
                     "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
-                        "group_65c69ec9ddce7"
+                        "group_65c69ec9ddce7",
+                        "group_661a6b3053c13"
                     ],
                     "acfe_flexible_settings_size": "medium",
                     "acfe_layout_locations": [
@@ -4562,5 +4282,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1712920319
+    "modified": 1713012481
 }

@@ -82,6 +82,10 @@ section {
   white-space: nowrap;
 }
 
+._pr {
+  position: relative;
+}
+
 *,
 *::before,
 *::after {
@@ -4088,7 +4092,7 @@ ul.social img {
   padding: 14px 32px;
   border: 2px solid #fff;
   font-size: 16px;
-  color: #fff;
+  color: #001559;
   border-radius: 40px;
   cursor: pointer;
   text-align: center;
@@ -4099,11 +4103,12 @@ ul.social img {
   background: #fff;
   color: #001559;
 }
-.btn.-black {
+.btn.-outline, .btn.-black {
   border-color: #001559;
+  background: #fff;
   color: #001559;
 }
-.btn.-black:hover {
+.btn.-outline:hover, .btn.-black:hover {
   background: #001559;
   color: #fff;
 }
@@ -4200,6 +4205,12 @@ ul.social img {
   left: 0;
   right: 0;
   bottom: 0;
+}
+.overlayBg.-linear {
+  background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
+}
+.overlayBg ~ .wrapper {
+  position: relative;
 }
 
 .-preview .m__hero img {
@@ -4470,9 +4481,6 @@ ul.social img {
     padding: 50px 0;
   }
 }
-.m__scText.-linear {
-  background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
-}
 .m__scText .container {
   position: relative;
   z-index: 1;
@@ -4495,6 +4503,11 @@ ul.social img {
 .m__scText .btn {
   color: inherit;
   border-color: inherit;
+}
+.m__scText .btn:hover {
+  background: #001559;
+  border-color: #001559;
+  color: #fff;
 }
 
 .m__ctaBanner {
@@ -5135,9 +5148,6 @@ ul.social img {
     padding: 90px 0;
   }
 }
-.m__twoColumns.-linear {
-  background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
-}
 .m__twoColumns .bgVideoActive {
   display: none;
 }
@@ -5613,9 +5623,6 @@ ul.social img {
     margin: 50px 0;
     padding: 60px 0;
   }
-}
-.m__graphicFeature.-linear {
-  background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
 }
 .m__graphicFeature .container {
   position: relative;

@@ -1,18 +1,14 @@
-{% set bg_color    = block.bg_color %}
-{% set text_color   = block.text_color %}
-{% set opacity     = block.overlay_opacity %}
-{% set lg_bg_color = block.lg_bg_color %}
 {% set desc        = block.desc %}
 {% set link        = block.link %}
+
+{% set text_color  = settings.text_color %}
 
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__graphicFeature{{ lg_bg_color ? ' -linear'}}" style="{{ bg_color ? 'background: ' ~ bg_color ~ ';' }}">
-    <div class="overlayBg" style="
-    {{ bg_color ? 'background: ' ~ bg_color ~ ';' }}
-    {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}"></div>
+<section id="{{ settings.block_id }}" class="m__graphicFeature">
+    {% include '_components/settings_overlay.twig' %}
     <div class="wrapper">
         <div class="container"></div>
         {% if block %}
@@ -31,7 +27,7 @@
                     <div class="btnWrapper">
                         {% include '_components/_advanced_link.twig' with {
                             link: link,
-                            class: ''
+                            class: ' -outline'
                         } %}
                     </div>
                 {% endif %}

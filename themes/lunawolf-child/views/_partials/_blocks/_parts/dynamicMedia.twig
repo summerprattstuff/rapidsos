@@ -4,26 +4,24 @@
 {% set bg_video   = video_file or video_url %}
 
 {% if bg_image and not bg_video %}
-    <div class="m__dynamicMedia{{ bg_video ? ' -withVideo' }}">
-        <div class="wrapImg m__dynamicMedia__wrapImg">
-            <div class="innerImg m__dynamicMedia__wrapImg__innerImg">
-                <div class="bgImg m__dynamicMedia__wrapImg__innerImg__bgImg"style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
-            </div>
-        </div>
+  <div class="m__dynamicMedia{{ bg_video ? ' -withVideo' }}">
+    <div class="wrapImg m__dynamicMedia__wrapImg">
+      <div class="innerImg m__dynamicMedia__wrapImg__innerImg">
+        <div class="bgImg m__dynamicMedia__wrapImg__innerImg__bgImg"style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
+      </div>
     </div>
+  </div>
 {% endif %}
 {% if bg_video %}
-    {% if video_url and not video_file %}
-        <div class="m__dynamicMedia__video">
-            {% if video_url %}
-                <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
-            {% endif %}
-        </div>
-    {% elseif (video_url and video_file) or video_file %}
-        {% if video_file %}
-            <video id="video-{{ blockId }}" class="js-cardVideo" controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
-                <source src="{{ video_file.url }}" type="video/mp4" />
-            </video>
-        {% endif %}
-    {% endif %}
+  {% if video_url %}
+    <div class="m__dynamicMedia__video">
+      {% if video_url %}
+        <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+      {% endif %}
+    </div>
+  {% else %}
+    <video id="video-{{ blockId }}" class="js-cardVideo" controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
+      <source src="{{ video_file.url }}" type="video/mp4" />
+    </video>
+  {% endif %}
 {% endif %}

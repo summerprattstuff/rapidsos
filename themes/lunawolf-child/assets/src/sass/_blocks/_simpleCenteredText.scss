@@ -8,10 +8,6 @@
     padding: 50px 0;
   }
 
-  &.-linear {
-    background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
-  }
-
   .container {
     position: relative;
     z-index: 1;
@@ -43,5 +39,11 @@
   .btn {
     color: inherit;
     border-color: inherit;
+
+    &:hover {
+      background: $primary;
+      border-color: $primary;
+      color: $white;
+    }
   }
 }

@@ -5,15 +5,12 @@
 {% set subtitle        = block.subtitle %}
 {% set link            = block.link %}
 
-{% set bg_color        = block.bg_color %}
-{% set text_color      = block.text_color %}
-{% set opacity         = block.overlay_opacity %}
-
-
 {% set video_or_image  = block.video_or_image %}
 {% set bg_image        = block.bg_image %}
 {% set bg_video_file   = block.bg_video_file %}
 {% set bg_video_url    = block.bg_video_url %}
+
+{% set text_color  = settings.text_color %}
 
 {% set bg_video_active = bg_video_file or bg_video_url %}
 
@@ -21,7 +18,7 @@
     {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__twoColumns {{ moduleLayout }} {{ video_or_image }}" style="{{ bg_color ? 'background: ' ~ bg_color ~ ';' }}">
+<section id="{{ settings.block_id }}" class="m__twoColumns {{ moduleLayout }} {{ video_or_image }}">
     <div class="overlayBg" style="
     {{ bg_color ? 'background: ' ~ bg_color ~ ';' }}
     {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}"></div>
@@ -66,7 +63,7 @@
                             <div class="m__twoColumns__left__btnWrapper btnWrapper">
                                 {% include '_components/_advanced_link.twig' with {
                                     link: link,
-                                    class: '-black'
+                                    class: '-outline'
                                 } %}
                             </div>
                         {% endif %}

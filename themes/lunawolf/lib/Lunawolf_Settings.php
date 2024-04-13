@@ -19,6 +19,9 @@ class Lunawolf_Settings {
     if (!$settings) return [
       'block_id' => 'block-' . $count,
 			'styles' => '',
+      'bg_color' => '',
+      'bg_opacity' => '',
+      'text_color' => ''
     ];
 
 		$block_id = isset($settings['block_id']) && $settings['block_id'] ? $settings['block_id'] : 'block-' . $count;
@@ -26,9 +29,16 @@ class Lunawolf_Settings {
 
 		$styles = $this->_block_style_settings($settings);
 
+    $bg_color   = isset($settings['bg_color']) && $settings['bg_color'] ? $settings['bg_color'] : '';
+    $bg_opacity = isset($settings['bg_opacity']) && ($settings['bg_opacity'] || $settings['bg_opacity'] === 0) ? $settings['bg_opacity'] : '';
+    $text_color = isset($settings['text_color']) && $settings['text_color'] ? $settings['text_color'] : '';
+
 		return [
 			'block_id' => $block_id,
 			'styles' => $styles ? '<style>' . $styles . '</style>' : '',
+      'bg_color' => $bg_color,
+      'bg_opacity' => $bg_opacity,
+      'text_color' => $text_color
 		];
 	}
 
