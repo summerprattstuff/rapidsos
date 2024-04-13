@@ -9,6 +9,12 @@
 
   &.-linear {
     background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
+
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
   }
 
   &__top {
@@ -43,6 +49,13 @@
         font-weight: 700;
         line-height: 36px;
       }
+    }
+  }
+
+  .btnWrapper {
+
+    &:not(:first-child) {
+      margin-top: 25px;
     }
   }
 }

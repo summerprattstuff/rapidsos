@@ -1,5 +1,5 @@
 {% set bg_color    = block.bg_color %}
-{% set txt_color   = block.text_color %}
+{% set text_color   = block.text_color %}
 {% set opacity     = block.overlay_opacity %}
 {% set lg_bg_color = block.lg_bg_color %}
 {% set desc        = block.desc %}
@@ -10,11 +10,11 @@
 {% endif %}
 
 <section id="{{ settings.block_id }}" class="m__graphicFeature{{ lg_bg_color ? ' -linear'}}" style="{{ bg_color ? 'background: ' ~ bg_color ~ ';' }}">
-    <div class="overlay" style="
+    <div class="overlayBg" style="
     {{ bg_color ? 'background: ' ~ bg_color ~ ';' }}
-                      {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}">
-    </div>
+    {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}"></div>
     <div class="wrapper">
+        <div class="container"></div>
         {% if block %}
             <div class="m__graphicFeature__top">
                 {% include '_partials/_blocks/_parts/dynamicMedia.twig' with {
@@ -22,9 +22,19 @@
                 } %}
             </div>
         {% endif %}
-        {% if desc %}
-            <div class="m__graphicFeature__bottom" style="{{ txt_color ? 'color: ' ~ txt_color ~ ';' }}">
-                <div class="m__wyswyg m__graphicFeature__bottom__desc">{{ desc }}</div>
+        {% if desc or link %}
+            <div class="m__graphicFeature__bottom">
+                {% if desc %}
+                    <div class="m__wyswyg m__graphicFeature__bottom__desc" style="{{ text_color ? 'color: ' ~ text_color ~ ';' }}">{{ desc }}</div>
+                {% endif %}
+                {% if link %}
+                    <div class="btnWrapper">
+                        {% include '_components/_advanced_link.twig' with {
+                            link: link,
+                            class: ''
+                        } %}
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
     </div>

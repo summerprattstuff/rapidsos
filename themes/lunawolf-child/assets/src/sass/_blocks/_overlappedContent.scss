@@ -46,12 +46,23 @@
 
     @include media-up(l) {
       margin: 0 120px 0 auto;
+
+      .-preview & {
+        margin-right: 0;
+      }
     }
 
-    &__bgImg {
+    &__innerImg {
       background: 50% / cover no-repeat #fafafa;
       padding-top: 57.65%;
       height: 0;
+
+      &__bgImg {
+
+        .-preview & {
+          height: 100% !important;
+        }
+      }
     }
   }
 
@@ -61,6 +72,7 @@
     max-width: 80%;
     background: $white;
     padding: 20px 15px 20px 12px;
+    z-index: 1;
 
     @include media-up(xs) {
       max-width: 60%;

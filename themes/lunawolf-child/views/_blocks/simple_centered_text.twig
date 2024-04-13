@@ -12,9 +12,9 @@
 
 {% if title or subtitle %}
     <section id="{{ settings.block_id }}" class="m__scText{{ lg_bg_color ? ' -linear'}}" style="{{ bg_color ? 'background: ' ~ bg_color ~ ';' }}">
-        <div class="overlay" style="
+        <div class="overlayBg" style="
         {{ bg_color ? 'background: ' ~ bg_color ~ ';' }}
-                      {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}">
+        {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}"></div>
         <div class="wrapper">
             <div class="container" style="{{ txt_color ? 'color: ' ~ txt_color ~ ';' }}">
                 <div class="titleWrapper -center -short">
@@ -34,10 +34,10 @@
                     {% endif %}
                 </div>
             </div>
-        </div>
         {% if not is_preview %}
             {{ settings.styles | raw }}
         {% endif %}
+        </div>
     </section>
 {% elseif is_preview %}
     <div class="_center">

@@ -1,0 +1,24 @@
+.wrapImg {
+  width: 100%;
+
+  .innerImg {
+    position: relative;
+    padding-top: 48.92%;
+    height: 0;
+
+    .-preview & {
+      overflow: hidden;
+    }
+
+    .bgImg {
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: 0 50% / contain no-repeat;
+
+      .-preview & {
+        background: 0 50% / contain no-repeat;
+        height: 240px;
+      }
+    }
+  }
+}

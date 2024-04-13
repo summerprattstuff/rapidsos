@@ -27,8 +27,10 @@
                         </div>
                     </div>
                 {% endif %}
-                <div class="m__ovrContent__wrapImg">
-                    <div class="m__ovrContent__wrapImg__bgImg" style="{% if bgImg %}background-image: url({{ get_image(bgImg) }}){% endif %}"></div>
+                <div class="wrapImg m__ovrContent__wrapImg">
+                    <div class="innerImg m__ovrContent__wrapImg__innerImg">
+                        <div class="bgImg m__ovrContent__wrapImg__innerImg__bgImg" style="{% if bgImg %}background-image: url({{ get_image(bgImg) }}){% endif %}"></div>
+                    </div>
                 </div>
                 {% if rightText or linkRight %}
                     <div class="m__ovrContent__right">

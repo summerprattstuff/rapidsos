@@ -5,8 +5,10 @@
 
 {% if bg_image and not bg_video %}
     <div class="m__dynamicMedia{{ bg_video ? ' -withVideo' }}">
-        <div class="m__dynamicMedia__wrapImg">
-            <div class="m__dynamicMedia__wrapImg__bgImg" style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
+        <div class="wrapImg m__dynamicMedia__wrapImg">
+            <div class="innerImg m__dynamicMedia__wrapImg__innerImg">
+                <div class="bgImg m__dynamicMedia__wrapImg__innerImg__bgImg"style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
+            </div>
         </div>
     </div>
 {% endif %}

@@ -2708,18 +2708,6 @@ button.swiper-pagination-bullet {
 .m__dynamicMedia {
   position: relative;
 }
-.m__dynamicMedia__wrapImg {
-  width: 100%;
-}
-.m__dynamicMedia__wrapImg__bgImg {
-  background: 0 50%/contain no-repeat;
-  padding-top: 48.92%;
-  height: 0;
-}
-.-preview .m__dynamicMedia__wrapImg__bgImg {
-  background: 50%/contain no-repeat;
-  height: 100%;
-}
 .m__dynamicMedia__video {
   margin-top: 30px;
 }
@@ -2812,6 +2800,30 @@ ul.social img {
   background: none !important;
 }
 
+.wrapImg {
+  width: 100%;
+}
+.wrapImg .innerImg {
+  position: relative;
+  padding-top: 48.92%;
+  height: 0;
+}
+.-preview .wrapImg .innerImg {
+  overflow: hidden;
+}
+.wrapImg .innerImg .bgImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: 0 50%/contain no-repeat;
+}
+.-preview .wrapImg .innerImg .bgImg {
+  background: 0 50%/contain no-repeat;
+  height: 240px;
+}
+
 .-preview .m__title {
   font-weight: 700;
 }
@@ -2851,6 +2863,14 @@ ul.social img {
   .m_wyText p {
     font-size: 20px;
   }
+}
+
+.overlayBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .-preview .m__hero img {
@@ -3124,13 +3144,9 @@ ul.social img {
 .m__scText.-linear {
   background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
 }
-.m__scText .overlay {
-  padding: 70px 0;
-}
-@media (min-width: 768px) {
-  .m__scText .overlay {
-    padding: 100px 0;
-  }
+.m__scText .container {
+  position: relative;
+  z-index: 1;
 }
 @media (min-width: 992px) {
   .m__scText__title {
@@ -3287,11 +3303,17 @@ ul.social img {
   .m__ovrContent__wrapImg {
     margin: 0 120px 0 auto;
   }
+  .-preview .m__ovrContent__wrapImg {
+    margin-right: 0;
+  }
 }
-.m__ovrContent__wrapImg__bgImg {
+.m__ovrContent__wrapImg__innerImg {
   background: 50%/cover no-repeat #fafafa;
   padding-top: 57.65%;
   height: 0;
+}
+.-preview .m__ovrContent__wrapImg__innerImg__bgImg {
+  height: 100% !important;
 }
 .m__ovrContent__left {
   position: absolute;
@@ -3300,6 +3322,7 @@ ul.social img {
   max-width: 80%;
   background: #fff;
   padding: 20px 15px 20px 12px;
+  z-index: 1;
 }
 @media (min-width: 480px) {
   .m__ovrContent__left {
@@ -3786,7 +3809,20 @@ ul.social img {
 .m__twoColumns.-linear {
   background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
 }
-.m__twoColumns.-bgVideo .bgVideoActive {
+.m__twoColumns .bgVideoActive {
+  display: none;
+}
+.-preview .m__twoColumns .bgVideoActive {
+  display: none;
+}
+.m__twoColumns .bgImageActive {
+  display: none;
+}
+.-preview .m__twoColumns .bgImageActive {
+  display: none;
+}
+.m__twoColumns.is_bg_video .bgVideoActive {
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
@@ -3794,6 +3830,38 @@ ul.social img {
   bottom: 0;
   pointer-events: none;
   overflow: hidden;
+}
+.-preview .m__twoColumns.is_bg_video .bgVideoActive {
+  display: block;
+}
+.-preview .m__twoColumns.is_bg_video .bgVideoActive #video- {
+  width: 100%;
+}
+.m__twoColumns.is_bg_image .bgImageActive {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.-preview .m__twoColumns.is_bg_image .bgImageActive {
+  display: block;
+}
+.m__twoColumns__bgImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: 50%/cover no-repeat;
+}
+.m__twoColumns .overlayBg {
+  z-index: 1;
+}
+.m__twoColumns .container {
+  position: relative;
+  z-index: 1;
 }
 .m__twoColumns__sTitle {
   text-align: center;
@@ -3856,16 +3924,6 @@ ul.social img {
   .m__twoColumns__right__inner {
     margin-top: 0;
   }
-}
-.-preview .m__twoColumns__right .m__dynamicMedia {
-  height: 100%;
-}
-.-preview .m__twoColumns__right .m__dynamicMedia__wrapImg {
-  height: 100%;
-}
-.-preview .m__twoColumns__right .m__dynamicMedia__wrapImg__bgImg {
-  background: 50%/contain no-repeat #fafafa;
-  height: 100%;
 }
 .m__twoColumns .btn {
   color: inherit;
@@ -4230,6 +4288,10 @@ ul.social img {
 .m__graphicFeature.-linear {
   background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
 }
+.m__graphicFeature .container {
+  position: relative;
+  z-index: 1;
+}
 @media (min-width: 768px) {
   .m__graphicFeature__top {
     max-width: 80%;
@@ -4256,6 +4318,9 @@ ul.social img {
 .m__graphicFeature__bottom__desc p {
   font-weight: 700;
   line-height: 36px;
+}
+.m__graphicFeature .btnWrapper:not(:first-child) {
+  margin-top: 25px;
 }
 
 .m__iconBoxes {

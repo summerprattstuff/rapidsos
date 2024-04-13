@@ -31,7 +31,7 @@ export default () => {
 
   (() => {
     let bgVideos = document.querySelectorAll('.js-bgVideo');
-console.log('test');
+
     bgVideos.forEach(video => {
       const player = new Plyr(video, {
         controls: false,

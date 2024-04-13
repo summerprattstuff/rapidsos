@@ -12,12 +12,9 @@
     background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%) !important;
   }
 
-  .overlay {
-    padding: 70px 0;
-
-    @include media-up(m) {
-      padding: 100px 0;
-    }
+  .container {
+    position: relative;
+    z-index: 1;
   }
 
   &__title {

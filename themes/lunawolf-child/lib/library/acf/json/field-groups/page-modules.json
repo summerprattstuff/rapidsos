@@ -808,12 +808,12 @@
                             "style": ""
                         },
                         {
-                            "key": "field_6614f6db1bedd",
-                            "label": "BG Color",
+                            "key": "field_6618400e236e4",
+                            "label": "Background Color",
                             "name": "bg_color",
                             "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "Choose background color.",
+                            "type": "radio",
+                            "instructions": "Choose background color.<\/br>\r\nDefault: White",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -821,22 +821,18 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": 0,
-                            "return_format": "string",
-                            "display": "default",
-                            "button_label": "Select Color",
-                            "color_picker": 1,
-                            "absolute": 0,
-                            "input": 1,
-                            "allow_null": 1,
-                            "theme_colors": 0,
-                            "colors": {
+                            "choices": {
                                 "#001559": "Primary",
                                 "#F1F1F1": "Gray",
-                                "#000000": "Black",
-                                "#ffffff": "White"
-                            }
+                                "#0000": "Black",
+                                "#FFFF": "White"
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 1,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
                         },
                         {
                             "key": "field_6614f7191bede",
@@ -865,29 +861,25 @@
                             "label": "Text Color",
                             "name": "text_color",
                             "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "Choose text color.",
+                            "type": "radio",
+                            "instructions": "Choose text color.<\/br>\r\nDefault: Primary",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "100",
+                                "width": "25",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": 0,
-                            "return_format": "string",
-                            "display": "default",
-                            "button_label": "Select Color",
-                            "color_picker": 1,
-                            "absolute": 0,
-                            "input": 1,
-                            "allow_null": 1,
-                            "theme_colors": 0,
-                            "colors": {
+                            "choices": {
                                 "#001559": "Primary",
-                                "#ffffff": "White"
-                            }
+                                "#FFFFFF": "White"
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
                         }
                     ],
                     "min": "",
@@ -2209,56 +2201,32 @@
                             "no_preference": 0
                         },
                         {
-                            "key": "field_66169a558c75d",
-                            "label": "Linear Gradient Background Color?",
-                            "name": "lg_bg_color",
-                            "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "25",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": "",
-                            "style": ""
-                        },
-                        {
                             "key": "field_66169a888c75e",
                             "label": "Background Color",
                             "name": "bg_color",
                             "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "Choose background color.",
+                            "type": "radio",
+                            "instructions": "Choose background color.<\/br>\r\nDefault: White",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "25",
+                                "width": "30",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": 0,
-                            "return_format": "string",
-                            "display": "default",
-                            "button_label": "Select Color",
-                            "color_picker": 1,
-                            "absolute": 0,
-                            "input": 1,
-                            "allow_null": 1,
-                            "theme_colors": 0,
-                            "colors": {
+                            "choices": {
                                 "#001559": "Primary",
                                 "#F1F1F1": "Gray",
                                 "#000000": "Black",
-                                "#ffffff": "White"
-                            }
+                                "#ffffff": "White",
+                                "lg_bg_color": "Linear Gardient"
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 1,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
                         },
                         {
                             "key": "field_66169ab98c75f",
@@ -2270,7 +2238,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "25",
+                                "width": "30",
                                 "class": "",
                                 "id": ""
                             },
@@ -2287,37 +2255,33 @@
                             "label": "Text Color",
                             "name": "text_color",
                             "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "Choose text color.",
+                            "type": "radio",
+                            "instructions": "Choose text color.<\/br>\r\nDefault: Primary",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "25",
+                                "width": "30",
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "enable_opacity": 0,
-                            "return_format": "string",
-                            "display": "default",
-                            "button_label": "Select Color",
-                            "color_picker": 1,
-                            "absolute": 0,
-                            "input": 1,
-                            "allow_null": 1,
-                            "theme_colors": 0,
-                            "colors": {
+                            "choices": {
                                 "#001559": "Primary",
                                 "#ffffff": "White"
-                            }
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
                         },
                         {
-                            "key": "field_66169b1f8c761",
-                            "label": "Background Video?",
-                            "name": "bg_video",
+                            "key": "field_66185dcf7d9fb",
+                            "label": "Bg Video or Bg Image?",
+                            "name": "video_or_image",
                             "aria-label": "",
-                            "type": "true_false",
-                            "instructions": "Check the button if you want background to be video.",
+                            "type": "radio",
+                            "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2325,12 +2289,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": "",
-                            "style": ""
+                            "choices": {
+                                "is_bg_video": "Bg Video",
+                                "is_bg_image": "Bg Image"
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 1,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
                         },
                         {
                             "key": "field_661703a6d1851",
@@ -2343,9 +2311,9 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_66169b1f8c761",
+                                        "field": "field_66185dcf7d9fb",
                                         "operator": "==",
-                                        "value": "1"
+                                        "value": "is_bg_video"
                                     }
                                 ]
                             ],
@@ -2381,9 +2349,9 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_66169b1f8c761",
+                                        "field": "field_66185dcf7d9fb",
                                         "operator": "==",
-                                        "value": "1"
+                                        "value": "is_bg_video"
                                     }
                                 ]
                             ],
@@ -2394,6 +2362,42 @@
                             },
                             "default_value": "",
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_66185b8143935",
+                            "label": "Bg Image",
+                            "name": "bg_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_66185dcf7d9fb",
+                                        "operator": "==",
+                                        "value": "is_bg_image"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "uploader": "",
+                            "return_format": "array",
+                            "upload_folder": "",
+                            "acfe_thumbnail": 0,
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium",
+                            "library": "all"
                         }
                     ],
                     "min": "",
@@ -2611,8 +2615,8 @@
                             "label": "Background Color",
                             "name": "bg_color",
                             "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "Choose background color.",
+                            "type": "radio",
+                            "instructions": "Choose background color.<\/br>\r\nDefault: White",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2620,22 +2624,18 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#001559",
-                            "enable_opacity": 0,
-                            "return_format": "string",
-                            "display": "default",
-                            "button_label": "Select Color",
-                            "color_picker": 1,
-                            "absolute": 0,
-                            "input": 1,
-                            "allow_null": 1,
-                            "theme_colors": 0,
-                            "colors": {
+                            "choices": {
                                 "#001559": "Primary",
                                 "#F1F1F1": "Gray",
                                 "#000000": "Black",
                                 "#ffffff": "White"
-                            }
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 1,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
                         },
                         {
                             "key": "field_66167d782e427",
@@ -2664,8 +2664,8 @@
                             "label": "Text Color",
                             "name": "text_color",
                             "aria-label": "",
-                            "type": "color_picker",
-                            "instructions": "Choose text color.",
+                            "type": "radio",
+                            "instructions": "Choose text color.<\/br>\r\nDefault: Primary",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2673,20 +2673,16 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "#FFFFFF",
-                            "enable_opacity": 0,
-                            "return_format": "string",
-                            "display": "default",
-                            "button_label": "Select Color",
-                            "color_picker": 1,
-                            "absolute": 0,
-                            "input": 1,
-                            "allow_null": 1,
-                            "theme_colors": 0,
-                            "colors": {
+                            "choices": {
                                 "#001559": "Primary",
                                 "#ffffff": "White"
-                            }
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
                         }
                     ],
                     "min": "",
@@ -4546,5 +4542,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1712786193
+    "modified": 1712920319
 }
