@@ -1,0 +1,76 @@
+.m__columns {
+  position: relative;
+  margin: 30px 0;
+  padding: 50px 0;
+
+  ._w {
+    gap: 50px 0;
+    align-items: center;
+  }
+
+  &__sTitle {
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 26px;
+
+    @include media-up(m) {
+      margin-bottom: 45px;
+    }
+
+    @include media-up(l) {
+      font-size: 50px;
+      line-height: 1;
+    }
+
+    .-preview & {
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__column {
+
+    &__content {
+
+      &__labelAbove {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 700;
+        margin: 0 0 15px;
+      }
+
+      &__title {
+        font-size: 26px;
+
+        @include media-up(m) {
+          font-size: 32px;
+        }
+
+        @include media-up(l) {
+          font-size: 40px;
+          line-height: 50px;
+        }
+      }
+
+      &__subtitle {
+        font-size: 16px;
+        line-height: 24px;
+
+        &:not(:first-child) {
+          margin-top: 15px;
+        }
+      }
+
+      &__btnWrapper {
+
+        &:not(:first-child) {
+          margin-top: 25px;
+        }
+
+        .btn {
+          background: transparent;
+        }
+      }
+    }
+  }
+}

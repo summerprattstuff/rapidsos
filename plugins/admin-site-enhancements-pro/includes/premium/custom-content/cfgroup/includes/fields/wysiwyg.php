@@ -192,7 +192,17 @@ class cfgroup_wysiwyg extends cfgroup_field
 
 
     function format_value_for_api( $value, $field = null ) {
-        $formatting = $this->get_option( $field, 'formatting', 'default' );
+        if ( ! is_null( $field ) && property_exists( $field, 'option_pages' ) ) {
+            if ( ! empty( $field->option_pages ) ) {
+                // This WYSIWYG field is part of an option page, let's bypass filters and return content as is
+                $formatting = 'none';
+            } else {
+                $formatting = $this->get_option( $field, 'formatting', 'default' );      
+            }
+        } else {
+            $formatting = $this->get_option( $field, 'formatting', 'default' );
+        }
+
         return ( 'none' == $formatting ) ? $value : apply_filters( 'the_content', $value );
     }
 }

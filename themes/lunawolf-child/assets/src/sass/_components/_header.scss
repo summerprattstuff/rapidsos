@@ -2,6 +2,10 @@
   position: relative;
   padding: 19px 0 25px;
 
+  @include media-up(xl) {
+    padding: 0;
+  }
+
   &::before {
     position: absolute;
     content: '';

@@ -1,85 +1,49 @@
 {% set sTitle          = block.section_title %}
-{% set moduleLayout    = block.module_layout %}
-{% set labelAbove      = block.label_above %}
-{% set title           = block.title %}
-{% set subtitle        = block.subtitle %}
-{% set link            = block.link %}
+{% set columns         = block.columns %}
 
-{% set video_or_image  = block.video_or_image %}
 {% set bg_image        = block.bg_image %}
 {% set bg_video_file   = block.bg_video_file %}
 {% set bg_video_url    = block.bg_video_url %}
 
-{% set text_color  = settings.text_color %}
-
-{% set bg_video_active = bg_video_file or bg_video_url %}
+{% set text_color      = settings.text_color %}
 
 {% if not is_preview %}
-    {#  {{ dump(settings) }}#}
+  {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__twoColumns {{ moduleLayout }} {{ video_or_image }}">
-    <div class="overlayBg" style="
-    {{ bg_color ? 'background: ' ~ bg_color ~ ';' }}
-    {{ opacity ? 'opacity: ' ~ opacity ~ ';' }}"></div>
-    {% if bg_image %}
-        <div class="bgImageActive">
-            <div class="m__twoColumns__bgImg" style="background-image: url({{ get_image(bg_image) }})"></div>
-        </div>
-    {% endif %}
-    {% if bg_video_active and bg_image %}
-        <div class="bgVideoActive">
-            {% if bg_video_url and not bg_video_file %}
-                {% if bg_video_url %}
-                    <div id="video-{{ blockId }}" class="js-bgVideo" data-plyr-provider="{{ 'youtube' in bg_video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ bg_video_url }}"></div>
-                {% endif %}
-            {% elseif (bg_video_url and bg_video_file) or bg_video_file %}
-                {% if bg_video_file %}
-                    <video id="video-{{ blockId }}" class="js-bgVideo" playsinline loop controls>
-                        <source src="{{ bg_video_file.url }}" type="video/mp4" />
-                    </video>
-                {% endif %}
-            {% endif %}
-        </div>
-    {% endif %}
+{% if columns | length %}
+  <section id="{{ settings.block_id }}" class="m__columns {{ moduleLayout }} {{ video_or_image }}" style="{{ bg_image ? 'background: url(' ~ get_image(bg_image) ~ ') 50% / cover no-repeat' }}">
+    {% include '_partials/_blocks/_parts/dynamicCustomMedia.twig' with {
+      bg_image: bg_image,
+      video_file: bg_video_file,
+      video_url: bg_video_url
+    } %}
+    {% include '_components/settings_overlay.twig' %}
     <div class="wrapper">
-        <div class="container" style="{{ text_color ? 'color: ' ~ text_color ~ ';' }}">
-            {% if sTitle %}
-                <h1 class="m__twoColumns__sTitle">{{ sTitle }}</h1>
-            {% endif %}
-            <div class="_w">
-                <div class="m__twoColumns__left _l5">
-                    <div class="m__twoColumns__left__inner">
-                        {% if labelAbove %}
-                            <p class="m__twoColumns__left__labelAbove">{{ labelAbove }}</p>
-                        {% endif %}
-                        {% if title %}
-                            <h1 class="m__twoColumns__left__title">{{ title }}</h1>
-                        {% endif %}
-                        {% if subtitle %}
-                            <div class="m__wyswyg m__twoColumns__left__subtitle">{{ subtitle }}</div>
-                        {% endif %}
-                        {% if link %}
-                            <div class="m__twoColumns__left__btnWrapper btnWrapper">
-                                {% include '_components/_advanced_link.twig' with {
-                                    link: link,
-                                    class: '-outline'
-                                } %}
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="m__twoColumns__right _l7">
-                    <div class="m__twoColumns__right__inner">
-                        {% include '_partials/_blocks/_parts/dynamicMedia.twig' with {
-                            blockData: block
-                        } %}
-                    </div>
-                </div>
+      <div class="container color-{{ text_color ?: 'primary' }}">
+        {% if sTitle %}
+          <h1 class="m__columns__sTitle">{{ sTitle }}</h1>
+        {% endif %}
+        <div class="_w">
+          {% for column in columns %}
+            {% set column_layout  = column.column_layout %}
+            {% set column_width   = column.column_width %}
+            {% set column_media   = column.media %}
+            {% set column_form    = column.form %}
+
+            <div class="m__columns__column _m6{{ column_width ? ' ' ~ column_width }}">
+              <div class="m__columns__column__inner">
+                {% include '_partials/_blocks/_columns-layout/' ~ column_layout ~ '.twig' with {
+                  column: column
+                } %}
+              </div>
             </div>
+          {% endfor %}
         </div>
+      </div>
     </div>
     {% if not is_preview %}
-        {{ settings.styles | raw }}
+      {{ settings.styles | raw }}
     {% endif %}
-</section>
+  </section>
+{% endif %}

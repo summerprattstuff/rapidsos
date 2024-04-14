@@ -4,37 +4,38 @@
 {% set text_color  = settings.text_color %}
 
 {% if not is_preview %}
-    {#  {{ dump(settings) }}#}
+  {#  {{ dump(settings) }}#}
 {% endif %}
 
 <section id="{{ settings.block_id }}" class="m__graphicFeature">
-    {% include '_components/settings_overlay.twig' %}
-    <div class="wrapper">
-        <div class="container"></div>
-        {% if block %}
-            <div class="m__graphicFeature__top">
-                {% include '_partials/_blocks/_parts/dynamicMedia.twig' with {
-                    blockData: block
-                } %}
+  {% include '_components/settings_overlay.twig' %}
+  <div class="wrapper">
+    <div class="container color-{{ text_color ?: 'primary' }}">
+      {% if block %}
+        <div class="m__graphicFeature__top">
+          {% include '_partials/_blocks/_parts/dynamicMedia.twig' with {
+            blockData: block
+          } %}
+        </div>
+      {% endif %}
+      {% if desc or link %}
+        <div class="m__graphicFeature__bottom">
+          {% if desc %}
+            <div class="m__wyswyg m__graphicFeature__bottom__desc color-{{ text_color ?: 'primary' }}">{{ desc }}</div>
+          {% endif %}
+          {% if link %}
+            <div class="btnWrapper">
+              {% include '_components/_advanced_link.twig' with {
+                link: link,
+                class: ' -outline'
+              } %}
             </div>
-        {% endif %}
-        {% if desc or link %}
-            <div class="m__graphicFeature__bottom">
-                {% if desc %}
-                    <div class="m__wyswyg m__graphicFeature__bottom__desc" style="{{ text_color ? 'color: ' ~ text_color ~ ';' }}">{{ desc }}</div>
-                {% endif %}
-                {% if link %}
-                    <div class="btnWrapper">
-                        {% include '_components/_advanced_link.twig' with {
-                            link: link,
-                            class: ' -outline'
-                        } %}
-                    </div>
-                {% endif %}
-            </div>
-        {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
-    {% if not is_preview %}
-        {{ settings.styles | raw }}
-    {% endif %}
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
 </section>

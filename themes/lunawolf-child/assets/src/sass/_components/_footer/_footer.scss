@@ -1,4 +1,119 @@
 .site__footer {
-  height: 50px;
-  background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
+  position: relative;
+  padding: 30px 0 50px;
+  margin-top: 80px;
+  background: $bg-gray;
+
+  ._w {
+    gap: 40px 0;
+  }
+
+  img {
+    max-height: 48px;
+  }
+
+  &__logo {
+    margin: 0 0 30px;
+  }
+
+  &__left {
+
+    @include media-up(xl) {
+      padding-right: 0;
+    }
+  }
+
+  &__ctas {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px 0;
+
+    .btn {
+      width: 100%;
+
+      &:not(:hover) {
+        background: transparent;
+      }
+    }
+  }
+
+  &__right {
+
+    &__inner {
+      display: flex;
+      gap: 40px 24px;
+      font-size: 16px;
+      flex-wrap: wrap;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 30px 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        &.menu:not(.-submenu) {
+
+          ul {
+            display: none;
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        li {
+
+          &.current-menu-item,
+          &.current_page_ancestor {
+
+            & > a {
+              text-decoration: underline;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+
+      @include media-up(m) {
+        padding-left: 50px;
+      }
+
+      @include media-up(l) {
+        padding-left: 100px;
+      }
+    }
+  }
+
+  &__menu {
+    flex: 1;
+    max-width: 100%;
+
+    @include media-down(m) {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    @include media-only(m) {
+      min-width: calc(50% - 24px);
+    }
+
+    &__title {
+      font-weight: 700;
+      margin: 0 0 30px;
+    }
+  }
+
+  &__copy {
+    margin-top: 80px;
+  }
 }

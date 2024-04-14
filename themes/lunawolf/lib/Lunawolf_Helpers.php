@@ -11,6 +11,9 @@ class Lunawolf_Helpers {
       $functions['get_share_box'] = [
         'callable' => [$this, 'get_share_box']
       ];
+      $functions['get_timber_menu'] = [
+        'callable' => [$this, 'get_timber_menu']
+      ];
 
       return $functions;
     });
@@ -75,5 +78,9 @@ class Lunawolf_Helpers {
     $share_buttons .= '</ul>';
 
     return $share_buttons;
+  }
+
+  public function get_timber_menu($menu_id) {
+    return Timber::get_menu($menu_id);
   }
 }

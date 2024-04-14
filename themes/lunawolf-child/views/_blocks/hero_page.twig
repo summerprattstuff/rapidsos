@@ -1,14 +1,14 @@
-{% set hero_type       = block.hero_type %}
+{% set hero_type = block.hero_type %}
 
 {% if not is_preview %}
-    {#  {{ dump(settings) }}#}
+  {#  {{ dump(settings) }}#}
 {% endif %}
 
 <section id="{{ settings.block_id }}" class="m__pageHero -{{ hero_type }}">
-    {% include '_partials/_blocks/_page-hero/' ~ hero_type ~ '.twig' with {
-        blockId: settings.block_id
-    } %}
-    {% if not is_preview %}
-        {{ settings.styles | raw }}
-    {% endif %}
+  {% include '_partials/_blocks/_page-hero/' ~ hero_type ~ '.twig' with {
+    blockId: settings.block_id
+  } %}
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
 </section>

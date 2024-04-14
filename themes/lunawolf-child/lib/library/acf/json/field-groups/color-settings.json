@@ -105,10 +105,10 @@
                 "id": ""
             },
             "choices": {
-                "#001559": "Primary",
-                "#FFFFFF": "White"
+                "primary": "Primary",
+                "white": "White"
             },
-            "default_value": "#001559",
+            "default_value": "primary",
             "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
@@ -146,5 +146,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713007785
+    "modified": 1713031704
 }

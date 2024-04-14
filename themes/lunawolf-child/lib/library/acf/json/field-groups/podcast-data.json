@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_6609d5b2a4ac9",
-            "label": "Single Podcast Hero Data",
+            "label": "Hero Data",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -19,6 +19,34 @@
             "placement": "left",
             "endpoint": 0,
             "no_preference": 0
+        },
+        {
+            "key": "field_6609dd3adfc93",
+            "label": "Featured Image",
+            "name": "hero_img",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "array",
+            "upload_folder": "",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium",
+            "library": "all"
         },
         {
             "key": "field_6609d691a4aca",
@@ -156,7 +184,7 @@
         },
         {
             "key": "field_6609dd04dfc92",
-            "label": "Single Podcast Hero Video Data",
+            "label": "Video Data",
             "name": "",
             "aria-label": "",
             "type": "tab",
@@ -171,34 +199,6 @@
             "placement": "top",
             "endpoint": 0,
             "no_preference": 0
-        },
-        {
-            "key": "field_6609dd3adfc93",
-            "label": "Background Image",
-            "name": "hero_img",
-            "aria-label": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "uploader": "",
-            "return_format": "array",
-            "upload_folder": "",
-            "acfe_thumbnail": 0,
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium",
-            "library": "all"
         },
         {
             "key": "field_6609dd8cdfc94",
@@ -399,5 +399,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1712745629
+    "modified": 1713087686
 }

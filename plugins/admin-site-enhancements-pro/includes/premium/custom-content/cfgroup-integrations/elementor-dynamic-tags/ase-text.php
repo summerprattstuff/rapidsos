@@ -383,114 +383,123 @@ class Ase_Text extends \Elementor\Core\DynamicTags\Tag {
 		$field_key = $this->get_settings( 'key' );
 		$field_key_parts = explode( '__', $field_key );
 
-		$field_name = $field_key_parts[0];
-		$field_type = $field_key_parts[1];
-		$field_subtype = $field_key_parts[2];
+		$field_name = isset( $field_key_parts[0] ) ? $field_key_parts[0] : '';
+		$field_type = isset( $field_key_parts[1] ) ? $field_key_parts[1] : '';
+		$field_subtype = isset( $field_key_parts[2] ) ? $field_key_parts[2] : '';
 
 		$output_format = 'default';
-		
-		switch ( $field_type ) {
-			case 'text':
-				$output_format = $this->get_settings( 'text_output' );
-				$output_format = ! empty( $output_format ) ? $output_format : 'plain';
-				
-				if ( 'link' == $output_format ) {
+
+		if ( ! empty( $field_name ) && ! empty( $field_type ) ) {
+
+			switch ( $field_type ) {
+				case 'text':
+					$output_format = $this->get_settings( 'text_output' );
+					$output_format = ! empty( $output_format ) ? $output_format : 'plain';
+					
+					if ( 'link' == $output_format ) {
+						switch ( $field_subtype ) {
+							case 'url':
+								$output_format = 'link';
+								break;
+							case 'email':
+								$output_format = 'email';					
+								break;
+							case 'any':
+							case 'phone':
+								$output_format = 'default';
+								break;
+						}					
+					} else {
+						$output_format = 'default';
+					}
+					break;
+
+				case 'true_false':
+					$output_format = $this->get_settings( 'true_false_output' );
+					$output_format = ! empty( $output_format ) ? $output_format : 'true_false';
+					break;
+
+				case 'date':
+					$output_format = $this->get_settings( 'date_output' );
+					$output_format = ! empty( $output_format ) ? $output_format : 'F j, Y';
+					break;
+					
+				case 'radio':
+				case 'select':
+				case 'checkbox':
+					$output_format = 'values_c';
+					break;
+
+				case 'hyperlink':
+					$output_format = $this->get_settings( 'hyperlink_output' );
+					$output_format = ! empty( $output_format ) ? $output_format : 'link';
+					break;
+					
+				case 'file':
 					switch ( $field_subtype ) {
-						case 'url':
-							$output_format = 'link';
+						case 'image':
+							$output_format = $this->get_settings( 'file_image_output' );
+							$output_format = ! empty( $output_format ) ? 'image_view__' . $output_format : 'image_view__medium_large';
 							break;
-						case 'email':
-							$output_format = 'email';					
+
+						case 'video':
+						case 'audio':
+							$output_format = $this->get_settings( 'file_av_output' );
+							if ( ! empty( $output_format ) ) {
+								$output_format = $output_format;
+							} else {
+								$output_format = 'url';
+							}
 							break;
+
+						case 'pdf':
+							$output_format = $this->get_settings( 'file_pdf_output' );
+							$output_format = ! empty( $output_format ) ? $output_format : 'pdf_viewer';
+							break;
+
 						case 'any':
-						case 'phone':
-							$output_format = 'default';
+							$output_format = 'file_link';
 							break;
-					}					
-				} else {
-					$output_format = 'default';
-				}
-				break;
-
-			case 'true_false':
-				$output_format = $this->get_settings( 'true_false_output' );
-				$output_format = ! empty( $output_format ) ? $output_format : 'true_false';
-				break;
-
-			case 'date':
-				$output_format = $this->get_settings( 'date_output' );
-				$output_format = ! empty( $output_format ) ? $output_format : 'F j, Y';
-				break;
+					}
+					break;
 				
-			case 'radio':
-			case 'select':
-			case 'checkbox':
-				$output_format = 'values_c';
-				break;
+				case 'gallery' :
+					$output_format = $this->get_settings( 'gallery_output' );
+					$output_format = ! empty( $output_format ) ? 'gallery_' . $output_format . '__medium' : 'gallery_justified__medium';
+					break;
 
-			case 'hyperlink':
-				$output_format = $this->get_settings( 'hyperlink_output' );
-				$output_format = ! empty( $output_format ) ? $output_format : 'link';
-				break;
-				
-			case 'file':
-				switch ( $field_subtype ) {
-					case 'image':
-						$output_format = $this->get_settings( 'file_image_output' );
-						$output_format = ! empty( $output_format ) ? 'image_view__' . $output_format : 'image_view__medium_large';
-						break;
+				case 'relationship':
+					$output_format = $this->get_settings( 'relationship_output' );
+					$output_format = ! empty( $output_format ) ? $output_format : 'titles_only_c';
+					break;
 
-					case 'video':
-					case 'audio':
-						$output_format = $this->get_settings( 'file_av_output' );
-						if ( ! empty( $output_format ) ) {
-							$output_format = $output_format;
-						} else {
-							$output_format = 'url';
-						}
-						break;
+				case 'term':
+					$output_format = $this->get_settings( 'term_output' );
+					$output_format = ! empty( $output_format ) ? $output_format : 'names_archive_links';
+					break;
 
-					case 'pdf':
-						$output_format = $this->get_settings( 'file_pdf_output' );
-						$output_format = ! empty( $output_format ) ? $output_format : 'pdf_viewer';
-						break;
+				case 'user':
+					$output_format = $this->get_settings( 'user_output' );
+					$output_format = ! empty( $output_format ) ? $output_format : 'display_names';
+					break;
 
-					case 'any':
-						$output_format = 'file_link';
-						break;
-				}
-				break;
+			}
 			
-			case 'gallery' :
-				$output_format = $this->get_settings( 'gallery_output' );
-				$output_format = ! empty( $output_format ) ? 'gallery_' . $output_format . '__medium' : 'gallery_justified__medium';
-				break;
-
-			case 'relationship':
-				$output_format = $this->get_settings( 'relationship_output' );
-				$output_format = ! empty( $output_format ) ? $output_format : 'titles_only_c';
-				break;
-
-			case 'term':
-				$output_format = $this->get_settings( 'term_output' );
-				$output_format = ! empty( $output_format ) ? $output_format : 'names_archive_links';
-				break;
-
-			case 'user':
-				$output_format = $this->get_settings( 'user_output' );
-				$output_format = ! empty( $output_format ) ? $output_format : 'display_names';
-				break;
-
-		}
-		
-		if ( 'relationship' != $field_type ) {
-			$field_value = get_cf( $field_name, $output_format );
+			if ( 'relationship' != $field_type ) {
+				$field_value = get_cf( $field_name, $output_format );
+			} else {
+				$field_value = get_cf_related_to( $field_name, $output_format );
+			}
+			
+			// For troubleshooting
+			// echo $field_value;
+			// echo '';
+			
+			echo wp_kses( $field_value, get_kses_with_style_src_svg_ruleset() );
 		} else {
-			$field_value = get_cf_related_to( $field_name, $output_format );
+			echo '';
 		}
 		
-		echo wp_kses( $field_value, get_kses_with_style_src_ruleset() );
-		// echo '';
 	}
 
 }

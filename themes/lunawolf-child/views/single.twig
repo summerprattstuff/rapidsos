@@ -1,19 +1,6 @@
 {% extends "_layout/base.twig" %}
 
-{% set thumbnail = post.thumbnail %}
-{% set postType  = post.post_type %}
-{% set title     = post.title %}
-{% set id        = post.ID %}
-{% set content   = post.content %}
-
 {% block content %}
-  <article class="postType-{{ postType }}" id="post-{{ id }}">
-    <img src="{{ thumbnail.src | resize(1200, 300) }}" alt="{{ thumbnail.caption }}" />
-    <section class="article-content">
-      <h1>{{ title }}</h1>
-      <div class="redactor">
-        {{ content }}
-      </div>
-    </section>
-  </article>
+  {% include '_partials/_post/hero.twig' %}
+  {% include '_partials/_post/content.twig' %}
 {% endblock %}

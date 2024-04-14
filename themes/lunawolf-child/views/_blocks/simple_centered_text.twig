@@ -12,7 +12,7 @@
     <section id="{{ settings.block_id }}" class="m__scText">
         {% include '_components/settings_overlay.twig' %}
         <div class="wrapper">
-            <div class="container" style="{{ text_color ? 'color: ' ~ text_color ~ ';' }}">
+            <div class="container color-{{ text_color ?: 'primary' }}">
                 <div class="titleWrapper -center -short">
                     {% if title %}
                         <h1 class="m__title m__scText__title">{{ title }}</h1>

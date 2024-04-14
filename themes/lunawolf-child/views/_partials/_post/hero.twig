@@ -1,0 +1,24 @@
+{% set postType     = post.post_type %}
+{% set title        = post.title %}
+{% set thumbnail    = post.thumbnail %}
+{% set author       = post.author %}
+
+<section class="m__ptHero -{{ postType }}">
+  <div class="wrapper">
+    <div class="container">
+      <h1>{{ post.title }}</h1>
+      {% if author %}
+        <p>by {{ author.display_name }}</p>
+      {% endif %}
+      {% if thumbnail %}
+        <img src="{{ thumbnail.src | resize(820) }}" alt="{{ thumbnail.caption }}" />
+      {% endif %}
+      <div class="socialShare">
+        {% include '_components/socialShare.twig' %}
+      </div>
+    </div>
+  </div>
+  {% if not is_preview %}
+    {{ settings.styles | raw }}
+  {% endif %}
+</section>

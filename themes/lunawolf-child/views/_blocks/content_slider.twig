@@ -1,0 +1,31 @@
+{% set content_slider = block.content_slider %}
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if content_slider | length %}
+
+  <section id="{{ settings.block_id }}" class="m__contentSlider">
+    <div class="wrapper">
+      <div class="content">
+        <div class="contentSlider__wrapper">
+          <div class="swiper js-testimonialSlider">
+            <div class="swiper-wrapper">
+              {% for slide in content_slider %}
+                {% include '_partials/_blocks/_content-slider/_card.twig' with {
+                  id: slide
+                } %}
+              {% endfor %}
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% elseif is_preview %}
+  <div class="_center">
+    Add at least one post to show on page.
+  </div>
+{% endif %}

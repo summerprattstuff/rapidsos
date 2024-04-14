@@ -31,3 +31,22 @@ section {
 ._pr {
   position: relative;
 }
+
+.no-list {
+  list-style: none;
+  margin: 0; padding: 0;
+
+  &.hs-error-msgs {
+    margin: 0 0 20px;
+
+    li {
+      font-size: 12px;
+      line-height: 14px;
+
+      label {
+        display: block;
+        margin-right: 20px;
+      }
+    }
+  }
+}

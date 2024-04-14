@@ -1,0 +1,75 @@
+form {
+
+  fieldset,
+  .hs_email {
+    max-width: 100% !important;
+
+    &.form-columns-1,
+    &.form-columns-2 {
+
+      .input {
+        margin-right: 20px !important;
+        margin-bottom: 20px !important;
+      }
+    }
+
+    label {
+
+      &:not(.hs-error-msg) {
+        @include sr-only;
+      }
+
+      &.hs-error-msg {
+        color: inherit !important;
+      }
+    }
+
+    .hs-input {
+      width: 100% !important;
+      font-size: 16px !important;
+      padding: 10px !important;
+    }
+
+    select.hs-input {
+      padding: 12px 10px !important;
+    }
+
+    input.text, input.title, input[type=email], input[type=password], input[type=tel], input[type=text], select, textarea {
+      background-color: $white;
+      border: 1px solid #bbb;
+      padding: 2px;
+      color: #4e4e4e;
+    }
+
+    textarea {
+      min-height: 130px;
+    }
+
+    input {
+      -webkit-appearance: none;
+    }
+  }
+
+  input {
+
+    &[type=submit] {
+      display: inline-block;
+      appearance: none;
+      padding: 14px 32px;
+      border: 2px solid $primary;
+      font-size: 16px;
+      border-radius: 40px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: .2s;
+      background: $white;
+      color: $primary;
+
+      &:hover {
+        background: $primary;
+        color: $white;
+      }
+    }
+  }
+}

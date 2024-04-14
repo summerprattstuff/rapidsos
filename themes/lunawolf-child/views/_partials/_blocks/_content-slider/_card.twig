@@ -1,0 +1,21 @@
+{% set current_post = get_post(id) %}
+{% set title        = current_post.title %}
+{% set link         = current_post.link %}
+{% set thumbnail    = current_post.thumbnail %}
+{% set hero_img     = current_post.meta('hero_img') %}
+
+<div class="swiper-slide _ptCard">
+  <div class="inner">
+    {% if thumbnail or hero_img %}
+      <img src="{{ thumbnail ? thumbnail.src | resize(512) : get_image(hero_img) | resize(512) }}" alt="{{ title }}" />
+    {% else %}
+      <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png' }}" alt="{{ title }}" />
+    {% endif %}
+    <p class="_ptCard__title">
+      {{ title }}
+    </p>
+    <a href="{{ link }}">
+      Read more
+    </a>
+  </div>
+</div>

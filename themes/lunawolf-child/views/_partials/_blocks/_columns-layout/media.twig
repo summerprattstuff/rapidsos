@@ -1,0 +1,7 @@
+{% set column_media = column.media %}
+
+<div class="m__columns__column__media">
+  {% include '_partials/_blocks/_parts/dynamicArrayMedia.twig' with {
+    blockData: column_media
+  } %}
+</div>

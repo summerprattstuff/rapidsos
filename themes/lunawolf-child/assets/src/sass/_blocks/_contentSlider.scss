@@ -1,0 +1,7 @@
+.m__contentSlider {
+  margin: 80px 0;
+
+  .swiper-slide {
+    padding: 0 #{$grid-gutter-width / 2};
+  }
+}

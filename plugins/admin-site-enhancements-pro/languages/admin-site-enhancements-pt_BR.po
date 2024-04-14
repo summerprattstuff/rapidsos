@@ -1,0 +1,2627 @@
+# Translation of ASE Pro in Portuguese (Brazil)
+# This file is distributed under the same license as the ASE Pro package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-04-12 07:50:45+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: pt_BR\n"
+"Project-Id-Version: ASE Pro\n"
+
+#: settings.php:140
+msgid "YouTube"
+msgstr "YouTube"
+
+#. translators: 1: the password, 2: the site URL, 3: the password
+#: classes/class-settings-sections-fields.php:4123
+msgid "You can also append <strong>?bypass=%1$s</strong> in the URL to bypass the password entry form. e.g. %2$s/?bypass=%3$s. This can be useful when you need to quickly share a dev site with another person, e.g. a client."
+msgstr "Você também pode anexar <strong>?bypass=%1$s</strong> na URL para ignorar o formulário de entrada de senha. por exemplo: %2$s/?bypass=%3$s.. Isso pode ser útil quando você precisa compartilhar rapidamente um site de desenvolvimento com outra pessoa, por exemplo. um cliente."
+
+#: includes/premium/media-categories/views/admin/tinymce/fields/field.php:146
+msgid "Yes"
+msgstr "Sim"
+
+#: settings.php:139
+msgid "X / Twitter"
+msgstr "X / Twitter"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/wysiwyg.php:8
+msgid "WYSIWYG Editor"
+msgstr "Editor WYSIWYG"
+
+#: settings.php:128
+msgid "Write a quick, 5-star review for ASE"
+msgstr "Escreva uma avaliação rápida de 5 estrelas para o ASE"
+
+#. Author of the plugin
+#: admin-site-enhancements.php
+msgid "wpase.com"
+msgstr "wpase.com"
+
+#: classes/class-settings-fields-render.php:1377
+msgid "without AVIF support"
+msgstr "sem suporte à AVIF"
+
+#: classes/class-settings-fields-render.php:1375
+msgid "with AVIF support"
+msgstr "com suporte à AVIF"
+
+#: classes/class-settings-sections-fields.php:1271
+msgid "Wider Admin Menu"
+msgstr "Menu de Administração Mais Amplo"
+
+#: classes/class-settings-sections-fields.php:3324
+msgid "WebP quality:"
+msgstr "Qualidade WebP:"
+
+#: classes/class-settings-sections-fields.php:4223
+#: classes/class-settings-sections-fields.php:4243
+msgid "We'll be back soon."
+msgstr "Voltaremos em breve."
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:63
+msgid "View Field Group"
+msgstr "Ver Grupo de Campo"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:88
+msgid "View Code Snippet"
+msgstr "Ver Trecho de Código"
+
+#: classes/class-settings-sections-fields.php:4011
+msgid "View admin pages and the site (logged-in) as one of the non-administrator user roles."
+msgstr "Visualizar as páginas de administração e o site (conectado) como uma das funções de usuário não administrador."
+
+#: classes/class-settings-sections-fields.php:4002
+msgid "View Admin as Role"
+msgstr "Ver Admin como Função"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:61
+msgid "Video"
+msgstr "Vídeo"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:90
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:86
+msgid "Vertical"
+msgstr "Vertical"
+
+#: includes/premium/custom-content/cfgroup/includes/field.php:42
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:102
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:115
+#: includes/premium/custom-content/cfgroup/includes/fields/gallery.php:15
+#: includes/premium/custom-content/cfgroup/includes/fields/number.php:40
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:98
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:164
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:53
+#: includes/premium/custom-content/cfgroup/includes/fields/textarea.php:58
+#: includes/premium/custom-content/cfgroup/includes/fields/wysiwyg.php:54
+msgid "Validation"
+msgstr "Validação"
+
+#: classes/class-settings-sections-fields.php:2488
+#: classes/class-settings-sections-fields.php:2512
+#: classes/class-settings-sections-fields.php:2559
+msgid "Validate with:"
+msgstr "Validar com:"
+
+#: settings.php:189
+msgid "Utilities"
+msgstr "Utilidades"
+
+#: classes/class-settings-sections-fields.php:1871
+msgid "Username only"
+msgstr "Nome de usuário apenas"
+
+#: classes/class-login-id-type.php:22 classes/class-login-id-type.php:39
+msgid "Username"
+msgstr "Nome de Usuário"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:324
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:267
+msgid "User Roles"
+msgstr "Funções de Usuário"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/user.php:8
+msgid "User"
+msgstr "Usuário"
+
+#. translators: %s is URL to the Customizer
+#: classes/class-settings-sections-fields.php:1897
+msgid "Use the site icon and URL to replace the default WordPress logo with link to wordpress.org on the login page. Go to the <a href=\"%s\">customizer</a> to set or change your site icon."
+msgstr "Use o ícone do site e a URL para substituir o logotipo padrão do WordPress pelo link para wordpress.org na página de login. Acesse o <a href=\"%s\">Personalizar</a> para definir ou alterar o ícone do site."
+
+#: classes/class-settings-sections-fields.php:4364 settings.php:515
+msgid "Use Selected Image"
+msgstr "Usar Imagem Selecionada"
+
+#: classes/class-settings-sections-fields.php:451
+msgid "Use custom order on frontend query and display of enabled post types. You may need to manually set query order by <code>menu_order</code> in an <code>ascending</code> order."
+msgstr "Usar ordenação personalizada na consulta do front-end e na exibição de tipos de postagem habilitados. Talvez seja necessário definir manualmente a ordem de consulta por <code>menu_order</code> em uma ordem <code>crescente</code>."
+
+#: classes/class-settings-sections-fields.php:540
+msgid "Use custom order of terms on frontend query and display."
+msgstr "Use a ordem personalizada dos termos na consulta e exibição do front-end."
+
+#: settings.php:632
+msgid "Use as Profile Picture"
+msgstr "Usar como Foto de Perfil"
+
+#: classes/class-settings-sections-fields.php:3158
+msgid ""
+"Use a shortcode like the following examples to display an email address on the frontend of your site: \n"
+"        \t\t<ul>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"john@example.com\"]</strong> to display the email on it's own line</li>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"john@example.com\" display=\"inline\"]</strong> to show the email inline</li>\n"
+"        \t\t</ul>"
+msgstr ""
+"Use um shortcode como os exemplos a seguir para exibir um endereço de e-mail no front-end do seu site: \n"
+"        \t\t<ul>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"joao@exemplo.com\"]</strong> para exibir o e-mail em sua própria linha</li>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"joao@exemplo.com\" display=\"inline\"]</strong> para exibir o e-mail em linha</li>\n"
+"        \t\t</ul>"
+
+#: classes/class-settings-sections-fields.php:3148
+msgid ""
+"Use a shortcode like the following examples to display an email address on the frontend of your site: \n"
+"        \t\t<ul>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"john@example.com\"]</strong> to display the email on it's own line</li>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"john@example.com\" display=\"inline\"]</strong> to show the email inline</li>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"john@example.com\" display=\"inline\" link=\"yes\"]</strong> to show the email inline and linked with <strong>mailto:</strong></li>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"john@example.com\" display=\"inline\" link=\"yes\" subject=\"I'm interested to learn about your services...\"]</strong> to show the email inline and linked with <strong>mailto:</strong> with a pre-defined subject line.</li>\n"
+"        \t\t\t<li><strong>[obfuscate email=\"john@example.com\" display=\"inline\" link=\"yes\" class=\"custom-class-name\"]</strong> to show the email inline, linked with <strong>mailto:</strong> and has a custom CSS class to more easily customize the style.</li>\n"
+"        \t\t</ul>"
+msgstr ""
+"Use um shortcode como os exemplos a seguir para exibir um endereço de e-mail no front-end do seu site:\n"
+"         <ul>\n"
+"         <li><strong>[obfuscate email=\"joao@exemplo.com\"]</strong> para exibir o e-mail em sua própria linha</li>\n"
+"         <li><strong>[obfuscate email=\"joao@exemplo.com\" display=\"inline\"]</strong> para exibir o e-mail em linha</li>\n"
+"         <li><strong>[obfuscate email=\"joao@exemplo.com\" display=\"inline\" link=\"yes\"]</strong> para exibir o e-mail embutido e vinculado ao <strong>mailto:</strong>< /li>\n"
+"         <li><strong>[obfuscate email=\"joao@exemplo.com\" display=\"inline\" link=\"yes\" subject=\"Estou interessado em saber mais sobre seus serviços...\"]</strong> para exibir o e-mail embutido e vinculado a <strong>mailto:</strong> com uma linha de assunto predefinida.</li>\n"
+"         <li><strong>[obfuscate email=\"joao@exemplo.com\" display=\"inline\" link=\"yes\" class=\"custom-class-name\"]</strong> para exibir o e-mail inline, vinculado ao < strong>mailto:</strong> e acrescentar uma classe CSS personalizada para personalizar o estilo com mais facilidade.</li>\n"
+"         </ul>"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:26
+msgid "URL / oEmbed"
+msgstr "URL / oEmbed"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/hyperlink.php:25
+msgid "URL"
+msgstr "URL"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:63
+msgid "Uploaded Time"
+msgstr "Hora do Envio"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:64
+msgid "Uploaded Date and Time"
+msgstr "Data e Hora de Envio"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:62
+msgid "Uploaded Date"
+msgstr "Data de Envio"
+
+#: includes/premium/media-categories/views/admin/settings-upgrade.php:29
+msgid "Upgrade"
+msgstr "Atualizar"
+
+#. translators: Taxonomy Label, Singular
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:91
+msgid "Update %s"
+msgstr "Atualizar %s"
+
+#: classes/class-settings-sections-fields.php:4180
+msgid "Under maintenance"
+msgstr "Em Manutenção"
+
+#: includes/premium/media-categories/addons/tree-view/includes/global/class-media-categories-module-tree-view-media.php:370
+#: includes/premium/media-categories/includes/global/class-media-categories-module-media.php:190
+#: includes/premium/media-categories/includes/global/class-media-categories-module-media.php:343
+msgid "Uncategorized"
+msgstr "Sem categoria"
+
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-admin-ajax.php:53
+msgid "Unauthorized."
+msgstr "Não autorizado."
+
+#. translators: Folder Name
+#: includes/premium/media-categories/includes/global/class-media-categories-module-filesystem.php:221
+msgid "Unable to delete %s"
+msgstr "Não foi possível excluir %s"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:379
+msgid "Type"
+msgstr "Tipo"
+
+#: classes/class-settings-sections-fields.php:808
+msgid "Trigger publishing of scheduled posts of all types marked with \"missed schedule\", anytime the site is visited."
+msgstr "Acionar a publicação de postagens programadas de todos os tipos marcadas com \"agendamento perdido\", sempre que o site for visitado."
+
+#: includes/premium/media-categories/addons/tree-view/class-media-categories-module-tree-view.php:62
+msgid "Tree View"
+msgstr "Visualização em Árvore"
+
+#: settings.php:91 settings.php:100
+msgid "Translate"
+msgstr "Traduza"
+
+#: includes/premium/custom-content/cfgroup/templates/page_tools.php:78
+msgid "Tools"
+msgstr "Ferramentas"
+
+#: includes/premium/custom-content/cfgroup/includes/form.php:413
+msgid "Toggle row visibility"
+msgstr "Alternar visibilidade da linha"
+
+#: classes/class-settings-sections-fields.php:3335
+msgid "To exclude an image from conversion and resizing, append '-nr' suffix to the file name, e.g. bird-photo-4k-nr.jpg"
+msgstr "Para excluir uma imagem da conversão e do redimensionamento, acrescente o sufixo \"-nr\" ao nome do arquivo, por exemplo, imagem-passaro-4k-nr.jpg"
+
+#: classes/class-settings-sections-fields.php:3793
+msgid "TLS"
+msgstr "TLS"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:306
+msgid "Title"
+msgstr "Título"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:82
+msgid "Thumbnail (cropped)"
+msgstr "Miniatura (Cortada)"
+
+#: classes/class-settings-sections-fields.php:4283
+#: classes/class-settings-sections-fields.php:4304
+msgid "This site is undergoing maintenance for an extended period today. Thanks for your patience."
+msgstr "Este site está em manutenção estendida hoje. Obrigado pela sua paciência."
+
+#: includes/premium/custom-content/cfgroup/includes/field.php:51
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:111
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:124
+#: includes/premium/custom-content/cfgroup/includes/fields/gallery.php:24
+#: includes/premium/custom-content/cfgroup/includes/fields/number.php:49
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:107
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:173
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:62
+#: includes/premium/custom-content/cfgroup/includes/fields/textarea.php:67
+#: includes/premium/custom-content/cfgroup/includes/fields/wysiwyg.php:63
+msgid "This is a required field"
+msgstr "Este campo é obrigatório"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:126
+msgid "This is a multi-select field"
+msgstr "Este é um campo de seleção múltipla"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/true_false.php:33
+msgid "The text beside the checkbox"
+msgstr "O texto ao lado da caixa de seleção"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-ajax.php:338
+msgid "The taxonomy_name or args[taxonomy_name] parameter must be included in the request."
+msgstr "O parâmetro taxonomy_name ou args[taxonomy_name] deve ser incluído na solicitação."
+
+#. translators: the required user capability to view menu item
+#: classes/class-settings-fields-render.php:1279
+msgid "The role(s) above have the <code>%s</code> capability required to view and access the menu item."
+msgstr "As funções acima possuem a capacidade <code>%s</code> necessária para visualizar e acessar o item de menu."
+
+#: settings.php:117
+msgid "The Pro version of ASE is here! Lifetime Deal (LTD) available."
+msgstr "A versão Pro do ASE está aqui! Oferta Vitalícia (LTD) disponível."
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:64
+msgid "The field name is passed into get_cf() to retrieve values. Use only lowercase letters, numbers, and underscores."
+msgstr "O nome do campo é passado para get_cf() para recuperar valores. Use apenas letras minúsculas, números e sublinhados."
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:54
+msgid "The field label that editors will see."
+msgstr "O rótulo do campo que os editores verão."
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_extras.php:35
+msgid "The field group with the lowest order will appear first."
+msgstr "O grupo de campos com a ordem mais baixa aparecerá primeiro."
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:238
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:502
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1672
+msgid "The code is inactive. Click to activate it"
+msgstr "O código está inativo. Clique para ativá-lo"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:237
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:498
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1669
+msgid "The code is active. Click to deactivate it"
+msgstr "O código está ativo. Clique para desativá-lo"
+
+#. translators: %s is the directory path
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1491
+msgid "The %s directory is not writable, therefore the code snippet files cannot be saved."
+msgstr "O diretório %s não é gravável, portanto os arquivos de trechos de código não podem ser salvos."
+
+#. translators: %s is directory slug 'code-snippets-manager'
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1473
+msgid "The %s directory could not be created"
+msgstr "O diretório %s não pôde ser criado"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:16
+msgid "Text Type"
+msgstr "Tipo de Texto"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/textarea.php:8
+msgid "Text Area"
+msgstr "Área de Texto"
+
+#: includes/premium/custom-content/cfgroup/includes/field.php:16
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:8
+msgid "Text"
+msgstr "Texto"
+
+#: classes/class-settings-sections-fields.php:3922
+msgid "Test email was successfully processed</span>.<br />Please check the destination email's inbox to verify successful delivery."
+msgstr "O e-mail de teste foi processado com sucesso</span>.<br />Verifique a caixa de entrada do e-mail de destino para verificar se a entrega foi bem-sucedida."
+
+#: classes/class-settings-sections-fields.php:465
+msgid "Terms Order"
+msgstr "Ordem dos Termos"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:326
+msgid "Term IDs"
+msgstr "IDs dos Termos"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-ajax.php:160
+msgid "Term does not exist, so cannot be deleted"
+msgstr "O termo não existe, portanto não pode ser excluído"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/term.php:8
+msgid "Term"
+msgstr "Termo"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:323
+msgid "Taxonomy Terms"
+msgstr "Termos de Taxonomia"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/tab.php:8
+msgid "Tab"
+msgstr "Aba"
+
+#: classes/class-settings-sections-fields.php:618
+msgid "SVG Upload"
+msgstr "Envio de SVG"
+
+#: settings.php:94
+msgid "Support"
+msgstr "Suporte"
+
+#: includes/premium/custom-content/cfgroup/includes/form.php:223
+msgid "Submit"
+msgstr "Enviar"
+
+#: classes/class-settings-fields-render.php:757
+#: classes/class-settings-fields-render.php:910
+#: classes/class-settings-fields-render.php:1035
+msgid "Submenu"
+msgstr "Sub-menu"
+
+#: classes/class-settings-sections-fields.php:4315
+#: classes/class-settings-sections-fields.php:4323
+msgid "Stripes"
+msgstr "Listras"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:378
+msgid "Status"
+msgstr "Status"
+
+#: classes/class-settings-sections-fields.php:3792
+msgid "SSL"
+msgstr "SSL"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:812
+msgid "Snippet updated"
+msgstr "Trecho atualizado"
+
+#: includes/premium/custom-content/cfgroup/includes/field_group.php:119
+msgid "Skipped"
+msgstr "Ignorado"
+
+#: classes/class-settings-sections-fields.php:1886
+msgid "Site Identity on Login Page"
+msgstr "Identidade do Site na Página de Login"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_extras.php:49
+msgid "Side"
+msgstr "Lateral"
+
+#: settings.php:522
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "Exibindo 0 a 0 de 0 entradas"
+
+#: settings.php:521
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "Exibindo _START_ a _END_ de _TOTAL_ entradas"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:46
+msgid "Show the values by default"
+msgstr "Exibir os valores por padrão"
+
+#: classes/class-settings-sections-fields.php:4505
+msgid "Show quick summary of the system the site is running on to admins, in the \"At a Glance\" dashboard widget. This includes the web server software, the PHP version, the database software and server IP address."
+msgstr "Mostre aos administradores um resumo rápido do sistema em que o site está sendo executado, no widget do painel \"Agora\". Isso inclui o software do servidor, a versão do PHP, o software do banco de dados e o endereço IP do servidor."
+
+#: classes/class-settings-sections-fields.php:1557
+msgid "Show ID in action rows along with links for Edit, View, etc."
+msgstr "Mostrar o ID nas linhas de ação junto com os links para Editar, Visualizar etc."
+
+#: classes/class-settings-sections-fields.php:1517
+msgid "Show ID column"
+msgstr "Mostrar coluna de ID"
+
+#: classes/class-settings-sections-fields.php:1537
+msgid "Show file size column in media library"
+msgstr "Mostrar coluna de tamanho de arquivo na biblioteca de mídia"
+
+#: classes/class-settings-sections-fields.php:1477
+msgid "Show featured image column"
+msgstr "Mostrar coluna de imagem em destaque"
+
+#: classes/class-settings-sections-fields.php:1497
+msgid "Show excerpt column"
+msgstr "Mostrar coluna de trecho"
+
+#: classes/class-settings-sections-fields.php:227
+msgid "Show duplication link on:"
+msgstr "Exibir link para duplicar em:"
+
+#: classes/class-settings-sections-fields.php:4527
+msgid "Show admin bar status when search engines are set to be discouraged from indexing the site. This is set through a \"Search engine visibility\" checkbox in Settings >> Reading."
+msgstr "Exibe um status da barra de administração e um aviso quando os mecanismos de pesquisa forem configurados para serem desencorajados a indexar o site. Isso é definido por meio da caixa de seleção \"Visibilidade nos motores de busca\" em Configurações >> Leitura."
+
+#: classes/class-settings-sections-fields.php:1410
+msgid "Show additional filter(s) on list tables for hierarchical, custom taxonomies."
+msgstr "Exibir filtros adicionais em tabelas de lista para taxonomias hierárquicas e personalizadas."
+
+#: classes/class-settings-sections-fields.php:4155
+msgid "Show a customizable maintenance page on the frontend while performing a brief maintenance to your site. Logged-in administrators can still view the site as usual."
+msgstr "Mostre uma página de manutenção personalizável no front-end ao realizar uma breve manutenção em seu site. Os administradores conectados ainda podem visualizar o site normalmente."
+
+#: settings.php:524
+msgid "Show _MENU_ entries"
+msgstr "Exibir entradas do _MENU_"
+
+#: settings.php:136
+msgid "Share about ASE on:"
+msgstr "Compartilhe sobre ASE:"
+
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-admin-ajax.php:83
+msgid "Settings saved."
+msgstr "Configurações salvas."
+
+#: classes/class-settings-sections-fields.php:1300
+msgid "Set width to"
+msgstr "Defina a largura para"
+
+#: classes/class-settings-sections-fields.php:4071
+msgid "Set the password:"
+msgstr "Defina uma senha:"
+
+#: classes/class-settings-sections-fields.php:3482
+#: classes/class-settings-sections-fields.php:3539
+#: classes/class-settings-sections-fields.php:3595
+msgid "Set interval to once every"
+msgstr "Defina o intervalo como uma vez a cada"
+
+#: classes/class-settings-sections-fields.php:3634
+msgid "Set custom sender name and email. Optionally use external SMTP service to ensure notification and transactional emails from your site are being delivered to inboxes."
+msgstr "Defina o nome do remetente e o e-mail personalizados. Opcionalmente, use um serviço SMTP externo para garantir que os e-mails de notificação e transacionais do seu site sejam entregues nas caixas de entrada."
+
+#: classes/class-settings-sections-fields.php:2036
+msgid "Set custom redirect URL for all or some user roles after logout."
+msgstr "Defina a URL de redirecionamento personalizada para todas ou algumas funções de usuário após deslogar."
+
+#: classes/class-settings-sections-fields.php:1967
+msgid "Set custom redirect URL for all or some user roles after login."
+msgstr "Defina a URL de redirecionamento personalizada para todas ou algumas funções de usuário após o login."
+
+#: classes/class-settings-sections-fields.php:3921
+msgid "Sending test email..."
+msgstr "Enviando e-mail de teste..."
+
+#: classes/class-settings-sections-fields.php:3904
+msgid "Send Now"
+msgstr "Enviar Agora"
+
+#: settings.php:631
+msgid "Select Profile Picture"
+msgstr "Selecionar Foto do Perfil"
+
+#: classes/class-settings-sections-fields.php:4361 settings.php:514
+msgid "Select an Image"
+msgstr "Selecione uma Imagem"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:9
+msgid "Select"
+msgstr "Selecione"
+
+#: settings.php:187
+msgid "Security"
+msgstr "Segurança"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/relationship.php:58
+msgid "Search..."
+msgstr "Pesquisar..."
+
+#: settings.php:525
+msgid "Search:"
+msgstr "Pesquisa:"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/user.php:31
+msgid "Search users"
+msgstr "Pesquisar usuários"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/term.php:65
+msgid "Search terms"
+msgstr "Pesquisar termos"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:64
+msgid "Search Field Groups"
+msgstr "Pesquisar Grupos de Campos"
+
+#: classes/class-settings-sections-fields.php:4518
+msgid "Search Engines Visibility Status"
+msgstr "Status de Visibilidade dos Mecanismos de Pesquisa"
+
+#: classes/class-search-engines-visibility.php:51
+msgid "Search engines are discouraged from indexing this site. Click to change the settings."
+msgstr "Os motores de busca estão desencorajados de indexar este site. Clique para alterar essas configurações."
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:90
+msgid "Search Code Snippets"
+msgstr "Pesquisar Trechos de Códigos"
+
+#. translators: Taxonomy Label, Plural
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:81
+msgid "Search %s"
+msgstr "Pesquisar %s"
+
+#: classes/class-search-engines-visibility.php:48
+msgid "SE Visibility: OFF"
+msgstr "Visibilidade SE: DESLIGADO"
+
+#: settings.php:107 settings.php:238
+msgid "Save Changes"
+msgstr "Salvar Alterações"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:53
+msgid "Row Label"
+msgstr "Etiqueta da Linha"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:37
+msgid "Row Display"
+msgstr "Exibição da Linha"
+
+#: classes/class-settings-sections-fields.php:1719
+msgid "Right Side"
+msgstr "Lado Direito"
+
+#: classes/class-settings-sections-fields.php:3388
+msgid "revisions for:"
+msgstr "revisões para:"
+
+#: classes/class-settings-sections-fields.php:3357
+msgid "Revisions Control"
+msgstr "Controle de Revisões"
+
+#: settings.php:90 settings.php:98
+msgid "Review"
+msgstr "Avalie"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:94
+msgid "Return Value"
+msgstr "Retornar Valor"
+
+#: classes/class-settings-sections-fields.php:1850
+msgid "Restrict login ID to username or email address only."
+msgstr "Restringir o ID de login apenas ao nome de usuário ou endereço de e-mail."
+
+#: classes/class-settings-sections-fields.php:3240
+msgid "Resize newly uploaded, large images to a smaller dimension and delete originally uploaded files. BMPs and non-transparent PNGs will be converted to JPGs and resized."
+msgstr "Redimensione imagens grandes recém-enviadas para uma dimensão menor e exclua os arquivos originalmente carregados. BMPs e PNGs não transparentes serão convertidos em JPGs e redimensionados."
+
+#: classes/class-settings-fields-render.php:1096
+msgid "Reset Menu"
+msgstr "Redefinir Menu"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:63
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:117
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:203
+msgid "Repeater Row"
+msgstr "Repetir Linha"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:9
+msgid "Repeater"
+msgstr "Repetidor"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:157
+msgid "Render this field with Select2"
+msgstr "Renderize este campo com Select2"
+
+#: classes/class-settings-sections-fields.php:853
+msgid "Remove WordPress logo/menu"
+msgstr "Remover o logotipo/menu do WordPress"
+
+#: classes/class-settings-sections-fields.php:833
+msgid "Remove various elements from the admin bar."
+msgstr "Remover vários elementos da barra de administração."
+
+#: classes/class-settings-sections-fields.php:889
+msgid "Remove updates counter/link"
+msgstr "Remover contador/link de atualizações"
+
+#: classes/class-settings-sections-fields.php:961
+msgid "Remove the Help tab and drawer"
+msgstr "Remover a guia de Ajuda e a aba contextual"
+
+#: classes/class-settings-sections-fields.php:1597
+msgid "Remove tags column (for posts)"
+msgstr "Remover a coluna de tags (para postagens)"
+
+#: classes/class-settings-sections-fields.php:925
+msgid "Remove new content menu"
+msgstr "Remover o menu de conteúdo Novo"
+
+#: classes/class-settings-sections-fields.php:987
+msgid "Remove extra elements listed below, which most likely come from your theme or plugins."
+msgstr "Remova os elementos extras listados abaixo, que provavelmente vêm do seu tema ou plug-ins."
+
+#: classes/class-settings-sections-fields.php:871
+msgid "Remove customize menu"
+msgstr "Remover menu Personalizar"
+
+#: classes/class-settings-sections-fields.php:907
+msgid "Remove comments counter/link"
+msgstr "Remover o contador/link dos comentários"
+
+#: classes/class-settings-sections-fields.php:1577
+msgid "Remove comments column"
+msgstr "Remover a coluna de comentários"
+
+#: classes/class-settings-sections-fields.php:943
+msgid "Remove 'Howdy'"
+msgstr "Remover \"Bem-vindo (a)\""
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:39
+msgid "Remove"
+msgstr "Remover"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/relationship.php:8
+msgid "Relationship"
+msgstr "Relacionamento"
+
+#: classes/class-settings-sections-fields.php:1979
+#: classes/class-settings-sections-fields.php:2048
+#: classes/class-settings-sections-fields.php:4472
+msgid "Redirect to:"
+msgstr "Redirecionar para:"
+
+#: classes/class-settings-sections-fields.php:1801
+msgid "Redirect default URLs to:"
+msgstr "Redirecionar URLs padrão para:"
+
+#: classes/class-settings-sections-fields.php:2027
+msgid "Redirect After Logout"
+msgstr "Redirecionar Após Deslogar"
+
+#: classes/class-settings-sections-fields.php:1958
+msgid "Redirect After Login"
+msgstr "Redirecionar Após o Logar"
+
+#: classes/class-settings-sections-fields.php:4442
+msgid "Redirect 404 to Homepage"
+msgstr "Redirecionar 404 para a Página Inicial"
+
+#: classes/class-settings-sections-fields.php:4437
+msgid "Redirect 404"
+msgstr "Redirecionamento 404"
+
+#: classes/class-settings-sections-fields.php:606
+msgid "Re-enable infinite scrolling in the grid view of the media library. Useful for scrolling through a large library."
+msgstr "Reative a rolagem infinita na exibição de grade da biblioteca de mídia. Útil para a rolagem em uma biblioteca grande."
+
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:8
+msgid "Radio"
+msgstr "Caixa Seleção"
+
+#: classes/class-settings-sections-fields.php:3214
+msgid "Protect your site from brute force, DOS and DDOS attacks via <a href=\"https://kinsta.com/blog/xmlrpc-php/#what-is-xmlrpcphp\" target=\"_blank\">XML-RPC</a>. Also disables trackbacks and pingbacks."
+msgstr "Proteja seu site contra ataques de força bruta, DOS e DDOS via <a href=\"https://kinsta.com/blog/xmlrpc-php/#what-is-xmlrpcphp\" target=\"_blank\">XML-RPC</a>. Também desativa trackbacks e pingbacks."
+
+#: settings.php:531
+msgid "Previous"
+msgstr "Anterior"
+
+#: classes/class-settings-sections-fields.php:2813
+msgid "Prevent smaller components from running or loading. Make the site more secure, load slightly faster and be more optimized for crawling by search engines."
+msgstr "Impedir que componentes menores sejam executados ou carregados. Tornar o site mais seguro, carregar um pouco mais rápido e ser mais otimizado para rastreamento pelos mecanismos de pesquisa."
+
+#: classes/class-settings-sections-fields.php:3001
+msgid "Prevent brute force attacks by limiting the number of failed login attempts allowed per IP address."
+msgstr "Evite ataques de força bruta limitando o número de tentativas de login com falha permitidas por endereço IP."
+
+#: classes/class-settings-sections-fields.php:3366
+msgid "Prevent bloating the database by limiting the number of revisions to keep for some or all post types supporting revisions."
+msgstr "Evite o inchaço do banco de dados limitando o número de revisões a serem mantidas para alguns ou todos os tipos de postagens que suportam revisões."
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:325
+msgid "Posts"
+msgstr "Posts"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:323
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:201
+msgid "Post Types"
+msgstr "Tipos de Post"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:328
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:234
+msgid "Post Formats"
+msgstr "Formatos de Posts"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1148
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1193
+msgid "Position on page"
+msgstr "Posição na página"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_extras.php:45
+msgid "Position"
+msgstr "Posição"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1478
+msgid "Please run the following commands in order to make the directory"
+msgstr "Por favor, execute os seguintes comandos para criar o diretório"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1494
+msgid "Please run the following command to make the directory writable"
+msgstr "Execute o seguinte comando para tornar o diretório gravável"
+
+#: classes/class-settings-sections-fields.php:163
+msgid "Please find the relevant menu items under Settings."
+msgstr "Encontre os itens de menu relevantes em Configurações."
+
+#: settings.php:125
+msgid "Please consider supporting ASE."
+msgstr "Por favor, considere apoiar o ASE."
+
+#: classes/class-settings-sections-fields.php:4426
+msgid "Please clear your cache</strong> after enabling or disabling maintenance mode. This ensures site visitors see either the maintenance page or the actual content of each page."
+msgstr "Por favor, limpe o cache</strong> depois de ativar ou desativar o modo de manutenção. Isso garante que os visitantes do site vejam a página de manutenção ou o conteúdo real de cada página."
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:307
+#: includes/premium/custom-content/cfgroup/includes/init.php:322
+msgid "Placement"
+msgstr "Posicionamento"
+
+#: classes/class-settings-sections-fields.php:3262
+msgid "pixels. <span class=\"faded\">(Default is 1920 pixels)</span>"
+msgstr "pixels. <span class=\"faded\">(O padrão é 1920 pixels)</span>"
+
+#: classes/class-settings-sections-fields.php:3284
+msgid "pixels <span class=\"faded\">(Default is 1920 pixels)</span>"
+msgstr "pixels <span class=\"faded\">(O padrão é 1920 pixels)</span>"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:192
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:193
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:194
+msgid "pixels"
+msgstr "pixels"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:63
+msgid "Pick a single <code>value</code>"
+msgstr "Escolha um único <code>valor</code>"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/hyperlink.php:66
+msgid "PHP Array"
+msgstr "Array PHP"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:590
+msgid "PHP"
+msgstr "PHP"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:28
+msgid "Phone"
+msgstr "Telefone"
+
+#: classes/class-settings-sections-fields.php:4443
+msgid "Perform 301 (permanent) redirect to the homepage for all 404 (not found) pages."
+msgstr "Realizar o redirecionamento 301 (permanente) para a página inicial de todas as páginas 404 (não encontradas)."
+
+#: classes/class-settings-sections-fields.php:4438
+msgid "Perform 301 (permanent) redirect to a URL of your choice"
+msgstr "Realizar o redirecionamento 301 (permanente) para uma URL de sua escolha"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:62
+msgid "PDF"
+msgstr "PDF"
+
+#: classes/class-settings-sections-fields.php:4059
+msgid "Password-protect the entire site to hide the content from public view and search engine bots / crawlers. Logged-in administrators can still access the site as usual."
+msgstr "Proteger todo o site com senha para ocultar o conteúdo da visualização pública e dos bots/rastreadores dos mecanismos de pesquisa. Os administradores conectados ainda podem acessar o site normalmente."
+
+#: classes/class-settings-sections-fields.php:4050
+msgid "Password Protection"
+msgstr "Proteção por Senha"
+
+#: classes/class-php-validator.php:195
+msgid "Parse error: syntax error, unexpected end of snippet."
+msgstr "Erro de análise: erro de sintaxe, final inesperado do trecho."
+
+#: classes/class-php-validator.php:259
+msgid "Parse error: syntax error, unexpected end of snippet"
+msgstr "Erro de análise: erro de sintaxe, final inesperado do trecho"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:91
+msgid "Parent Code Snippet:"
+msgstr "Trecho de Código Principal:"
+
+#. translators: Taxonomy Label, Singular
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:87
+msgid "Parent %s:"
+msgstr "Principal %s:"
+
+#. translators: Taxonomy Label, Singular
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:85
+msgid "Parent %s"
+msgstr "Principal %s"
+
+#: classes/class-settings-sections-fields.php:4168
+msgid "Page Title <span class=\"faded\">(shown in the browser tab)</span>"
+msgstr "Título da página <span class=\"faded\">(mostrado na guia do navegador)</span>"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:327
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:355
+msgid "Page Templates"
+msgstr "Modelos de Páginas"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:55
+msgid "Override the \"Repeater Row” header text. You can also dynamically populate the row label with field values. If you have a text field named “first_name”, enter {first_name} to use the field value as the row label."
+msgstr "Substitua o texto do cabeçalho \"Linha Repetidora\". Você também pode preencher dinamicamente o rótulo da linha com valores de campo. Se você tiver um campo de texto chamado “first_name”, insira {first_name} para usar o valor do campo como o rótulo da linha."
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_extras.php:33
+msgid "Order"
+msgstr "Ordem"
+
+#: settings.php:133
+msgid "Or, help improve ASE by <a href=\"https://wordpress.org/support/plugin/admin-site-enhancements/\" target=\"_blank\">providing feedback</a>."
+msgstr "Ou ajude a melhorar o ASE <a href=\"https://wordpress.org/support/plugin/admin-site-enhancements/\" target=\"_blank\">fornecendo feedback</a>."
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:329
+msgid "Options Pages"
+msgstr "Páginas de Opções"
+
+#: classes/class-settings-fields-render.php:792
+msgid "Options"
+msgstr "Opções"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:390
+msgid "Option Pages"
+msgstr "Páginas de Opções"
+
+#: settings.php:188
+msgid "Optimizations"
+msgstr "Otimizações"
+
+#: classes/class-settings-sections-fields.php:753
+msgid "Open All External Links in New Tab"
+msgstr "Abrir Todos os Links Externos em uma Nova Guia"
+
+#: classes/class-settings-sections-fields.php:3923
+msgid "Oops, something went wrong</span>.<br />Please double check your settings and the destination email address."
+msgstr "Oops, algo deu errado</span>.<br />Verifique novamente suas configurações e o endereço de e-mail de destino."
+
+#. translators: Do not translate {empty}. Keep as is.
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:52
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:48
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:103
+msgid "One <code>value : label</code> per line, or just <code>label</code>. Use <code>{empty}</code> for an empty value."
+msgstr "Um <code>value : label</code> por linha, ou apenas <code>label</code>. Use <code>{empty}</code> para um valor vazio."
+
+#: includes/premium/custom-content/cfgroup/includes/form.php:199
+msgid "One (or more) of your fields had validation errors. More information is available below."
+msgstr "Um (ou mais) dos seus campos apresentou erros de validação. Mais informações estão disponíveis abaixo."
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1163
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1208
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1246
+msgid "On which part of the site?"
+msgstr "Em qual parte do site?"
+
+#: classes/class-settings-sections-fields.php:1190
+msgid "On the frontend:"
+msgstr "No front-end:"
+
+#: classes/class-settings-sections-fields.php:3562
+msgid "On the frontend"
+msgstr "No front-end"
+
+#: classes/class-settings-sections-fields.php:1233
+msgid "On the backend:"
+msgstr "No painel:"
+
+#: classes/class-settings-sections-fields.php:3506
+msgid "On post creation and edit screens"
+msgstr "Nas telas de criação e edição de postagens"
+
+#: classes/class-settings-sections-fields.php:3449
+msgid "On admin pages"
+msgstr "Nas páginas de administração"
+
+#: classes/class-settings-sections-fields.php:3115
+msgid "Obfuscate publicly exposed author page URLs that shows the user slugs / usernames, e.g. <em>sitename.com/author/username1/</em> into <em>sitename.com/author/a6r5b8ytu9gp34bv/</em>, and output 404 errors for the original URLs. Also obfuscates in /wp-json/wp/v2/users/ REST API endpoint."
+msgstr "Ofusca as URLs da página do autor expostos publicamente que mostram os slugs/nomes de usuário, por exemplo, <em>nomedosite.com.br/author/usuario1/</em> em <em>nomedosite.com.br/author/a6r5b8ytu9gp34bv/</em>, e gera erros 404 para os URLs originais. Também ofusca no endpoint da API REST /wp-json/wp/v2/users/."
+
+#: classes/class-settings-sections-fields.php:3137
+msgid "Obfuscate email address to prevent spam bots from harvesting them, but make it readable like a regular email address for human visitors."
+msgstr "Ofusque o endereço de e-mail para evitar que os bots de spam o coletem, mas torne-o legível como um endereço de e-mail normal para visitantes humanos."
+
+#: classes/class-settings-sections-fields.php:3106
+msgid "Obfuscate Author Slugs"
+msgstr "Ofuscar Slugs de Autor"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/number.php:8
+msgid "Number"
+msgstr "Número"
+
+#: includes/premium/custom-content/cfgroup/includes/field_group.php:124
+msgid "Nothing to import"
+msgstr "Nada a importar"
+
+#: classes/class-settings-fields-render.php:1382
+#: classes/class-settings-fields-render.php:1408
+msgid "Not available"
+msgstr "Não disponível"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_extras.php:48
+msgid "Normal"
+msgstr "Normal"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/wysiwyg.php:43
+msgid "None (bypass filters)"
+msgstr "Nenhum (Ignorar Filtros)"
+
+#: classes/class-settings-sections-fields.php:3791
+#: includes/premium/custom-content/cfgroup/includes/fields/textarea.php:46
+msgid "None"
+msgstr "Nenhum"
+
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-admin-ajax.php:61
+msgid "No settings data detected."
+msgstr "Nenhum dado de configuração detectado."
+
+#: settings.php:526
+msgid "No matching records found"
+msgstr "Nenhum registro correspondente encontrado"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:66
+msgid "No Field Groups found in Trash"
+msgstr "Nenhum Grupo de Campos foi encontrado na Lixeira."
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:65
+msgid "No Field Groups found"
+msgstr "Nenhum Grupo de Campos foi encontrado"
+
+#: settings.php:520
+msgid "No data available in table"
+msgstr "Sem dados disponíveis na tabela"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:92
+msgid "No Code Snippets found."
+msgstr "Nenhum trecho de código encontrado."
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:93
+msgid "No Code Snippets found in Trash."
+msgstr "Nenhum trecho de código encontrado na Lixeira."
+
+#: includes/premium/media-categories/views/admin/tinymce/fields/field.php:145
+msgid "No"
+msgstr "Não"
+
+#: settings.php:530
+msgid "Next"
+msgstr "Próximo"
+
+#: classes/class-settings-sections-fields.php:1779
+msgid "New login URL:"
+msgstr "Nova URL de login:"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:62
+msgid "New Field Group"
+msgstr "Novo Grupo de Campo"
+
+#: includes/premium/custom-content/cfgroup/templates/admin_head.php:24
+msgid "New Field"
+msgstr "Novo Campo"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:86
+msgid "New Code Snippet"
+msgstr "Novo Trecho de Código"
+
+#. translators: Taxonomy Label, Singular
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:95
+msgid "New %s"
+msgstr "Novo %s"
+
+#: classes/class-settings-sections-fields.php:3058
+msgid "Never block the following IP addresses:"
+msgstr "Nunca bloqueie os seguintes endereços IP:"
+
+#: classes/class-settings-sections-fields.php:3958
+msgid "Multiple User Roles"
+msgstr "Múltiplas Funções de Usuário"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:117
+msgid "Multi-select?"
+msgstr "Seleção múltipla?"
+
+#: classes/class-settings-sections-fields.php:3437
+msgid "Modify the interval of the WordPress heartbeat API or disable it on admin pages, post creation/edit screens and/or the frontend. This will help reduce CPU load on the server."
+msgstr "Modifique o intervalo da API de heartbeat do WordPress ou desative-a nas páginas de administração, nas telas de criação/edição de posts e/ou no front-end. Isso ajudará a reduzir a carga da CPU no servidor."
+
+#: classes/class-settings-sections-fields.php:3460
+#: classes/class-settings-sections-fields.php:3517
+#: classes/class-settings-sections-fields.php:3573
+msgid "Modify"
+msgstr "Modificar"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:385
+msgid "Modified"
+msgstr "Modificado"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/true_false.php:32
+msgid "Message"
+msgstr "Mensagem"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:83
+msgid "Medium (uncropped)"
+msgstr "Médio (não cortado)"
+
+#: classes/class-settings-sections-fields.php:576
+msgid "Media Replacement"
+msgstr "Substituição de Mídia"
+
+#: classes/class-settings-sections-fields.php:597
+msgid "Media Library Infinite Scrolling"
+msgstr "Biblioteca de Mídia com Rolagem Infinita"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:158
+msgid "Media Category"
+msgstr "Categoria de Mídia"
+
+#. translators: PHP class name
+#: includes/premium/media-categories/addons/tree-view/class-media-categories-module-tree-view.php:179
+msgid "Media Categories Module: Tree View: Error: Could not load Plugin class <strong>%s</strong>"
+msgstr "Módulo de Categorias de Mídia: Visualização em árvore: Erro: não foi possível carregar a classe do plug-in <strong>%s</strong>"
+
+#: includes/premium/media-categories/addons/tree-view/class-media-categories-module-tree-view.php:189
+msgid "Media Categories Module: Tree View: Error"
+msgstr "Módulo de Categorias de Mídia: Visualização em Árvore: Erro"
+
+#: classes/class-settings-sections-fields.php:554
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:157
+msgid "Media Categories"
+msgstr "Categorias de Mídia"
+
+#: classes/class-settings-sections-fields.php:3261
+msgid "Max width:"
+msgstr "Largura máxima:"
+
+#: classes/class-settings-sections-fields.php:3283
+msgid "Max height:"
+msgstr "Altura máxima:"
+
+#: classes/class-settings-sections-fields.php:2524
+msgid "Manage robots.txt"
+msgstr "Gerenciar o robots.txt"
+
+#: classes/class-settings-sections-fields.php:1378
+msgid "Manage and organize columns in the admin listing for pages, posts and custom post types."
+msgstr "Gerencie e organize colunas na listagem de administração para páginas, postagens e tipos de postagens personalizadas."
+
+#: classes/class-settings-sections-fields.php:2452
+msgid "Manage ads.txt and app-ads.txt"
+msgstr "Gerenciar ads.txt e app-ads.txt"
+
+#. translators: 1: URL to "All Pages" 2: URL to "All Posts"
+#: classes/class-settings-sections-fields.php:1035
+msgid "Make sure to visit one of your frontend <a href=\"%1$s\">pages</a> or <a href=\"%2$s\">posts</a> while logged-in, to detect elements only visible in the frontend admin bar, and return here to see them on the list above."
+msgstr "Certifique-se de visitar uma de suas <a href=\"%1$s\">páginas</a> ou <a href=\"%2$s\">postagens</a> enquanto estiver conectado, para detectar apenas elementos visíveis na barra de administração do front-end e volte aqui para vê-los na lista acima."
+
+#: classes/class-settings-sections-fields.php:4146
+msgid "Maintenance Mode"
+msgstr "Modo de Manutenção"
+
+#: settings.php:124
+msgid "Looks like some of these free enhancements have been useful for your site?"
+msgstr "Parece que alguns desses aprimoramentos gratuitos foram úteis para seu site?"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1176
+msgid "Login page"
+msgstr "Página de Login"
+
+#: classes/class-settings-sections-fields.php:1841
+msgid "Login ID Type"
+msgstr "Tipo de ID de Login"
+
+#: classes/class-settings-sections-fields.php:1944
+msgid "Log when users on the site last logged in and display the date and time in the users list table."
+msgstr "Registrar quando os usuários do site fizeram o último login e exibir a data e a hora na tabela da lista de usuários."
+
+#: classes/class-settings-sections-fields.php:1912
+msgid "Log In/Out Menu"
+msgstr "Menu Logar/Deslogar"
+
+#: settings.php:184
+msgid "Log In | Log Out"
+msgstr "Entrar | Sair"
+
+#: classes/class-settings-sections-fields.php:3045
+msgid "lockout(s) will block further login attempts for 24 hours"
+msgstr "o(s) bloqueio(s) bloqueará(ão) outras tentativas de login por 24 horas"
+
+#: classes/class-settings-sections-fields.php:3935
+msgid "Local User Avatar"
+msgstr "Avatar de Usuário Local"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1133
+msgid "Load snippet"
+msgstr "Carregar Trecho"
+
+#: classes/class-settings-sections-fields.php:220
+msgid "List view post action row"
+msgstr "Linha de ação pós-visualização de lista"
+
+#: classes/class-settings-sections-fields.php:208
+msgid "List view"
+msgstr "Exibição em lista"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/hyperlink.php:31
+msgid "Link Text"
+msgstr "Texto do Link"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/hyperlink.php:37
+msgid "Link Target"
+msgstr "Destino do Link"
+
+#: classes/class-settings-sections-fields.php:4317
+#: classes/class-settings-sections-fields.php:4325
+msgid "Lines"
+msgstr "Linhas"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/relationship.php:102
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:85
+#: includes/premium/custom-content/cfgroup/includes/fields/term.php:109
+#: includes/premium/custom-content/cfgroup/includes/fields/user.php:56
+msgid "Limits"
+msgstr "Limites"
+
+#: classes/class-settings-sections-fields.php:3387
+msgid "Limit to"
+msgstr "Limitar a"
+
+#: classes/class-settings-sections-fields.php:2992
+msgid "Limit Login Attempts"
+msgstr "Limitar Tentativas de Login"
+
+#: classes/class-settings-sections-fields.php:1679
+msgid "Left Side"
+msgstr "Lado Esquerdo"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:150
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:155
+msgid "Leave blank to skip this rule"
+msgstr "Deixe em branco para pular essa regra"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:81
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:77
+msgid "Layout"
+msgstr "Layout"
+
+#: classes/class-settings-sections-fields.php:1935
+msgid "Last Login Column"
+msgstr "Coluna de Último Login"
+
+#: classes/class-settings-fields-render.php:1320
+msgid "Last Attempt On"
+msgstr "Última Tentativa em"
+
+#: settings.php:529
+msgid "Last"
+msgstr "Último"
+
+#: classes/class-settings-sections-fields.php:3459
+#: classes/class-settings-sections-fields.php:3516
+#: classes/class-settings-sections-fields.php:3572
+msgid "Keep as is"
+msgstr "Manter como está"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:588
+msgid "JS"
+msgstr "JS"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:5
+msgid "is not"
+msgstr "não é"
+
+#: classes/class-settings-fields-render.php:1318
+msgid "IP Address<br />Last Username"
+msgstr "Endereço de IP<br />Último Nome de Usuário"
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:171
+msgid "Instructions for editors. Shown when submitting data."
+msgstr "Instruções para editores. Exibido ao enviar dados."
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:169
+msgid "Instructions"
+msgstr "Instruções"
+
+#: includes/premium/media-categories/views/admin/settings-upgrade.php:33
+msgid "Install"
+msgstr "Instalar"
+
+#. translators: keep &lt;head&gt; &lt;body&gt; &lt;footer&gt; as is in the
+#. translation
+#: classes/class-settings-sections-fields.php:2241
+msgid "Insert &lt;head&gt;, &lt;body&gt; and &lt;footer&gt; Code"
+msgstr "Inserir os códigos &lt;head&gt;, &lt;body&gt; e &lt;footer&gt"
+
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-tinymce.php:122
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-tinymce.php:171
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-tinymce.php:240
+msgid "Insert"
+msgstr "Inserir"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1142
+msgid "Inline"
+msgstr "Em linha"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:234
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1709
+msgid "Inactive"
+msgstr "Inativo"
+
+#: classes/class-settings-sections-fields.php:1455
+msgid "Improve the usefulness of listing pages for various post types and taxonomies, media, comments and users by adding / removing columns and elements."
+msgstr "Melhore a utilidade das páginas de listagem para vários tipos de posts e taxonomias, mídia, comentários e usuários, adicionando/removendo colunas e elementos."
+
+#: includes/premium/custom-content/cfgroup/includes/field_group.php:116
+msgid "Imported"
+msgstr "Importado"
+
+#: settings.php:277
+msgid "Import Settings"
+msgstr "Importar Configurações"
+
+#: settings.php:286
+msgid "Import ASE Settings"
+msgstr "Importar Configurações do ASE"
+
+#: settings.php:278
+msgid "Import ASE module settings you've exported from another site as a JSON file."
+msgstr "Importe as configurações do módulo ASE que você exportou de outro site como um arquivo JSON."
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:59
+msgid "Image Width and Height"
+msgstr "Largura e Altura da Imagem"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:60
+msgid "Image Width"
+msgstr "Largura da Imagem"
+
+#: classes/class-settings-sections-fields.php:3231
+msgid "Image Upload Control"
+msgstr "Controle de Envio de Imagens"
+
+#: classes/class-settings-sections-fields.php:3980
+msgid "Image Sizes Panel"
+msgstr "Painel de Tamanhos de Imagem"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:73
+msgid "Image Preview Size"
+msgstr "Tamanho da Visualização da Imagem"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:61
+msgid "Image Height"
+msgstr "Altura da Imagem"
+
+#: classes/class-settings-sections-fields.php:4318
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:59
+msgid "Image"
+msgstr "Imagem"
+
+#. translators: %s is URL of the role reset link
+#: classes/class-settings-sections-fields.php:4036
+msgid "If something goes wrong</strong> and you need to regain access to your account as an administrator, please visit the following URL: <br /><strong>%s</strong><br /><br />If you use <strong>Ninja Firewall</strong>, please uncheck \"Block attempts to gain administrative privileges\" in the Firewall Policies settings before you try to view as a non-admin user role to <strong>prevent being locked out</strong> of your admin account."
+msgstr "Se algo der errado no site</strong> e você precisar recuperar o acesso à sua conta como administrador, visite a seguinte URL: <br /><strong>%s</strong><br /><br />Se você usa o <strong>Ninja Firewall</strong>, desmarque a opção \"Block attempts to gain administrative privileges\" (Bloquear tentativas de obter privilégios administrativos) nas configurações das políticas do Firewall antes de tentar visualizar como uma função de usuário não administrador para <strong>evitar o bloqueio</strong> de sua conta de administrador."
+
+#: classes/class-settings-sections-fields.php:3728
+msgid "If set, the following SMTP service/account wil be used to deliver your emails."
+msgstr "Se definido, o seguinte serviço/conta SMTP será usado para entregar seus e-mails."
+
+#: classes/class-settings-sections-fields.php:3652
+msgid "If set, the following sender name/email overrides WordPress core defaults but can still be overridden by other plugins that enables custom sender name/email, e.g. form plugins."
+msgstr "Se definido, o nome/email do remetente a seguir substitui os padrões do núcleo do WordPress, mas ainda pode ser substituído por outros plug-ins que permitem nome/email do remetente personalizado, por exemplo, plug-ins de formulário."
+
+#: settings.php:141
+msgid "I've shared"
+msgstr "Eu já compartilhei"
+
+#: settings.php:131
+msgid "I've reviewed"
+msgstr "Eu já avaliei"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/hyperlink.php:9
+msgid "Hyperlink"
+msgstr "Hiperlink"
+
+#. Author URI of the plugin
+#: admin-site-enhancements.php
+msgid "https://www.wpase.com/author-uri"
+msgstr "https://www.wpase.com/author-uri"
+
+#. Plugin URI of the plugin
+#: admin-site-enhancements.php
+msgid "https://www.wpase.com/"
+msgstr "https://www.wpase.com/"
+
+#. translators: HTTP response code
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-api.php:238
+msgid "HTTP Code %s"
+msgstr "Código HTML %s"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:589
+#: includes/premium/custom-content/cfgroup/includes/fields/hyperlink.php:65
+msgid "HTML"
+msgstr "HTML"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:91
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:87
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: classes/class-settings-fields-render.php:769
+#: classes/class-settings-fields-render.php:922
+#: classes/class-settings-fields-render.php:1047
+#: classes/class-settings-fields-render.php:1227
+msgid "Hide until toggled"
+msgstr "Ocultar até ser alternado"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_extras.php:64
+msgid "Hide the content editor"
+msgstr "Ocultar o editor de conteúdo"
+
+#: classes/class-settings-sections-fields.php:1059
+msgid "Hide Admin Notices"
+msgstr "Ocultar Avisos do Administrador"
+
+#: classes/class-settings-sections-fields.php:1158
+msgid "Hide admin bar on the frontend for all or some user roles."
+msgstr "Oculte a barra de administração no front-end para todas ou algumas funções de usuário."
+
+#: classes/class-settings-sections-fields.php:1156
+msgid "Hide admin bar for all or some user roles."
+msgstr "Oculte a barra de administração para todas ou algumas funções de usuário."
+
+#: classes/class-settings-sections-fields.php:1163
+msgid "Hide Admin Bar"
+msgstr "Ocultar a Barra da Administração"
+
+#: classes/class-settings-fields-render.php:766
+#: classes/class-settings-fields-render.php:919
+#: classes/class-settings-fields-render.php:1044
+msgid "Hide"
+msgstr "Ocultar"
+
+#: settings.php:144
+msgid "Help others discover ASE and maybe <a href=\"https://www.wpase.com/trnslt-plgnndg\" target=\"_blank\">translate</a> to your language."
+msgstr "Ajude outras pessoas a descobrir o ASE e talvez <a href=\"https://www.wpase.com/trnslt-plgnndg\" target=\"_blank\">traduzir</a> para o seu idioma."
+
+#: classes/class-settings-sections-fields.php:3428
+msgid "Heartbeat Control"
+msgstr "Controle do Heartbeat"
+
+#: classes/class-settings-sections-fields.php:4211
+#: classes/class-settings-sections-fields.php:4231
+msgid "Heading"
+msgstr "Cabeçalho"
+
+#: classes/class-settings-sections-fields.php:1280
+msgid "Give the admin menu more room to better accommodate wider items."
+msgstr "Dê mais espaço ao menu de administração para acomodar melhor os itens mais amplos."
+
+#: settings.php:103
+msgid "Get ASE Pro"
+msgstr "Obter o ASE Pro"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/gallery.php:8
+msgid "Gallery"
+msgstr "Galeria"
+
+#: classes/class-settings-fields-render.php:1418
+msgid "Full AVIF support requires that your server / hosting has <a href=\"https://php.watch/versions/8.1/gd-avif\" target=\"_blank\">GD extension</a> compiled with AVIF support in PHP 8.1 or greater, or, <a href=\"https://avif.io/blog/tutorials/imagemagick/\" target=\"_blank\">ImageMagick 7.0.25 or greater</a> installed. Without either, you can still upload AVIF files but without auto-generation of the smaller thumbnail sizes. A majority of <a href=\"https://avif.io/blog/articles/avif-browser-support/\" target=\"_blank\">modern desktop and mobile browsers</a> support the display of AVIF files."
+msgstr "O suporte total a AVIF exige que seu servidor/hospedagem tenha a <a href=\"https://php.watch/versions/8.1/gd-avif\" target=\"_blank\">extensão GD</a> compilada com suporte a AVIF no PHP 8.1 ou superior, ou o <a href=\"https://avif.io/blog/tutorials/imagemagick/\" target=\"_blank\">ImageMagick 7.0.25 ou superior</a> instalado. Sem isso, você ainda poderá fazer o envio de arquivos AVIF, mas sem a geração automática de miniaturas de tamanhos menores. A maioria dos <a href=\"https://avif.io/blog/articles/avif-browser-support/\" target=\"_blank\">navegadores modernos para desktop e dispositivos móveis</a> suporta a exibição de arquivos AVIF."
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1168
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1213
+msgid "Frontend"
+msgstr "Front-end"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/textarea.php:37
+#: includes/premium/custom-content/cfgroup/includes/fields/wysiwyg.php:33
+msgid "Formatting"
+msgstr "Formatando"
+
+#: classes/class-settings-sections-fields.php:3712
+msgid "Force the usage of the sender name/email defined above. It will override those set by other plugins."
+msgstr "Força o uso do nome do remetente/e-mail definido acima. Ele substituirá os definidos por outros plug-ins."
+
+#: classes/class-settings-sections-fields.php:762
+msgid "Force all links to external sites in post content, where <a href=\"https://developer.wordpress.org/reference/hooks/the_content/\" target=\"_blank\">the_content</a> hook is used, to open in new browser tab via target=\"_blank\" attribute. The rel=\"noopener noreferrer nofollow\" attribute will also be added for enhanced security and SEO benefits."
+msgstr "Forçar todos os links para sites externos no conteúdo da postagem, onde o hook <a href=\"https://developer.wordpress.org/reference/hooks/the_content/\" target=\"_blank\">the_content</a> é usado para abrir em nova aba do navegador através do atributo target=\"_blank\". O atributo rel=\"noopener noreferrer nofollow\" também será adicionado para maior segurança e benefícios de SEO."
+
+#: classes/class-settings-sections-fields.php:1989
+#: classes/class-settings-sections-fields.php:2058
+msgid "for:"
+msgstr "para:"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:67
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:134
+msgid "For multiple values, separate with <code> |</code>, e.g. <code>value1 | value2</code>"
+msgstr "Para múltiplos valores, separe-os com <code> |</code>, por exemplo: <code>valor1 | valor2</code>"
+
+#: settings.php:528
+msgid "First"
+msgstr "Primeiro"
+
+#: settings.php:118
+msgid "Find Out More"
+msgstr "Descubra Mais"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:593
+msgid "Filter Code Type"
+msgstr "Filtrar Tipo de Código"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:103
+msgid "File URL"
+msgstr "URL do Arquivo"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:56
+msgid "File Type"
+msgstr "Tipo de Arquivo"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:58
+msgid "File Size"
+msgstr "Tamanho do Arquivo"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:54
+msgid "File Name, Prettified"
+msgstr "Nome do Arquivo (para exibição)"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:53
+msgid "File Name"
+msgstr "Nome do Arquivo"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:57
+msgid "File Extension and Type"
+msgstr "Extensão de Arquivo e Tipo"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:55
+msgid "File Extension"
+msgstr "Extensão de Arquivo"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:49
+msgid "File / Media Type"
+msgstr "Arquivo / Tipo de Mídia"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:8
+msgid "File / Media"
+msgstr "Arquivo / Mídia"
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:71
+msgid "Field Type"
+msgstr "Tipo de Campo"
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:61
+msgid "Field Name"
+msgstr "Nome do Campo"
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:52
+msgid "Field Label"
+msgstr "Legenda do Campo"
+
+#: settings.php:99
+msgid "Feedback"
+msgstr "Dê sua Opinião"
+
+#: classes/class-settings-sections-fields.php:3082
+msgid "Failed login attempts:"
+msgstr "Tentativas de login com falha:"
+
+#: classes/class-settings-sections-fields.php:3094
+msgid "Failed Login Attempts Log"
+msgstr "Registro de Tentativas de Login com Falha"
+
+#: classes/class-settings-sections-fields.php:3023
+msgid "failed login attempts allowed before 15 minutes lockout"
+msgstr "tentativas de login com falha permitidas antes do bloqueio de 15 minutos"
+
+#: settings.php:138
+msgid "Facebook"
+msgstr "Facebook"
+
+#: classes/class-settings-sections-fields.php:705
+msgid "External Permalinks"
+msgstr "Links Permanentes Externos"
+
+#: settings.php:266
+msgid "Export Settings"
+msgstr "Exportar Configurações"
+
+#: settings.php:267
+msgid "Export ASE module settings as a JSON file to easily import into another site."
+msgstr "Exporte as configurações do módulo ASE para JSON para importar facilmente em outro site."
+
+#: settings.php:260
+msgid "Export | Import"
+msgstr "Exportar | Importar"
+
+#: settings.php:517
+msgid "Expand"
+msgstr "Expandir"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1251
+msgid "Everywhere"
+msgstr "Em todos os lugares"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_rules.php:4
+msgid "equals"
+msgstr "igual a"
+
+#: classes/class-settings-sections-fields.php:3070
+#: classes/class-settings-sections-fields.php:4105
+msgid "Enter one IPv4 address per line"
+msgstr "Insira um endereço IPv4 por linha"
+
+#: settings.php:31
+msgid "Enhancements"
+msgstr "Aprimoramentos"
+
+#: classes/class-settings-sections-fields.php:1446
+msgid "Enhance List Tables"
+msgstr "Aprimorar Tabelas de Lista"
+
+#: classes/class-settings-sections-fields.php:3944
+msgid "Enable usage of any image from WordPress Media Library as user avatars."
+msgstr "Habilite o uso de qualquer imagem da Biblioteca de mídia WordPress como avatares de usuário."
+
+#: classes/class-settings-sections-fields.php:676
+msgid "Enable uploading <a href=\"https://www.smashingmagazine.com/2021/09/modern-image-formats-avif-webp/\" target=\"_blank\">AVIF</a> files in the Media Library. You can convert your existing PNG, JPG and GIF files using a tool like <a href=\"https://squoosh.app/\" target=\"_blank\">Squoosh</a>."
+msgstr "Ative o envio de arquivos <a href=\"https://www.smashingmagazine.com/2021/09/modern-image-formats-avif-webp/\" target=\"_blank\">AVIF</a> na biblioteca de mídia. Você pode converter seus arquivos PNG, JPG e GIF existentes usando uma ferramenta como <a href=\"https://squoosh.app/\" target=\"_blank\">Squoosh</a>."
+
+#: classes/class-settings-sections-fields.php:714
+msgid "Enable pages, posts and/or custom post types to have permalinks that point to external URLs. The rel=\"noopener noreferrer nofollow\" attribute will also be added for enhanced security and SEO benefits. Compatible with links added using <a href=\"https://wordpress.org/plugins/page-links-to/\" target=\"_blank\">Page Links To</a>."
+msgstr "Permita que páginas, posts e/ou tipos de posts personalizados tenham links permanentes que apontem para URLs externas. O atributo rel=\"noopener noreferrer nofollow\" também será adicionado para aumentar a segurança e os benefícios de SEO. Compatível com links adicionados usando <a href=\"https://wordpress.org/plugins/page-links-to/\" target=\"_blank\">Links da Página Para</a>."
+
+#: classes/class-settings-sections-fields.php:256
+msgid "Enable only on:"
+msgstr "Ativar somente em:"
+
+#: classes/class-settings-sections-fields.php:301
+msgid "Enable only for:"
+msgstr "Habilitar somente para:"
+
+#: classes/class-settings-sections-fields.php:185
+msgid "Enable one-click duplication of pages, posts and custom posts. The corresponding taxonomy terms and post meta will also be duplicated."
+msgstr "Habilite a duplicação de páginas, posts e posts personalizados com um clique. Os termos da taxonomia e a meta do post correspondentes também serão duplicados."
+
+#: classes/class-settings-sections-fields.php:1921
+msgid "Enable log in, log out and dynamic log in/out menu item for addition to any menu."
+msgstr "Habilite o logar, o deslogar e o item de menu de logar/deslogar dinâmico para adicionar a qualquer menu."
+
+#: classes/class-settings-sections-fields.php:257
+msgid "Enable except on:"
+msgstr "Habilitar geral, exceto em:"
+
+#: classes/class-settings-sections-fields.php:3873
+msgid "Enable debug mode and output the debug info into WordPress debug.log file."
+msgstr "Ative o modo de depuração e envie as informações de depuração para o arquivo debug.log do WordPress."
+
+#: classes/class-settings-sections-fields.php:350
+msgid "Enable custom ordering of various \"hierarchical\" content types or those supporting \"page attributes\". A new 'Order' sub-menu will appear for enabled content type(s). The \"All {Posts}\" list page for enabled post types in wp-admin will automatically use the custom order."
+msgstr "Ative a ordenação personalizada de vários tipos de conteúdo \"hierárquico\" ou daqueles que suportam \"atributos de página\". Um novo submenu \"Ordem\" será exibido para os tipos de conteúdo ativados. A página da lista \"Todos {Posts}\" para tipos de postagem habilitados no wp-admin usará automaticamente a ordem personalizada."
+
+#: classes/class-settings-sections-fields.php:474
+msgid "Enable custom ordering of terms from various \"hierarchical\" taxonomies. A new \"Term Order\" sub-menu will appear for enabled post type(s) with at least one such taxonomies. Terms listing and checkboxes in wp-admin will automatically use the custom order."
+msgstr "Habilite a ordenação personalizada de termos de várias taxonomias \"hierárquicas\". Um novo submenu \"Ordenar Termo\" aparecerá para tipos de postagem habilitados com pelo menos uma dessas taxonomias. A listagem de termos e as caixas de seleção no wp-admin usarão automaticamente ordenação personalizada."
+
+#: classes/class-settings-sections-fields.php:3967
+msgid "Enable assignment of multiple roles during user account creation and editing. This maybe useful for working with roles not defined in WordPress core, e.g. from e-commerce or LMS plugins."
+msgstr "Permitir a atribuição de várias funções durante a criação e a edição da conta do usuário. Isso pode ser útil para trabalhar com funções não definidas no núcleo do WordPress, como por exemplo, plug-ins de comércio eletrônico ou LMS."
+
+#: classes/class-settings-sections-fields.php:3625
+msgid "Email Delivery"
+msgstr "Entrega de E-mail"
+
+#: classes/class-settings-sections-fields.php:1872
+msgid "Email address only"
+msgstr "Somente endereço de e-mail"
+
+#: classes/class-settings-sections-fields.php:3128
+msgid "Email Address Obfuscator"
+msgstr "Ofuscador de Endereço de E-mail"
+
+#: classes/class-login-id-type.php:74
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:27
+msgid "Email"
+msgstr "E-mail"
+
+#: classes/class-settings-sections-fields.php:222
+msgid "Edit screen publish section"
+msgstr "Editar seção da tela de publicação"
+
+#: classes/class-settings-sections-fields.php:207
+msgid "Edit screen"
+msgstr "Tela de edição"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:775
+msgid "Edit PHP Snippet"
+msgstr "Editar Trecho PHP"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:773
+msgid "Edit JS Snippet"
+msgstr "Editar Trecho JS"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:774
+msgid "Edit HTML Snippet"
+msgstr "Editar Trecho HTML"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:61
+msgid "Edit Field Group"
+msgstr "Editar Grupo de Campo"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:772
+msgid "Edit CSS / SCSS Snippet"
+msgstr "Editar Trecho CSS / SCSS"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:87
+msgid "Edit Code Snippet"
+msgstr "Editar Trecho de Código"
+
+#. translators: Taxonomy Label, Singular
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:89
+msgid "Edit %s"
+msgstr "Editar %s"
+
+#: includes/premium/media-categories/addons/tree-view/includes/global/class-media-categories-module-tree-view-media.php:95
+msgid "Edit"
+msgstr "Editar"
+
+#: classes/class-settings-sections-fields.php:585
+msgid "Easily replace any type of media file with a new one while retaining the existing media ID, publish date and file name. So, no existing links will break."
+msgstr "Substitua facilmente qualquer tipo de arquivo de mídia por um novo, mantendo a ID de mídia existente, a data de publicação e o nome do arquivo. Dessa forma, nenhum link existente será quebrado."
+
+#. translators: keep &lt;meta&gt; &lt;link&gt; &lt;script&gt; &lt;style&gt; as
+#. is in the translation
+#: classes/class-settings-sections-fields.php:2251
+msgid "Easily insert &lt;meta&gt;, &lt;link&gt;, &lt;script&gt; and &lt;style&gt; tags, Google Analytics, Tag Manager, AdSense, Ads Conversion and Optimize code, Facebook, TikTok and Twitter pixels, etc."
+msgstr "Insira facilmente tags &lt;meta&gt;, &lt;link&gt;, &lt;script&gt; e &lt;style&gt;, Google Analytics, Tag Manager, AdSense, Ads Conversion and Optimize code, Facebook, TikTok e Twitter pixels, etc."
+
+#. Description of the plugin
+#: admin-site-enhancements.php
+msgid "Easily enable enhancements and features that usually require multiple plugins."
+msgstr "Habilite facilmente aprimoramentos e recursos que geralmente exigem vários plugins."
+
+#: classes/class-settings-sections-fields.php:2533
+msgid "Easily edit and validate your <a href=\"/robots.txt\" target=\"_blank\">robots.txt</a> content."
+msgstr "Edite e valide facilmente seu conteúdo <a href=\"/robots.txt\" target=\"_blank\">robots.txt</a>."
+
+#: classes/class-settings-sections-fields.php:2461
+msgid "Easily edit and validate your <a href=\"/ads.txt\" target=\"_blank\">ads.txt</a> and <a href=\"/app-ads.txt\" target=\"_blank\">app-ads.txt</a> content."
+msgstr "Edite e valide facilmente seu conteúdo <a href=\"/ads.txt\" target=\"_blank\">ads.txt</a> e <a href=\"/app-ads.txt\" target=\"_blank\">app-ads.txt</a>."
+
+#: classes/class-settings-fields-render.php:215
+msgid "e.g. my-account"
+msgstr "por exemplo, minha-conta"
+
+#: classes/class-settings-fields-render.php:213
+msgid "e.g. backend"
+msgstr "por exemplo: painel"
+
+#: classes/class-settings-sections-fields.php:3071
+#: classes/class-settings-sections-fields.php:4106
+msgid "e.g. 202.73.201.157"
+msgstr "por exemplo: 202.73.201.157"
+
+#: classes/class-settings-fields-render.php:611
+msgid "Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme's menu item titles or hide some items until toggled by clicking \"Show All\" at the bottom of the admin menu. You can also choose to always hide menu items for all or some user roles."
+msgstr "Arraste e solte os itens do menu na posição desejada. Opcionalmente, altere os títulos dos itens de menu do plugin/tema de terceiros ou oculte alguns itens até que sejam alternados clicando em \"Mostrar tudo\" na parte inferior do menu do administrador. Você também pode optar por sempre ocultar itens de menu para todas ou algumas funções de usuário."
+
+#: classes/class-settings-fields-render.php:615
+msgid "Drag and drop menu items to the desired position. Optionally change 3rd party plugin/theme's menu item titles or hide some items until toggled by clicking \"Show All\" at the bottom of the admin menu."
+msgstr "Arraste e solte os itens do menu para a posição desejada. Opcionalmente, altere os títulos dos itens de menu de plugins/temas de terceiros ou oculte alguns itens até que sejam alternados clicando em \"Exibir Todos\" na parte inferior do menu de administração."
+
+#: includes/premium/media-categories/views/admin/settings.php:35
+msgid "Documentation"
+msgstr "Documentação"
+
+#: settings.php:93
+msgid "Docs"
+msgstr "Documentação"
+
+#: settings.php:248
+msgid "Do more with <a href=\"https://www.wpase.com/upgrade-ndg-btm\" target=\"_blank\">ASE Pro</a>. Lifetime deal (LTD) <a href=\"https://www.wpase.com/upgrade-ndg-btm-prc\" target=\"_blank\">available</a>."
+msgstr "Faça mais com o <a href=\"https://www.wpase.com/upgrade-ndg-btm\" target=\"_blank\">ASE Pro</a>. Oferta vitalícia (LTD) <a href=\"https://www.wpase.com/upgrade-ndg-btm-prc\" target=\"_blank\">disponível</a>."
+
+#: classes/class-settings-sections-fields.php:4496
+msgid "Display System Summary"
+msgstr "Exibir Resumo do Sistema"
+
+#: includes/premium/custom-content/cfgroup/templates/meta_box_extras.php:54
+msgid "Display Settings"
+msgstr "Configurações de Exibição"
+
+#: classes/class-settings-sections-fields.php:1609
+msgid "Display Active Plugins First"
+msgstr "Exibir Primeiro os Plug-ins Ativos"
+
+#: classes/class-settings-sections-fields.php:1618
+msgid "Display active / activated plugins at the top of the Installed Plugins list. Useful when your site has many deactivated plugins for testing or development purposes."
+msgstr "Exibir plug-ins ativos/ativados na parte superior da Lista de Plug-ins Instalados. Útil quando seu site tem muitos plug-ins desativados para fins de teste ou desenvolvimento."
+
+#: classes/class-settings-sections-fields.php:3989
+msgid "Display a panel showing and linking to all available sizes when viewing an image in the media library. Especially useful to quickly get the URL of a particular image size."
+msgstr "Exibe um painel que mostra e vincula todos os tamanhos disponíveis ao visualizar uma imagem na biblioteca de mídia. Especialmente útil para obter rapidamente o URL de um determinado tamanho de imagem."
+
+#: settings.php:148
+msgid "Dismiss"
+msgstr "Dispensar"
+
+#: classes/class-settings-sections-fields.php:3205
+msgid "Disable XML-RPC"
+msgstr "Desativar o XML-RPC"
+
+#: classes/class-settings-sections-fields.php:2904
+msgid "Disable the default <strong>WordPress shortlink &lt;link&gt; tag</strong> in &lt;head&gt;. Ignored by search engines and has minimal practical use case. Usually, a dedicated shortlink plugin or service is preferred that allows for nice names in the short links and tracking of clicks when sharing the link on social media."
+msgstr "Desative a <strong>tag padrão de shortlink &lt;link&gt; do WordPress</strong> no &lt;head&gt;. É ignorada pelos mecanismos de pesquisa e tem um caso de uso prático mínimo. Normalmente, é preferível um plug-in ou serviço de shortlink dedicado que permita nomes bonitos nos links curtos e rastreamento de cliques ao compartilhar o link nas mídias sociais."
+
+#: classes/class-settings-sections-fields.php:2868
+msgid "Disable the <strong>Windows Live Writer (WLW) manifest &lt;link&gt; tag</strong> in &lt;head&gt;. The WLW app was discontinued in 2017."
+msgstr "Desative a <strong>tag &lt;link&gt; do manifesto do Windows Live Writer (WLW)</strong> em &lt;head&gt;. O aplicativo WLW foi descontinuado em 2017."
+
+#: classes/class-settings-sections-fields.php:2886
+msgid "Disable the <strong>Really Simple Discovery (RSD) &lt;link&gt; tag</strong> in &lt;head&gt;. It's not needed if your site is not using pingback or remote (XML-RPC) client to manage posts."
+msgstr "Desative a <strong>tag &lt;link&gt; do Really Simple Discovery (RSD)</strong> no &lt;head&gt;. Ela não é necessária se o seu site não estiver usando pingback ou cliente remoto (XML-RPC) para gerenciar postagens."
+
+#: classes/class-settings-sections-fields.php:2833
+msgid "Disable the <strong>generator &lt;meta&gt; tag</strong> in &lt;head&gt;, which discloses the WordPress version number. Older versions(s) might contain unpatched security loophole(s)."
+msgstr "Desative a <strong>tag geradora &lt;meta&gt;</strong> em &lt;head&gt;, que divulga o número da versão do WordPress. As versões mais antigas podem conter brechas de segurança não corrigidas."
+
+#: classes/class-settings-sections-fields.php:2804
+msgid "Disable Smaller Components"
+msgstr "Desativar Componentes Menores"
+
+#: classes/class-settings-sections-fields.php:2744
+msgid "Disable REST API access for non-authenticated users and remove URL traces from &lt;head&gt;, HTTP headers and WP RSD endpoint."
+msgstr "Desative o acesso à API REST para usuários não autenticados e remova os rastros de URL de &lt;head&gt;, cabeçalhos HTTP e endpoint WP RSD."
+
+#: classes/class-settings-sections-fields.php:2735
+msgid "Disable REST API"
+msgstr "Desativar a REST API"
+
+#: classes/class-settings-sections-fields.php:2607
+#: classes/class-settings-sections-fields.php:2696
+msgid "Disable only on"
+msgstr "Desativar somente em"
+
+#: classes/class-settings-sections-fields.php:2922
+msgid "Disable loading of <strong>Dashicons CSS and JS files</strong> on the front-end for public site visitors. This might break the layout or design of custom forms, including custom login forms, if they depend on Dashicons. Make sure to check those forms after disabling."
+msgstr "Desative o carregamento de <strong>arquivos CSS e JS do Dashicons</strong> no front-end para visitantes públicos do site. Isso pode prejudicar o layout ou o design de formulários personalizados, inclusive formulários de login personalizados, se eles dependerem de Dashicons. Certifique-se de verificar esses formulários após desativá-lo."
+
+#: classes/class-settings-sections-fields.php:2575
+msgid "Disable Gutenberg"
+msgstr "Desativar o Gutenberg"
+
+#: classes/class-settings-sections-fields.php:2758
+msgid "Disable Feeds"
+msgstr "Desativar feeds"
+
+#: classes/class-settings-sections-fields.php:2608
+#: classes/class-settings-sections-fields.php:2697
+msgid "Disable except on"
+msgstr "Desativar, exceto em"
+
+#: classes/class-settings-sections-fields.php:1104
+msgid "Disable Dashboard Widgets"
+msgstr "Desativar Widgets do Painel"
+
+#: settings.php:186
+msgid "Disable Components"
+msgstr "Desativar Componentes"
+
+#: classes/class-settings-sections-fields.php:2673
+msgid "Disable comments for some or all public post types. When disabled, existing comments will also be hidden on the frontend."
+msgstr "Desative os comentários para alguns ou todos os tipos de postagens públicas. Quando desativados, os comentários existentes também ficarão ocultos no frontend."
+
+#: classes/class-settings-sections-fields.php:2664
+msgid "Disable Comments"
+msgstr "Desativar Comentários"
+
+#: classes/class-settings-sections-fields.php:2781
+msgid "Disable All Updates"
+msgstr "Desativar Todas as Atualizações"
+
+#: classes/class-settings-sections-fields.php:2767
+msgid "Disable all RSS, Atom and RDF feeds. This includes feeds for posts, categories, tags, comments, authors and search. Also removes traces of feed URLs from &lt;head&gt;."
+msgstr "Desative todos os feeds RSS, Atom e RDF. Isso inclui feeds para publicações, categorias, tags, comentários, autores e pesquisa. Também remove rastros de URLs de feeds do &lt;head&gt;."
+
+#: classes/class-settings-sections-fields.php:2851
+msgid "Disable <strong>version number</strong> on static resource URLs referenced in &lt;head&gt;, which can disclose WordPress version number. Older versions(s) might contain unpatched security loophole(s). Applies to non-logged-in view of pages. This will also increase cacheability of static assets, but may have unintended consequences. Make sure you know what you are doing."
+msgstr "Desative <strong>o número da versão</strong> em URLs de recursos estáticos referenciados em &lt;head&gt;, que podem divulgar o número da versão do WordPress. As versões mais antigas podem conter brechas de segurança não corrigidas. Aplica-se à visualização de páginas sem login. Isso também aumentará a capacidade de armazenamento em cache de ativos estáticos, mas pode ter consequências não intencionais. Certifique-se de saber o que está fazendo."
+
+#: classes/class-settings-sections-fields.php:2958
+msgid "Disable <strong>jQuery Migrate</strong> script on the frontend, which should no longer be needed if your site uses modern theme and plugins."
+msgstr "Desative o script <strong>jQuery Migrate</strong> no front-end, que não será mais necessário se seu site usar temas e plug-ins modernos."
+
+#: classes/class-settings-sections-fields.php:2940
+msgid "Disable <strong>emoji support for pages, posts and custom post types</strong> on the admin and frontend. The support is primarily useful for older browsers that do not have native support for it. Most modern browsers across different OSes and devices now have native support for it."
+msgstr "Desative <strong>o suporte a emojis para páginas, posts e tipos de post personalizados</strong> no administrador e no frontend. O suporte é útil principalmente para navegadores mais antigos que não têm suporte nativo para ele. A maioria dos navegadores modernos em diferentes sistemas operacionais e dispositivos agora tem suporte nativo para isso."
+
+#: classes/class-settings-sections-fields.php:2976
+msgid "Disable <strong>block-based widgets settings screen</strong>. Restores the classic widgets settings screen when using a classic (non-block) theme. This has no effect on block themes."
+msgstr "Desativar <strong>a tela de configurações de widgets baseada em blocos</strong>. Restaura a tela clássica de configurações de widgets ao usar um tema clássico (sem blocos). Isso não tem efeito sobre os temas de blocos."
+
+#: classes/class-settings-sections-fields.php:3461
+#: classes/class-settings-sections-fields.php:3518
+#: classes/class-settings-sections-fields.php:3574
+msgid "Disable"
+msgstr "Desativar"
+
+#: classes/class-settings-sections-fields.php:4271
+#: classes/class-settings-sections-fields.php:4291
+msgid "Description"
+msgstr "Descrição"
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:184
+#: includes/premium/media-categories/addons/tree-view/includes/global/class-media-categories-module-tree-view-media.php:99
+#: includes/premium/media-categories/views/admin/tinymce/fields/repeater.php:52
+msgid "Delete"
+msgstr "Excluir"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:66
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:133
+msgid "Default Value(s)"
+msgstr "Valor(es) Padrão"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/color/color.php:16
+#: includes/premium/custom-content/cfgroup/includes/fields/number.php:26
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:62
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:39
+#: includes/premium/custom-content/cfgroup/includes/fields/textarea.php:23
+msgid "Default Value"
+msgstr "Valor Padrão"
+
+#. translators: %s is the WordPress version number
+#: classes/class-settings-sections-fields.php:1733
+msgid "Default text is: <em>Version %s</em>"
+msgstr "O texto padrão é: <em>Versão %s</em>"
+
+#: classes/class-settings-sections-fields.php:1690
+msgid "Default text is: <em>Thank you for creating with <a href=\"https://wordpress.org/\">WordPress</a></em>."
+msgstr "O texto padrão é: <em>Obrigado por criar com o <a href=\"https://wordpress.org/\">WordPress</a></em>."
+
+#: classes/class-settings-sections-fields.php:3327
+msgid "Default is 82 from a range between 1 to 100. The higher the number, the higher the quality and the file size."
+msgstr "O padrão é 82 em um intervalo de 1 a 100. Quanto maior o número, maior a qualidade e o tamanho do arquivo."
+
+#. translators: keep &lt;body&gt; as is in the translation
+#: classes/class-settings-sections-fields.php:2323
+msgid "Default is 10. Smaller number insert code closer to &lt;body&gt;"
+msgstr "O padrão é 10. Um número menor insere o código mais próximo do &lt;body&gt;"
+
+#. translators: &lt;/head&gt; and &lt;head&gt; is escaped </head> and <head>,
+#. keep them as is in the translation
+#: classes/class-settings-sections-fields.php:2205
+msgid "Default is 10. Larger number inserts CSS closer to &lt;/head&gt; and allows it to better override other CSS loaded earlier in &lt;head&gt;."
+msgstr "O padrão é 10. Um número maior insere CSS mais próximo do &lt;/head&gt; e permite que ele substitua melhor outro CSS carregado anteriormente no  &lt;head&gt;."
+
+#. translators: keep &lt;/head&gt; as is in the translation
+#: classes/class-settings-sections-fields.php:2277
+msgid "Default is 10. Larger number insert code closer to &lt;/head&gt;"
+msgstr "O padrão é 10. Um número maior insere o código mais próximo do &lt;/head&gt;"
+
+#. translators: keep &lt;/body&gt; as is in the translation
+#: classes/class-settings-sections-fields.php:2369
+msgid "Default is 10. Larger number insert code closer to &lt;/body&gt;"
+msgstr "O padrão é 10. Um número maior insere o código mais próximo do &lt;/body&gt;"
+
+#. translators: %s is the default login URL
+#: classes/class-settings-sections-fields.php:1765
+msgid "Default is %s"
+msgstr "O padrão é %s"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/wysiwyg.php:42
+msgid "Default"
+msgstr "Padrão"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:236
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1670
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1705
+msgid "Deactivate"
+msgstr "Desativar"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/date/date.php:8
+msgid "Date"
+msgstr "Data"
+
+#: classes/class-settings-sections-fields.php:1639
+msgid "Customize the text you see on the footer of wp-admin pages other than this ASE settings page."
+msgstr "Personalize o texto exibido no rodapé das páginas wp-admin que não sejam essa página de configurações do ASE."
+
+#: classes/class-settings-sections-fields.php:1335
+msgid "Customize the order of the admin menu and optionally change menu item title or hide some items."
+msgstr "Personalize a ordem do menu de administração e, opcionalmente, altere o título do item de menu ou oculte alguns itens."
+
+#: classes/class-settings-sections-fields.php:2170
+msgid "Custom Frontend CSS"
+msgstr "CSS de Front-end Personalizado"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:57
+#: includes/premium/custom-content/cfgroup/includes/init.php:59
+msgid "Custom Field Groups"
+msgstr "Grupos de Campos Personalizados"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:58
+msgid "Custom Field Group"
+msgstr "Grupo de Campo Personalizado"
+
+#: classes/class-settings-sections-fields.php:4397
+msgid "Custom CSS"
+msgstr "CSS Personalizado"
+
+#: classes/class-settings-sections-fields.php:118
+msgid "Custom Content Types"
+msgstr "Tipos de Conteúdo Personalizado"
+
+#: settings.php:185
+msgid "Custom Code"
+msgstr "Código Personalizado"
+
+#: classes/class-settings-sections-fields.php:2403
+msgid "Custom Body Class"
+msgstr "Classe Personalizada do Corpo"
+
+#: classes/class-settings-sections-fields.php:1630
+msgid "Custom Admin Footer Text"
+msgstr "Texto Personalizado do Rodapé do Administrador"
+
+#: classes/class-settings-sections-fields.php:2125
+msgid "Custom Admin CSS"
+msgstr "CSS de Administrador Personalizado"
+
+#: classes/class-settings-sections-fields.php:4316
+#: classes/class-settings-sections-fields.php:4324
+msgid "Curves"
+msgstr "Curvas"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:114
+msgid "CSS, JS, HTML and PHP code snippets"
+msgstr "Trechos de código CSS, JS, HTML e PHP"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:587
+msgid "CSS"
+msgstr "CSS"
+
+#. translators: Folder path and name
+#: includes/premium/media-categories/includes/global/class-media-categories-module-filesystem.php:138
+#: includes/premium/media-categories/includes/global/class-media-categories-module-filesystem.php:163
+msgid "Could not create temporary folder at %s"
+msgstr "Não foi possível criar a pasta temporária em %s"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/textarea.php:47
+msgid "Convert newlines to <br />"
+msgstr "Converter novas linhas em <br />"
+
+#: classes/class-settings-sections-fields.php:3305
+msgid "Convert BMP, PNG and JPG uploads to WebP instead of JPG."
+msgstr "Converta envios de BMP, PNG e JPG para WebP em vez de JPG."
+
+#: classes/class-settings-sections-fields.php:127
+msgid "Conveniently register and edit custom post types and custom taxonomies. Enable the creation of custom field groups for your post types and options pages to store data for display on any part of your website."
+msgstr "Registre e edite convenientemente tipos de postagens e taxonomias personalizadas. Habilite a criação de grupos de campos personalizados para seus tipos de postagem e páginas de opções para armazenar dados para exibição em qualquer parte do seu site."
+
+#: classes/class-settings-sections-fields.php:2110
+msgid "Conveniently add and manage CSS, JS, HTML and PHP code snippets to modify your site's content, design, behaviour and functionalities"
+msgstr "Adicione e gerencie convenientemente trechos de código CSS, JS, HTML e PHP para modificar o conteúdo, design, comportamento e funcionalidades do seu site"
+
+#: classes/class-settings-sections-fields.php:341
+msgid "Content Order"
+msgstr "Ordenação de Conteúdo"
+
+#: settings.php:182
+msgid "Content Management"
+msgstr "Gerenciamento de Conteúdo"
+
+#: classes/class-settings-sections-fields.php:176
+msgid "Content Duplication"
+msgstr "Duplicação de Conteúdo"
+
+#: classes/class-settings-sections-fields.php:2790
+msgid "Completely disable core, theme and plugin updates and auto-updates. Will also disable update checks, notices and emails."
+msgstr "Desativa completamente as atualizações manuais e automáticas de núcleo, de tema e de plug-ins. Também desabilitará as verificações de atualização, avisos e e-mails."
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:133
+msgid "Column Width"
+msgstr "Largura da Coluna"
+
+#: classes/class-settings-sections-fields.php:4319
+#: includes/premium/custom-content/cfgroup/includes/fields/color/color.php:8
+msgid "Color"
+msgstr "Cor"
+
+#: settings.php:518
+msgid "Collapse"
+msgstr "Recolher"
+
+#: classes/class-settings-sections-fields.php:2101
+msgid "Code Snippets Manager"
+msgstr "Gerenciador de Trechos de Códigos"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:44
+msgid "Code Snippets Editor"
+msgstr "Editor de Trechos de Códigos"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:80
+msgctxt "post type general name"
+msgid "Code Snippets"
+msgstr "Trechos de Códigos"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:82
+msgctxt "admin menu"
+msgid "Code Snippets"
+msgstr "Trechos de Códigos"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:747
+msgid "Code Snippets"
+msgstr "Trechos de Códigos"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:81
+msgctxt "post type singular name"
+msgid "Code Snippet"
+msgstr "Trecho de Código"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:83
+msgctxt "add new on admin bar"
+msgid "Code Snippet"
+msgstr "Trecho de Código"
+
+#: includes/premium/custom-content/cfgroup/templates/field_html.php:184
+msgid "Close"
+msgstr "Fechar"
+
+#: classes/class-settings-sections-fields.php:1113
+msgid "Clean up and speed up the dashboard by completely disabling some or all widgets. Disabled widgets won't load any assets nor show up under Screen Options."
+msgstr "Limpe e acelere o painel desativando completamente alguns ou todos os widgets. Os widgets desativados não carregarão nenhum ativo nem serão exibidos nas Opções de Tela."
+
+#: classes/class-settings-sections-fields.php:1068
+msgid "Clean up admin pages by moving notices into a separate panel easily accessible via the admin bar."
+msgstr "Limpe as páginas de administração movendo os avisos para um painel separado, facilmente acessível pela barra de administração."
+
+#: classes/class-settings-sections-fields.php:824
+msgid "Clean Up Admin Bar"
+msgstr "Limpar a Barra de Administração"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:51
+#: includes/premium/custom-content/cfgroup/includes/fields/radio.php:47
+#: includes/premium/custom-content/cfgroup/includes/fields/select.php:102
+msgid "Choices"
+msgstr "Escolhas"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/checkbox.php:8
+msgid "Checkbox"
+msgstr "Caixa de Seleção"
+
+#: includes/premium/custom-content/options-pages/options_pages.php:251
+msgid "Changes have been saved."
+msgstr "As configurações foram salvas."
+
+#: classes/class-settings-sections-fields.php:1753
+msgid "Change Login URL"
+msgstr "Alterar URL de Login"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-ajax.php:111
+msgid "Category does not exist, so cannot be deleted"
+msgstr "A categoria não existe, portanto não pode ser excluída"
+
+#: includes/premium/media-categories/addons/tree-view/views/admin/media.php:35
+msgid "Categorizing..."
+msgstr "Categorizando..."
+
+#. translators: Number of attachments
+#: includes/premium/media-categories/addons/tree-view/includes/global/class-media-categories-module-tree-view-media.php:191
+msgid "Categorized %s items"
+msgstr "%s itens categorizados"
+
+#: includes/premium/media-categories/addons/tree-view/includes/global/class-media-categories-module-tree-view-media.php:194
+msgid "Categorize 1 item"
+msgstr "Categorizar 1 item"
+
+#. translators: Number of attachments
+#: includes/premium/media-categories/addons/tree-view/includes/global/class-media-categories-module-tree-view-media.php:193
+msgid "Categorize %s items"
+msgstr "Categorizar %s itens"
+
+#. translators: %s: PHP interface name
+#: classes/class-php-validator.php:216
+msgid "Cannot redeclare interface %s."
+msgstr "Não é possível declarar novamente a interface %s."
+
+#. translators: %s: PHP function name
+#: classes/class-php-validator.php:208
+msgid "Cannot redeclare function %s."
+msgstr "Não é possível declarar novamente a função %s."
+
+#. translators: %s: PHP class name
+#: classes/class-php-validator.php:212
+msgid "Cannot redeclare class %s."
+msgstr "Não é possível declarar novamente a classe %s."
+
+#. translators: %s: PHP identifier name
+#: classes/class-php-validator.php:220
+msgid "Cannot redeclare %s."
+msgstr "Não é possível declarar novamente %s."
+
+#. translators: %1$s: Folder Name, %2$s: WordPress Uploads Folder Path
+#: includes/premium/media-categories/includes/global/class-media-categories-module-filesystem.php:207
+msgid "Cannot delete %1$s, as it is not within %2$s."
+msgstr "Não é possível excluir %1$s, pois não está dentro de %2$s."
+
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-tinymce.php:123
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-tinymce.php:172
+#: includes/premium/media-categories/includes/admin/class-media-categories-module-tinymce.php:237
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: classes/class-settings-sections-fields.php:3855
+msgid "Bypass verification of SSL certificate. This would be insecure if mail is delivered across the internet but could help in certain local and/or containerized WordPress scenarios."
+msgstr "Ignorar a verificação do certificado SSL. Isso não seria seguro se o e-mail fosse entregue pela Internet, mas poderia ajudar em determinados cenários locais e/ou em contêineres do WordPress."
+
+#: classes/class-settings-sections-fields.php:4127
+msgid "Bypass password protection with URL parameter"
+msgstr "Ignorar a proteção por senha com parâmetro de URL"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:70
+msgid "Button Label"
+msgstr "Etiqueta do Botão"
+
+#: classes/class-settings-sections-fields.php:4331
+msgid "Background"
+msgstr "Fundo"
+
+#: classes/class-settings-sections-fields.php:667
+msgid "AVIF Upload"
+msgstr "Envio de AVIF"
+
+#: classes/class-settings-fields-render.php:1412
+msgid "AVIF Support Status"
+msgstr "Status do Suporte à AVIF"
+
+#: classes/class-settings-sections-fields.php:3192
+msgid "Automatically obfuscate email addresses in post content."
+msgstr "Ofuscar automaticamente endereços de e-mail no conteúdo da postagem."
+
+#: classes/class-settings-sections-fields.php:799
+msgid "Auto-Publish Posts with Missed Schedule"
+msgstr "Auto-Publicar Posts com Agendamento Perdido"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:70
+msgid "Author URL"
+msgstr "URL do Autor"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:68
+msgid "Author Nice Name"
+msgstr "Nome de Exibição do Autor"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:72
+msgid "Author Meta Field"
+msgstr "Meta Campo do Autor"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:67
+msgid "Author Login"
+msgstr "Login como Autor"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:69
+msgid "Author Email"
+msgstr "E-mail do Autor"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-dynamic-tags.php:71
+msgid "Author Display Name"
+msgstr "Nome de Exibição do Autor"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:60
+msgid "Audio"
+msgstr "Áudio"
+
+#: classes/class-settings-fields-render.php:1319
+msgid "Attempts<br />Lockouts"
+msgstr "Tentativas<br />Bloqueios"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:104
+msgid "Attachment ID"
+msgstr "ID do Anexo"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1138
+msgid "As a file"
+msgstr "Como um arquivo"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:58
+#: includes/premium/custom-content/cfgroup/includes/fields/text.php:25
+msgid "Any"
+msgstr "Qualquer"
+
+#: classes/class-settings-fields-render.php:1233
+msgid "Always hide for user role(s)"
+msgstr "Sempre ocultar para a(s) função(ões) de usuário(s)"
+
+#: classes/class-settings-sections-fields.php:1432
+msgid "Also show additional filter(s) for non-hierarchical taxonomies."
+msgstr "Exibir também filtros adicionais para taxonomias não hierárquicas."
+
+#: classes/class-settings-sections-fields.php:1090
+msgid "Also hide admin notices for non-administrators."
+msgstr "Oculte também avisos administrativos para não administradores."
+
+#: classes/class-settings-sections-fields.php:401
+msgid "Also enable custom ordering for the following post type(s), which are non-hierarchical and does not support page attributes:"
+msgstr "Ative também a ordenação personalizada para os seguintes tipos de postagem, que não são hierárquicos e não suportam atributos de página:"
+
+#: classes/class-settings-sections-fields.php:2652
+msgid "Also disable frontend block styles / CSS files for the selected post types."
+msgstr "Desative também os estilos de bloco de front-end / arquivos CSS para os tipos de post selecionados."
+
+#: classes/class-settings-sections-fields.php:4093
+msgid "Allow visitors with the following IP addresses to view the site directly:"
+msgstr "Permita que visitantes com os seguintes endereços IP visualizem o site diretamente:"
+
+#: classes/class-settings-sections-fields.php:627
+msgid "Allow some or all user roles to upload SVG files, which will then be sanitized to keep things secure."
+msgstr "Permitir que algumas ou todas as funções de usuário façam envio de arquivos SVG, que serão sanitizados para manter a segurança."
+
+#: classes/class-settings-sections-fields.php:776
+msgid "Allow Custom Navigation Menu Items to Open in New Tab"
+msgstr "Permitir que os itens do menu de navegação personalizado sejam abertos em uma nova guia"
+
+#: classes/class-settings-sections-fields.php:785
+msgid "Allow custom navigation menu items to have links that open in new browser tab via target=\"_blank\" attribute. The rel=\"noopener noreferrer nofollow\" attribute will also be added for enhanced security and SEO benefits."
+msgstr "Permitir que os itens do menu de navegação personalizado tenham links que abrem em uma nova guia do navegador por meio do atributo target=\"_blank\". O atributo rel=\"noopener noreferrer nofollow\" também será adicionado para aumentar a segurança e os benefícios de SEO."
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:595
+msgid "All Types"
+msgstr "Todos os Tipos"
+
+#: includes/premium/media-categories/addons/tree-view/includes/global/class-media-categories-module-tree-view-media.php:367
+msgid "All Media"
+msgstr "Todas as Mídias"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:89
+msgid "All Code Snippets"
+msgstr "Todos os Trechos de Códigos"
+
+#. translators: Taxonomy Label, Plural
+#: includes/premium/media-categories/includes/global/class-media-categories-module-media.php:187
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:83
+msgid "All %s"
+msgstr "Todos %s"
+
+#: classes/class-settings-sections-fields.php:3889
+msgid "After saving the settings above, check if everything is configured properly below."
+msgstr "Depois de salvar as configurações acima, verifique se tudo está configurado corretamente abaixo."
+
+#: classes/class-settings-sections-fields.php:197
+msgid "After duplication, redirect to:"
+msgstr "Após a duplicação, redirecionar para:"
+
+#: classes/class-settings-sections-fields.php:1326
+msgid "Admin Menu Organizer"
+msgstr "Organizador do Menu de Administrador"
+
+#: settings.php:183
+msgid "Admin Interface"
+msgstr "Interface do Administrador"
+
+#: classes/class-settings-sections-fields.php:1369
+msgid "Admin Columns Manager"
+msgstr "Gerenciador de Colunas de Administração"
+
+#: classes/class-settings-sections-fields.php:221
+msgid "Admin bar"
+msgstr "Barra de Administração"
+
+#. Plugin Name of the plugin
+#: admin-site-enhancements.php
+msgid "Admin and Site Enhancements (ASE) Pro"
+msgstr "Aprimoramentos na Administração de Site (ASE)"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1172
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1217
+msgid "Admin"
+msgstr "Admin"
+
+#: settings.php:130
+msgid "Add Your Review"
+msgstr "Adicione sua Avaliação"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:77
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:145
+#: includes/premium/custom-content/cfgroup/includes/fields/repeater.php:204
+msgid "Add Row"
+msgstr "Adicionar Linha"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:98
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:751
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:771
+msgid "Add PHP Snippet"
+msgstr "Trecho de Código PHP"
+
+#: includes/premium/custom-content/cfgroup/includes/init.php:60
+msgid "Add New Field Group"
+msgstr "Adicionar Novo Grupo de Campos"
+
+#. translators: Taxonomy Label, Singular
+#: includes/premium/media-categories/includes/global/class-media-categories-module-taxonomies.php:93
+msgid "Add New %s"
+msgstr "Adicionar Novo %s"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:92
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:749
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:769
+msgid "Add JS Snippet"
+msgstr "Adicionar Trecho JS"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:363
+msgid "Add JS code"
+msgstr "Adicionar Código JS"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:95
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:750
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:770
+msgid "Add HTML Snippet"
+msgstr "Adicionar Trecho HTML"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:364
+msgid "Add HTML code"
+msgstr "Adicionar Código HTML"
+
+#: includes/premium/custom-content/cfgroup/includes/fields/file.php:38
+msgid "Add File"
+msgstr "Adicionar Arquivo"
+
+#: classes/class-settings-sections-fields.php:2179
+msgid "Add custom CSS on all frontend pages for all user roles."
+msgstr "Adicione um CSS personalizado em todas as páginas de front-end para todas as funções de usuário."
+
+#: classes/class-settings-sections-fields.php:2134
+msgid "Add custom CSS on all admin pages for all user roles."
+msgstr "Adicione um CSS personalizado em todas as páginas de administração para todas as funções de usuário."
+
+#. translators: &lt;body&gt; is escaped <body>, keep it as is in the
+#. translation
+#: classes/class-settings-sections-fields.php:2413
+msgid "Add custom &lt;body&gt; class(es) on the singular view of some or all public post types. Compatible with classes already added using <a href=\"https://wordpress.org/plugins/wp-custom-body-class\" target=\"_blank\">Custom Body Class plugin</a>."
+msgstr "Adicionar classe(s) &lt;body&gt; personalizada(s) na exibição singular de alguns ou todos os tipos de postagens públicas. Compatível com classes já adicionadas usando o plug-in <a href=\"https://wordpress.org/plugins/wp-custom-body-class\" target=\"_blank\">Custom Body Class</a>."
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:362
+msgid "Add CSS/SCSS code"
+msgstr "Adicionar código CSS/SCSS"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:89
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:748
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:768
+msgid "Add CSS / SCSS Snippet"
+msgstr "Adicionar Trecho CSS/SCSS"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:84
+msgctxt "add new"
+msgid "Add Code Snippet"
+msgstr "Adicionar Trecho de Código"
+
+#: includes/premium/code-snippets-manager/includes/admin-install.php:85
+msgid "Add Code Snippet"
+msgstr "Adicionar Trecho de Código"
+
+#: includes/premium/media-categories/addons/tree-view/includes/global/class-media-categories-module-tree-view-media.php:91
+msgid "Add Child"
+msgstr "Adicionar Filho"
+
+#: classes/class-settings-sections-fields.php:563
+msgid "Add categories for the media library and enable drag-and-drop categorization of media items. Categories can then be used to filter media items during media insertion into content."
+msgstr "Adicione categorias à biblioteca de mídia e ative a categorização de itens de mídia com arrastar e soltar. As categorias podem então ser usadas para filtrar itens de mídia durante a inserção de mídia no conteúdo."
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-media.php:938
+#: includes/premium/media-categories/includes/global/class-media-categories-module-media.php:981
+#: includes/premium/media-categories/views/admin/tinymce/fields/repeater.php:32
+msgid "Add"
+msgstr "Adicionar"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:233
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1704
+msgid "Active"
+msgstr "Ativo"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:235
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1673
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1710
+msgid "Activate"
+msgstr "Ativar"
+
+#: includes/premium/media-categories/views/admin/tinymce/fields/repeater.php:24
+msgid "Actions"
+msgstr "Ações"
+
+#: classes/class-settings-sections-fields.php:3546
+msgid "90 seconds"
+msgstr "90 segundos"
+
+#: classes/class-settings-sections-fields.php:3545
+msgid "60 seconds"
+msgstr "60 segundos"
+
+#: classes/class-settings-sections-fields.php:3490
+#: classes/class-settings-sections-fields.php:3603
+msgid "5 minutes"
+msgstr "5 minutos"
+
+#: classes/class-settings-sections-fields.php:3544
+msgid "45 seconds"
+msgstr "45 segundos"
+
+#: classes/class-settings-sections-fields.php:3486
+#: classes/class-settings-sections-fields.php:3543
+#: classes/class-settings-sections-fields.php:3599
+msgid "30 seconds"
+msgstr "30 segundos"
+
+#: classes/class-settings-sections-fields.php:3489
+#: classes/class-settings-sections-fields.php:3602
+msgid "3 minutes"
+msgstr "3 minutos"
+
+#: classes/class-settings-sections-fields.php:3488
+#: classes/class-settings-sections-fields.php:3601
+msgid "2 minutes"
+msgstr "2 minutos"
+
+#: classes/class-settings-sections-fields.php:3485
+#: classes/class-settings-sections-fields.php:3542
+#: classes/class-settings-sections-fields.php:3598
+msgid "15 seconds"
+msgstr "15 segundos"
+
+#: classes/class-settings-sections-fields.php:3547
+msgid "120 seconds"
+msgstr "120 segundos"
+
+#: classes/class-settings-sections-fields.php:3491
+#: classes/class-settings-sections-fields.php:3604
+msgid "10 minutes"
+msgstr "10 minutos"
+
+#: classes/class-settings-sections-fields.php:3487
+#: classes/class-settings-sections-fields.php:3600
+msgid "1 minute"
+msgstr "1 minuto"
+
+#: classes/class-settings-sections-fields.php:2511
+msgid "<strong>Your app-ads.txt content:</strong>"
+msgstr "<strong>Seu conteúdo app-ads.txt:</strong>"
+
+#: classes/class-settings-sections-fields.php:2487
+msgid "<strong>Your ads.txt content:</strong>"
+msgstr "<strong>Seu conteúdo ads.txt:</strong>"
+
+#: classes/class-settings-sections-fields.php:2201
+msgid "<strong>Insert CSS with the priority of</strong>"
+msgstr "<strong>Inserir CSS com a prioridade de</strong>"
+
+#: classes/class-login-id-type.php:56
+msgid "<strong>Error:</strong> Invalid email or incorrect password."
+msgstr "<strong>Erro:</strong> E-mail inválido ou senha incorreta."
+
+#. translators: keep &lt;/body&gt; as is in the translation
+#: classes/class-settings-sections-fields.php:2365
+msgid "<strong>Code to insert in footer section before &lt;/body&gt; with the priority of</strong>"
+msgstr "<strong>Código a ser inserido na seção de rodapé antes do &lt;/body&gt; com a prioridade de</strong>"
+
+#. translators: keep &lt;/head&gt; as is in the translation
+#: classes/class-settings-sections-fields.php:2273
+msgid "<strong>Code to insert before &lt;/head&gt; with the priority of</strong>"
+msgstr "<strong>Código a ser inserido antes do &lt;/head&gt; com a prioridade de</strong>"
+
+#. translators: keep &lt;body&gt; as is in the translation
+#: classes/class-settings-sections-fields.php:2319
+msgid "<strong>Code to insert after &lt;body&gt; with the priority of</strong>"
+msgstr "<strong>Código a ser inserido após o &lt;body&gt; com a prioridade de</strong>"
+
+#: classes/class-settings-sections-fields.php:3805
+msgid "<span class=\"field-sublabel sublabel-wide\">Username</span>"
+msgstr "<span class=\"field-sublabel sublabel-wide\">Nome de usuário</span>"
+
+#: classes/class-settings-sections-fields.php:3662
+msgid "<span class=\"field-sublabel sublabel-wide\">Sender name</span>"
+msgstr "<span class=\"field-sublabel sublabel-wide\">Nome do remetente</span>"
+
+#: classes/class-settings-sections-fields.php:3683
+msgid "<span class=\"field-sublabel sublabel-wide\">Sender email</span>"
+msgstr "<span class=\"field-sublabel sublabel-wide\">E-mail do remetente</span>"
+
+#: classes/class-settings-sections-fields.php:3899
+msgid "<span class=\"field-sublabel sublabel-wide\">Send a test email to</span>"
+msgstr "<span class=\"field-sublabel sublabel-wide\">Envie um e-mail de teste para</span>"
+
+#: classes/class-settings-sections-fields.php:3781
+msgid "<span class=\"field-sublabel sublabel-wide\">Security</span>"
+msgstr "<span class=\"field-sublabel sublabel-wide\">Segurança</span>"
+
+#: classes/class-settings-sections-fields.php:3759
+msgid "<span class=\"field-sublabel sublabel-wide\">Port</span>"
+msgstr "<span class=\"field-sublabel sublabel-wide\">Porta</span>"
+
+#: classes/class-settings-sections-fields.php:3826
+msgid "<span class=\"field-sublabel sublabel-wide\">Password</span>"
+msgstr "<span class=\"field-sublabel sublabel-wide\">Senha</span>"
+
+#: classes/class-settings-sections-fields.php:3738
+msgid "<span class=\"field-sublabel sublabel-wide\">Host</span>"
+msgstr "<span class=\"field-sublabel sublabel-wide\">Host</span>"
+
+#: classes/class-settings-sections-fields.php:3540
+msgid "<span class=\"faded\">(Default is 15 seconds)</span>"
+msgstr "<span class=\"faded\">(O Padrão é 15 segundos)</span>"
+
+#: classes/class-settings-sections-fields.php:3483
+msgid "<span class=\"faded\">(Default is 1 minute)</span>"
+msgstr "<span class=\"faded\">(O padrão é 1 minuto)</span>"
+
+#: classes/class-settings-sections-fields.php:1829
+msgid "<div class=\"asenha-warning\">This feature <strong>only works for/with the default WordPress login page</strong>. It does not support using custom login page you manually created with a page builder or with another plugin.<br /><br />It's also <strong>not yet compatible with two-factor authentication (2FA) methods</strong>. If you use a 2FA plugin, please use the change login URL feature bundled in that plugin, or use another plugin that is compatible with it.<br /><br />And obviously, to improve security, please <strong>use something other than 'login'</strong> for the custom login slug.</div>"
+msgstr "<div class=\"asenha-warning\">Esse recurso <strong>só funciona para/com a página de login padrão do WordPress</strong>. Ele não é compatível com o uso da página de login personalizada criada manualmente com um construtor de páginas ou com outro plugin.<br /><br />Ele também <strong>ainda não é compatível com os métodos de autenticação de dois fatores (2FA)</strong>. Se você usar um plug-in de autenticação de dois fatores (2FA), use o recurso de alteração de URL de login incluído nesse plug-in ou use outro plug-in compatível com ele.<br /><br />E, obviamente, para aumentar a segurança, <strong>use algo diferente de \"login\"</strong> para o slug de login personalizado.</div>"
+
+#. translators: %s: Add New taxonomy label.
+#: includes/premium/media-categories/includes/global/class-media-categories-module-media.php:934
+msgid "+ %s"
+msgstr "+ %s"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1153
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1198
+msgid "&lt;head&gt;"
+msgstr "&lt;head&gt;"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1157
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1202
+msgid "&lt;footer&gt;"
+msgstr "&lt;footer&gt;"
+
+#: includes/premium/code-snippets-manager/includes/admin-screens.php:1229
+msgid "&lt;body&gt;"
+msgstr "&lt;body&gt;"
+
+#: settings.php:523
+msgid "(filtered from _MAX_ total entries)"
+msgstr "(filtrado do total de _MAX_ entradas)"
+
+#: classes/class-settings-sections-fields.php:1301
+msgid "(Default is 160px)"
+msgstr "(O padrão é 160px)"
+
+#: classes/class-settings-sections-fields.php:4081
+msgid "(Default is 'secret')"
+msgstr "(O padrão é 'secret')"
+
+#: includes/premium/media-categories/includes/global/class-media-categories-module-media.php:968
+msgctxt "tag delimiter"
+msgid ","
+msgstr ","

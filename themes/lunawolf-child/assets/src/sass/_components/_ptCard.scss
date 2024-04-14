@@ -1,0 +1,26 @@
+._ptCard {
+
+  &__title {
+    margin-top: 20px;
+  }
+
+  &__plch {
+    width: 100%;
+    object-fit: contain;
+    border: 1px solid $bg-gray;
+  }
+
+  p {
+    font-weight: 700;
+  }
+
+  a {
+    color: inherit;
+    display: inline-block;
+    margin-top: 10px;
+
+    &:hover {
+      color: $arrow-color;
+    }
+  }
+}

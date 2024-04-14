@@ -1,0 +1,34 @@
+{% set image_mobile  = block.image_mobile %}
+{% set image_tablet  = block.image_tablet %}
+{% set image_desktop = block.image_desktop %}
+{% set full_width    = block.full_width %}
+{% set side_padding  = block.remove_side_padding %}
+{% set hasImage      = image_mobile or image_tablet or image_desktop %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if hasImage %}
+  <section id="{{ settings.block_id }}" class="m__imageFeature">
+    {% include '_components/settings_overlay.twig' %}
+    <div class="wrapper{{ full_width ? ' -fullWidth' }}{{ side_padding ? ' -removePadding' }}">
+      <div class="container">
+        <picture>
+          {% if image_mobile %}
+            <source media="(max-width: 512px)" srcset="{{ get_image(image_mobile) }} 512w">
+          {% endif %}
+          {% if image_tablet %}
+            <source media="(max-width: 991px)" srcset="{{ get_image(image_tablet) }} 991w">
+          {% endif %}
+          {% if image_desktop %}
+            <img src="{{ get_image(image_desktop) }}" alt="{{ image_desktop.alt }}" />
+          {% endif %}
+        </picture>
+      </div>
+    </div>
+    {% if not is_preview %}
+      {{ settings.styles | raw }}
+    {% endif %}
+  </section>
+{% endif %}

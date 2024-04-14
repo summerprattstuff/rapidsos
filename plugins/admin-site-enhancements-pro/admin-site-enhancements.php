@@ -4,7 +4,7 @@
  * Plugin Name: Admin and Site Enhancements (ASE) Pro
  * Plugin URI:        https://www.wpase.com/
  * Description:       Easily enable enhancements and features that usually require multiple plugins.
- * Version:           6.9.6.2
+ * Version:           6.9.8
  * Update URI: https://api.freemius.com
  * Author:            wpase.com
  * Author URI:        https://www.wpase.com/author-uri
@@ -13,7 +13,7 @@
  * Text Domain:       admin-site-enhancements
  * Domain Path:       /languages
  * 
- * @fs_premium_only   /README.txt, /classes/class-php-validator.php, /classes/class-wp-config-transformer.php, /classes/class-local-user-avatar.php, /includes/premium/, /assets/premium/, /vendor/scssphp/
+ * @fs_premium_only   /README.txt, /classes/class-php-validator.php, /classes/class-wp-config-transformer.php, /classes/class-local-user-avatar.php, /includes/premium/, /assets/premium/, /vendor/scssphp/, /languages/
  */
 // If this file is called directly, abort.
 if ( !defined( 'ABSPATH' ) ) {
@@ -23,7 +23,7 @@ if ( !defined( 'ABSPATH' ) ) {
 if ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'admin-site-enhancements/admin-site-enhancements.php' ) ) {
     wp_die( 'Please deactivate the free version of ASE before activating the Pro version. You can safely delete the free version after activating the Pro version. <a href="/wp-admin/plugins.php">Return to plugins list &raquo;</a>' );
 } else {
-    define( 'ASENHA_VERSION', '6.9.6.2' );
+    define( 'ASENHA_VERSION', '6.9.8' );
     define( 'ASENHA_ID', 'asenha' );
     define( 'ASENHA_SLUG', 'admin-site-enhancements' );
     define( 'ASENHA_SLUG_U', 'admin_site_enhancements' );
@@ -143,6 +143,17 @@ if ( function_exists( 'is_plugin_active' ) && is_plugin_active( 'admin-site-enha
         register_activation_hook( __FILE__, 'asenha_on_activation' );
         // Register code that runs on plugin deactivation
         register_deactivation_hook( __FILE__, 'asenha_on_deactivation' );
+        
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+            // Load translations for Pro version
+            function asenha_load_textdomain()
+            {
+                load_plugin_textdomain( 'admin-site-enhancements', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+            }
+            
+            add_action( 'init', 'asenha_load_textdomain' );
+        }
+        
         // Functions for setting up admin menu, admin page, the settings sections and fields and other foundational stuff
         require_once ASENHA_PATH . 'settings.php';
         // Other required functions

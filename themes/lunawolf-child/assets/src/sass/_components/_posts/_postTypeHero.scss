@@ -1,0 +1,28 @@
+.m__ptHero {
+  padding: 90px 0;
+  text-align: center;
+
+  .container {
+
+    p {
+      margin: 10px 0 0;
+    }
+
+    img {
+      margin-top: 10px;
+    }
+
+    .socialShare {
+      margin-top: 20px;
+
+      img {
+        width: 32px; height: 32px;
+      }
+
+      ul {
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,48 +1,54 @@
 {% set title      = block.title %}
 {% set titleLeft  = block.left %}
 {% set images_row = block.images_row %}
-{% set count      = images_row | length %}
 
 {% if not is_preview %}
-    {#  {{ dump(settings) }}#}
+  {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if images_row %}
-    <section id="{{ settings.block_id }}" class="m__imgRows">
-        <div class="wrapper -limit">
-            {% if title %}
-                <div class="titleWrapper{{ titleLeft ? ' -left' }}">
-                    <h2 class="title">{{ title }}</h2>
-                </div>
-            {% endif %}
-            <div class="_w">
-                {% for img_row in images_row %}
-                    {% set image  = img_row.image %}
-                    {% set s_numb = img_row.serial_numb %}
-                    {% set desc   = img_row.desc %}
-
-                    <div class="m__imgRows__wrapper{{ count >= 3 ? ' _m4' : ' _m6' }}">
-                        <div class="m__imgRows__wrapper__box">
-                            <div class="m__imgRows__wrapper__inner">
-                                <div class="m__imgRows__wrapper__inner__wrapImg">
-                                    <div class="m__imgRows__wrapper__inner__bgImg" style="{% if image %}background-image: url({{ get_image(image) }}){% endif %}"></div>
-                                </div>
-                                <div class="m__imgRows__wrapper__inner__bottom">
-                                    <span class="numb">{{ s_numb }}.</span>
-                                    <div class="m__desc desc">{{ desc }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+  <section id="{{ settings.block_id }}" class="m__imgRows">
+    <div class="wrapper -limit">
+      {% if title %}
+        <div class="titleWrapper{{ titleLeft ? ' -left' }}">
+          <h2 class="title">{{ title }}</h2>
         </div>
-        {% if not is_preview %}
-            {{ settings.styles | raw }}
-        {% endif %}
-    </section>
-{% elseif is_preview %}
-    <div class="_center">
-        Add at least one image row to show on page.
+      {% endif %}
+      <div class="_w">
+        {% for img_row in images_row %}
+          {% set column_width = img_row.column_width %}
+          {% set image        = img_row.image %}
+          {% set s_numb       = img_row.serial_numb %}
+          {% set desc         = img_row.desc %}
+
+          <div class="m__imgRows__wrapper _m6{{ column_width ? ' ' ~ column_width }}">
+            <div class="m__imgRows__wrapper__box">
+              <div class="m__imgRows__wrapper__inner">
+                <div class="m__imgRows__wrapper__inner__wrapImg">
+                  {% if image %}
+                    <img class="m__imgRows__wrapper__inner__bgImg" src="{{ get_image(image) }}" alt="{{ image.alt }}" />
+                  {% endif %}
+                </div>
+                {% if desc or s_numb %}
+                  <div class="m__imgRows__wrapper__inner__bottom">
+                    {% if s_numb %}
+                      <span class="numb">{{ s_numb }}.</span>
+                    {% endif %}
+                    <div class="m__desc desc">{{ desc }}</div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
+    {% if not is_preview %}
+      {{ settings.styles | raw }}
+    {% endif %}
+  </section>
+{% elseif is_preview %}
+  <div class="_center">
+    Add at least one image row to show on page.
+  </div>
 {% endif %}

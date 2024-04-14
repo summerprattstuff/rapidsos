@@ -1245,7 +1245,13 @@ class Admin_Columns_Manager {
         // Render taxonomy terms
         
         // Already rendered by WP core, WooCommerce, etc. No need to re-render to prevent duplication
-        $already_rendered = array( 'categories', 'tags', 'product_cat', 'product_tag' );
+        $already_rendered = array( 
+            'categories', 
+            'tags', 
+            'product_cat', 
+            'product_tag',
+            'elementor_library_type',
+        );
 
         $attached_taxonomies = get_object_taxonomies( $typenow );
         $tax_terms = '';
@@ -1515,7 +1521,7 @@ class Admin_Columns_Manager {
                 foreach( $choices as $choice_value => $choice_label ) {
                     if ( ( 'value' == $return_format && $cf_value == $choice_value )
                         || ( 'label' == $return_format && $cf_value == $choice_value )
-                        || ( 'array' == $return_format && $cf_value['value'] == $choice_value )
+                        || ( 'array' == $return_format && isset( $cf_value['value'] ) && $cf_value['value'] == $choice_value )
                     ) {
                         $choice_values = $choice_label;
                     }
@@ -2384,7 +2390,7 @@ class Admin_Columns_Manager {
     public function render_date_cf_column__premium_only( $cf_value = '', $column_name = '', $post_id = false, $typenow = '' ) {
 
         if ( ! empty( $cf_value ) ) {
-            return wp_date( get_option( 'date_format' ), strtotime( $cf_value ) );          
+            return wp_date( get_option( 'date_format' ), strtotime( $cf_value ) );
         } else {
             return;
         }
@@ -2399,7 +2405,6 @@ class Admin_Columns_Manager {
     public function render_datetime_cf_column__premium_only( $cf_value = '', $column_name = '', $post_id = false, $typenow = '' ) {
 
         if ( ! empty( $cf_value ) ) {
-            $unix_time = strtotime( $cf_value );
             return wp_date( get_option( 'date_format' ), strtotime( $cf_value ) ) . ' - ' . wp_date( get_option( 'time_format' ), strtotime( $cf_value ) );
         } else {
             return;

@@ -36,7 +36,7 @@ class Settings_Fields_Render {
 			// For when the options / sub-fields occupy lengthy vertical space, we add show all / less toggler
 			if ( array_key_exists( 'field_options_moreless', $args ) && $args['field_options_moreless'] ) {
 				echo '<div class="asenha-field-with-options field-show-more">';
-				echo '<a id="' . esc_attr( $args['field_slug'] ) . '-show-moreless" class="show-more-less show-more" href="#">Expand &#9660;</a>';
+				echo '<a id="' . esc_attr( $args['field_slug'] ) . '-show-moreless" class="show-more-less show-more" href="#">' . __( 'Expand', 'admin-site-enhancements' ) . '&#9660;</a>';
 				echo '<div class="asenha-field-options-wrapper wrapper-show-more">';
 			} else {
 				echo '<div class="asenha-field-with-options">';
@@ -763,10 +763,10 @@ class Settings_Fields_Render {
 										<div class="options-for-hiding">
 											<?php
 									        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-									        	$hide_text = 'Hide';
+									        	$hide_text = __( 'Hide', 'admin-site-enhancements' );
 									        	$checkbox_class = 'parent-menu-hide-checkbox-prm';
 									        } else {
-									        	$hide_text = 'Hide until toggled';
+									        	$hide_text = __( 'Hide until toggled', 'admin-site-enhancements' );
 									        	$checkbox_class = 'parent-menu-hide-checkbox';	        	
 									        }
 								        	?>
@@ -1159,9 +1159,9 @@ class Settings_Fields_Render {
 			<ul id="<?php echo esc_attr( $submenu_sortable_id ); ?>" class="submenu-sortable">
 				<?php
 				foreach( $submenu[$menu_item_id] as $item_key => $item_info ) {
-					$submenu_item_title = $item_info[0];
-					$submenu_item_slug = $item_info[1];
-					$submenu_item_id = $item_info[2];
+					$submenu_item_title = isset( $item_info[0] ) ? $item_info[0] : '';
+					$submenu_item_slug = isset( $item_info[1] ) ? $item_info[1] : '';
+					$submenu_item_id = isset( $item_info[2] ) ? $item_info[2] : '';
 					?>
 					<li id="<?php echo esc_attr( $submenu_item_id ); ?>" class="menu-item menu-item-depth-0">
 						<div class="menu-item-bar">
@@ -1169,7 +1169,7 @@ class Settings_Fields_Render {
 								<span class="dashicons dashicons-menu"></span>
 								<div class="item-title">
 									<div class="title-wrapper">
-										<span class="menu-item-title"><?php echo wp_kses_post( $common_methods->strip_html_tags_and_content( $item_info[0] ) ); ?></span>
+										<span class="menu-item-title"><?php echo wp_kses_post( $common_methods->strip_html_tags_and_content( $submenu_item_title ) ); ?></span>
 									</div>
 								</div><!-- end of .item-title -->
 							</div><!-- end of .menu-item-handle -->
@@ -1224,7 +1224,7 @@ class Settings_Fields_Render {
 			<div class="hide-toggle-or-always">
 				<label class="menu-item-checkbox-label">
 					<input type="checkbox" id="hide-until-toggled-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="hide-until-toggled-checkbox" data-menu-item-id="<?php echo esc_attr( $menu_item_id_transformed ); ?>"<?php echo esc_attr( $hide_by_toggle_checked_status ); ?>>
-					<span>Hide until toggled</span>
+					<span><?php _e( 'Hide until toggled', 'admin-site-enhancements' ); ?></span>
 				</label>
 			</div>
 			<div id="all-selected-roles-options-for-<?php echo esc_attr( $menu_item_id_transformed ); ?>" class="all-selected-roles-options" data-menu-item-id="<?php echo esc_attr( $menu_item_id ); ?>">
@@ -1315,9 +1315,9 @@ class Settings_Fields_Render {
 		<table id="login-attempts-log" class="wp-list-table widefat striped datatable">
 			<thead>
 				<tr class="datatable-tr">
-					<th class="datatable-th"><?php echo esc_html__( 'IP Address<br />Last Username', 'admin-site-enhancements' ); ?></th>
-					<th class="datatable-th"><?php echo esc_html__( 'Attempts<br />Lockouts', 'admin-site-enhancements' ); ?></th>
-					<th class="datatable-th"><?php echo esc_html__( 'Last Attempt On', 'admin-site-enhancements' ); ?></th>
+					<th class="datatable-th"><?php _e( 'IP Address<br />Last Username', 'admin-site-enhancements' ); ?></th>
+					<th class="datatable-th"><?php _e( 'Attempts<br />Lockouts', 'admin-site-enhancements' ); ?></th>
+					<th class="datatable-th"><?php _e( 'Last Attempt On', 'admin-site-enhancements' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>

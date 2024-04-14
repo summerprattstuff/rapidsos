@@ -64,7 +64,7 @@ function get_cf_info( $field_name = false, $post_id = false ) {
             $post_id = $options_pages_fields[$field_name];
         } else {
             // This is a request for a value of a field that's part of a page / post / custom post
-            $post_id = ( ! empty( $post-> ID ) ) ? $post->ID : get_the_ID();        
+            $post_id = ( ! empty( $post->ID ) ) ? $post->ID : get_the_ID();        
         }
     }
     

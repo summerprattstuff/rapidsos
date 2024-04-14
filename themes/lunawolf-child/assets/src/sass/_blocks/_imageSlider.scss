@@ -3,15 +3,20 @@
   &__images {
 
     &__block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &__img {
-        height: 286px;
+        max-height: 286px;
+        object-fit: contain;
       }
     }
   }
 
   .swiper-wrapper {
     padding-bottom: 50px;
+    align-items: center;
   }
 
   .swiper-slide {

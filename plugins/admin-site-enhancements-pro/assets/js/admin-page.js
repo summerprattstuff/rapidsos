@@ -47,10 +47,10 @@
 
          if ($this.hasClass('show-more')) {
             $this.next().removeClass('opened',0);
-            $this.html('Expand &#9660;');
+            $this.html(adminPageVars.expandText + ' &#9660;');
          } else {
             $this.next().addClass('opened',0);
-            $this.html('Collapse &#9650;');
+            $this.html(adminPageVars.collapseText + ' &#9650;');
          }
 
       });
@@ -101,7 +101,22 @@
       // Initialize data tables
       var table = $("#login-attempts-log").DataTable({
          pageLength: 10,
-         order: [[2, 'desc']]
+         order: [[2, 'desc']],
+         language: {
+            emptyTable: adminPageVars.dataTable.emptyTable,
+            info: adminPageVars.dataTable.info,
+            infoEmpty: adminPageVars.dataTable.infoEmpty,
+            infoFiltered: adminPageVars.dataTable.infoFiltered,
+            lengthMenu: adminPageVars.dataTable.lengthMenu,
+            search: adminPageVars.dataTable.search,
+            zeroRecords: adminPageVars.dataTable.zeroRecords,
+            paginate: {
+                first: adminPageVars.dataTable.paginate.first,
+                last: adminPageVars.dataTable.paginate.last,
+                next: adminPageVars.dataTable.paginate.next,
+                previous: adminPageVars.dataTable.paginate.previous
+            },
+         }
       });
 
       // Place fields into the "Content Management" tab
@@ -114,6 +129,8 @@
       $('.duplication-redirect-destination').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
       /*! <fs_premium_only> */
       $('.enable-duplication-link-at').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
+      $('.enable-duplication-on-post-types-type').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
+      $('.enable-duplication-on-post-types').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
       $('.heading-for-enable-duplication-for').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
       $('.enable-duplication-for').appendTo('.fields-content-management .enable-duplication .asenha-subfields');
       /*! </fs_premium_only> */
@@ -181,13 +198,16 @@
       /*! <fs_premium_only> */
       $('.admin-columns-manager').appendTo('.fields-admin-interface > table > tbody');
       /*! </fs_premium_only> */
+      $('.show-custom-taxonomy-filters').appendTo('.fields-admin-interface > table > tbody');
+      /*! <fs_premium_only> */
+      $('.show-custom-taxonomy-filters-non-hierarchical').appendTo('.fields-admin-interface .show-custom-taxonomy-filters .asenha-subfields');
+      /*! </fs_premium_only> */
       $('.enhance-list-tables').appendTo('.fields-admin-interface > table > tbody');
       $('.show-featured-image-column').appendTo('.fields-admin-interface .enhance-list-tables .asenha-subfields');
       $('.show-excerpt-column').appendTo('.fields-admin-interface .enhance-list-tables .asenha-subfields');
       $('.show-id-column').appendTo('.fields-admin-interface .enhance-list-tables .asenha-subfields');
       $('.show-file-size-column').appendTo('.fields-admin-interface .enhance-list-tables .asenha-subfields');
       $('.show-id-in-action_row').appendTo('.fields-admin-interface .enhance-list-tables .asenha-subfields');
-      $('.show-custom-taxonomy-filters').appendTo('.fields-admin-interface .enhance-list-tables .asenha-subfields');
       $('.hide-comments-column').appendTo('.fields-admin-interface .enhance-list-tables .asenha-subfields');
       $('.hide-post-tags-column').appendTo('.fields-admin-interface .enhance-list-tables .asenha-subfields');
       $('.display-active-plugins-first').appendTo('.fields-admin-interface > table > tbody');
@@ -348,6 +368,9 @@
       /*! </fs_premium_only> */
       $('.maintenance-mode-description').appendTo('.fields-utilities .maintenance-mode .asenha-subfields');
       $('.redirect-404-to-homepage').appendTo('.fields-utilities > table > tbody');
+      /*! <fs_premium_only> */
+      $('.redirect-404-to-slug').appendTo('.fields-utilities .redirect-404-to-homepage .asenha-subfields');
+      /*! </fs_premium_only> */
       $('.display-system-summary').appendTo('.fields-utilities > table > tbody');
       $('.search-engine-visibility-status').appendTo('.fields-utilities > table > tbody');
 
@@ -622,6 +645,9 @@
       subfieldsToggler( 'enable_avif_upload', 'enable-avif-upload' );
       /*! </fs_premium_only> */
       subfieldsToggler( 'enable_external_permalinks', 'enable-external-permalinks' );
+      /*! <fs_premium_only> */
+      subfieldsToggler( 'show_custom_taxonomy_filters', 'show-custom-taxonomy-filters' );
+      /*! </fs_premium_only> */
       subfieldsToggler( 'enhance_list_tables', 'enhance-list-tables' );
       subfieldsToggler( 'custom_admin_footer_text', 'custom-admin-footer-text' );
       subfieldsToggler( 'wider_admin_menu', 'wider-admin-menu' );
@@ -651,6 +677,9 @@
       subfieldsToggler( 'image_upload_control', 'image-upload-control' );
       subfieldsToggler( 'enable_revisions_control', 'enable-revisions-control' );
       subfieldsToggler( 'enable_heartbeat_control', 'enable-heartbeat-control' );
+      /*! <fs_premium_only> */
+      subfieldsToggler( 'redirect_404_to_homepage', 'redirect-404-to-homepage' );
+      /*! </fs_premium_only> */
 
       // Enable Heartbeat Control => Check if "Modify interval" is chosen/clicked and show/hide the corresponding select field
       if ( $('input[name="admin_site_enhancements[heartbeat_control_for_admin_pages]"]:checked').val() == 'modify' ) {
@@ -874,13 +903,13 @@
       // Stats on saving changes from asenha_admin_scripts() wp_localize_script() is availble in the 'asenhaStats' object-----
       // console.log( asenhaStats );
       // alert(JSON.stringify(asenhaStats));
-      if ( asenhaStats.showSponsorshipNudge ) {
-         $('.asenha-sponsorship-nudge').show();
+      if ( asenhaStats.showSupportNudge ) {
+         $('.asenha-support-nudge').show();
       } else {
-         $('.asenha-sponsorship-nudge').hide();
+         $('.asenha-support-nudge').hide();
       }
 
-      $('#have-sponsored').click(function(e) {
+      $('#have-shared,#have-reviewed').click(function(e) {
          e.preventDefault();
          $.ajax({
             url: 'https://bowo.io/asenha-sp-ndg',
@@ -891,10 +920,10 @@
          $.ajax({
             url: ajaxurl,
             data: {
-               'action':'have_sponsored'
+               'action':'have_supported'
             },
             success:function(data) {
-               $('.asenha-sponsorship-nudge').hide();
+               $('.asenha-support-nudge').hide();
             },
             error:function(errorThrown) {
                console.log(errorThrown);
@@ -902,7 +931,7 @@
          });
       });
       
-      $('#sponsorship-nudge-dismiss').click(function(e) {
+      $('#support-nudge-dismiss').click(function(e) {
          e.preventDefault();
          $.ajax({
             url: 'https://bowo.io/asenha-sp-ndg',
@@ -913,10 +942,10 @@
          $.ajax({
             url: ajaxurl,
             data: {
-               'action':'dismiss_sponsorship_nudge'
+               'action':'dismiss_support_nudge'
             },
             success:function(data) {
-               $('.asenha-sponsorship-nudge').hide();
+               $('.asenha-support-nudge').hide();
             },
             error:function(errorThrown) {
                console.log(errorThrown);
@@ -924,8 +953,8 @@
          });
       });
 
-      // Expand sponsorship notice | Modified from https://codepen.io/symonsays/pen/rzgEgY
-      $('.asenha-sponsorship-nudge.nudge-show-more > .show-more').click(function(e) {
+      // Expand support notice | Modified from https://codepen.io/symonsays/pen/rzgEgY
+      $('.asenha-support-nudge.nudge-show-more > .show-more').click(function(e) {
 
          e.preventDefault();
 
@@ -941,14 +970,14 @@
 
       });
 
-      // Collapse sponsorship notice | Modified from https://codepen.io/symonsays/pen/rzgEgY
-      $('#sponsorship-nudge-show-less').click(function(e) {
+      // Collapse support notice | Modified from https://codepen.io/symonsays/pen/rzgEgY
+      $('#support-nudge-show-less').click(function(e) {
 
          e.preventDefault();
 
          $('.nudge-wrapper-show-more').removeClass('opened',0);
-         $('#sponsorship-nudge-show-moreless').addClass('show-more');
-         $('#sponsorship-nudge-show-moreless').show();
+         $('#support-nudge-show-moreless').addClass('show-more');
+         $('#support-nudge-show-moreless').show();
 
       });
 

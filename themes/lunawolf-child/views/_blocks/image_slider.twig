@@ -14,7 +14,7 @@
                             {% for image in image_gallery %}
                                 <div class="swiper-slide">
                                     <div class="m__imgGallery__images__block">
-                                        <img class="m__imgGallery__images__block__img" src="{{ get_image(image) }}" alt="" >
+                                        <img class="m__imgGallery__images__block__img" src="{{ get_image(image) }}" alt="{{ image.alt }}" />
                                     </div>
                                 </div>
                             {% endfor %}

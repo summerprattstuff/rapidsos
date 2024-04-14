@@ -1,0 +1,8 @@
+{% set column_form = column.form %}
+{% set form_code   = column_form['form_code'] %}
+
+{% if form_code %}
+  <div class="m__columns__column__form">
+    {{ form_code }}
+  </div>
+{% endif %}

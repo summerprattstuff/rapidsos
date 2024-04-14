@@ -1,5 +1,10 @@
+{% set main_menu        = options['main_menu'] %}
+{% set main_menu_timber = main_menu ? get_timber_menu(main_menu) : false %}
+
 <nav id="navigation" class="site__navigation">
-  {% include "_partials/_menu.twig" with {
-    items: menu.get_items
-  } %}
+  {% if main_menu_timber %}
+    {% include "_partials/_menu.twig" with {
+      items: main_menu_timber.get_items
+    } %}
+  {% endif %}
 </nav>

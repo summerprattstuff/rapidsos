@@ -57,7 +57,7 @@ class Lunawolf extends Site {
 	 */
 	public function add_to_context( $context ) {
     $theme              = new Timber\Theme('lunawolf-child');
-		$context['menu']    = Timber::get_menu();
+		$context['menu']    = Timber::get_menu(3);
 		$context['site']    = $this;
 		$context['options'] = get_fields('options');
 		$context['siteUrl'] = home_url('/');

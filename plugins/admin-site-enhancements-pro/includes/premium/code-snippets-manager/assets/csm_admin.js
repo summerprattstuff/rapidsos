@@ -5,21 +5,23 @@ jQuery(document).ready( function($) {
     $('#code-snippet-description').appendTo('#code-snippet-description-wrapper');
     $('#code-snippet-description-wrapper').css('border','0');
     
-    // Re-init wp_editor for snippet description. Required because the wp_editor was moved in the DOM after document ready.
-    // Ref: https://stackoverflow.com/a/21519323.
-    // Ref: https://core.trac.wordpress.org/ticket/19173
-    var id = 'code_snippet_description';
-    tinymce.execCommand('mceRemoveEditor', true, id);
-	var init = tinymce.extend( {}, tinyMCEPreInit.mceInit[ id ] );
-	try { tinymce.init( init ); } catch(e){}
-	$('textarea[id="' + id + '"]').closest('form').find('input[type="submit"]').click(function(){
-	    if( getUserSetting( 'editor' ) == 'tmce' ){
-	        var id = mce.find( 'textarea' ).attr( 'id' );
-	        tinymce.execCommand( 'mceRemoveEditor', false, id );
-	        tinymce.execCommand( 'mceAddEditor', false, id );
-	    }
-	    return true;
-	});
+    if ( 'post.php' == CSM.page_now ) {
+        // Re-init wp_editor for snippet description. Required because the wp_editor was moved in the DOM after document ready.
+        // Ref: https://stackoverflow.com/a/21519323.
+        // Ref: https://core.trac.wordpress.org/ticket/19173
+        var id = 'code_snippet_description';
+        tinymce.execCommand('mceRemoveEditor', true, id);
+        var init = tinymce.extend( {}, tinyMCEPreInit.mceInit[ id ] );
+        try { tinymce.init( init ); } catch(e){}
+        $('textarea[id="' + id + '"]').closest('form').find('input[type="submit"]').click(function(){
+            if( getUserSetting( 'editor' ) == 'tmce' ){
+                var id = mce.find( 'textarea' ).attr( 'id' );
+                tinymce.execCommand( 'mceRemoveEditor', false, id );
+                tinymce.execCommand( 'mceAddEditor', false, id );
+            }
+            return true;
+        });
+    }
 
     var postID = document.getElementById('post_ID') != null ? document.getElementById('post_ID').value : 0;
 

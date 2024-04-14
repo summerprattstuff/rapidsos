@@ -141,15 +141,19 @@ table.media .column-title .has-media-icon ~ .row-actions {
     align-items: center;
 }
 #posts-filter .wp-filter .filter-items {
-	width: 64%;
+	width: 70%;
 	float: none;
 }
 #posts-filter .wp-filter .search-form {
-	width: 36%;
-	float: none;	
+	width: 30%;
+	float: none;
 }
-#posts-filter .wp-filter .search-form input[type="search"] {
-	width: 220px;	
+p.search-box {
+    display: flex;
+    float: none;
+}
+.wp-filter .search-form input[type="search"] {
+    width: 100%;
 }
 .attachments-browser .media-toolbar-secondary {
 	max-width: 78%;

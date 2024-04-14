@@ -1,0 +1,45 @@
+{% set content_above_video     = post.meta('content_above_video') %}
+{% set video_file              = post.meta('video_file') %}
+{% set video_url               = post.meta('video_url') %}
+{% set content_under_video     = post.meta('content_under_video') %}
+{% set thumbnail               = post.thumbnail %}
+{% set blockData               = {} %}
+{% set blockData = blockData | merge({
+  'bg_image' : thumbnail
+}) %}
+{% set blockData = blockData | merge({
+  'video_file' : video_file
+}) %}
+{% set blockData = blockData | merge({
+  'video_url' : video_url
+}) %}
+
+<div class="post__content">
+  {% if content_above_video %}
+    <section class="m__wyswyg">
+      <div class="wrapper -limit">
+        <div class="content">
+          {{ content_above_video }}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  <section class="m__video">
+    <div class="wrapper -limit">
+      <div class="container">
+        {% include '_partials/_blocks/_parts/dynamicMedia.twig' with {
+          blockData: blockData
+        } %}
+      </div>
+    </div>
+  </section>
+  {% if content_under_video %}
+    <section class="m__wyswyg">
+      <div class="wrapper -limit">
+        <div class="content">
+          {{ content_under_video }}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+</div>

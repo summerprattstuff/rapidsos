@@ -1,0 +1,25 @@
+{% set column_content = column.content %}
+{% set label_above    = column_content['label_above'] %}
+{% set title          = column_content['title'] %}
+{% set subtitle       = column_content['subtitle'] %}
+{% set link           = column_content['link'] %}
+
+<div class="m__columns__column__content">
+  {% if label_above %}
+    <p class="m__columns__column__content__labelAbove">{{ label_above }}</p>
+  {% endif %}
+  {% if title %}
+    <h1 class="m__columns__column__content__title">{{ title }}</h1>
+  {% endif %}
+  {% if subtitle %}
+    <div class="m__columns__column__content__subtitle m__wyswyg ">{{ subtitle }}</div>
+  {% endif %}
+  {% if link %}
+    <div class="m__columns__column__content__btnWrapper btnWrapper">
+      {% include '_components/_advanced_link.twig' with {
+        link: link,
+        class: '-outline'
+      } %}
+    </div>
+  {% endif %}
+</div>

@@ -23,15 +23,15 @@ class Search_Engines_Visibility {
         // Get the option 'blog_public' to check search engine visibility
         // If 'blog_public' is '0', it means 'Discourage search engines from indexing this site' is checked
         if ( get_option( 'blog_public' ) === '0' ) {
-            add_action( 'admin_notices', array( $this, 'display_admin_notice_for_search_visibility' ) );
+            // add_action( 'admin_notices', array( $this, 'display_admin_notice_for_search_visibility' ) );
             add_action( 'admin_bar_menu', array( $this, 'add_notice_in_admin_bar' ), 100 );
         }
     }
 
     public function display_admin_notice_for_search_visibility() {
-        echo '<div class="notice notice-warning is-dismissible">';
-        echo '<p><strong>Search Engine Visibility is OFF</strong>. Search engines are discouraged from indexing this site. <a href="' . esc_url( admin_url( 'options-reading.php' ) ) . '"><strong>Change the setting »</strong></a></p>';
-        echo '</div>';
+        // echo '<div class="notice notice-warning is-dismissible">';
+        // echo '<p><strong>Search Engine Visibility is OFF</strong>. Search engines are discouraged from indexing this site. <a href="' . esc_url( admin_url( 'options-reading.php' ) ) . '"><strong>Change the setting »</strong></a></p>';
+        // echo '</div>';
     }
 
     public function add_notice_in_admin_bar( $wp_admin_bar ) {
@@ -45,10 +45,11 @@ class Search_Engines_Visibility {
         $args = array(
             'id'        => $node_id,
             'parent'    => 'top-secondary',
-            'title'     => 'SE Visibility: OFF',
+            'title'     => __( 'SE Visibility: OFF', 'admin-site-enhancements' ),
             'href'      => admin_url( 'options-reading.php' ),
             'meta'      => array( 
-                'title' => 'Search engines are discouraged from indexing this site. Click to change the settings.' ),
+                'title' => __( 'Search engines are discouraged from indexing this site. Click to change the settings.', 'admin-site-enhancements' )
+            ),
         );
         $wp_admin_bar->add_node( $args );
     }

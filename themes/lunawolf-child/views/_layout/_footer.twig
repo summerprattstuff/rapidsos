@@ -1,3 +1,61 @@
-<footer id="footer" class="site__footer">
+{% set logo         = options['site_logo'] %}
+{% set logoURL      = get_image(logo) %}
+{% set footer_ctas  = options['footer_ctas'] %}
+{% set footer_menus = options['footer_menus'] %}
+{% set footer_copy  = options['footer_copy'] %}
 
+<footer id="footer" class="site__footer">
+  <div class="wrapper">
+    <div class="container">
+      <div class="site__footer__logo">
+        <a href="{{ siteUrl }}">
+          <img src="{{ logoURL }}" alt="{{ logo.alt }}" />
+        </a>
+      </div>
+      <div class="_w">
+        <div class="site__footer__left _m4 _xl2">
+          {% if footer_ctas | length %}
+            <div class="site__footer__ctas">
+              {% for link in footer_ctas %}
+                {% set cta = link.cta %}
+
+                <div class="btnWrapper">
+                  {% include '_components/_advanced_link.twig' with {
+                    link: cta,
+                    class: '-outline'
+                  } %}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        {% if footer_menus | length %}
+          <div class="site__footer__right _m8 _xl10">
+            <div class="site__footer__right__inner">
+              {% for footer_menu in footer_menus %}
+                {% set menu_title = footer_menu['menu_title'] %}
+                {% set menu       = get_timber_menu(footer_menu['menu']) %}
+
+                {% if menu %}
+                  <div class="site__footer__menu">
+                    {% if menu_title %}
+                      <div class="site__footer__menu__title">
+                        {{ menu_title }}
+                      </div>
+                    {% endif %}
+                    {% include "_partials/_menu.twig" with {
+                      items: menu.get_items
+                    } %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+      <div class="site__footer__copy">
+        <p>{{ footer_copy ?: '© ' ~ now | date('Y') ~ ' RapidSOS. All rights reserved.' }}</p>
+      </div>
+    </div>
+  </div>
 </footer>

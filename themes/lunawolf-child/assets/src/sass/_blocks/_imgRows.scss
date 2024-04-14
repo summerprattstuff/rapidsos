@@ -1,15 +1,25 @@
 .m__imgRows {
 
-  &__wrapper {
-    margin-bottom: 20px;
+  .titleWrapper {
+    margin: 0 0 15px;
 
-    .titleWrapper {
-      text-align: center;
+    &.-left {
 
-      &.-left {
+      .title {
         text-align: left;
       }
     }
+
+    .title {
+      text-align: center;
+    }
+  }
+
+  ._w {
+    gap: 24px 0;
+  }
+
+  &__wrapper {
 
     &__inner {
 
@@ -18,9 +28,11 @@
       }
 
       &__bgImg {
-        background: 50% / cover no-repeat;
-        padding-top: 57.65%;
-        height: 0;
+        object-fit: contain;
+
+        .-preview & {
+          max-width: 100%;
+        }
       }
 
       &__bottom {
@@ -28,14 +40,15 @@
         margin-top: 10px;
 
         .numb {
+          flex-shrink: 0;
           display: block;
           font-size: 14px;
           line-height: 22px;
           font-weight: 700;
+          margin-right: 5px;
         }
 
         .desc {
-          margin-left: 5px;
           font-size: 14px;
           line-height: 22px;
           font-weight: 700;
@@ -44,7 +57,7 @@
     }
   }
 
-  & +.m__wyswyg {
+  & + .m__wyswyg {
     margin-top: 60px;
   }
 }

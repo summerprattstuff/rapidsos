@@ -223,6 +223,7 @@ class Code_Snippets_Manager_Admin {
 	 * Send variables to the csm_admin.js script
 	 */
 	public function cm_localize() {
+		global $pagenow;
 
         $extra_options = get_option( ASENHA_SLUG_U . '_extra', array() );
         $settings = isset( $extra_options['code_snippets_manager_settings'] ) ? $extra_options['code_snippets_manager_settings'] : array();
@@ -235,6 +236,7 @@ class Code_Snippets_Manager_Admin {
 			'deactivate'     => __( 'Deactivate', 'admin-site-enhancements' ),
 			'active_title'   => __( 'The code is active. Click to deactivate it', 'admin-site-enhancements' ),
 			'deactive_title' => __( 'The code is inactive. Click to activate it', 'admin-site-enhancements' ),
+			'page_now'		 => $pagenow,
 
 			/* CodeMirror options */
 			'codemirror' => array(

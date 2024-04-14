@@ -53,8 +53,19 @@ class Settings_Sanitization {
 		if ( ! isset( $options['duplication_redirect_destination'] ) ) $options['duplication_redirect_destination'] = 'edit';
 
         if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
-			if ( ! isset( $options['enable_duplication_link_at'] ) ) $options['enable_duplication_link_at'] = array();
+			if ( ! isset( $options['enable_duplication_link_at'] ) ) $options['enable_duplication_link_at'] = array( 'post-action','admin-bar' );
 			$options['enable_duplication_link_at'] = ( ! empty( $options['enable_duplication_link_at'] ) ? $options['enable_duplication_link_at'] : array() );
+
+			if ( ! isset( $options['enable_duplication_on_post_types_type'] ) ) $options['enable_duplication_on_post_types_type'] = 'only-on';
+			$options['enable_duplication_on_post_types_type'] = ( ! empty( $options['enable_duplication_on_post_types_type'] ) ) ? sanitize_text_field( $options['enable_duplication_on_post_types_type'] ) : 'only-on';
+
+
+			if ( is_array( $asenha_public_post_types ) ) {
+				foreach ( $asenha_public_post_types as $post_type_slug => $post_type_label ) { // e.g. $post_type_slug is post, $post_type_label is Posts
+					if ( ! isset( $options['enable_duplication_on_post_types'][$post_type_slug] ) ) $options['enable_duplication_on_post_types'][$post_type_slug] = false;
+					$options['enable_duplication_on_post_types'][$post_type_slug] = ( 'on' == $options['enable_duplication_on_post_types'][$post_type_slug] ? true : false );
+				}
+			}
 
 			if ( is_array( $roles ) ) {
 				foreach ( $roles as $role_slug => $role_label ) { // e.g. $role_slug is administrator, $role_label is Administrator
@@ -308,6 +319,11 @@ class Settings_Sanitization {
 		// Show Custom Taxonomy Filters
 		if ( ! isset( $options['show_custom_taxonomy_filters'] ) ) $options['show_custom_taxonomy_filters'] = false;
 		$options['show_custom_taxonomy_filters'] = ( 'on' == $options['show_custom_taxonomy_filters'] ? true : false );
+
+		if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			if ( ! isset( $options['show_custom_taxonomy_filters_non_hierarchical'] ) ) $options['show_custom_taxonomy_filters_non_hierarchical'] = false;
+			$options['show_custom_taxonomy_filters_non_hierarchical'] = ( 'on' == $options['show_custom_taxonomy_filters_non_hierarchical'] ? true : false );
+		}
 
 		// Hide Comments Column
 		if ( ! isset( $options['hide_comments_column'] ) ) $options['hide_comments_column'] = false;
@@ -786,6 +802,11 @@ class Settings_Sanitization {
 		// Redirect 404 to Homepage
 		if ( ! isset( $options['redirect_404_to_homepage'] ) ) $options['redirect_404_to_homepage'] = false;
 		$options['redirect_404_to_homepage'] = ( 'on' == $options['redirect_404_to_homepage'] ? true : false );
+
+        if ( bwasenha_fs()->can_use_premium_code__premium_only() ) {
+			if ( ! isset( $options['redirect_404_to_slug'] ) ) $options['redirect_404_to_slug'] = '';
+			$options['redirect_404_to_slug'] = ( ! empty( $options['redirect_404_to_slug'] ) ) ? sanitize_text_field( $options['redirect_404_to_slug'] ) : '';        	
+        }
 
 		// Show System Summary in At a Glance Dashboard Widget
 		if ( ! isset( $options['display_system_summary'] ) ) $options['display_system_summary'] = false;
