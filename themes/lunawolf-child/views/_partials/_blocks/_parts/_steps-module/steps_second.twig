@@ -14,7 +14,7 @@
     <div class="m__stepsTwo__wrap">
         {% for step in steps %}
             {% set img        = step.step_img %}
-            {% set stepTitle = step.step_title %}
+            {% set stepTitle  = step.step_title %}
             {% set text_2     = step.step_text %}
 
             {% if img %}
@@ -24,7 +24,7 @@
                     </div>
                     <div class="m__stepsTwo__blockWrap__textWrap">
                         <div class="m__stepsTwo__blockWrap__textWrap__title">{{ stepTitle }}</div>
-                        <div class="m__stepsTwo__blockWrap__textWrap__text m_wyText">{{ text_2 }}</div>
+                        <div class="m__wyswyg m__stepsTwo__blockWrap__textWrap__text m_wyText">{{ text_2 }}</div>
                     </div>
                 </div>
             {% endif %}

@@ -54,6 +54,13 @@
       font-weight: 700;
     }
 
+    .sContent {
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
+
     ul {
       padding-left: 20px;
     }

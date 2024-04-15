@@ -1,5 +1,6 @@
-{% set videos = block.videos %}
-{% set count  = videos|length %}
+{% set s_title = block.s_title %}
+{% set videos  = block.videos %}
+{% set count   = videos | length %}
 
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
@@ -10,7 +11,7 @@
         <div class="wrapper">
             {% if s_title %}
                 <div class="titleWrapper -short -center">
-                    <h1 class="m_title m__videosColumns__stitle">{{ s_title }}</h1>
+                    <h4 class="m__videosColumns__sTitle">{{ s_title }}</h4>
                 </div>
             {% endif %}
             <div class="m__videosColumns__wrapper">

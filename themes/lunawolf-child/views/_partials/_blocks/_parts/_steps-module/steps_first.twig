@@ -10,7 +10,7 @@
                 <div class="m__steps__blockWrap">
                     <div class="m__steps__blockWrap__bgImg" style="{% if img %}background-image: url({{ get_image(img) }}){% endif %}">
                         <div class="m__steps__blockWrap__bgImg__banner m__steps__banner -top">
-                            <div class="m__steps__blockWrap__bgImg__banner__text">{{ banner_text }}</div>
+                            <div class="m__wyswyg m__steps__blockWrap__bgImg__banner__text">{{ banner_text }}</div>
                         </div>
                     </div>
                 </div>
@@ -20,12 +20,12 @@
     <div class="m__steps__wrap m__steps__onlyText">
         {% for step in steps %}
             {% set img         = step.step_img %}
-            {% set banner_text = step.step_text_1 %}
+            {% set banner_text = step.step_text %}
 
             {% if img %}
                 <div class="m__steps__blockWrap">
                     <div class="m__steps__blockWrap__banner m__steps__banner -bot">
-                        <div class="m__steps__blockWrap__banner__text">{{ banner_text }}</div>
+                        <div class="m__wyswyg m__steps__blockWrap__banner__text">{{ banner_text }}</div>
                     </div>
                 </div>
             {% endif %}

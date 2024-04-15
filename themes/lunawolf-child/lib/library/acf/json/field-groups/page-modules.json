@@ -1548,36 +1548,6 @@
                                     "parent_repeater": "field_660bf537e78cf"
                                 },
                                 {
-                                    "key": "field_6615192de7b10",
-                                    "label": "Step Text",
-                                    "name": "step_text_1",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_660bf552e78d2",
-                                                "operator": "!=",
-                                                "value": "1"
-                                            }
-                                        ]
-                                    ],
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "acfe_textarea_code": 0,
-                                    "maxlength": "",
-                                    "rows": 2,
-                                    "placeholder": "",
-                                    "new_lines": "br",
-                                    "parent_repeater": "field_660bf537e78cf"
-                                },
-                                {
                                     "key": "field_661650f67ffe9",
                                     "label": "Step Title",
                                     "name": "step_title",
@@ -1608,21 +1578,13 @@
                                 },
                                 {
                                     "key": "field_660bf649c09e7",
-                                    "label": "Step Description",
+                                    "label": "Step Text",
                                     "name": "step_text",
                                     "aria-label": "",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_660bf552e78d2",
-                                                "operator": "==",
-                                                "value": "1"
-                                            }
-                                        ]
-                                    ],
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -1729,6 +1691,32 @@
                             "append": ""
                         },
                         {
+                            "key": "field_661cee9f920da",
+                            "label": "Columns Align",
+                            "name": "columns_align",
+                            "aria-label": "",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "top": "Top Align",
+                                "mid": "Middle Align",
+                                "bot": "Bottom Align"
+                            },
+                            "default_value": "",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "layout": "vertical",
+                            "save_other_choice": 0
+                        },
+                        {
                             "key": "field_661ab1d65c7ef",
                             "label": "Columns",
                             "name": "columns",
@@ -1828,6 +1816,10 @@
                                     "layout": "block",
                                     "acfe_seamless_style": 0,
                                     "acfe_group_modal": 0,
+                                    "acfe_group_modal_close": 0,
+                                    "acfe_group_modal_button": "",
+                                    "acfe_group_modal_size": "large",
+                                    "parent_repeater": "field_661ab1d65c7ef",
                                     "sub_fields": [
                                         {
                                             "key": "field_661684bab69d4",
@@ -1898,7 +1890,7 @@
                                             "acfe_wysiwyg_merge_toolbar": 0,
                                             "acfe_wysiwyg_custom_toolbar": 0,
                                             "tabs": "visual",
-                                            "toolbar": "basic",
+                                            "toolbar": "basic_enhanced",
                                             "media_upload": 0,
                                             "delay": 0,
                                             "acfe_wysiwyg_auto_init": 0,
@@ -1922,11 +1914,7 @@
                                             "post_type": "",
                                             "taxonomy": ""
                                         }
-                                    ],
-                                    "acfe_group_modal_close": 0,
-                                    "acfe_group_modal_button": "",
-                                    "acfe_group_modal_size": "large",
-                                    "parent_repeater": "field_661ab1d65c7ef"
+                                    ]
                                 },
                                 {
                                     "key": "field_661ab5c85c7f2",
@@ -1953,6 +1941,10 @@
                                     "layout": "block",
                                     "acfe_seamless_style": 0,
                                     "acfe_group_modal": 0,
+                                    "acfe_group_modal_close": 0,
+                                    "acfe_group_modal_button": "",
+                                    "acfe_group_modal_size": "large",
+                                    "parent_repeater": "field_661ab1d65c7ef",
                                     "sub_fields": [
                                         {
                                             "key": "field_66013f6e8008c",
@@ -2046,11 +2038,7 @@
                                             "width": "",
                                             "height": ""
                                         }
-                                    ],
-                                    "acfe_group_modal_close": 0,
-                                    "acfe_group_modal_button": "",
-                                    "acfe_group_modal_size": "large",
-                                    "parent_repeater": "field_661ab1d65c7ef"
+                                    ]
                                 },
                                 {
                                     "key": "field_661ac31f326e5",
@@ -2077,6 +2065,10 @@
                                     "layout": "block",
                                     "acfe_seamless_style": 0,
                                     "acfe_group_modal": 0,
+                                    "acfe_group_modal_close": 0,
+                                    "acfe_group_modal_button": "",
+                                    "acfe_group_modal_size": "large",
+                                    "parent_repeater": "field_661ab1d65c7ef",
                                     "sub_fields": [
                                         {
                                             "key": "field_6616fd2d8c765",
@@ -2102,11 +2094,7 @@
                                             "max_rows": "",
                                             "return_format": []
                                         }
-                                    ],
-                                    "acfe_group_modal_close": 0,
-                                    "acfe_group_modal_button": "",
-                                    "acfe_group_modal_size": "large",
-                                    "parent_repeater": "field_661ab1d65c7ef"
+                                    ]
                                 }
                             ]
                         },
@@ -2352,7 +2340,7 @@
                             "acfe_wysiwyg_merge_toolbar": 0,
                             "acfe_wysiwyg_custom_toolbar": 0,
                             "tabs": "visual",
-                            "toolbar": "basic",
+                            "toolbar": "full",
                             "media_upload": 0,
                             "delay": 0,
                             "acfe_wysiwyg_auto_init": 0,
@@ -3036,7 +3024,8 @@
                     "acfe_flexible_render_script": "",
                     "acfe_flexible_modal_edit_size": "",
                     "acfe_flexible_settings": [
-                        "group_65c69ec9ddce7"
+                        "group_65c69ec9ddce7",
+                        "group_661a6b3053c13"
                     ],
                     "acfe_flexible_settings_size": "medium",
                     "acfe_layout_locations": [
@@ -4627,5 +4616,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713090541
+    "modified": 1713173414
 }
