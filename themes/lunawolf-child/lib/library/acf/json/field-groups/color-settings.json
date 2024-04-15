@@ -54,7 +54,7 @@
             },
             "choices": {
                 "## Solid Colors": "## Solid Colors",
-                "#001559": "Primary",
+                "#001559": "Blue",
                 "#F1F1F1": "Gray",
                 "#000": "Black",
                 "#fff": "White",
@@ -105,7 +105,7 @@
                 "id": ""
             },
             "choices": {
-                "primary": "Primary",
+                "primary": "Blue",
                 "white": "White"
             },
             "default_value": "primary",
@@ -146,5 +146,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713031704
+    "modified": 1713168959
 }

@@ -13,14 +13,6 @@
     z-index: 1;
   }
 
-  &__title {
-
-    @include media-up(l) {
-      font-size: 40px;
-      line-height: 55px;
-    }
-  }
-
   &__text {
     text-wrap: balance;
 

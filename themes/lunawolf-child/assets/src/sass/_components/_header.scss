@@ -1,6 +1,10 @@
 .site__header {
-  position: relative;
+  position: fixed;
   padding: 19px 0 25px;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: $white;
 
   @include media-up(xl) {
     padding: 0;

@@ -28,10 +28,6 @@
       @include media-down(xs) {
         font-size: 30px;
       }
-
-      @include media-up(xl) {
-        line-height: 65px;
-      }
     }
   }
 

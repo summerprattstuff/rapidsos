@@ -2203,7 +2203,7 @@ html.with-fancybox body.hide-scrollbar {
 
 .btn {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 16px 32px 14px;
   border: 2px solid #fff;
   font-size: 16px;
   line-height: 18px;
@@ -2321,6 +2321,27 @@ ul.social img {
   color: #25A7DF;
 }
 
+.m__title {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .m__title {
+    font-size: 36px;
+  }
+}
+@media (min-width: 992px) {
+  .m__title {
+    font-size: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .m__title {
+    font-size: 50px;
+    line-height: 55px;
+  }
+}
 .-preview .m__title {
   font-weight: 700;
 }
@@ -2374,6 +2395,10 @@ ul.social img {
 }
 .overlayBg ~ .wrapper {
   position: relative;
+}
+
+.site {
+  padding-top: 80px;
 }
 
 .-preview .m__hero img {
@@ -2647,12 +2672,6 @@ ul.social img {
 .m__scText .container {
   position: relative;
   z-index: 1;
-}
-@media (min-width: 992px) {
-  .m__scText__title {
-    font-size: 40px;
-    line-height: 55px;
-  }
 }
 .m__scText__text {
   text-wrap: balance;
@@ -2970,11 +2989,6 @@ ul.social img {
     font-size: 30px;
   }
 }
-@media (min-width: 1280px) {
-  .m__statistic__top__title {
-    line-height: 65px;
-  }
-}
 .m__statistic__bot__inner {
   position: relative;
   display: flex;
@@ -3199,7 +3213,7 @@ ul.social img {
     margin: 50px 0;
   }
 }
-.m__steps .titleWrapper .m_title {
+.m__steps .titleWrapper .m__steps__title {
   text-align: center;
 }
 .m__steps__wrapper {
@@ -3839,7 +3853,10 @@ ul.social img {
 
 .m__wyswyg li {
   font-size: 16px;
-  line-height: 38px;
+  line-height: 24px;
+}
+.m__wyswyg li:not(last-child) {
+  margin-bottom: 12px;
 }
 .m__wyswyg h2 {
   margin-bottom: 10px;
@@ -4741,14 +4758,14 @@ ul.social img {
   margin: 80px 0;
 }
 .m__contentSlider .swiper-slide {
-  padding: 0 12px;
+  padding: 0 32px;
 }
 
 .m__imagesContentOverlay {
   margin: 80px 0;
 }
 .m__imagesContentOverlay ._w {
-  gap: 24px 0;
+  gap: 64px 0;
 }
 @media (min-width: 768px) and (max-width: 1279.98px) {
   .m__imagesContentOverlay__img {

@@ -28,10 +28,6 @@ h1 {
 
   @include media-up(l) {
     font-size: 40px;
-  }
-
-  @include media-up(xl) {
-    font-size: 50px;
     line-height: 55px;
   }
 }

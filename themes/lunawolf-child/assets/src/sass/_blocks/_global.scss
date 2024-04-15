@@ -1,4 +1,20 @@
 .m__title {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  @include media-up(m) {
+    font-size: 36px;
+  }
+
+  @include media-up(l) {
+    font-size: 40px;
+  }
+
+  @include media-up(xl) {
+    font-size: 50px;
+    line-height: 55px;
+  }
 
   .-preview & {
     font-weight: 700;
@@ -62,4 +78,8 @@
   & ~ .wrapper {
     position: relative;
   }
+}
+
+.site {
+  padding-top: 80px;
 }
