@@ -4,6 +4,7 @@
 {% set bg_image        = block.bg_image %}
 {% set bg_video_file   = block.bg_video_file %}
 {% set bg_video_url    = block.bg_video_url %}
+{% set columns_align   = block.columns_align %}
 
 {% set text_color      = settings.text_color %}
 
@@ -12,7 +13,7 @@
 {% endif %}
 
 {% if columns | length %}
-  <section id="{{ settings.block_id }}" class="m__columns {{ moduleLayout }} {{ video_or_image }}" style="{{ bg_image ? 'background: url(' ~ get_image(bg_image) ~ ') 50% / cover no-repeat' }}">
+  <section id="{{ settings.block_id }}" class="m__columns {{ columns_align }}" style="{{ bg_image ? 'background: url(' ~ get_image(bg_image) ~ ') 50% / cover no-repeat' }}">
     {% include '_partials/_blocks/_parts/dynamicCustomMedia.twig' with {
       bg_image: bg_image,
       video_file: bg_video_file,

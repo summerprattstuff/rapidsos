@@ -1,13 +1,16 @@
 {% set wyswyg = block.wyswyg_editor %}
 
+{% set text_color  = settings.text_color %}
+
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if wyswyg %}
-    <section id="{{ settings.block_id }}" class="m__wyswyg">
+    <section id="{{ settings.block_id }}" class="m__wyswyg block__wyswyg">
+        {% include '_components/settings_overlay.twig' %}
         <div class="wrapper -limit">
-           <div class="content">
+           <div class="content color-{{ text_color ?: 'primary' }}">
                <div class="m__wyswyg">{{ wyswyg }}</div>
            </div>
         </div>

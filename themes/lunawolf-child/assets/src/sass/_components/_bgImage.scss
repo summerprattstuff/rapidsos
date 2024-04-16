@@ -13,7 +13,7 @@
     .bgImg {
       position: absolute;
       top: 0; left: 0; bottom: 0; right: 0;
-      background: 0 50% / contain no-repeat;
+      background: 50% / contain no-repeat;
 
       .-preview & {
         background: 0 50% / contain no-repeat;
