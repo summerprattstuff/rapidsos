@@ -14,6 +14,9 @@ class Lunawolf_Helpers {
       $functions['get_timber_menu'] = [
         'callable' => [$this, 'get_timber_menu']
       ];
+      $functions['get_resources'] = [
+        'callable' => [$this, 'get_resources']
+      ];
 
       return $functions;
     });
@@ -82,5 +85,11 @@ class Lunawolf_Helpers {
 
   public function get_timber_menu($menu_id) {
     return Timber::get_menu($menu_id);
+  }
+
+  public function get_resources($number = 3) {
+    return Timber::get_posts([
+      'posts_per_page' => $number
+    ]);
   }
 }

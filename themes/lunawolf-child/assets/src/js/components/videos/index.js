@@ -24,8 +24,6 @@ export default () => {
     cardVideos.forEach(video => {
       let hasAutoplay = video.classList.contains('js-cardVideoAutoplay');
 
-      console.log('hasAutoplay', hasAutoplay);
-
       const player = new Plyr(video, {
         controls: !hasAutoplay ? [
           'play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'
@@ -53,6 +51,37 @@ export default () => {
         }, { once: true });
       }
     })
+  })();
+
+  (() => {
+    let cardVideosColumn = document.querySelectorAll('.js-cardVideoColumn');
+
+    cardVideosColumn.forEach(video => {
+      const dataVideo = video.dataset.video;
+      const videoTrigger = document.querySelector(`.js-videoColumnTrigger[data-video-trigger="${dataVideo}"]`);
+
+      const player = new Plyr(video, {
+        controls: [
+          'play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'
+        ],
+        autoplay: false,
+        muted: false,
+      });
+
+      player.on('pause', () => {
+        videoTrigger.textContent = 'Watch video';
+      });
+
+      player.on('play', () => {
+        videoTrigger.textContent = 'Pause video';
+      });
+
+      videoTrigger.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        player.togglePlay();
+      });
+    });
   })();
 
   (() => {

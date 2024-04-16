@@ -81,5 +81,9 @@
 }
 
 .site {
-  padding-top: 80px;
+  padding-top: 78px;
+
+  @include media-up(xl) {
+    padding-top: 96px;
+  }
 }

@@ -2,90 +2,92 @@
 {% set count  = videos|length %}
 
 {% if not is_preview %}
-    {#  {{ dump(settings) }}#}
+  {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if videos %}
-    <section id="{{ settings.block_id }}" class="m__videosColumns">
-        <div class="wrapper">
-            {% if s_title %}
-                <div class="titleWrapper -short -center">
-                    <h1 class="m_title m__videosColumns__stitle">{{ s_title }}</h1>
-                </div>
-            {% endif %}
-            <div class="m__videosColumns__wrapper">
-                <div class="_w">
-                    {% for item in videos %}
-                        {% set logo        = item.logo %}
-                        {% set industry    = item.industry %}
-                        {% set videoTitle  = item.video_title %}
-                        {% set customLink  = item.custom_link %}
-                        {% set videoPoster = item.video_poster %}
-                        {% set videoFile   = item.video_file %}
-                        {% set videoUrl    = item.video_url %}
-
-                        {% set video       = videoFile or videoUrl %}
-
-                        <div class="m__videosColumns__box{{ count < 2 ? ' _12' : ' _m6' }}">
-                            <div class="m__videosColumns__box__inner">
-                                {% if video %}
-                                    <div class="m__videosColumns__box__inner__top">
-                                        {% if videoUrl %}
-                                            <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtube' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl }}"></div>
-                                        {% endif %}
-                                        {% if videoFile %}
-                                            <video id="video-{{ blockId }}" class="js-cardVideo" playsinline controls data-poster="{{ get_image(videoPoster) }}">
-                                                <source src="{{ videoFile.url }}" type="video/mp4" />
-                                            </video>
-                                        {% endif %}
-                                    </div>
-                                {% elseif videoPoster %}
-                                    <div class="m__videosColumns__box__inner__top">
-                                        <div class="wrapImg">
-                                            <div class="posterImg" style="background-image: url({{ get_image(videoPoster) }})"></div>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                                <div class="m__videosColumns__box__inner__bottom">
-                                    {% if logo %}
-                                        <div class="logoWrapper">
-                                            <img src="{{ get_image(logo) }}" alt="">
-                                        </div>
-                                    {% endif %}
-                                    {% if industry %}
-                                        <div class="industry">
-                                            <p class="iLabel">Industry: </p>
-                                            <p class="iContent">{{ industry }}</p>
-                                        </div>
-                                    {% endif %}
-                                    {% if videoTitle %}
-                                        <p class="title">{{ videoTitle }}</p>
-                                    {% endif %}
-                                    {% if customLink %}
-                                        <div class="m__videosColumns__box__inner btnWrapper">
-                                            {% include '_components/_advanced_link.twig' with {
-                                                link: customLink,
-                                                class: '-simpleLink',
-                                            } %}
-                                        </div>
-                                    {% else %}
-                                        <div class="m__videosColumns__box__inner btnWrapper">
-                                            <a class="btn -simpleLink" href="{{ videoUrl }}">Watch video</a>
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+  <section id="{{ settings.block_id }}" class="m__videosColumns">
+    <div class="wrapper">
+      {% if s_title %}
+        <div class="titleWrapper -short -center">
+          <h1 class="m_title m__videosColumns__stitle">{{ s_title }}</h1>
         </div>
-        {% if not is_preview %}
-            {{ settings.styles | raw }}
-        {% endif %}
-    </section>
-{% elseif is_preview %}
-    <div class="_center">
-        Add at least one video to show on page.
+      {% endif %}
+      <div class="m__videosColumns__wrapper">
+        <div class="_w">
+          {% set videoCount = 0 %}
+          {% for item in videos %}
+            {% set logo        = item.logo %}
+            {% set industry    = item.industry %}
+            {% set videoTitle  = item.video_title %}
+            {% set customLink  = item.custom_link %}
+            {% set videoPoster = item.video_poster %}
+            {% set videoFile   = item.video_file %}
+            {% set videoUrl    = item.video_url %}
+
+            {% set video       = videoFile or videoUrl %}
+
+            <div class="m__videosColumns__box{{ count < 2 ? ' _12' : ' _m6' }}">
+              <div class="m__videosColumns__box__inner">
+                {% if video %}
+                  <div class="m__videosColumns__box__inner__top">
+                    {% if videoUrl %}
+                      <div id="video-{{ blockId }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ videoCount }}" data-plyr-provider="{{ 'youtube' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl }}"></div>
+                    {% endif %}
+                    {% if videoFile %}
+                      <video id="video-{{ blockId }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ videoCount }}" playsinline controls data-poster="{{ get_image(videoPoster) }}">
+                        <source src="{{ videoFile.url }}" type="video/mp4" />
+                      </video>
+                    {% endif %}
+                  </div>
+                {% elseif videoPoster %}
+                  <div class="m__videosColumns__box__inner__top">
+                    <div class="wrapImg">
+                      <div class="posterImg" style="background-image: url({{ get_image(videoPoster) }})"></div>
+                    </div>
+                  </div>
+                {% endif %}
+                <div class="m__videosColumns__box__inner__bottom">
+                  {% if logo %}
+                    <div class="logoWrapper">
+                      <img src="{{ get_image(logo) }}" alt="">
+                    </div>
+                  {% endif %}
+                  {% if industry %}
+                    <div class="industry">
+                      <p class="iLabel">Industry: </p>
+                      <p class="iContent">{{ industry }}</p>
+                    </div>
+                  {% endif %}
+                  {% if videoTitle %}
+                    <p class="title">{{ videoTitle }}</p>
+                  {% endif %}
+                  {% if customLink %}
+                    <div class="m__videosColumns__box__inner btnWrapper">
+                      {% include '_components/_advanced_link.twig' with {
+                        link: customLink,
+                        class: '-simpleLink',
+                      } %}
+                    </div>
+                  {% else %}
+                    <div class="m__videosColumns__box__inner btnWrapper">
+                      <a class="btn -simpleLink js-videoColumnTrigger" href="{{ videoUrl }}" data-video-trigger="{{ settings.block_id }}-{{ videoCount }}">Watch video</a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            {% set videoCount = videoCount + 1 %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
+    {% if not is_preview %}
+      {{ settings.styles | raw }}
+    {% endif %}
+  </section>
+{% elseif is_preview %}
+  <div class="_center">
+    Add at least one video to show on page.
+  </div>
 {% endif %}

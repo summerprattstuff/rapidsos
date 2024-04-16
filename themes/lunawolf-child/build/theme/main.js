@@ -203,7 +203,6 @@ __webpack_require__.r(__webpack_exports__);
     var cardVideos = document.querySelectorAll('.js-cardVideo');
     cardVideos.forEach(function (video) {
       var hasAutoplay = video.classList.contains('js-cardVideoAutoplay');
-      console.log('hasAutoplay', hasAutoplay);
       var player = new (plyr__WEBPACK_IMPORTED_MODULE_0___default())(video, {
         controls: !hasAutoplay ? ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'] : false,
         autoplay: hasAutoplay,
@@ -230,6 +229,28 @@ __webpack_require__.r(__webpack_exports__);
           once: true
         });
       }
+    });
+  })();
+  (function () {
+    var cardVideosColumn = document.querySelectorAll('.js-cardVideoColumn');
+    cardVideosColumn.forEach(function (video) {
+      var dataVideo = video.dataset.video;
+      var videoTrigger = document.querySelector(".js-videoColumnTrigger[data-video-trigger=\"".concat(dataVideo, "\"]"));
+      var player = new (plyr__WEBPACK_IMPORTED_MODULE_0___default())(video, {
+        controls: ['play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'],
+        autoplay: false,
+        muted: false
+      });
+      player.on('pause', function () {
+        videoTrigger.textContent = 'Watch video';
+      });
+      player.on('play', function () {
+        videoTrigger.textContent = 'Pause video';
+      });
+      videoTrigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        player.togglePlay();
+      });
     });
   })();
   (function () {

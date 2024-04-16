@@ -1,0 +1,39 @@
+{% set desc     = post_desc %}
+{% set bg_image = theme.link ~ '/public/images/archive-bg.jpg' %}
+
+{{ dump(post) }}
+
+<section class="heroStory heroArchive">
+    {% if bg_image %}
+        <div class="heroStory__imgWrapper">
+            <div class="heroStory__img" style="background-image: url({{ bg_image }})"></div>
+        </div>
+    {% endif %}
+    <div class="wrapper">
+        <div class="heroStory__top">
+            <div class="_w">
+                <div class="heroStory__top__left _l6">
+                    <div class="heroStory__top__left__box">
+                        <div class="heroStory__top__left__box__inner">
+                            <div class="titleWrapper">
+                                <h1 class="title">{{ title }}</h1>
+                            </div>
+                            {% if post_desc %}
+                                <p class="subtitle">{{ post_desc }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="heroStory__top__right _l6">
+                    <div class="heroStory__top__right__inner">
+                        {% if bg_image %}
+                            <div class="heroStory__top__right__inner__wrapImg">
+                                <div class="heroStory__top__right__inner__bgImg" style="background-image: url({{ bg_image }})"></div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

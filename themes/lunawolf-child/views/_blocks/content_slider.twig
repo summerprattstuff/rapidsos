@@ -1,21 +1,36 @@
+{% set load_latest    = block.load_latest_resources %}
+{% set number         = block.number_of_resources %}
 {% set content_slider = block.content_slider %}
+{% set latest_posts   = false %}
+
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
-{% if content_slider | length %}
+{% if load_latest %}
+  {% set latest_posts = get_resources(number ?: 3) %}
+{% endif %}
 
+{% if (load_latest and latest_posts) or content_slider | length %}
   <section id="{{ settings.block_id }}" class="m__contentSlider">
     <div class="wrapper">
       <div class="content">
         <div class="contentSlider__wrapper">
           <div class="swiper js-testimonialSlider">
             <div class="swiper-wrapper">
-              {% for slide in content_slider %}
-                {% include '_partials/_blocks/_content-slider/_card.twig' with {
-                  id: slide
-                } %}
-              {% endfor %}
+              {% if load_latest and latest_posts %}
+                {% for slide in latest_posts %}
+                  {% include '_partials/_blocks/_content-slider/_card.twig' with {
+                    slidePost: slide
+                  } %}
+                {% endfor %}
+              {% else %}
+                {% for slide in content_slider %}
+                  {% include '_partials/_blocks/_content-slider/_card.twig' with {
+                    id: slide
+                  } %}
+                {% endfor %}
+              {% endif %}
             </div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>

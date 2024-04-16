@@ -260,7 +260,15 @@
                             "type": "true_false",
                             "instructions": "Turn on so video isn't scaled, but actually fill up 100% viewport.",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_65f4036d88382",
+                                        "operator": "==",
+                                        "value": "hero"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -1983,6 +1991,27 @@
                                             "library": "all"
                                         },
                                         {
+                                            "key": "field_661e9dc5852c5",
+                                            "label": "Autoplay Video?",
+                                            "name": "autoplay_video",
+                                            "aria-label": "",
+                                            "type": "true_false",
+                                            "instructions": "Autoplay video but muted?",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui": 0,
+                                            "ui_on_text": "",
+                                            "ui_off_text": "",
+                                            "style": ""
+                                        },
+                                        {
                                             "key": "field_6601537c4912b",
                                             "label": "Video File",
                                             "name": "video_file",
@@ -2688,6 +2717,57 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_661e9faa4b5b4",
+                            "label": "Load Latest Resources?",
+                            "name": "load_latest_resources",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "Should latest resources be loaded?",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": "",
+                            "style": ""
+                        },
+                        {
+                            "key": "field_661e9fc04b5b5",
+                            "label": "Number of Resources?",
+                            "name": "number_of_resources",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Default is 3.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_661e9faa4b5b4",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": 1,
+                            "max": 99,
+                            "placeholder": "",
+                            "step": 1,
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_660fe5f1016be",
                             "label": "Post Type Slider",
                             "name": "content_slider",
@@ -2695,7 +2775,15 @@
                             "type": "relationship",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_661e9faa4b5b4",
+                                        "operator": "!=",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -4627,5 +4715,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713090541
+    "modified": 1713285119
 }

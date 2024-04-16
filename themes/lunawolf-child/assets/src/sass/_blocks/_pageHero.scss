@@ -91,8 +91,10 @@
 
   &.-story {
     overflow: hidden;
+  }
+}
 
-    .heroStory {
+.heroStory {
 
       &__imgWrapper {
         position: absolute;
@@ -307,5 +309,3 @@
         }
       }
     }
-  }
-}
