@@ -10,13 +10,13 @@
 
 {% if testimonialID or data_sources %}
     <section id="{{ settings.block_id }}" class="m__dataTestimonial -caseStudy">
-        <div class="wrapper -limit">
+        <div class="wrapper">
             <div class="content">
                 <div class="_w">
                     <div class="m__dataTestimonial__dataBox{{ data_sources and testimonialID ? ' _m4' : ' _12' }}">
                         {% if data_sources %}
                             <div class="m__dataTestimonial__dataBox__sources">
-                                <p class="sLabel">{{ label }}</p>
+                                <h2 class="sLabel">{{ label }}</h2>
                                 <div class="sContent">{{ sources }}</div>
                             </div>
                         {% endif %}

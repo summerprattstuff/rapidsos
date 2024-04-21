@@ -50,3 +50,13 @@ section {
     }
   }
 }
+
+.archive_wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 3%;
+}
+
+.mx-auto {
+  margin: auto !important;
+}

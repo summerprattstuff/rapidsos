@@ -37,20 +37,20 @@
 
       &__bottom {
         display: flex;
-        margin-top: 10px;
+        margin-top: 20px;
 
         .numb {
           flex-shrink: 0;
           display: block;
-          font-size: 14px;
-          line-height: 22px;
+          font-size: 18px;
+          line-height: 1.7;
           font-weight: 700;
           margin-right: 5px;
         }
 
         .desc {
-          font-size: 14px;
-          line-height: 22px;
+          font-size: 18px;
+          line-height: 1.7;
           font-weight: 700;
         }
       }
@@ -60,4 +60,15 @@
   & + .m__wyswyg {
     margin-top: 60px;
   }
+}
+
+.m__imgRow__title {
+  padding-bottom: 10px;
+  font-size: 26px;
+  line-height: 1.2em;
+}
+
+.m__imgRow__desc {
+  font-size: 16px;
+  line-height: 1.7em;
 }

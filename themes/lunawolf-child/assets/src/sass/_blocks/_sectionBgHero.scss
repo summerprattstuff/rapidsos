@@ -1,0 +1,38 @@
+.m__sbHero__wrapper {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    width: 90%;
+    color: #fff;
+    
+    @include media-up(l) {
+        padding: 2% 0;
+    }
+}
+
+.m__sbHero__title {
+    font-size: 50px;
+    line-height: 60px;
+    padding-bottom: 10px;
+
+    @include media-up(l) {
+        margin-bottom: 1.5%;
+    }
+}
+
+.m__sbHero__text {
+    margin-bottom: 32px;
+    line-height: 26px;
+}
+
+.m__sbHero {
+    padding-top: 96px;
+    padding-bottom: 96px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.m__sbHero__cta a {
+    color: #fff;
+}

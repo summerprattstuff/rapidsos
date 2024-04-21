@@ -49,7 +49,7 @@
 
   &__blockWrap {
     position: relative;
-    width: 100%;
+    // width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -59,7 +59,7 @@
     }
 
     @include media-up(s) {
-      width: auto;
+      // width: auto;
 
       &:not(:last-child) {
         margin-right: 20px;
@@ -133,6 +133,12 @@
 
     &__imgWrap {
       position: relative;
+      width: 100%;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
 
       &:after {
         position: absolute;

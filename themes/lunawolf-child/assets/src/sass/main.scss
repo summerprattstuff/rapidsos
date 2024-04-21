@@ -11,3 +11,33 @@
 @import 'components';
 
 @import '_blocks';
+
+.post_title {
+    margin-top: 20px;    
+    font-size: 18px;
+
+    a {
+        color: #001559;
+        text-decoration: none;
+    }
+}
+
+.site__header .site__navigation li:first-child>.-submenu .menu-item-has-children>a,
+.site__header .site__navigation li:nth-child(3)>.-submenu .menu-item-has-children>a {
+    pointer-events: none;
+    font-weight: 700;
+}
+
+.site__header .btn.-dark:hover {
+    color: #fff;
+    background-color: #27A4D9;
+    border-color: #27A4D9;
+}
+
+@include media-down(xl) {
+    .site__header {
+        .-dark, .-outline {
+            display: none;
+        }
+    }
+}

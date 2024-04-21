@@ -35,6 +35,13 @@ function acf_backend_assets() {
 	wp_localize_script( 'lunawolf-acf-script-min', 'wp_params', []);
 
 	wp_enqueue_script( 'lunawolf-acf-script-min' );
+
+	$magnific_popup_css = get_stylesheet_directory_uri() . '/magnific-popup/magnific-popup.css';
+	$magnific_popup_js = get_stylesheet_directory_uri() . '/magnific-popup/jquery.magnific-popup.min.js';
+
+	// Enqueue the Magnific Popup CSS and JS files.
+	wp_enqueue_style('magnific-popup-css', $magnific_popup_css);
+	wp_enqueue_script('magnific-popup-js', $magnific_popup_js, array('jquery'));
 }
 
 /**

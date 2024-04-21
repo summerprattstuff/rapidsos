@@ -3,7 +3,7 @@
   padding: 19px 0 25px;
   top: 0; left: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1001;
   background-color: $white;
 
   @include media-up(xl) {
@@ -29,6 +29,19 @@
     display: inline-block;
     height: 30px; width: 30px;
     z-index: 10;
+
+    .close-icon {
+      display: none;
+    }
+
+    &.-active {
+      .close-icon {
+        display: block;
+      }
+      .bar-icon {
+        display: none;
+      }
+    }
 
     @include media-up(xl) {
       display: none;
@@ -59,5 +72,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 0 24px;
+    padding-top: 10px;
   }
+
+  .-menuOpen & .site__navigation {
+    display: flex;
+  } 
 }

@@ -1,0 +1,123 @@
+{% set section_title   = block.popup_title %}
+{% set section_desc   = block.popup_description %}
+{% set popups   = block.popup_items %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section class="m__popup" id="{{ settings.block_id }}">
+    <div class="wrapper">
+        <div class="heading-wrapper">
+            {% if section_title %}
+                <div class="container container__short text-center">
+                    <h2 class="m_title m__popup__title">{{ section_title }}</h2>
+                </div>
+            {% endif %}
+            {% if section_desc %}
+                <div class="container container__short container__center">
+                    <p class="m_desc m__popup__desc">{{ section_desc }}</p>
+                </div>
+            {% endif %}
+        </div>
+        {% if popups %}
+            {% set wrapper_class = popups|length > 2 ? 'grid-cols-1 grid-md-cols-2 grid-lg-cols-3' : (popups|length == 2 ? 'grid-cols-1 grid-md-cols-2' : 'grid-cols-1') %}
+            <div class="grid m__popups__wrap m__popups__full {{wrapper_class}}">
+                {% for popup in popups %}
+                    {% set img         = step.step_img %}
+                    {% set banner_text = step.banner_text %}
+
+                    {% if popup.item_choice == 'story' %}
+                        {% set img = popup.image_group.item_image %}
+                        {% set title = popup.image_group.item_title %}
+                        {% set location = popup.image_group.item_location %}
+                        {% set industry = popup.image_group.item_industry %}
+                        {% set desc = popup.image_group.item_description %}
+                        {% set mark = popup.image_group.item_mark %}
+                        {% set address = popup.image_group.item_address %}
+
+                        <article class="m__pitem__wrapper">
+                            {% if img %}
+                                <div>
+                                    <a href="#" class="m__pitem__img">
+                                        <img src="{{ img.url }}" alt="{{ title }}" />
+                                    </a>
+                                </div>
+                            {% endif %}
+                            
+                            <h2 class="m__pitem__title">
+                                <a href="#" style="color: #001559;">{{title}}</a>
+                            </h2>
+                            <div>
+                                <a href="#" class="m__pitem__link">Read story</a>
+                            </div>
+                            <div class="m__pitem__box mfp-hide">
+                                <div class="modal-content">
+                                    <div class="images-row grid grid-xl-cols-2 grid-cols-1">
+                                        <div>
+                                            <h1>{{title}}</h1>
+                                            <div>
+                                                <div><strong>Location: </strong> {{location}}</div>
+                                                <strong>Industry: </strong> {{industry}}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <img src="{{ img.url }}" alt="{{ title }}" />
+                                        </div>
+                                    </div>       
+                                    <div class="description-row">
+                                        <div>{{desc}}</div>
+                                        <div style="gap: 20px; margin-top: 30px;">
+                                            <img style="height: 75px; width: 75px" src="{{mark.url}}" alt="Image" />
+                                            <span>{{address}}</span>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </article>
+                    {% endif %}
+                    {% if popup.item_choice == 'video' %}
+                        {% set title = popup.video_group.item_title %}
+                        {% set video_bg = popup.video_group.item_video_bg %}
+                        {% set video_file = popup.video_group.item_video_file %}
+                        {% set video_url = popup.video_group.item_video_url %}
+                        {% set video = video_file or video_url %}
+
+                        <article class="m__pitem__wrapper">
+                            {% if video_bg %}
+                                <div>
+                                    <a href="#" class="m__pitem__img">
+                                        <img src="{{ video_bg.url }}" alt="{{ title }}" />
+                                    </a>
+                                </div>
+                            {% endif %}
+                            
+                            <h2 class="m__pitem__title">
+                                <a href="#" style="color: #001559;">{{title}}</a>
+                            </h2>
+                            <div>
+                                <a href="#" class="m__pitem__link">Watch Video</a>
+                            </div>
+                            <div class="m__pitem__box mfp-hide">
+                                <div class="modal-content">
+                                    {% if video %}
+                                        <div>
+                                        {% if video_url %}
+                                            <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+                                        {% elseif video_file %}
+                                            <video id="video-{{ blockId }}" style="width: 100%;" playsinline controls data-poster="{{ get_image(bg_image) }}">
+                                                <source src="{{ video_file.url }}" type="video/mp4" />
+                                            </video>
+                                        {% endif %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </article>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>

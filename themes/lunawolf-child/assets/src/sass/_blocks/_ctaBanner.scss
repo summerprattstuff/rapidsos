@@ -12,6 +12,7 @@
   }
 
   &__title {
+    font-size: 40px;
     font-weight: 400;
 
     @include media-down(m) {

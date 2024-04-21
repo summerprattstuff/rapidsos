@@ -1,0 +1,51 @@
+{% set bg          = block.section_hero_bg %}
+{% set bg_mobile   = block.section_mobile_bg %}
+{% set title       = block.section_hero_title %}
+{% set subtitle    = block.section_hero_desc %}
+{% set link        = block.section_hero_cta %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if title or subtitle %}
+    <section id="{{ settings.block_id }}" class="m__sbHero">
+        <style>
+            .m__sbHero {
+                background-image: url('{{ bg_mobile.url }}');
+            }
+            @media (min-width: 1200px) {
+                .m__sbHero {
+                    background-image: url('{{ bg.url }}');
+                }
+            }
+        </style>
+        {# <div class="wrapper"> #}
+            <div class="container">
+                <div class="m__sbHero__wrapper">
+                    {% if title %}
+                        <h1 class="m__sbHero__title">{{ title }}</h1>
+                    {% endif %}
+                    {% if subtitle %}
+                        <p class="m__text m__sbHero__text">{{ subtitle }}</p>
+                    {% endif %}
+                    {% if link %}
+                        <div class="m__sbHero__cta">
+                            {% include '_components/_advanced_link.twig' with {
+                                link: link,
+                                class: ''
+                            } %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+        {# </div> #}
+    </section>
+{% elseif is_preview %}
+    <div class="_center">
+        Add <strong>title</strong> or <strong>subtitle</strong> to show on page.
+    </div>
+{% endif %}

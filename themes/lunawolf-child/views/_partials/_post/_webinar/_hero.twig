@@ -2,6 +2,7 @@
 {% set title       = post.title %}
 {% set customTitle = post.meta.custom_title %}
 {% set subtitle    = post.meta.subtitle %}
+{% set form_code    = post.meta.form_code %}
 {% set heroImg     = post.meta.hero_img %}
 {% set desc        = post.meta.desc %}
 {% set text        = post.meta.text_box %}
@@ -63,6 +64,7 @@
                     <div class="hero__webinar__bottom__right__box">
                         <div class="hero__webinar__bottom__right__box__inner">
                             Form will be here
+                            {{form_code}}
                         </div>
                     </div>
                 </div>

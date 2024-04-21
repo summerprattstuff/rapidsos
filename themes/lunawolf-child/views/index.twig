@@ -1,10 +1,14 @@
 {% extends "_layout/base.twig" %}
 
 {% block content %}
-	{% for post in posts %}
-		{% include ['_components/_tease/_tease-' ~ post.post_type ~ '.twig', '_tease.twig'] %}
-	{% endfor %}
-	
+	<div class="wrapper">
+		<div class="archive_wrapper">
+			{% for post in posts %}
+				{% include ['_components/_tease/_tease-' ~ post.post_type ~ '.twig', '_tease.twig'] %}
+			{% endfor %}
+		</div>
+	</div>
+
 	{% include '_partials/_pagination.twig' with {
     pagination: posts.pagination({ show_all: false, mid_size: 3, end_size: 2 }) } %}
 {% endblock %}

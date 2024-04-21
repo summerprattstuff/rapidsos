@@ -7,10 +7,17 @@
       <a href="{{ siteUrl }}" class="site__header__logo">
         <img src="{{ logoURL }}" alt="RapidSOS">
       </a>
+      <div style="display: flex; align-items: center;">
+      {% include '_layout/_nav.twig' %}
+        {# <div> #}
+          <a href="https://rapidsosportal.com" class="btn -outline" style="padding: 5px 30px 4px; margin-left: 25px; margin-right: 20px; line-height: 1.7em; ">Login</a>
+          <a href="https://rapidsosportal.com" class="btn -dark" style="padding: 5px 30px 4px; line-height: 1.7em;">Book a demo</a>
+        {# </div> #}
+      </div>
       <a href="javascript:;" class="site__header__menuToggle js-activeTrigger" data-target="body" data-class="-menuOpen">
         {% include 'icons/hamburger.twig' %}
+        {% include 'icons/close.twig' %}
       </a>
-      {% include '_layout/_nav.twig' %}
     </div>
   </div>
 </header>

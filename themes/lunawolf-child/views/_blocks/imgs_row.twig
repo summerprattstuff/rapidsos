@@ -19,6 +19,7 @@
           {% set column_width = img_row.column_width %}
           {% set image        = img_row.image %}
           {% set s_numb       = img_row.serial_numb %}
+          {% set title         = img_row.title %}
           {% set desc         = img_row.desc %}
 
           <div class="m__imgRows__wrapper _m6{{ column_width ? ' ' ~ column_width }}">
@@ -34,7 +35,10 @@
                     {% if s_numb %}
                       <span class="numb">{{ s_numb }}.</span>
                     {% endif %}
-                    <div class="m__desc desc">{{ desc }}</div>
+                    <div>
+                    <h2 class="m__imgRow__title">{{title}}</h2>
+                    <p class="m__imgRow__desc">{{ desc }}</p>
+                    </div>
                   </div>
                 {% endif %}
               </div>

@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 export default () => {
   (() => {
@@ -24,10 +24,18 @@ export default () => {
 
   (() => {
     const logoSlider = new Swiper('.js-logoSlider', {
-      modules: [Pagination],
+      modules: [Pagination, Autoplay],
       slidesPerView: 'auto',
       loop: true,
       spaceBetween: 63,
+      autoplay: {
+        delay: 3000,
+      },
+      breakpoints: {
+        1280: {
+          slidesPerView: 7
+        },
+      },
 
       pagination: {
         el: '.swiper-pagination',

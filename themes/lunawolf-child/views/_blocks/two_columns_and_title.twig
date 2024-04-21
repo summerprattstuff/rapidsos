@@ -1,5 +1,6 @@
 {% set sTitle          = block.section_title %}
 {% set columns         = block.columns %}
+{% set spacing         = block.columns_spacing / 2 %}
 
 {% set bg_image        = block.bg_image %}
 {% set bg_video_file   = block.bg_video_file %}
@@ -14,6 +15,16 @@
 
 {% if columns | length %}
   <section id="{{ settings.block_id }}" class="m__columns {{ columns_align }}" style="{{ bg_image ? 'background: url(' ~ get_image(bg_image) ~ ') 50% / cover no-repeat' }}">
+  <style>
+    #{{ settings.block_id }} ._w {
+      margin-left: -{{spacing}}px;
+      margin-right: -{{spacing}}px;
+    }
+    #{{ settings.block_id }} ._w>.m__columns__column {
+      padding-left: {{spacing}}px;
+      padding-right: {{spacing}}px;
+    }
+  </style>
     {% include '_partials/_blocks/_parts/dynamicCustomMedia.twig' with {
       bg_image: bg_image,
       video_file: bg_video_file,

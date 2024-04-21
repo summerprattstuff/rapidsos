@@ -32,3 +32,72 @@ document.addEventListener("DOMContentLoaded", function(event) {
   activeTrigger();
   fancybox();
 });
+
+// jQuery('.m__pitem__wrapper .m__pitem__box').magnificPopup({
+//   delegate: '.m__pitem__wrapper a',
+//   closeOnContentClick: false,
+//   mainClass: 'mfp-with-zoom mfp-img-mobile',
+// });
+
+
+// jQuery.magnificPopup.open({
+//   delegate: '.m__pitem__wrapper a',
+//   items: {
+//     src: '.m__pitem__wrapper .m__pitem__box'
+//   },
+//   type: 'inline',
+//   closeOnContentClick: false,
+//   mainClass: 'mfp-with-zoom mfp-img-mobile',
+// });
+
+// jQuery('.m__pitem__wrapper a').magnificPopup({
+//   items: {
+//     src: this.closest('.m__pitem__wrapper')
+//   },
+//   type: 'inline',
+//   closeOnContentClick: false,
+//   mainClass: 'mfp-with-zoom mfp-img-mobile',
+//   zoom: {
+//     enabled: true,
+//     duration: 300, // don't foget to change the duration also in CSS,
+//   }
+// });
+
+// jQuery('.m__pitem__wrapper a').on('click', function(e) {
+//   e.preventDefault();
+//   var $this = jQuery(this);
+
+//   // try {
+//   $this.magnificPopup({
+//       items: {
+//         src: $this.closest('.m__pitem__wrapper').find('.m__pitem__box')
+//       },
+//       type: 'inline',
+//       closeOnContentClick: false,
+//       mainClass: 'mfp-with-zoom mfp-img-mobile',
+//       zoom: {
+//         enabled: true,
+//         duration: 300, // don't foget to change the duration also in CSS,
+//       }
+//     });
+//   // } catch(e) {
+//   //   console.log(e);
+//   // }
+// })
+
+jQuery( '.m__pitem__wrapper' ).each( function () {
+  var $this = jQuery(this);
+  $this.find('a').magnificPopup( {
+    items: {
+      src: $this.find('.m__pitem__box')
+    },
+    type: 'inline',
+    closeOnContentClick: false,
+    mainClass: 'mfp-with-zoom mfp-img-mobile',
+    zoom: {
+      enabled: true,
+      duration: 300, // don't foget to change the duration also in CSS,
+    }
+  } );
+} )
+
