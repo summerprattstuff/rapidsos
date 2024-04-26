@@ -1,7 +1,12 @@
 {% set postType    = post.post_type %}
 {% set title       = post.title %}
+{% set label       = post.label %}
+{% set tag_logo       = post.tag_logo %}
+{% set tag_logo_hide       = post.tag_logo_hide %}
 {% set customTitle = post.meta.custom_title %}
 {% set subtitle    = post.meta.subtitle %}
+{% set date    = post.meta.date %}
+{% set form_image    = post.meta.form_image %}
 {% set form_code    = post.meta.form_code %}
 {% set heroImg     = post.meta.hero_img %}
 {% set desc        = post.meta.desc %}
@@ -15,18 +20,32 @@
             </div>
         {% endif %}
         <div class="wrapper">
+            {% if tag_logo_hide == false %}
             <div class="postTag">
-                <img class="tagLogo" src="{{ theme.link ~ '/public/podcast/podcast_tag.png' }}" alt="">
+                {% if tag_logo %}
+                    <img class="tagLogo" src="{{ get_image(tag_logo) }}" alt="Webniar Tag Logo">
+                {% else %}
+                    <img class="tagLogo" src="{{ theme.link ~ '/public/podcast/podcast_tag.png' }}" alt="Webniar Tag Logo">
+                {% endif %} 
             </div>
+            {% else %}
+            <style>
+                .hero__webinar__top__left__box__inner {padding-top: 70px;}
+            </style>
+            {% endif %}
             <div class="_w">
                 <div class="hero__webinar__top__left _l6">
                     <div class="hero__webinar__top__left__box">
                         <div class="hero__webinar__top__left__box__inner">
+                            <div style="font-size: 16px; font-weight: 600;">{{label}}</div>
                             <div class="titleWrapper">
                                 <h1 class="title">{{ customTitle ? customTitle : title }}</h1>
                             </div>
                             {% if subtitle %}
                                 <h2 class="subtitle">{{ subtitle }}</h2>
+                            {% endif %}
+                            {% if date %}
+                                <h4 class="date" style="font-weight: 400;">{{ date }}</h4>
                             {% endif %}
                         </div>
                     </div>
@@ -63,7 +82,11 @@
                 <div class="hero__webinar__bottom__right _l6">
                     <div class="hero__webinar__bottom__right__box">
                         <div class="hero__webinar__bottom__right__box__inner">
-                            Form will be here
+                            {% if form_image %}
+                            <div class="hero__webinar__form__image">
+                                <img src="{{ get_image(form_image) }}" alt="Image" />
+                            </div>
+                            {% endif %}
                             {{form_code}}
                         </div>
                     </div>

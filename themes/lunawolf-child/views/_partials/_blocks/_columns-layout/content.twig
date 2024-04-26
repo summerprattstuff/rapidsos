@@ -1,5 +1,6 @@
 {% set column_content = column.content %}
 {% set label_above    = column_content['label_above'] %}
+{% set image    = column_content['image'] %}
 {% set title          = column_content['title'] %}
 {% set subtitle       = column_content['subtitle'] %}
 {% set link           = column_content['link'] %}
@@ -8,6 +9,11 @@
   {% if label_above %}
     <p class="m__columns__column__content__labelAbove">{{ label_above }}</p>
   {% endif %}
+  {% if image %}
+    <div class="m__columns__column__content__img">
+      <img src="{{ get_image(image) }}" alt="Image" />
+    </div>
+  {% endif %}   
   {% if title %}
     <h1 class="m__columns__column__content__title">{{ title }}</h1>
   {% endif %}

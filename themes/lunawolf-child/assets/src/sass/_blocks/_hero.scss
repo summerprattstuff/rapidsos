@@ -21,7 +21,6 @@
     }
 
     &.-withVideo {
-
       .-preview & {
         background: url(../img/placeholder.avif) 50% / cover no-repeat;
       }
@@ -183,17 +182,17 @@
 
         &:before {
           position: absolute;
-          content: '';
+          // content: '';
           top: 60%; left: 0;
           height: 100%; width: 100%;
           background: linear-gradient(0deg, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
           transform: rotate(180deg);
           z-index: 1;
 
-          @include media-up(l) {
-            transform: rotate(90deg);
-            top: 0; left: 55%;
-          }
+          // @include media-up(l) {
+          //   transform: rotate(90deg);
+          //   top: 0; left: 55%;
+          // }
         }
       }
 

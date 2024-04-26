@@ -1,0 +1,60 @@
+{% set reports       = post.reports %}
+{% set sidebar       = post.sidebar %}
+
+<section class="content__report">
+    <div class="_w">
+    {% if reports %}
+        <div class="content__report__sidebar _m4">
+            {{sidebar}}
+        </div>
+        <div class="reports__wrapper _m8">
+        {% for report in reports %}
+            {% set report_title  = report.report_title %}
+            {% set report_desc  = report.report_description %}
+            {% set subs = report.sub_reports %}
+            <div class="content__report__wrapper">
+                <h2 class="content__report__title">{{report_title}}</h2>
+                <div class="content__report__desc">{{report_desc}}</div>
+
+                {% if subs %}
+                    {% for sub in subs %}
+                        {% set sub_report_title = sub.sub_report_title %}
+                        {% set sub_content_choice = sub.content_choice %}
+                        {% set sub_report_image = sub.sub_report_image %}
+                        {% set sub_report_video = sub.sub_report_video %}
+                        {% set sub_report_video_url = sub.sub_report_video_url %}
+                        {% set sub_report_lottie = sub.sub_report_lottie %}
+
+                        {% if sub %}
+                            <div class="content__report__sub__wrapper">
+                                {% if sub_report_title %}
+                                    <h5 class="content__report__sub__heading report__heading">{{ sub_report_title}}</h5>
+                                {% endif %}
+                                {% if sub_content_choice == 'image' %}
+                                    <div class="content__report__sub__image">
+                                        <img src="{{get_image(sub_report_image)}}" />
+                                    </div>
+                                {% elseif sub_content_choice == 'video' %}
+                                    {% if sub_report_video_url %}
+                                        <div class="content__report__sub__video">
+                                            {% if sub_report_video_url %}
+                                                <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+                                            {% endif %}
+                                            </div>
+                                        {% else %}
+                                            <video id="video-{{ blockId }}" class="js-cardVideo"{{ autoplay ? ' autoplay loop muted playsinline'}} controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
+                                            <source src="{{ video_file.url }}" type="video/mp4" />
+                                            </video>
+                                        {% endif %}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+        {% endfor %}
+        </div>
+    {% endif %}
+    </div>
+</section>

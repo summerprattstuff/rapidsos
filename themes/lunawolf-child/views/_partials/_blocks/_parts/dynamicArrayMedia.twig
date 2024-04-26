@@ -1,10 +1,13 @@
+{% set media_choice   = blockData['media_choice'] %}
 {% set bg_image   = blockData['bg_image'] %}
 {% set autoplay   = blockData['autoplay_video'] %}
 {% set video_file = blockData['video_file'] %}
 {% set video_url  = blockData['video_url'] %}
+{% set video_type  = blockData['video_type'] %}
+{% set video_code  = blockData['video_code'] %}
 {% set bg_video   = video_file or video_url %}
 
-{% if bg_image and not bg_video %}
+{% if media_choice == "image" %}
   <div class="m__dynamicMedia{{ bg_video ? ' -withVideo' }}">
     <div class="wrapImg m__dynamicMedia__wrapImg">
       <div class="innerImg m__dynamicMedia__wrapImg__innerImg">
@@ -12,17 +15,27 @@
       </div>
     </div>
   </div>
-{% endif %}
-{% if bg_video %}
-  {% if video_url %}
-    <div class="m__dynamicMedia__video">
-      {% if video_url %}
-        <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
-      {% endif %}
-    </div>
+{% elseif media_choice == "video" %}
+  {% if video_type == 'yv' %}
+    {% if video_url %}
+      <div class="m__dynamicMedia__video">
+      {{video_url}}
+        {% if video_url %}
+          <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+        {% endif %}
+      </div>
+    {% else %}
+      <video id="video-{{ blockId }}" class="js-cardVideo"{{ autoplay ? ' autoplay loop muted playsinline'}} controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
+        <source src="{{ video_file.url }}" type="video/mp4" />
+      </video>
+    {% endif %}
   {% else %}
-    <video id="video-{{ blockId }}" class="js-cardVideo"{{ autoplay ? ' autoplay muted'}} controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
-      <source src="{{ video_file.url }}" type="video/mp4" />
-    </video>
+    {% if video_code %}
+      <div id="video-{{ blockId }}" style="width: 100%;">
+        {{video_code}}
+      </div>
+    {% endif %}
   {% endif %}
 {% endif %}
+
+

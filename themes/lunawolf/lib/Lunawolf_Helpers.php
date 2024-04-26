@@ -66,10 +66,10 @@ class Lunawolf_Helpers {
     $share_buttons = '<ul class="social">';
 
     $share_icons = [
-      'fb' => get_stylesheet_directory_uri() . '/public/social/facebook.png',
-      'x' => get_stylesheet_directory_uri() . '/public/social/x.png',
-      'ln' => get_stylesheet_directory_uri() . '/public/social/linkedin.png',
-      'ml' => get_stylesheet_directory_uri() . '/public/social/mail.png',
+      'fb' => get_stylesheet_directory_uri() . '/public/social/social-fb.svg',
+      'x' => get_stylesheet_directory_uri() . '/public/social/social-x.svg', 
+      'ln' => get_stylesheet_directory_uri() . '/public/social/social-li.svg',
+      'ml' => get_stylesheet_directory_uri() . '/public/social/social-email.svg',
     ];
 
     foreach ($social_networks as $network => $share_url) {

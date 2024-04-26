@@ -1,10 +1,28 @@
 {% set aboveText = block.above_text %}
+{% set top_desktop = block.top_desktop %}
+{% set bottom_desktop = block.bottom_desktop %}
+{% set top_mobile = block.top_mobile %}
+{% set bottom_mobile = block.bottom_mobile %}
 
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
 <section id="{{ settings.block_id }}" class="m__statistic{{ aboveText ? ' -aboveText' }}">
+    <style>
+        #{{ settings.block_id }} {
+            margin-top: {{top_mobile}}px;
+            margin-bottom: {{bottom_mobile}}px;
+        }
+
+        @media (min-width: 768px) {
+            #{{ settings.block_id }} {
+                margin-top: {{top_desktop}}px;
+                margin-bottom: {{bottom_desktop}}px;
+            }
+        }
+        
+    </style>
     {% if aboveText %}
         {% include '_partials/_blocks/_parts/_statistic-feature/statistic_feature_secondStyle.twig' with {
             block: block

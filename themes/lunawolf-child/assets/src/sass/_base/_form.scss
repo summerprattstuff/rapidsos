@@ -73,3 +73,15 @@ form {
     }
   }
 }
+
+.hbspt-form {
+  width: 100% !important;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+
+}
+
+.hbspt-form fieldset.form-columns-2 .input {
+  margin-right: 0 !important;
+}

@@ -35,9 +35,13 @@
                     {% if s_numb %}
                       <span class="numb">{{ s_numb }}.</span>
                     {% endif %}
-                    <div>
+                    <div style="margin-top: 1px;">
+                    {% if title %}
                     <h2 class="m__imgRow__title">{{title}}</h2>
+                    {% endif %}
+                    {% if desc %}
                     <p class="m__imgRow__desc">{{ desc }}</p>
+                    {% endif %}
                     </div>
                   </div>
                 {% endif %}

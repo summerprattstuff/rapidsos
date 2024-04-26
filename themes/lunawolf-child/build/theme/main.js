@@ -94,11 +94,12 @@ __webpack_require__.r(__webpack_exports__);
       autoplay: {
         delay: 3000
       },
-      breakpoints: {
-        1280: {
-          slidesPerView: 7
-        }
-      },
+      // breakpoints: {
+      //   1280: {
+      //     slidesPerView: 7
+      //   },
+      // },
+
       pagination: {
         el: '.swiper-pagination',
         clickable: true

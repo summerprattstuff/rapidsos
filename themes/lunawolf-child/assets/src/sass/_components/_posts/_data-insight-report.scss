@@ -1,0 +1,142 @@
+.data__wrapper {
+    position: relative;
+    background-color: #001559;
+    color: #fff;
+
+    .wrapper {
+        position: relative;
+        z-index: 1;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 50px;
+        line-height: 1.28;
+        font-weight: 400;
+    }
+
+    .svg-right {
+        position: absolute;
+        top: -8%;
+        right: -10%;
+    }
+
+    .svg-left {
+        position: absolute;
+        left: -12%;
+        top: 30%;
+    }
+}
+
+.report__heading {
+    margin-bottom: 10px;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+// Hero Section
+.hero__report {
+    padding-top: 100px;
+    padding-bottom: 70px;
+
+    svg {
+        width: 100%;
+        margin-top: -15px;
+        margin-bottom: -15px;
+    }
+
+    &__title, &__date {
+        font-weight: 400;
+    }
+
+    &__title {
+        font-size: 96px;
+        line-height: 1;
+    }
+
+    &__subtitle {
+        margin-bottom: 10px;
+    }
+
+    &__date {
+        font-size: 24px;
+        line-height: 1;
+    }
+}
+
+// Intro Section
+.intro__report {
+    border-top: 2px solid #E82629;
+    border-bottom: 2px solid #E82629;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &__data__wrapper {
+        margin-top: 30px;
+    }
+}
+
+// Body Section
+.content__report {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    &__sub__wrapper {
+        margin-top: 60px;
+    }
+
+    &__sub__image {
+        max-width: 760px;
+    } 
+
+    &__title {
+        font-size: 50px;
+    }
+
+    &__wrapper:not(:first-child) {
+        margin-top: 50px;
+        padding-top: 50px;
+        border-top: 1px solid #E82629;
+    }
+
+    &__sidebar {
+        background: #fff;
+        color: #001559;
+        padding: 30px;
+        position: sticky;
+        top: 160px;
+
+        &__heading {
+            font-size: 20px;
+            line-height: 1.2;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        &__item:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    >._w {
+        align-items: flex-start;
+        margin-right: -50px;
+        margin-left: -50px;
+
+        .reports__wrapper {
+            padding-right: 50px;
+            padding-left: 50px;
+        }
+    }
+}
+
+// Conclusion Section
+.con__report, .ref__report {
+    padding-top: 45px;
+    padding-bottom: 60px;
+    border-top: 2px solid #E82629;
+}

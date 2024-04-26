@@ -26,12 +26,13 @@
   }
 
   p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
   }
 
   a {
-    color: inherit;
+    color: #27a4d9;
+    text-decoration: none;
 
     &:hover {
       opacity: .6;

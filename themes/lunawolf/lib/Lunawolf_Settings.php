@@ -45,8 +45,8 @@ class Lunawolf_Settings {
 	protected function _block_style_settings($settings): string
 	{
 		$property_names = [
-			'spacing_top' => 'margin-top',
-			'spacing_bot' => 'margin-bottom'
+			'spacing_top' => 'padding-top',
+			'spacing_bot' => 'padding-bottom'
 		];
 
 		$styles = '';

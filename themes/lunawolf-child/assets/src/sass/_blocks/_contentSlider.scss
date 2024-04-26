@@ -5,8 +5,11 @@
     padding: 0 #{$grid-gutter-width / 2};
 
     img {
-      max-height: 427px;
-      min-height: 427px;
+      max-height: 240px;
+      min-height: 240px;
+      object-fit: cover;
+      width: 100%;
+      object-position: left center;
     }
   }
 }

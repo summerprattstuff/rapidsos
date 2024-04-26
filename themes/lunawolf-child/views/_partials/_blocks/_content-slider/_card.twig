@@ -7,11 +7,15 @@
 
 <div class="swiper-slide _ptCard">
   <div class="inner">
-    {% if thumbnail or hero_img %}
-      <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title }}" />
-    {% else %}
-      <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png' }}" alt="{{ title }}" />
-    {% endif %}
+    <div>
+      <a href="{{ link }}">
+        {% if thumbnail or hero_img %}
+          <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title }}" />
+        {% else %}
+          <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png' }}" alt="{{ title }}" />
+        {% endif %}
+      </a>
+    </div>
     <p class="_ptCard__title">
       {{ title }}
     </p>

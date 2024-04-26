@@ -31,11 +31,11 @@ export default () => {
       autoplay: {
         delay: 3000,
       },
-      breakpoints: {
-        1280: {
-          slidesPerView: 7
-        },
-      },
+      // breakpoints: {
+      //   1280: {
+      //     slidesPerView: 7
+      //   },
+      // },
 
       pagination: {
         el: '.swiper-pagination',

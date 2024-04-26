@@ -1,6 +1,6 @@
 .site__header {
   position: fixed;
-  padding: 19px 0 25px;
+  padding: 0 0 25px;
   top: 0; left: 0;
   width: 100%;
   z-index: 1001;
@@ -72,10 +72,27 @@
     justify-content: space-between;
     align-items: center;
     gap: 0 24px;
-    padding-top: 10px;
   }
 
   .-menuOpen & .site__navigation {
     display: flex;
   } 
+}
+
+.header-top {
+  padding: 10px 0;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: $primary;
+  font-size: 16px;
+  color: #fff;
+
+  @include media-up(xl) {
+      padding: 20px 0;
+      margin-bottom: 0;
+  }
+
+  p a {
+    color: #27a4d9;
+  }
 }

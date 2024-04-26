@@ -25,8 +25,7 @@
                         {% set videoPoster = item.video_poster %}
                         {% set videoFile   = item.video_file %}
                         {% set videoUrl    = item.video_url %}
-
-            {% set video       = videoFile or videoUrl %}
+                        {% set video = videoFile or videoUrl %}
 
                         <div class="m__videosColumns__box{{ count < 2 ? ' _12' : ' _m6' }}">
                             <div class="m__videosColumns__box__inner">

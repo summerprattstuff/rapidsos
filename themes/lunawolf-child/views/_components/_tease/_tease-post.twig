@@ -2,10 +2,12 @@
 
 {% block content %}
   {% if post.thumbnail.src %}
-    <img src="{{ post.thumbnail.src }}" />
+  <div>
+    <a href="{{ url }}"><img src="{{ post.thumbnail.src }}" /></a>
+  </div>
   {% endif %}
   <h2 class="post_title">
-    <a href="{{ url }}">{{ title }}</a>
+    {{ title }}
   </h2>
   {# <p>{{ post.excerpt({ words: 5, read_more: "Keep reading" }) }}</p> #}
 {% endblock %}

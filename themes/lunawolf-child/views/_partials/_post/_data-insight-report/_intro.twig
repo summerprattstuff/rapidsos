@@ -1,0 +1,22 @@
+{% set introduction       = post.introduction %}
+{% set data_collection       = post.data_collection %}
+{% set methodology       = post.methodology %}
+
+<section class="intro__report">
+    <div class="wrapper -limit">
+        <h3 class="report__heading">Introduction</h3>
+        <div>
+            {{ introduction }}
+        </div>    
+        <div class="_w intro__report__data__wrapper">
+            <div class="_m6">
+                <h3 class="report__heading">Data Collection</h3>
+                <p>{{ data_collection }}</p>
+            </div>
+            <div class="_m6">
+                <h3 class="report__heading">Methodology</h3>
+                <p>{{ methodology }}</p>
+            </div>
+        </div>
+    </div>
+</section>

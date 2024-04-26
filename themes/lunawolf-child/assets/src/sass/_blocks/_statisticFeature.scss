@@ -1,11 +1,11 @@
 .m__statistic {
   background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
-  margin: 50px 0;
+  // margin: 50px 0; 
   color: $white;
 
-  @include media-up(m) {
-    margin: 100px 0;
-  }
+  // @include media-up(m) {
+  //   margin: 100px 0;
+  // }
 
   .-preview & {
     margin: 0;
