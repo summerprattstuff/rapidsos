@@ -10914,6 +10914,46 @@ jQuery('.m__pitem__wrapper').each(function () {
     }
   });
 });
+jQuery('.nav-tabs .nav-link').on('click', function (e) {
+  var $link = jQuery(this);
+
+  // if tab is loading, return
+  if ($link.closest('.nav-tabs').hasClass('loading')) {
+    return;
+  }
+
+  // get href
+  var href = 'SPAN' == this.tagName ? $link.data('href') : $link.attr('href');
+
+  // get panel
+  var $panel;
+  if ('#' == href) {
+    $panel = $link.closest('.nav').siblings('.tab-content').children('.tab-pane').eq($link.parent().index());
+  } else {
+    $panel = jQuery(('#' == href.substring(0, 1) ? '' : '#') + href);
+  }
+  if (!$panel.length) {
+    return;
+  }
+  e.preventDefault();
+  var $activePanel = $panel.parent().children('.active');
+  if ($link.hasClass("active") || !href) {
+    return;
+  }
+  // change active link
+  $link.parent().parent().find('.active').removeClass('active');
+  $link.addClass('active');
+
+  // change tab instantly
+  _changeTab();
+
+  // Change tab panel
+  function _changeTab() {
+    // themeAdmin.slider($panel.find('.swiper-wrapper'));
+    $activePanel.removeClass('in active');
+    $panel.addClass('active in');
+  }
+});
 }();
 /******/ })()
 ;

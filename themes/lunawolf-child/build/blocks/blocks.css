@@ -4071,8 +4071,8 @@ ul.social img {
 .m__imgRows__wrapper__inner__bottom .numb {
   flex-shrink: 0;
   display: block;
-  font-size: 18px;
-  line-height: 1.7;
+  font-size: 26px;
+  line-height: 1.2;
   font-weight: 700;
   margin-right: 5px;
 }
@@ -4956,6 +4956,9 @@ ul.social img {
 }
 .m__contentSlider .swiper-slide {
   padding: 0 12px;
+}
+.m__contentSlider .swiper-slide .slide-image {
+  width: 100%;
 }
 .m__contentSlider .swiper-slide img {
   max-height: 240px;

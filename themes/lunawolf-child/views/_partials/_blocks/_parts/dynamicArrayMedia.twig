@@ -7,7 +7,7 @@
 {% set video_code  = blockData['video_code'] %}
 {% set bg_video   = video_file or video_url %}
 
-{% if media_choice == "image" %}
+{% if media_choice == "image" and bg_image and not bg_video %}
   <div class="m__dynamicMedia{{ bg_video ? ' -withVideo' }}">
     <div class="wrapImg m__dynamicMedia__wrapImg">
       <div class="innerImg m__dynamicMedia__wrapImg__innerImg">
@@ -15,11 +15,10 @@
       </div>
     </div>
   </div>
-{% elseif media_choice == "video" %}
+{% elseif media_choice == "video" and bg_video %}
   {% if video_type == 'yv' %}
     {% if video_url %}
       <div class="m__dynamicMedia__video">
-      {{video_url}}
         {% if video_url %}
           <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
         {% endif %}

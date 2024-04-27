@@ -13,9 +13,26 @@
     }
 
     h2 {
-        font-size: 50px;
+        margin-bottom: 15px;
+        font-size: 40px;
         line-height: 1.28;
         font-weight: 400;
+
+        @include media-up(m) {
+            font-size: 50px;
+        }
+    }
+
+    .stick-bg {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 123px;
+        background-repeat: no-repeat;
+
+        img {
+            width: 100%;
+        }
     }
 
     .svg-right {
@@ -41,7 +58,11 @@
 // Hero Section
 .hero__report {
     padding-top: 100px;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
+
+    @include media-up(m) {
+        padding-bottom: 70px;
+    }
 
     svg {
         width: 100%;
@@ -54,8 +75,16 @@
     }
 
     &__title {
-        font-size: 96px;
+        font-size: 60px;
         line-height: 1;
+
+        @include media-up(m) {
+            font-size: 80px;
+        }
+
+        @include media-up(xl) {
+            font-size: 96px;
+        }
     }
 
     &__subtitle {
@@ -75,8 +104,18 @@
     padding-top: 40px;
     padding-bottom: 40px;
 
+    >.wrapper {
+      padding: 0;  
+    }
+
     &__data__wrapper {
         margin-top: 30px;
+
+        @include media-down(md) {
+            >._m6:not(:last-child) {
+                margin-bottom: 30px;
+            }
+        }
     }
 }
 
@@ -93,10 +132,6 @@
         max-width: 760px;
     } 
 
-    &__title {
-        font-size: 50px;
-    }
-
     &__wrapper:not(:first-child) {
         margin-top: 50px;
         padding-top: 50px;
@@ -107,8 +142,15 @@
         background: #fff;
         color: #001559;
         padding: 30px;
-        position: sticky;
-        top: 160px;
+
+        @include media-down(m) {
+            margin-bottom: 20px;
+        }
+
+        @include media-up(m) {
+            position: sticky;
+            top: 160px;
+        }
 
         &__heading {
             font-size: 20px;
@@ -120,23 +162,65 @@
         &__item:not(:last-child) {
             margin-bottom: 20px;
         }
+
+        &__item {
+            span {
+                font-size: 14px;
+                line-height: 20px;
+            }
+            
+            strong {
+                display: block;
+            }
+        }
     }
 
     >._w {
         align-items: flex-start;
-        margin-right: -50px;
-        margin-left: -50px;
+        margin-right: -48px;
+        margin-left: -48px;
 
         .reports__wrapper {
-            padding-right: 50px;
-            padding-left: 50px;
+            padding-right: 40px;
+            padding-left: 40px;
+
+            @include media-up(m) {
+                padding-right: 80px;
+                padding-left: 80px;
+            }
         }
+
+        @include media-up(m) {
+            ._m4 {
+                width: 28%;
+            }
+
+            ._m8 {
+                width: 72%;
+            }
+        }
+
+        @include media-up(l) {
+            margin-left: -64px;
+            margin-right: -64px;
+        }
+
     }
 }
+
+// @include min-width(1488px) {
+//     .content__report > ._w {
+//         margin-left: calc((1360px - 100vw) / 2);
+//     }
+// }
 
 // Conclusion Section
 .con__report, .ref__report {
     padding-top: 45px;
     padding-bottom: 60px;
     border-top: 2px solid #E82629;
+
+    >.wrapper {
+        padding: 0;  
+    }
 }

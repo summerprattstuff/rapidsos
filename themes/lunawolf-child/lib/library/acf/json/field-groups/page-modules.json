@@ -550,9 +550,9 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
+                            "default_value": "<script charset=\"utf-8\" type=\"text\/javascript\" src=\"\/\/js.hsforms.net\/forms\/embed\/v2.js\"><\/script>\r\n<script>\r\n  hbspt.forms.create({\r\n    region: \"na1\",\r\n    portalId: \"549701\",\r\n    formId: \"dd8ea783-fd1b-4661-9081-48ec8dfa4917\"\r\n  });\r\n<\/script>\r\n<script>\r\nsetTimeout(function(){\r\n jQuery('#email-dd8ea783-fd1b-4661-9081-48ec8dfa4917').attr('placeholder', 'Work Email');\r\n},1000);\r\n<\/script>",
                             "placeholder": "",
-                            "mode": "text\/html",
+                            "mode": "javascript",
                             "lines": 1,
                             "indent_unit": 4,
                             "maxlength": "",
@@ -2620,7 +2620,15 @@
                                             "type": "select",
                                             "instructions": "",
                                             "required": 0,
-                                            "conditional_logic": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_661ab1fe5c7f0",
+                                                        "operator": "==",
+                                                        "value": "media"
+                                                    }
+                                                ]
+                                            ],
                                             "wrapper": {
                                                 "width": "",
                                                 "class": "",
@@ -2631,7 +2639,7 @@
                                                 "video": "Video",
                                                 "lottie": "Lottie"
                                             },
-                                            "default_value": "video",
+                                            "default_value": "image",
                                             "return_format": "value",
                                             "multiple": 0,
                                             "prepend": "",
@@ -2659,6 +2667,11 @@
                                                         "field": "field_662699c031b02",
                                                         "operator": "==",
                                                         "value": "image"
+                                                    },
+                                                    {
+                                                        "field": "field_661ab1fe5c7f0",
+                                                        "operator": "==",
+                                                        "value": "media"
                                                     }
                                                 ]
                                             ],
@@ -2689,7 +2702,20 @@
                                             "type": "select",
                                             "instructions": "",
                                             "required": 0,
-                                            "conditional_logic": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_662699c031b02",
+                                                        "operator": "==",
+                                                        "value": "video"
+                                                    },
+                                                    {
+                                                        "field": "field_661ab1fe5c7f0",
+                                                        "operator": "==",
+                                                        "value": "media"
+                                                    }
+                                                ]
+                                            ],
                                             "wrapper": {
                                                 "width": "",
                                                 "class": "",
@@ -2729,6 +2755,11 @@
                                                         "value": "video"
                                                     },
                                                     {
+                                                        "field": "field_661ab1fe5c7f0",
+                                                        "operator": "==",
+                                                        "value": "media"
+                                                    },
+                                                    {
                                                         "field": "field_662aacec60cd9",
                                                         "operator": "==",
                                                         "value": "yv"
@@ -2766,6 +2797,11 @@
                                                         "field": "field_662aacec60cd9",
                                                         "operator": "==",
                                                         "value": "yv"
+                                                    },
+                                                    {
+                                                        "field": "field_661ab1fe5c7f0",
+                                                        "operator": "==",
+                                                        "value": "media"
                                                     }
                                                 ]
                                             ],
@@ -2809,6 +2845,11 @@
                                                         "field": "field_662aacec60cd9",
                                                         "operator": "==",
                                                         "value": "yv"
+                                                    },
+                                                    {
+                                                        "field": "field_661ab1fe5c7f0",
+                                                        "operator": "==",
+                                                        "value": "media"
                                                     }
                                                 ]
                                             ],
@@ -2839,6 +2880,11 @@
                                                         "field": "field_662aacec60cd9",
                                                         "operator": "==",
                                                         "value": "vidyard"
+                                                    },
+                                                    {
+                                                        "field": "field_661ab1fe5c7f0",
+                                                        "operator": "==",
+                                                        "value": "media"
                                                     }
                                                 ]
                                             ],
@@ -2871,6 +2917,11 @@
                                                         "field": "field_662699c031b02",
                                                         "operator": "==",
                                                         "value": "lottie"
+                                                    },
+                                                    {
+                                                        "field": "field_661ab1fe5c7f0",
+                                                        "operator": "==",
+                                                        "value": "media"
                                                     }
                                                 ]
                                             ],
@@ -5093,5 +5144,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1714074134
+    "modified": 1714178090
 }

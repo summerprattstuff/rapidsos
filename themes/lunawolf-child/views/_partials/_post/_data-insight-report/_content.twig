@@ -19,6 +19,7 @@
                 {% if subs %}
                     {% for sub in subs %}
                         {% set sub_report_title = sub.sub_report_title %}
+                        {% set sub_block_choice = sub.sub_block_choice %}
                         {% set sub_content_choice = sub.content_choice %}
                         {% set sub_report_image = sub.sub_report_image %}
                         {% set sub_report_video = sub.sub_report_video %}
@@ -30,22 +31,78 @@
                                 {% if sub_report_title %}
                                     <h5 class="content__report__sub__heading report__heading">{{ sub_report_title}}</h5>
                                 {% endif %}
-                                {% if sub_content_choice == 'image' %}
-                                    <div class="content__report__sub__image">
-                                        <img src="{{get_image(sub_report_image)}}" />
-                                    </div>
-                                {% elseif sub_content_choice == 'video' %}
-                                    {% if sub_report_video_url %}
-                                        <div class="content__report__sub__video">
-                                            {% if sub_report_video_url %}
-                                                <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
-                                            {% endif %}
+                                {% if sub_block_choice == 'single' %}
+                                    {% if sub_content_choice == 'image' %}
+                                        <div class="content__report__sub__image">
+                                            <img src="{{get_image(sub_report_image)}}" />
+                                        </div>
+                                    {% elseif sub_content_choice == 'video' %}
+                                        {% if sub_report_video_url %}
+                                            <div class="content__report__sub__video">
+                                                {% if sub_report_video_url %}
+                                                    <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+                                                {% endif %}
                                             </div>
                                         {% else %}
                                             <video id="video-{{ blockId }}" class="js-cardVideo"{{ autoplay ? ' autoplay loop muted playsinline'}} controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
                                             <source src="{{ video_file.url }}" type="video/mp4" />
                                             </video>
                                         {% endif %}
+                                    {% else %}
+                                        <div>{{sub_report_lottie}}</div>
+                                    {% endif %}
+                                {% else %}
+                                    {% set tabs = sub.tabs %}
+                                    {% if tabs %}
+                                    <div class="tab tab-nav-underline">
+                                        {% set tabs_array = [] %}
+                                        <ul class="nav nav-tabs">
+                                        {% for tab in tabs %}
+                                            {% set tab_title = tab.tab_title %}
+                                            {% set random_string = loop.index %}
+
+                                            <li class="nav-item">                                                
+                                                <a class="nav-link {{loop.index == 1 ? 'active' : '' }}" href="#{{random_string}}">{{tab_title}}</a>
+                                            </li>
+                                            {% set tabs_array = tabs_array|merge([random_string]) %}
+                                        {% endfor %}
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            {% for tab in tabs %}
+                                                {% set tab_content_choice = tab.tab_content_choice %}
+                                                {% set tab_image = tab.tab_image %}
+                                                {% set tab_video = tab.tab_video %}
+                                                {% set tab_video_url = tab.tab_video_url %}
+                                                {% set tab_lottie = tab.tab_lottie %}
+
+                                                {% if tab %}        
+                                                <div class="tab-pane {{loop.index == 1 ? 'active in' : '' }}" data-role="tab-pane" id="{{tabs_array[loop.index - 1]}}" data-id="{{tabs_array[loop.index - 1]}}">
+                                                    {% if tab_content_choice == 'image' %}
+                                                        <div class="content__report__sub__image">
+                                                            <img src="{{get_image(tab_image)}}" />
+                                                        </div>
+                                                    {% elseif tab_content_choice == 'video' %}
+                                                        {% if tab_video_url %}
+                                                            <div class="content__report__sub__video">
+                                                                {% if tab_video_url %}
+                                                                    <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+                                                                {% endif %}
+                                                            </div>
+                                                        {% else %}
+                                                            <video id="video-{{ blockId }}" class="js-cardVideo"{{ autoplay ? ' autoplay loop muted playsinline'}} controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
+                                                                <source src="{{ video_file.url }}" type="video/mp4" />
+                                                            </video>
+                                                        {% endif %}
+                                                    {% else %}
+                                                        <div>{{tab_lottie}}</div>
+                                                    {% endif %}
+                                                </div>
+                                                {% endif %}
+                                            {% endfor %}    
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                 {% endif %}
                             </div>
                         {% endif %}
