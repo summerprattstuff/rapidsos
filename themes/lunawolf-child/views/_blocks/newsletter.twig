@@ -1,7 +1,20 @@
 {% set title        = block.title %}
 {% set form_code = block.newsletter_form %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
+{% if section_animation  %}
+    {% set animation_type  = settings.animation_type %}
+    {% set animation_duration  = settings.animation_duration %}
+    {% set animation_delay  = settings.animation_delay %}
+<section id="{{ settings.block_id }}" class="m__newsletter appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+{% else %}
 <section id="{{ settings.block_id }}" class="m__newsletter">
+{% endif %}
+    {% include '_components/settings_overlay.twig' %}
+
     <style>
         .m__newsletter .hs_submit {
             margin-top: 16px;
@@ -20,7 +33,7 @@
         }
     </style>
     <div class="wrapper">
-        <div class="container" style="display: flex;">
+        <div class="container color-{{ text_color ?: 'primary' }}" style="display: flex;">
             <div class="m__columns__column _m6">
               <div class="m__columns__column__inner" style="padding: 16px;">
                 <h2>{{title}}</h2>
@@ -31,4 +44,7 @@
             </div>
         </div>
     </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
 </section>

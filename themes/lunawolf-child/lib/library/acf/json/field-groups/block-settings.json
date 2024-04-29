@@ -39,9 +39,53 @@
             "esc_html": 0
         },
         {
+            "key": "field_662dae69fadbd",
+            "label": "Padding Top",
+            "name": "padding_top",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_662dae7dfadbe",
+            "label": "Padding Bottom",
+            "name": "padding_bottom",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_65c69ecaa91bb",
-            "label": "Spacing Top",
-            "name": "spacing_top",
+            "label": "Margin Top",
+            "name": "margin_top",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -62,8 +106,8 @@
         },
         {
             "key": "field_65c69f2ba91bc",
-            "label": "Spacing Bot",
-            "name": "spacing_bot",
+            "label": "Margin Bottom",
+            "name": "margin_bottom",
             "aria-label": "",
             "type": "number",
             "instructions": "",
@@ -133,5 +177,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713007404
+    "modified": 1714269836
 }

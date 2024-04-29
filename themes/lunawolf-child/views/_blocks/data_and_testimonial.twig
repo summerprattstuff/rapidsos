@@ -4,13 +4,27 @@
 {% set label         = data_sources.sources_label %}
 {% set sources       = data_sources.sources_wys %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
 {% endif %}
 
+
 {% if testimonialID or data_sources %}
+    {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__dataTestimonial -caseStudy appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
     <section id="{{ settings.block_id }}" class="m__dataTestimonial -caseStudy">
-        <div class="wrapper">
+    {% endif %}
+        {% include '_components/settings_overlay.twig' %}
+    
+        <div class="wrapper color-{{ text_color ?: 'primary' }}">
             <div class="content">
                 <div class="_w">
                     <div class="m__dataTestimonial__dataBox{{ data_sources and testimonialID ? ' _m4' : ' _12' }}">

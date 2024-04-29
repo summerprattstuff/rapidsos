@@ -7,24 +7,24 @@
 {% set video_code  = blockData['video_code'] %}
 {% set bg_video   = video_file or video_url %}
 
-{% if media_choice == "image" and bg_image and not bg_video %}
-  <div class="m__dynamicMedia{{ bg_video ? ' -withVideo' }}">
+{% if media_choice == "image" and bg_image %}
+  <div class="m__dynamicMedia">
     <div class="wrapImg m__dynamicMedia__wrapImg">
       <div class="innerImg m__dynamicMedia__wrapImg__innerImg">
         <div class="bgImg m__dynamicMedia__wrapImg__innerImg__bgImg" style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
       </div>
     </div>
   </div>
-{% elseif media_choice == "video" and bg_video %}
-  {% if video_type == 'yv' %}
+{% elseif media_choice == "video" %}
+  {% if video_type == 'yv' and bg_video %}
     {% if video_url %}
       <div class="m__dynamicMedia__video">
         {% if video_url %}
-          <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+          <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
         {% endif %}
       </div>
     {% else %}
-      <video id="video-{{ blockId }}" class="js-cardVideo"{{ autoplay ? ' autoplay loop muted playsinline'}} controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
+      <video id="video-{{ blockId }}" style="width: 100%;" {{ autoplay ? ' autoplay loop muted' : 'controls crossorigin playsinline'}}  data-poster="{{ get_image(bg_image) }}">
         <source src="{{ video_file.url }}" type="video/mp4" />
       </video>
     {% endif %}

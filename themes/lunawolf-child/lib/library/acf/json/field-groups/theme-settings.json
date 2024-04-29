@@ -67,6 +67,66 @@
             "no_preference": 0
         },
         {
+            "key": "field_662c92ccfec6c",
+            "label": "Top Banner",
+            "name": "top_banner",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "sub_fields": [
+                {
+                    "key": "field_662c92effec6d",
+                    "label": "Top Banner Title",
+                    "name": "top_banner_title",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Join Intelligent Safety Live on April 30:",
+                    "acfe_textarea_code": 0,
+                    "maxlength": "",
+                    "rows": 1,
+                    "placeholder": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_662c9305fec6e",
+                    "label": "Top Banner Link",
+                    "name": "top_banner_link",
+                    "aria-label": "",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array"
+                }
+            ],
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
+        },
+        {
             "key": "field_661b92ac5643b",
             "label": "Main Menu",
             "name": "main_menu",
@@ -302,5 +362,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1713083224
+    "modified": 1714226471
 }

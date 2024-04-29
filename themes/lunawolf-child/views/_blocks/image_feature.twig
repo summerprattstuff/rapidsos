@@ -5,15 +5,27 @@
 {% set side_padding  = block.remove_side_padding %}
 {% set hasImage      = image_mobile or image_tablet or image_desktop %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if hasImage %}
-  <section id="{{ settings.block_id }}" class="m__imageFeature">
+  {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__imageFeature appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
+    <section id="{{ settings.block_id }}" class="m__imageFeature">
+    {% endif %}
+  
     {% include '_components/settings_overlay.twig' %}
     <div class="wrapper{{ full_width ? ' -fullWidth' }}{{ side_padding ? ' -removePadding' }}">
-      <div class="container">
+      <div class="container color-{{ text_color ?: 'primary' }}">
         <picture>
           {% if image_mobile %}
             <source media="(max-width: 512px)" srcset="{{ get_image(image_mobile) }} 512w">

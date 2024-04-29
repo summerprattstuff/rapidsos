@@ -4,24 +4,58 @@
 
 {% set text_color  = settings.text_color %}
 
+{% set section_animation  = settings['section_animation'] %}
+{% set title_animation = block.title_animation %}
+{% set subtitle_animation = block.subtitle_animation %}
+{% set link_animation = block.link_animation %}
+
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if title or subtitle %}
-    <section id="{{ settings.block_id }}" class="m__scText">
+    {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+        <section id="{{ settings.block_id }}" class="m__scText appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
+        <section id="{{ settings.block_id }}" class="m__scText">
+    {% endif %}
         {% include '_components/settings_overlay.twig' %}
         <div class="wrapper">
             <div class="container color-{{ text_color ?: 'primary' }}">
                 <div class="titleWrapper -center -short">
                     {% if title %}
-                        <h1 class="m__scText__title">{{ title }}</h1>
+                        {% if title_animation.element_animation %}
+                            {% set animation_type  = title_animation.animation_type %}
+                            {% set animation_duration  = title_animation.animation_duration %}
+                            {% set animation_delay  = title_animation.animation_delay %}
+                            <h1 class="m__scText__title appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ title }}</h1>
+                        {% else %}
+                            <h1 class="m__scText__title">{{ title }}</h1>
+                        {% endif %}
                     {% endif %}
                     {% if subtitle %}
-                        <h3 class="m__text m__scText__text">{{ subtitle }}</h3>
+                        {% if subtitle_animation.element_animation %}
+                            {% set animation_type  = subtitle_animation.animation_type %}
+                            {% set animation_duration  = subtitle_animation.animation_duration %}
+                            {% set animation_delay  = subtitle_animation.animation_delay %}
+                            <h3 class="m__text m__scText__text appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ subtitle }}</h3>
+                        {% else %}
+                            <h3 class="m__text m__scText__text">{{ subtitle }}</h3>
+                        {% endif %}
+                        
                     {% endif %}
                     {% if link %}
-                        <div class="btnWrapper">
+                        {% if link_animation.element_animation %}
+                            {% set animation_type  = link_animation.animation_type %}
+                            {% set animation_duration  = link_animation.animation_duration %}
+                            {% set animation_delay  = link_animation.animation_delay %}
+                            <div class="btnWrapper appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                        {% else %}
+                            <div class="btnWrapper">
+                        {% endif %}
                             {% include '_components/_advanced_link.twig' with {
                                 link: link,
                                 class: ''

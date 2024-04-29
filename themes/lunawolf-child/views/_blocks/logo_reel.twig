@@ -2,27 +2,65 @@
 {% set desc         = block.desc %}
 {% set label        = block.label %}
 {% set logo_gallery = block.logo_gallery %}
+{% set title_animation = block.title_animation %}
+{% set desc_animation = block.description_animation %}
+{% set logos_animation = block.logos_animation %}
+
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
 
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if logo_gallery|length %}
+    {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__logoReel appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
     <section id="{{ settings.block_id }}" class="m__logoReel">
-        <div class="wrapper">
+    {% endif %}
+        {% include '_components/settings_overlay.twig' %}
+        <div class="wrapper color-{{ text_color ?: 'primary' }}">
             <div class="titleWrapper -short -center">
                 {% if title %}
-                    <h1 class="m__logoReel__title">{{ title }}</h1>
+                    {% if title_animation.element_animation %}
+                        {% set animation_type  = title_animation.animation_type %}
+                        {% set animation_duration  = title_animation.animation_duration %}
+                        {% set animation_delay  = title_animation.animation_delay %}
+                        <h1 class="m__logoReel__title appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ title }}</h1>
+                    {% else %}
+                        <h1 class="m__logoReel__title">{{ title }}</h1>
+                    {% endif %}
                 {% endif %}
             </div>
             {% if desc %}
-                <h3 class="m__logoReel__desc">{{ desc }}</h3>
+                {% if desc_animation.element_animation %}
+                    {% set animation_type  = desc_animation.animation_type %}
+                    {% set animation_duration  = desc_animation.animation_duration %}
+                    {% set animation_delay  = desc_animation.animation_delay %}
+                    <h3 class="m__logoReel__desc appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ desc }}</h3>
+                {% else %}
+                    <h3 class="m__logoReel__desc">{{ desc }}</h3>
+                {% endif %}
+                
             {% endif %}
             {% if label %}
                 <p class="m__logoReel__label">{{ label }}</p>
             {% endif %}
             {% if logo_gallery %}
-                <div class="m__logoReel__logos">
+                {% if logos_animation.element_animation %}
+                    {% set animation_type  = logos_animation.animation_type %}
+                    {% set animation_duration  = logos_animation.animation_duration %}
+                    {% set animation_delay  = logos_animation.animation_delay %}
+                    <div class="m__logoReel__logos appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                {% else %}
+                    <div class="m__logoReel__logos">
+                {% endif %}
+                
                     <div class="swiper js-logoSlider">
                         <div class="swiper-wrapper">
                             {% for logo in logo_gallery %}

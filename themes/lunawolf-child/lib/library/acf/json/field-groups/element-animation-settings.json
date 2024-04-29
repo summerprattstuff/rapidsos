@@ -1,0 +1,169 @@
+{
+    "key": "group_662dbe5685cf3",
+    "title": "Element Animation Settings",
+    "fields": [
+        {
+            "key": "field_662dc0954668e",
+            "label": "Enable Animation",
+            "name": "element_animation",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "style": ""
+        },
+        {
+            "key": "field_662dbfce3326c",
+            "label": "Animation Type",
+            "name": "animation_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_662dc0954668e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "fadeIn": "Fade In",
+                "fadeInUpShorter": "Fade In Up Shorter"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "max": "",
+            "prepend": "",
+            "append": "",
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": "",
+            "min": ""
+        },
+        {
+            "key": "field_662dc0353326d",
+            "label": "Animation Duration",
+            "name": "animation_duration",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_662dc0954668e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "slow": "Slow",
+                "normal": "Normal",
+                "fast": "Fast"
+            },
+            "default_value": "normal",
+            "return_format": "value",
+            "multiple": 0,
+            "max": "",
+            "prepend": "",
+            "append": "",
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": "",
+            "min": ""
+        },
+        {
+            "key": "field_662dc06d3326e",
+            "label": "Animation Delay (ms)",
+            "name": "animation_delay",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_662dc0954668e",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_display_title": "",
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1714284707
+}

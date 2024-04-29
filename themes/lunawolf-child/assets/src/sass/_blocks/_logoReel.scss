@@ -10,16 +10,16 @@
     text-align: center;
   }
 
+  &__title {
+    margin-bottom: 25px;
+
+    @include media-up(m) {
+      margin-bottom: 35px;
+    }
+  }
+
   &__desc {
     text-wrap: balance;
-
-    &:not(:first-child) {
-      margin-top: 25px;
-
-      @include media-up(m) {
-        margin-top: 35px;
-      }
-    }
 
     @include media-up(l) {
       font-size: 20px;

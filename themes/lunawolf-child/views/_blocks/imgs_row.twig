@@ -2,13 +2,26 @@
 {% set titleLeft  = block.left %}
 {% set images_row = block.images_row %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if images_row %}
-  <section id="{{ settings.block_id }}" class="m__imgRows">
-    <div class="wrapper -limit">
+  {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__imgRows appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
+    <section id="{{ settings.block_id }}" class="m__imgRows">
+    {% endif %}
+        {% include '_components/settings_overlay.twig' %}
+  
+    <div class="wrapper -limit color-{{ text_color ?: 'primary' }}">
       {% if title %}
         <div class="titleWrapper{{ titleLeft ? ' -left' }}">
           <h2 class="title">{{ title }}</h2>
@@ -31,17 +44,17 @@
                   {% endif %}
                 </div>
                 {% if desc or s_numb %}
-                  <div class="m__imgRows__wrapper__inner__bottom">
+                  <div class="m__imgRows__wrapper__inner__bottom {{ title ? 'title_exist' ~ ''}}">
                     {% if s_numb %}
                       <span class="numb">{{ s_numb }}.</span>
                     {% endif %}
-                    <div style="margin-top: 1px;">
-                    {% if title %}
-                    <h2 class="m__imgRow__title">{{title}}</h2>
-                    {% endif %}
-                    {% if desc %}
-                    <p class="m__imgRow__desc">{{ desc }}</p>
-                    {% endif %}
+                    <div class="content_wrapper">
+                      {% if title %}
+                      <h2 class="m__imgRow__title">{{title}}</h2>
+                      {% endif %}
+                      {% if desc %}
+                      <p class="m__imgRow__desc">{{ desc }}</p>
+                      {% endif %}
                     </div>
                   </div>
                 {% endif %}

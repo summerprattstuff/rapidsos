@@ -1,27 +1,59 @@
 {% set current_id   = slidePost is defined ? slidePost.id : id %}
 {% set current_post = get_post(current_id) %}
+{% set type        = current_post.type %}
 {% set title        = current_post.title %}
 {% set link         = current_post.link %}
 {% set thumbnail    = current_post.thumbnail %}
 {% set hero_img     = current_post.meta('hero_img') %}
 
 <div class="swiper-slide _ptCard">
-  <div class="inner">
-    <div>
-      <a href="{{ link }}" class="slide-image">
-        {% if thumbnail or hero_img %}
-          {# <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title }}" /> #}
-          <img src="{{ thumbnail ? thumbnail.src | resize(820) : get_image(hero_img) | resize(820) }}" alt="{{ title }}" />
-        {% else %}
-          <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png' }}" alt="{{ title }}" />
-        {% endif %}
+  {% if type == 'case-study' %}
+    {% set logo        = current_post.meta('logo') %}
+    {% set subtitle    = current_post.meta('subtitle') %}
+    {% set industry    = current_post.meta('industry') %}
+    <div class="inner">
+      <div>
+        <a href="{{ link }}" class="slide-image">
+          {% if thumbnail or hero_img %}
+            {# <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title }}" /> #}
+            <img src="{{ thumbnail ? thumbnail.src | resize(820) : get_image(hero_img) | resize(820) }}" alt="{{ title }}" />
+          {% else %}
+            <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png' }}" alt="{{ title }}" />
+          {% endif %}
+        </a>
+      </div>
+      {% if logo %}
+          <div class="logoWrapper">
+              <img src="{{ get_image(logo) }}" alt="">
+          </div>
+      {% endif %}
+      <p>Industry: <span>{{industry}}</span></p>
+      <p class="_ptCard__title">
+        {{ subtitle }}
+      </p>
+      <a href="{{ link }}">
+        Read case study
       </a>
     </div>
-    <p class="_ptCard__title">
-      {{ title }}
-    </p>
-    <a href="{{ link }}">
-      Read more
-    </a>
-  </div>
+  {% else %}
+    <div class="inner">
+      <div>
+        <a href="{{ link }}" class="slide-image">
+          {% if thumbnail or hero_img %}
+            {# <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title }}" /> #}
+            <img src="{{ thumbnail ? thumbnail.src | resize(820) : get_image(hero_img) | resize(820) }}" alt="{{ title }}" />
+          {% else %}
+            <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png' }}" alt="{{ title }}" />
+          {% endif %}
+        </a>
+      </div>
+      <p class="_ptCard__title">
+        {{ title }}
+      </p>
+      <a href="{{ link }}">
+        Read more
+      </a>
+    </div>
+  {% endif %}
+  
 </div>

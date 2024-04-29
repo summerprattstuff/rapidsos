@@ -13,21 +13,35 @@
     </svg>
     <div class="m__stepsTwo__wrap">
         {% for step in steps %}
+            {% set type        = step.step_type %}
             {% set img        = step.step_img %}
+            {% set video        = step.step_video %}
             {% set stepTitle  = step.step_title %}
             {% set text_2     = step.step_text %}
 
-            {% if img %}
-                <div class="m__stepsTwo__blockWrap _l4">
-                    <div class="m__stepsTwo__blockWrap__imgWrap">
-                        <img class="m__stepsTwo__blockWrap__img" src="{{ get_image(img) }}" alt="" >
-                    </div>
-                    <div class="m__stepsTwo__blockWrap__textWrap">
-                        <div class="m__stepsTwo__blockWrap__textWrap__title">{{ stepTitle }}</div>
-                        <div class="m__wyswyg m__stepsTwo__blockWrap__textWrap__text m_wyText">{{ text_2 }}</div>
-                    </div>
+            <div class="m__stepsTwo__blockWrap _l4">
+                
+                    {% if type == 'image' %}
+                        {% if img and not video %}
+                        <div class="m__stepsTwo__blockWrap__imgWrap">
+                            <img class="m__stepsTwo__blockWrap__img" src="{{ get_image(img) }}" alt="Image" >
+                        </div>
+                        {% endif %}
+                    {% else %}
+                        {% if video %}
+                            <div class="m__stepsTwo__blockWrap__imgWrap video">
+                                <video loop muted autoplay>
+                                    <source src="{{ video.url }}" type="video/mp4" />
+                                </video>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                
+                <div class="m__stepsTwo__blockWrap__textWrap">
+                    <div class="m__stepsTwo__blockWrap__textWrap__title">{{ stepTitle }}</div>
+                    <div class="m__wyswyg m__stepsTwo__blockWrap__textWrap__text m_wyText">{{ text_2 }}</div>
                 </div>
-            {% endif %}
+            </div>
         {% endfor %}
     </div>
 </div>

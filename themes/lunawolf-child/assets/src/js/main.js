@@ -145,3 +145,100 @@ jQuery('.nav-tabs .nav-link').on( 'click', function ( e ) {
       $panel.addClass( 'active in' );
   }
 } )
+
+function call( fn, delay ) {
+  fn();
+}
+
+function appear( el, fn, intObsOptions ) {
+
+  var $this = jQuery( el );
+
+  if ( $this.data( 'observer-init' ) ) {
+    return;
+  }
+
+  var interSectionObserverOptions = {
+    rootMargin: '0px 0px 150px 0px',
+    threshold: 0,
+    alwaysObserve: false
+  };
+
+  if ( intObsOptions && Object.keys( intObsOptions ).length ) {
+    interSectionObserverOptions = $.extend( interSectionObserverOptions, intObsOptions );
+  }
+
+  var observer = new IntersectionObserver( ( function( entries ) {
+    for ( var i = 0; i < entries.length; i++ ) {
+      var entry = entries[i];
+
+      if ( entry.intersectionRatio > 0 ) {
+        if ( typeof fn === 'string' ) {
+          var func = Function( 'return ' + functionName )();
+        } else {
+          var callback = fn;
+          callback.call( entry.target );
+          // observer.disconnect();
+        }
+        // Unobserve
+        if ( this.alwaysObserve == false ) {
+          observer.unobserve( entry.target );
+        }
+      }
+    }
+  } ).bind( interSectionObserverOptions ), interSectionObserverOptions );
+
+  observer.observe( el );
+
+  $this.data( 'observer-init', true );
+
+  return this;
+}
+
+function parseOptions( options ) {
+  return 'string' == typeof options ? JSON.parse( options.replace( /'/g, '"' ).replace( ';', '' ) ) : {};
+}
+
+jQuery('.appear-animate').each( function() {
+  var el = this;
+  appear( el, function() {
+    if ( el.classList.contains( 'appear-animate' ) && !el.classList.contains( 'appear-animation-visible' ) ) {
+      var settings = parseOptions( el.getAttribute( 'data-settings' ) ),
+        duration = 1000;
+
+      if ( el.classList.contains( 'animated-slow' ) ) {
+        duration = 2000;
+      } else if ( el.classList.contains( 'animated-fast' ) ) {
+        duration = 750;
+      }
+
+      call( function() {
+        el.style['animation-duration'] = duration + 'ms';
+        el.style['animation-delay'] = settings._animation_delay + 'ms';
+        el.style['transition-property'] = 'visibility, opacity';
+        el.style['transition-duration'] = '0s';
+        el.style['transition-delay'] = settings._animation_delay + 'ms';
+
+        var animation_name = settings.animation || settings._animation || settings._animation_name;
+        animation_name && el.classList.add( animation_name );
+
+        el.classList.add( 'appear-animation-visible' );
+        setTimeout(
+          function() {
+            el.style['transition-property'] = '';
+            el.style['transition-duration'] = '';
+            el.style['transition-delay'] = '';
+
+            el.classList.add( 'animating' );
+
+            setTimeout( function() {
+              el.classList.add( 'animated-done' );
+            }, duration );
+          },
+          settings._animation_delay ? settings._animation_delay + 500 : 500
+        );
+      } );
+    }
+  } );
+} );
+

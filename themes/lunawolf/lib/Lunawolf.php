@@ -250,6 +250,35 @@ class Lunawolf extends Site {
 		// Settings configuration
 		$settings = $row['layout_settings'] ?? null;
 		$context['settings'] = $this->settings->settings($settings, $this->layout_count);
+		
+		if($name == 'resource_module') {
+			
+			$post_type = $context['block']['post_types'];
+			$terms = $context['block']['taxonomies'];
+			$page = get_query_var('paged');
+			if (!$page) {
+				$page = 1;
+			}
+			if($terms && is_array($terms)) {
+				$context['posts'] = Timber::get_posts([
+					'post_type' => $post_type,
+					'tax_query' => array(
+						array(
+							'taxonomy' => 'category',
+							'field'    => 'term_id',
+							'terms' => $terms
+						)
+					),
+					'paged' => $page,
+				]);
+			} else {
+				$context['posts'] = Timber::get_posts([
+					'post_type' => $post_type,
+					'paged' => $page,
+				]);
+			}
+			
+		}
 
 		Timber::render(sprintf('views/_blocks/%s.twig', $name), $context);
 

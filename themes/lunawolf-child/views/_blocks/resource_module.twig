@@ -1,0 +1,38 @@
+
+<section id="{{ settings.block_id }}">
+    <div class="wrapper">
+		<div class="archive_wrapper">
+			{% for post in posts %}
+				{% if post.post_type == 'post' %}
+					{% include ['_components/_tease/_tease-post.twig', '_tease.twig'] %}
+				{% elseif post.post_type == 'video' %}
+					<article class="tease tease-post" id="tease-{{ post.ID }}">
+						<h2 class="post_title">
+							<a href="{{ post.link }}">{{post.title}}</a>
+						</h2>
+					</article>
+				{% else %}
+					<article class="tease tease-post" id="tease-{{ post.ID }}">
+						{% if post.meta.hero_img %}
+						<div>
+							<a href="{{ post.link }}"><img src="{{ get_image(post.meta.hero_img) }}" /></a>
+						</div>
+						{% endif %}
+						<h2 class="post_title">
+							{{ post.title }}
+						</h2>
+					</article>
+				{% endif %}
+				
+				{# {% if post.post_type == 'case-study' %} #}
+					
+				{# {% endif %} #}
+				
+				{# {% include ['_components/_tease/_tease-' ~ post.post_type ~ '.twig', '_tease.twig'] %} #}
+			{% endfor %}
+		</div>
+	</div>
+	
+	{% include '_partials/_pagination.twig' with {
+    pagination: posts.pagination({ show_all: false, mid_size: 3, end_size: 2 }) } %}
+</section>

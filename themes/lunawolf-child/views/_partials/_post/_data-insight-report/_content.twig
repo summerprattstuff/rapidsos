@@ -40,7 +40,7 @@
                                         {% if sub_report_video_url %}
                                             <div class="content__report__sub__video">
                                                 {% if sub_report_video_url %}
-                                                    <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+                                                    <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
                                                 {% endif %}
                                             </div>
                                         {% else %}
@@ -86,7 +86,7 @@
                                                         {% if tab_video_url %}
                                                             <div class="content__report__sub__video">
                                                                 {% if tab_video_url %}
-                                                                    <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+                                                                    <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
                                                                 {% endif %}
                                                             </div>
                                                         {% else %}

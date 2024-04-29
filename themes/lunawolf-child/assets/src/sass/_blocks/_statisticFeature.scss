@@ -37,11 +37,12 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: 0px;
+      align-items: flex-end;
 
       @include media-up(m) {
         flex-direction: row;
-        margin-top: 0;
+        align-items: center;
       }
 
       .-preview & {
@@ -49,6 +50,9 @@
       }
 
       &__numb {
+        margin-bottom: -12px;
+        line-height: 220px;
+        font-size: 260px;
         position: relative;
         font-size: 100px;
         line-height: 1;
@@ -61,19 +65,19 @@
 
         @include media-up(m) {
           font-size: 160px;
-          top: 40px;
-          align-self: flex-end;
-          margin-top: -80px;
+          // top: 40px;
+          // align-self: flex-end;
+          // margin-top: -80px;
         }
 
         @include media-up(l) {
           font-size: 200px;
-          top: 55px;
+          // top: 55px;
         }
 
         @include media-up(xl) {
           font-size: 300px;
-          top: 75px;
+          // top: 75px;
         }
 
         .-preview & {
@@ -83,13 +87,14 @@
       }
 
       &__desc {
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 1.2;
+        padding: 0px 0px 24px 24px;
+        font-weight: 400;
+        font-size: 28px !important;
+        line-height: 1.4;
 
         @include media-up(m) {
           order: 1;
-          padding: 0 0 20px 40px;
+          padding-left: 40px;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
@@ -102,7 +107,6 @@
 
         @include media-up(l) {
           font-size: 36px;
-          padding: 0 0 40px 40px;
         }
       }
     }

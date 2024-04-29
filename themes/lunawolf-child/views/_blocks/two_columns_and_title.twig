@@ -9,12 +9,21 @@
 
 {% set text_color      = settings.text_color %}
 
+{% set section_animation  = settings['section_animation'] %}
+
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if columns | length %}
-  <section id="{{ settings.block_id }}" class="m__columns {{ columns_align }}" style="{{ bg_image ? 'background: url(' ~ get_image(bg_image) ~ ') 50% / cover no-repeat' }}">
+  {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__columns {{ columns_align }} appear-animate animated-{{animation_duration}}" style="{{ bg_image ? 'background: url(' ~ get_image(bg_image) ~ ') 50% / cover no-repeat' }}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
+    <section id="{{ settings.block_id }}" class="m__columns {{ columns_align }}" style="{{ bg_image ? 'background: url(' ~ get_image(bg_image) ~ ') 50% / cover no-repeat' }}">
+    {% endif %}
   <style>
     #{{ settings.block_id }} ._w {
       margin-left: -{{spacing}}px;

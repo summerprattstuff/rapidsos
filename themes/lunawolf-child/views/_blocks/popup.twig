@@ -2,27 +2,64 @@
 {% set section_desc   = block.popup_description %}
 {% set popups   = block.popup_items %}
 
+{% set title_animation = block.popup_title_animation %}
+{% set desc_animation = block.popup_description_animation %}
+{% set items_animation = block.popup_items_animation %}
+
 {% if not is_preview %}
-  {#  {{ dump(settings) }}#}
+  {#  {{ dump(settings) }}#} 
 {% endif %}
 
-<section class="m__popup" id="{{ settings.block_id }}">
-    <div class="wrapper">
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
+{% if section_animation  %}
+    {% set animation_type  = settings.animation_type %}
+    {% set animation_duration  = settings.animation_duration %}
+    {% set animation_delay  = settings.animation_delay %}
+<section class="m__popup appear-animate animated-{{animation_duration}}" id="{{ settings.block_id }}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+{% else %}
+<section id="{{ settings.block_id }}" class="m__popup">
+{% endif %}
+    {% include '_components/settings_overlay.twig' %}
+    <div class="wrapper color-{{ text_color ?: 'primary' }}">
         <div class="heading-wrapper">
             {% if section_title %}
-                <div class="container container__short text-center">
+                {% if title_animation.element_animation %}
+                    {% set animation_type  = title_animation.animation_type %}
+                    {% set animation_duration  = title_animation.animation_duration %}
+                    {% set animation_delay  = title_animation.animation_delay %}
+                    <h2 class="m_title m__popup__title appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ section_title }}</h2>
+                {% else %}
                     <h2 class="m_title m__popup__title">{{ section_title }}</h2>
-                </div>
+                {% endif %}
             {% endif %}
+
             {% if section_desc %}
                 <div class="container container__short container__center">
-                    <p class="m_desc m__popup__desc">{{ section_desc }}</p>
+                    {% if desc_animation.element_animation %}
+                        {% set animation_type  = desc_animation.animation_type %}
+                        {% set animation_duration  = desc_animation.animation_duration %}
+                        {% set animation_delay  = desc_animation.animation_delay %}
+                        <p class="m_desc m__popup__desc appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ section_desc }}</p>
+                    {% else %}
+                        <p class="m_desc m__popup__desc">{{ section_desc }}</p>
+                    {% endif %}
                 </div>
             {% endif %}
         </div>
         {% if popups %}
             {% set wrapper_class = popups|length > 2 ? 'grid-cols-1 grid-md-cols-2 grid-lg-cols-3' : (popups|length == 2 ? 'grid-cols-1 grid-md-cols-2' : 'grid-cols-1') %}
-            <div class="grid m__popups__wrap m__popups__full {{wrapper_class}}">
+            {% if items_animation.element_animation %}
+                {% set animation_type  = items_animation.animation_type %}
+                {% set animation_duration  = items_animation.animation_duration %}
+                {% set animation_delay  = items_animation.animation_delay %}
+                <div class="grid m__popups__wrap m__popups__full {{wrapper_class}} appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+            {% else %}
+                <div class="grid m__popups__wrap m__popups__full {{wrapper_class}}">
+            {% endif %}
+            
                 {% for popup in popups %}
                     {% set img         = step.step_img %}
                     {% set banner_text = step.banner_text %}
@@ -68,7 +105,9 @@
                                     <div class="description-row">
                                         <div>{{desc}}</div>
                                         <div style="gap: 20px; margin-top: 30px;">
+                                            {% if mark %}
                                             <img style="height: 75px; width: 75px" src="{{mark.url}}" alt="Image" />
+                                            {% endif %}
                                             <span>{{address}}</span>
                                         </div>
                                     </div>
@@ -80,12 +119,14 @@
                     {% if popup.item_choice == 'video' %}
                         {% set title = popup.video_group.item_title %}
                         {% set video_bg = popup.video_group.item_video_bg %}
+                        {% set video_type = popup.video_group.item_video_type %}
                         {% set video_file = popup.video_group.item_video_file %}
                         {% set video_url = popup.video_group.item_video_url %}
+                        {% set video_code = popup.video_group.item_video_code %}
                         {% set video = video_file or video_url %}
 
                         <article class="m__pitem__wrapper">
-                            {% if video_bg %}
+                            {% if video_bg %} 
                                 <div>
                                     <a href="#" class="m__pitem__img">
                                         <img src="{{ video_bg.url }}" alt="{{ title }}" />
@@ -101,16 +142,22 @@
                             </div>
                             <div class="m__pitem__box mfp-hide">
                                 <div class="modal-content">
-                                    {% if video %}
+                                    {% if video_type == 'yv' and video %}
                                         <div>
-                                        {% if video_url %}
-                                            <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
-                                        {% elseif video_file %}
-                                            <video id="video-{{ blockId }}" style="width: 100%;" playsinline controls data-poster="{{ get_image(bg_image) }}">
-                                                <source src="{{ video_file.url }}" type="video/mp4" />
-                                            </video>
-                                        {% endif %}
+                                            {% if video_url %}
+                                                <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+                                            {% elseif video_file %}
+                                                <video id="video-{{ blockId }}" style="width: 100%;" playsinline controls data-poster="{{ get_image(bg_image) }}">
+                                                    <source src="{{ video_file.url }}" type="video/mp4" />
+                                                </video>
+                                            {% endif %}
                                         </div>
+                                    {% else %}
+                                        {% if video_code %}
+                                        <div id="video-{{ blockId }}" style="width: 100%;">
+                                            {{video_code}}
+                                        </div>
+                                        {% endif %}
                                     {% endif %}
                                 </div>
                             </div>
@@ -120,4 +167,7 @@
             </div>
         {% endif %}
     </div>
+    {% if not is_preview %}
+          {{ settings.styles | raw }}
+      {% endif %}
 </section>

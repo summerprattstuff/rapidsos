@@ -4,16 +4,38 @@
 {% set rightText  = block.right_text %}
 {% set linkRight = block.link_right %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
+{% set left_anim = block.left_animation %}
+{% set right_anim = block.right_animation %}
+
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if bgImg or leftText or rightText %}
+    {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__ovrContent appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
     <section id="{{ settings.block_id }}" class="m__ovrContent">
-        <div class="wrapper">
+    {% endif %}
+        {% include '_components/settings_overlay.twig' %}
+        <div class="wrapper color-{{ text_color ?: 'primary' }}">
             <div class="_w">
                 {% if leftText or linkLeft %}
-                    <div class="left">
+                    {% if left_anim.element_animation %}
+                        {% set animation_type  = left_anim.animation_type %}
+                        {% set animation_duration  = left_anim.animation_duration %}
+                        {% set animation_delay  = left_anim.animation_delay %}
+                        <div class="left appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                    {% else %}
+                        <div class="left">
+                    {% endif %}
                         <div class="m__ovrContent__left">
                             <h3 class="m__ovrContent__left__text">{{ leftText }}</h3>
                             {% if linkLeft %}
@@ -33,7 +55,14 @@
                     </div>
                 </div>
                 {% if rightText or linkRight %}
-                    <div class="m__ovrContent__right">
+                    {% if left_anim.element_animation %}
+                        {% set animation_type  = left_anim.animation_type %}
+                        {% set animation_duration  = left_anim.animation_duration %}
+                        {% set animation_delay  = left_anim.animation_delay %}
+                        <div class="m__ovrContent__right appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                    {% else %}
+                        <div class="m__ovrContent__right">
+                    {% endif %}
                         <h3 class="m__ovrContent__right__text">{{ rightText }}</h3>
                         {% if linkRight %}
                             <div class="btnWrapper">

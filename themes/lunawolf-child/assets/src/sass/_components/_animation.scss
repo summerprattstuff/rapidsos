@@ -1,0 +1,42 @@
+.appear-animate {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(1);
+    will-change: transform, filter, opacity;
+    animation-duration: 1s;
+    animation-delay: 0s;
+}
+
+.appear-animation-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.fadeInUpShorter {
+    animation-name: fadeInUpShorter
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes fadeInUpShorter {
+    from {
+        opacity: 0;
+        transform: translate(0,50px);
+        transform-origin: 0 0;
+    }
+    to {
+        opacity:1;
+        transform:none
+    }
+  }

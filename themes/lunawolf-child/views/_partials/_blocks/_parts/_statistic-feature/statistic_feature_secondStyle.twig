@@ -3,7 +3,9 @@
 {% set label     = block.label_desc %}
 {% set aboveText = block.above_text %}
 
-<div class="wrapper">
+{% set text_color  = settings.text_color %}
+
+<div class="wrapper color-{{ text_color ?: 'primary' }}">
     <div class="inner">
         {% if number %}
             <div class="numb">{{ number }}</div>

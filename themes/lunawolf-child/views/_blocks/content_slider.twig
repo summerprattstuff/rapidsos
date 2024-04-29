@@ -3,6 +3,10 @@
 {% set content_slider = block.content_slider %}
 {% set latest_posts   = false %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
@@ -11,20 +15,31 @@
   {% set latest_posts = get_resources(number ?: 3) %}
 {% endif %}
 
-{% if (load_latest and latest_posts) or content_slider | length %}
-  <section id="{{ settings.block_id }}" class="m__contentSlider">
-    <div class="wrapper">
+{% if (load_latest and latest_posts) or content_slider | length %}  
+  {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__contentSlider appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
+    <section id="{{ settings.block_id }}" class="m__contentSlider">
+    {% endif %}
+        {% include '_components/settings_overlay.twig' %}
+  
+    <div class="wrapper color-{{ text_color ?: 'primary' }}">
       <div class="content">
         <div class="contentSlider__wrapper">
           <div class="swiper js-testimonialSlider">
             <div class="swiper-wrapper">
               {% if load_latest and latest_posts %}
                 {% for slide in latest_posts %}
+                
                   {% include '_partials/_blocks/_content-slider/_card.twig' with {
                     slidePost: slide
                   } %}
                 {% endfor %}
               {% else %}
+
                 {% for slide in content_slider %}
                   {% include '_partials/_blocks/_content-slider/_card.twig' with {
                     id: slide
@@ -38,6 +53,9 @@
         </div>
       </div>
     </div>
+    {% if not is_preview %}
+          {{ settings.styles | raw }}
+      {% endif %}
   </section>
 {% elseif is_preview %}
   <div class="_center">

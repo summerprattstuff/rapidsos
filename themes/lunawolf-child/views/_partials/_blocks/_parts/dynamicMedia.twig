@@ -1,6 +1,8 @@
 {% set bg_image   = blockData.bg_image %}
 {% set video_file = blockData.video_file %}
 {% set video_url  = blockData.video_url %}
+{% set video_type  = blockData['video_type'] %}
+{% set video_code  = blockData['video_code'] %}
 {% set bg_video   = video_file or video_url %}
 
 {% if bg_image and not bg_video %}
@@ -12,16 +14,24 @@
     </div>
   </div>
 {% endif %}
-{% if bg_video %}
-  {% if video_url %}
-    <div class="m__dynamicMedia__video">
-      {% if video_url %}
-        <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtube' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
-      {% endif %}
-    </div>
+{% if bg_video or video_code %}
+  {% if video_type == 'yv' %}
+    {% if video_url %}
+      <div class="m__dynamicMedia__video">
+        {% if video_url %}
+          <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+        {% endif %}
+      </div>
+    {% else %}
+      <video id="video-{{ blockId }}" class="js-cardVideo" controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
+        <source src="{{ video_file.url }}" type="video/mp4" />
+      </video>
+    {% endif %}
   {% else %}
-    <video id="video-{{ blockId }}" class="js-cardVideo" controls crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
-      <source src="{{ video_file.url }}" type="video/mp4" />
-    </video>
+    {% if video_code %}
+      <div id="video-{{ blockId }}" style="width: 100%;">
+        {{video_code}}
+      </div>
+    {% endif %}
   {% endif %}
 {% endif %}

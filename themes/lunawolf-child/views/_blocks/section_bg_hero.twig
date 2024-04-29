@@ -4,12 +4,24 @@
 {% set subtitle    = block.section_hero_desc %}
 {% set link        = block.section_hero_cta %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
 {% if not is_preview %}
   {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if title or subtitle %}
+    {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__sbHero appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
     <section id="{{ settings.block_id }}" class="m__sbHero">
+    {% endif %}
+        {% include '_components/settings_overlay.twig' %}
         <style>
             .m__sbHero {
                 background-image: url('{{ bg_mobile.url }}');
@@ -21,7 +33,7 @@
             }
         </style>
         {# <div class="wrapper"> #}
-            <div class="container">
+            <div class="container color-{{ text_color ?: 'primary' }}">
                 <div class="m__sbHero__wrapper">
                     {% if title %}
                         <h1 class="m__sbHero__title">{{ title }}</h1>

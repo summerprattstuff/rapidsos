@@ -2,13 +2,26 @@
 {% set valueBlocks   = post.meta('value_blocks') %}
 {% set count         = valueBlocks | length %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if valueBlocks %}
+    {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__podcastContent appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
     <section id="{{ settings.block_id }}" class="m__podcastContent">
-        <div class="wrapper -limit">
+    {% endif %}
+        {% include '_components/settings_overlay.twig' %}
+    
+        <div class="wrapper -limit color-{{ text_color ?: 'primary' }}">
             <div class="content">
                 {% if sTitle %}
                     <div class="titleWrapper">

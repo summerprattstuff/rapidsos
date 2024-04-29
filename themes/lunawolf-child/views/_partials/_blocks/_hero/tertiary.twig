@@ -3,6 +3,14 @@
 {% set bg_image        = block.bg_image %}
 {% set bg_image_mobile = block.bg_image_mobile %}
 
+{% set text_color  = settings.text_color %}
+{% set bg_color = settings.bg_color %}
+{% set opacity  = settings.bg_opacity %}
+
+{% set title_anim        = block.title_animation %}
+{% set ctas_anim        = block.ctas_animation %}
+
+{% include '_components/settings_overlay.twig' %}
 <div class="m__hero__tertiary">
     {% if bg_image %}
         <div class="m__hero__tertiary__imgWrapper">
@@ -13,10 +21,25 @@
         <div class="m__hero__tertiary__bottom">
             <div class="m__hero__tertiary__bottom__inner">
                 {% if title %}
-                    <h1 class="m_title title">{{ title }}</h1>
+                    {% if title_anim.element_animation %}
+                        {% set animation_type  = title_anim.animation_type %}
+                        {% set animation_duration  = title_anim.animation_duration %}
+                        {% set animation_delay  = title_anim.animation_delay %}
+                        <h1 class="m_title title appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ title }}</h1>
+                    {% else %}
+                        <h1 class="m_title title">{{ title }}</h1>
+                    {% endif %}
                 {% endif %}
                 {% if ctas %}
-                    <div class="m__ctas m__hero__tertiary__bottom__inner__ctas">
+                    {% if ctas_anim.element_animation %}
+                        {% set animation_type  = ctas_anim.animation_type %}
+                        {% set animation_duration  = ctas_anim.animation_duration %}
+                        {% set animation_delay  = ctas_anim.animation_delay %}
+                        <div class="m__ctas m__hero__tertiary__bottom__inner__ctas appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                    {% else %}
+                        <div class="m__ctas m__hero__tertiary__bottom__inner__ctas">
+                    {% endif %}
+                    
                         {% for row in ctas %}
                             {% set link = row.cta %}
 

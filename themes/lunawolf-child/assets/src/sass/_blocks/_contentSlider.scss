@@ -15,5 +15,15 @@
       width: 100%;
       object-position: left center;
     }
+
+    .logoWrapper {
+      width: 100px;
+      margin: 20px 0;
+
+      img {
+        min-height: 0;
+        max-height: none;
+      }
+    }
   }
 }

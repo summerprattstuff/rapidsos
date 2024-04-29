@@ -1,14 +1,28 @@
 {% set s_title = block.s_title %}
 {% set videos  = block.videos %}
+{% set columns  = block.video_columns %}
 {% set count   = videos | length %}
+
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
 
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if videos %}
+    {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id }}" class="m__videosColumns appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
     <section id="{{ settings.block_id }}" class="m__videosColumns">
-        <div class="wrapper">
+    {% endif %}
+        {% include '_components/settings_overlay.twig' %}
+    
+        <div class="wrapper color-{{ text_color ?: 'primary' }}">
             {% if s_title %}
                 <div class="titleWrapper -short -center">
                     <h4 class="m__videosColumns__sTitle">{{ s_title }}</h4>
@@ -19,48 +33,70 @@
                   {% set videoCount = 0 %}
                     {% for item in videos %}
                         {% set logo        = item.logo %}
-                        {% set industry    = item.industry %}
-                        {% set videoTitle  = item.video_title %}
+                        {# {% set industry    = item.industry %}
+                        {% set videoTitle  = item.video_title %} #}
+                        {% set videoContent  = item.video_content %}
                         {% set customLink  = item.custom_link %}
                         {% set videoPoster = item.video_poster %}
                         {% set videoFile   = item.video_file %}
                         {% set videoUrl    = item.video_url %}
+                        {% set videoType    = item.video_type %}
+                        {% set videoCode    = item.video_code %}
                         {% set video = videoFile or videoUrl %}
 
-                        <div class="m__videosColumns__box{{ count < 2 ? ' _12' : ' _m6' }}">
+                        <div class="m__videosColumns__box {{ columns }}">
                             <div class="m__videosColumns__box__inner">
-                                {% if video %}
+                                {# {% if video %} #}
                                     <div class="m__videosColumns__box__inner__top">
-                                        {% if videoUrl %}
-                                          <div id="video-{{ blockId }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ videoCount }}" data-plyr-provider="{{ 'youtube' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl }}"></div>
+                                        {% if videoType == 'yv' and video %}
+                                            {% if videoUrl %}
+                                            <div class="m__dynamicMedia__video">
+                                                {% if videoUrl %}
+                                                <div id="video-{{ settings.block_id }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ loop.index }}" data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl }}"></div>
+                                                {% endif %}
+                                            </div>
+                                            {% else %}
+                                            <video id="video-{{ settings.block_id }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ loop.index }}" playsinline controls data-poster="{{ get_image(videoPosterv) }}">
+                                                <source src="{{ videoFile.url }}" type="video/mp4" />
+                                            </video>
+                                            {% endif %}
+                                        {% else %}
+                                            {% if videoCode %}
+                                                <div id="video-{{ settings.block_id }}" style="width: 100%;" data-video="{{ settings.block_id }}-{{ loop.index }}">
+                                                    {{videoCode}}
+                                                </div>
+                                            {% endif %}
+                                        {% endif %}
+                                        {# {% if videoUrl %}
+                                          <div id="video-{{ blockId }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ videoCount }}" data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl }}"></div>
                                         {% endif %}
                                         {% if videoFile %}
                                             <video id="video-{{ blockId }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ videoCount }}" playsinline controls data-poster="{{ get_image(videoPoster) }}">
                                                 <source src="{{ videoFile.url }}" type="video/mp4" />
                                             </video>
-                                        {% endif %}
+                                        {% endif %} #}
                                     </div>
-                                {% elseif videoPoster %}
+                                {# {% elseif videoPoster %}
                                     <div class="m__videosColumns__box__inner__top">
                                         <div class="wrapImg">
                                             <div class="posterImg" style="background-image: url({{ get_image(videoPoster) }})"></div>
                                         </div>
                                     </div>
-                                {% endif %}
+                                {% endif %} #}
                                 <div class="m__videosColumns__box__inner__bottom">
                                     {% if logo %}
                                         <div class="logoWrapper">
                                             <img src="{{ get_image(logo) }}" alt="">
                                         </div>
                                     {% endif %}
-                                    {% if industry %}
+                                    {# {% if industry %}
                                         <div class="industry">
                                             <p class="iLabel">Industry: </p>
                                             <p class="iContent">{{ industry }}</p>
                                         </div>
-                                    {% endif %}
-                                    {% if videoTitle %}
-                                        <p class="title">{{ videoTitle }}</p>
+                                    {% endif %} #}
+                                    {% if videoContent %}
+                                        <p class="content">{{ videoContent }}</p>
                                     {% endif %}
                                     {% if customLink %}
                                         <div class="m__videosColumns__box__inner btnWrapper">
@@ -71,7 +107,7 @@
                                         </div>
                                     {% else %}
                                         <div class="m__videosColumns__box__inner btnWrapper">
-                                            <a class="btn -simpleLink js-videoColumnTrigger" href="{{ videoUrl }}" data-video-trigger="{{ settings.block_id }}-{{ videoCount }}">Watch video</a>
+                                            <a class="btn -simpleLink js-videoColumnTrigger" href="{{ videoUrl }}" data-video-trigger="{{ settings.block_id }}-{{ loop.index }}">Watch video</a>
                                         </div>
                                     {% endif %}
                                 </div>

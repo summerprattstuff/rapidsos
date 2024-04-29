@@ -3,7 +3,9 @@
 {% set desc      = block.desc %}
 {% set aboveText = block.above_text %}
 
-<div class="wrapper">
+{% set text_color  = settings.text_color %}
+
+<div class="wrapper color-{{ text_color ?: 'primary' }}">
     <div class="m__statistic__inner">
         {% if title %}
             <div class="m__statistic__top">

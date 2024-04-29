@@ -16,6 +16,7 @@
     box-shadow: 4px 4px 10px 0 #00000040;
     border-radius: 20px;
     padding: 30px;
+    height: 100%;
 
     img {
       max-height: 35px;
@@ -46,9 +47,9 @@
         margin-top: 20px;
       }
 
-      p {
-        font-size: 14px;
-      }
+      // p {
+      //   font-size: 14px;
+      // }
 
       &__label {
         font-weight: 700;
@@ -72,16 +73,19 @@
 
     &__authorTitle {
       font-size: 14px !important;
-      font-weight: 700;
+      margin-top: 8px;
+      line-height: 20px !important;
     }
   }
 
   .swiper-wrapper {
+    align-items: stretch;
     padding-bottom: 20px;
   }
 
   .swiper-slide {
     padding: 0 12px;
+    height: auto;
   }
 
   .swiper-button-prev,
