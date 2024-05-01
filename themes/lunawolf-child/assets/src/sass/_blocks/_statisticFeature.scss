@@ -37,7 +37,7 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      margin-top: 0px;
+      margin-top: -50px;
       align-items: flex-end;
 
       @include media-up(m) {
@@ -58,6 +58,10 @@
         line-height: 1;
         font-weight: 700;
         white-space: nowrap;
+
+        .count-to {
+          letter-spacing: -.05em;
+        }
 
         @include media-up(xs) {
           font-size: 130px;

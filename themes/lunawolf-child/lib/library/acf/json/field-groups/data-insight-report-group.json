@@ -1,9 +1,9 @@
 {
-    "key": "group_662a143fd1227",
+    "key": "group_662a689aa24e0",
     "title": "Data Insight Report Group",
     "fields": [
         {
-            "key": "field_662a1440b9358",
+            "key": "field_662a689ae6897",
             "label": "Hero Section",
             "name": "",
             "aria-label": "",
@@ -21,9 +21,29 @@
             "no_preference": 0
         },
         {
-            "key": "field_662a19acb9359",
+            "key": "field_662a68cce6898",
             "label": "Title",
             "name": "custom_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_662a68e8e6899",
+            "label": "Subtitle",
+            "name": "subtitle",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -42,28 +62,7 @@
             "new_lines": ""
         },
         {
-            "key": "field_662a19c6b935a",
-            "label": "Subtitle",
-            "name": "subtitle",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "acfe_textarea_code": 0,
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_662a19d7b935b",
+            "key": "field_662a68fce689a",
             "label": "Date",
             "name": "date",
             "aria-label": "",
@@ -83,7 +82,7 @@
             "append": ""
         },
         {
-            "key": "field_662a1a0bb935c",
+            "key": "field_662a6906e689b",
             "label": "Intro Section",
             "name": "",
             "aria-label": "",
@@ -101,7 +100,7 @@
             "no_preference": 0
         },
         {
-            "key": "field_662a1a26b935d",
+            "key": "field_662a692ce689c",
             "label": "Introduction",
             "name": "introduction",
             "aria-label": "",
@@ -136,7 +135,7 @@
             "acfe_wysiwyg_toolbar_buttons": []
         },
         {
-            "key": "field_662a1a3ab935e",
+            "key": "field_662a694ce689d",
             "label": "Data Collection",
             "name": "data_collection",
             "aria-label": "",
@@ -157,7 +156,7 @@
             "new_lines": ""
         },
         {
-            "key": "field_662a1a5cb935f",
+            "key": "field_662a695de689e",
             "label": "Methodology",
             "name": "methodology",
             "aria-label": "",
@@ -178,7 +177,7 @@
             "new_lines": ""
         },
         {
-            "key": "field_662a1e9bb9360",
+            "key": "field_662a6974e689f",
             "label": "Body Section",
             "name": "",
             "aria-label": "",
@@ -196,7 +195,7 @@
             "no_preference": 0
         },
         {
-            "key": "field_662a72787bb9e",
+            "key": "field_662a8d710a73e",
             "label": "Sidebar",
             "name": "sidebar",
             "aria-label": "",
@@ -231,7 +230,7 @@
             "acfe_wysiwyg_toolbar_buttons": []
         },
         {
-            "key": "field_662a1ee7b9361",
+            "key": "field_662a698ee68a0",
             "label": "Body Content",
             "name": "reports",
             "aria-label": "",
@@ -254,7 +253,7 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_662a1efbb9362",
+                    "key": "field_662a69a6e68a1",
                     "label": "Body Block Title",
                     "name": "report_title",
                     "aria-label": "",
@@ -272,10 +271,10 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_662a1ee7b9361"
+                    "parent_repeater": "field_662a698ee68a0"
                 },
                 {
-                    "key": "field_662a1f24b9363",
+                    "key": "field_662a69b4e68a2",
                     "label": "Body Block Description",
                     "name": "report_description",
                     "aria-label": "",
@@ -308,10 +307,10 @@
                     "acfe_wysiwyg_auto_init": 0,
                     "acfe_wysiwyg_min_height": 300,
                     "acfe_wysiwyg_toolbar_buttons": [],
-                    "parent_repeater": "field_662a1ee7b9361"
+                    "parent_repeater": "field_662a698ee68a0"
                 },
                 {
-                    "key": "field_662a1f4fb9364",
+                    "key": "field_662a69cbe68a3",
                     "label": "Sub Blocks",
                     "name": "sub_reports",
                     "aria-label": "",
@@ -333,7 +332,7 @@
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_662a202db9365",
+                            "key": "field_662a69eae68a4",
                             "label": "Sub Block Title",
                             "name": "sub_report_title",
                             "aria-label": "",
@@ -352,10 +351,10 @@
                             "rows": 1,
                             "placeholder": "",
                             "new_lines": "",
-                            "parent_repeater": "field_662a1f4fb9364"
+                            "parent_repeater": "field_662a69cbe68a3"
                         },
                         {
-                            "key": "field_662bdf5cf6bd9",
+                            "key": "field_662bf3645b561",
                             "label": "Sub Block Choice",
                             "name": "sub_block_choice",
                             "aria-label": "",
@@ -385,10 +384,10 @@
                             "allow_custom": 0,
                             "search_placeholder": "",
                             "min": "",
-                            "parent_repeater": "field_662a1f4fb9364"
+                            "parent_repeater": "field_662a69cbe68a3"
                         },
                         {
-                            "key": "field_662a2092b9366",
+                            "key": "field_662a6a14e68a5",
                             "label": "Content Choice",
                             "name": "content_choice",
                             "aria-label": "",
@@ -398,7 +397,7 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_662bdf5cf6bd9",
+                                        "field": "field_662bf3645b561",
                                         "operator": "==",
                                         "value": "single"
                                     }
@@ -427,10 +426,10 @@
                             "allow_custom": 0,
                             "search_placeholder": "",
                             "min": "",
-                            "parent_repeater": "field_662a1f4fb9364"
+                            "parent_repeater": "field_662a69cbe68a3"
                         },
                         {
-                            "key": "field_662a2178b9367",
+                            "key": "field_662a6a4ce68a6",
                             "label": "Sub Block Image",
                             "name": "sub_report_image",
                             "aria-label": "",
@@ -440,12 +439,12 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_662a2092b9366",
+                                        "field": "field_662a6a14e68a5",
                                         "operator": "==",
                                         "value": "image"
                                     },
                                     {
-                                        "field": "field_662bdf5cf6bd9",
+                                        "field": "field_662bf3645b561",
                                         "operator": "==",
                                         "value": "single"
                                     }
@@ -469,10 +468,10 @@
                             "mime_types": "",
                             "preview_size": "medium",
                             "library": "all",
-                            "parent_repeater": "field_662a1f4fb9364"
+                            "parent_repeater": "field_662a69cbe68a3"
                         },
                         {
-                            "key": "field_662a2191b9368",
+                            "key": "field_662a6a8ee68a7",
                             "label": "Sub Block Video",
                             "name": "sub_report_video",
                             "aria-label": "",
@@ -482,12 +481,12 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_662a2092b9366",
+                                        "field": "field_662a6a14e68a5",
                                         "operator": "==",
                                         "value": "video"
                                     },
                                     {
-                                        "field": "field_662bdf5cf6bd9",
+                                        "field": "field_662bf3645b561",
                                         "operator": "==",
                                         "value": "single"
                                     }
@@ -513,10 +512,10 @@
                             "stylised_button": 0,
                             "file_count": 0,
                             "min": "",
-                            "parent_repeater": "field_662a1f4fb9364"
+                            "parent_repeater": "field_662a69cbe68a3"
                         },
                         {
-                            "key": "field_662a21bcb9369",
+                            "key": "field_662a6aa7e68a8",
                             "label": "Sub Block Video Url",
                             "name": "sub_report_video_url",
                             "aria-label": "",
@@ -526,12 +525,12 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_662a2092b9366",
+                                        "field": "field_662a6a14e68a5",
                                         "operator": "==",
                                         "value": "video"
                                     },
                                     {
-                                        "field": "field_662bdf5cf6bd9",
+                                        "field": "field_662bf3645b561",
                                         "operator": "==",
                                         "value": "single"
                                     }
@@ -544,10 +543,10 @@
                             },
                             "default_value": "",
                             "placeholder": "",
-                            "parent_repeater": "field_662a1f4fb9364"
+                            "parent_repeater": "field_662a69cbe68a3"
                         },
                         {
-                            "key": "field_662a21dcb936a",
+                            "key": "field_662a6abee68a9",
                             "label": "Sub Block Lottie",
                             "name": "sub_report_lottie",
                             "aria-label": "",
@@ -557,12 +556,12 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_662a2092b9366",
+                                        "field": "field_662a6a14e68a5",
                                         "operator": "==",
                                         "value": "lottie"
                                     },
                                     {
-                                        "field": "field_662bdf5cf6bd9",
+                                        "field": "field_662bf3645b561",
                                         "operator": "==",
                                         "value": "single"
                                     }
@@ -582,10 +581,10 @@
                             "rows": 4,
                             "max_rows": "",
                             "return_format": [],
-                            "parent_repeater": "field_662a1f4fb9364"
+                            "parent_repeater": "field_662a69cbe68a3"
                         },
                         {
-                            "key": "field_662bdfb5f6bde",
+                            "key": "field_662bf3875b562",
                             "label": "Tabs",
                             "name": "tabs",
                             "aria-label": "",
@@ -595,7 +594,7 @@
                             "conditional_logic": [
                                 [
                                     {
-                                        "field": "field_662bdf5cf6bd9",
+                                        "field": "field_662bf3645b561",
                                         "operator": "==",
                                         "value": "tabs"
                                     }
@@ -608,7 +607,6 @@
                             },
                             "acfe_repeater_stylised_button": 1,
                             "layout": "block",
-                            "pagination": 0,
                             "min": 2,
                             "max": 0,
                             "collapsed": "",
@@ -616,7 +614,7 @@
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
-                                    "key": "field_662bdfebf6bdf",
+                                    "key": "field_662bf3ac5b563",
                                     "label": "Tab Title",
                                     "name": "tab_title",
                                     "aria-label": "",
@@ -626,7 +624,7 @@
                                     "conditional_logic": [
                                         [
                                             {
-                                                "field": "field_662bdf5cf6bd9",
+                                                "field": "field_662bf3645b561",
                                                 "operator": "==",
                                                 "value": "tabs"
                                             }
@@ -642,10 +640,10 @@
                                     "placeholder": "",
                                     "prepend": "",
                                     "append": "",
-                                    "parent_repeater": "field_662bdfb5f6bde"
+                                    "parent_repeater": "field_662bf3875b562"
                                 },
                                 {
-                                    "key": "field_662be00df6be0",
+                                    "key": "field_662bf3c55b564",
                                     "label": "Tab Content Choice",
                                     "name": "tab_content_choice",
                                     "aria-label": "",
@@ -655,7 +653,7 @@
                                     "conditional_logic": [
                                         [
                                             {
-                                                "field": "field_662bdf5cf6bd9",
+                                                "field": "field_662bf3645b561",
                                                 "operator": "==",
                                                 "value": "tabs"
                                             }
@@ -684,10 +682,10 @@
                                     "allow_custom": 0,
                                     "search_placeholder": "",
                                     "min": "",
-                                    "parent_repeater": "field_662bdfb5f6bde"
+                                    "parent_repeater": "field_662bf3875b562"
                                 },
                                 {
-                                    "key": "field_662be071f6be1",
+                                    "key": "field_662bf3e65b565",
                                     "label": "Tab Image",
                                     "name": "tab_image",
                                     "aria-label": "",
@@ -697,12 +695,12 @@
                                     "conditional_logic": [
                                         [
                                             {
-                                                "field": "field_662bdf5cf6bd9",
+                                                "field": "field_662bf3645b561",
                                                 "operator": "==",
                                                 "value": "tabs"
                                             },
                                             {
-                                                "field": "field_662be00df6be0",
+                                                "field": "field_662bf3c55b564",
                                                 "operator": "==",
                                                 "value": "image"
                                             }
@@ -726,10 +724,10 @@
                                     "mime_types": "",
                                     "preview_size": "medium",
                                     "library": "all",
-                                    "parent_repeater": "field_662bdfb5f6bde"
+                                    "parent_repeater": "field_662bf3875b562"
                                 },
                                 {
-                                    "key": "field_662be07bf6be2",
+                                    "key": "field_662bf3f15b566",
                                     "label": "Tab Video",
                                     "name": "tab_video",
                                     "aria-label": "",
@@ -739,12 +737,12 @@
                                     "conditional_logic": [
                                         [
                                             {
-                                                "field": "field_662bdf5cf6bd9",
+                                                "field": "field_662bf3645b561",
                                                 "operator": "==",
                                                 "value": "tabs"
                                             },
                                             {
-                                                "field": "field_662be00df6be0",
+                                                "field": "field_662bf3c55b564",
                                                 "operator": "==",
                                                 "value": "video"
                                             }
@@ -770,10 +768,10 @@
                                     "stylised_button": 0,
                                     "file_count": 0,
                                     "min": "",
-                                    "parent_repeater": "field_662bdfb5f6bde"
+                                    "parent_repeater": "field_662bf3875b562"
                                 },
                                 {
-                                    "key": "field_662be08bf6be3",
+                                    "key": "field_662bf3fd5b567",
                                     "label": "Tab Video Url",
                                     "name": "tab_video_url",
                                     "aria-label": "",
@@ -783,12 +781,12 @@
                                     "conditional_logic": [
                                         [
                                             {
-                                                "field": "field_662bdf5cf6bd9",
+                                                "field": "field_662bf3645b561",
                                                 "operator": "==",
                                                 "value": "tabs"
                                             },
                                             {
-                                                "field": "field_662be00df6be0",
+                                                "field": "field_662bf3c55b564",
                                                 "operator": "==",
                                                 "value": "video"
                                             }
@@ -801,10 +799,10 @@
                                     },
                                     "default_value": "",
                                     "placeholder": "",
-                                    "parent_repeater": "field_662bdfb5f6bde"
+                                    "parent_repeater": "field_662bf3875b562"
                                 },
                                 {
-                                    "key": "field_662be0a4f6be4",
+                                    "key": "field_662bf4095b568",
                                     "label": "Tab Lottie",
                                     "name": "tab_lottie",
                                     "aria-label": "",
@@ -814,12 +812,12 @@
                                     "conditional_logic": [
                                         [
                                             {
-                                                "field": "field_662bdf5cf6bd9",
+                                                "field": "field_662bf3645b561",
                                                 "operator": "==",
                                                 "value": "tabs"
                                             },
                                             {
-                                                "field": "field_662be00df6be0",
+                                                "field": "field_662bf3c55b564",
                                                 "operator": "==",
                                                 "value": "lottie"
                                             }
@@ -839,18 +837,18 @@
                                     "rows": 4,
                                     "max_rows": "",
                                     "return_format": [],
-                                    "parent_repeater": "field_662bdfb5f6bde"
+                                    "parent_repeater": "field_662bf3875b562"
                                 }
                             ],
-                            "parent_repeater": "field_662a1f4fb9364"
+                            "parent_repeater": "field_662a69cbe68a3"
                         }
                     ],
-                    "parent_repeater": "field_662a1ee7b9361"
+                    "parent_repeater": "field_662a698ee68a0"
                 }
             ]
         },
         {
-            "key": "field_662a24d0b936b",
+            "key": "field_662a6b23e68aa",
             "label": "Conclusion Section",
             "name": "",
             "aria-label": "",
@@ -868,7 +866,7 @@
             "no_preference": 0
         },
         {
-            "key": "field_662a24f1b936c",
+            "key": "field_662a6b30e68ab",
             "label": "Conclusion",
             "name": "conclusion",
             "aria-label": "",
@@ -903,7 +901,7 @@
             "acfe_wysiwyg_toolbar_buttons": []
         },
         {
-            "key": "field_662a2521b936d",
+            "key": "field_662a6b42e68ac",
             "label": "Reference Section",
             "name": "",
             "aria-label": "",
@@ -916,12 +914,12 @@
                 "class": "",
                 "id": ""
             },
-            "placement": "top",
+            "placement": "left",
             "endpoint": 0,
             "no_preference": 0
         },
         {
-            "key": "field_662a252eb936e",
+            "key": "field_662a6b5be68ad",
             "label": "Reference",
             "name": "reference",
             "aria-label": "",
@@ -965,7 +963,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 1,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -981,5 +979,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1714152188
+    "modified": 1714165313
 }

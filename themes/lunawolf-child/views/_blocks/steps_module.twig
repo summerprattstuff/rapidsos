@@ -1,5 +1,6 @@
 {% set title    = block.title %}
 {% set s_style  = block.steps_style %}
+{% set title_anim  = block.title_animation %}
 
 {% set section_animation  = settings['section_animation'] %}
 
@@ -22,8 +23,15 @@
 {% include '_components/settings_overlay.twig' %}
     <div class="wrapper color-{{ text_color ?: 'primary' }}">
         {% if title %}
-            <div class="titleWrapper -short -center">
-                <h1 class="m__steps__title appear-animate" data-settings="{'_animation':'fadeInUpShorter','_animation_delay':0}">{{ title }}</h1>
+            {% if title_anim.enable_animation %}
+                {% set animation_type  = title_anim.animation_type %}
+                {% set animation_duration  = title_anim.animation_duration %}
+                {% set animation_delay  = title_anim.animation_delay %}
+                <div class="titleWrapper -center appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+            {% else %}
+                <div class="titleWrapper -center">
+            {% endif %}
+                <h1 class="m__steps__title">{{ title }}</h1>
             </div>
         {% endif %}
         {% if s_style %}

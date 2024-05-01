@@ -1,22 +1,27 @@
 .site__header {
   position: fixed;
-  padding: 0 0 25px;
+  padding: 25px 0;
   top: 0; left: 0;
   width: 100%;
   z-index: 1001;
   background-color: $white;
+  box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.14);
+
+  .--notification & {
+    padding: 0 0 25px;
+  }
 
   @include media-up(xl) {
-    padding: 0;
+    padding: 0 !important;
   }
 
-  &::before {
-    position: absolute;
-    content: '';
-    left: 0; bottom: 0; right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
-  }
+  // &::before {
+  //   position: absolute;
+  //   content: '';
+  //   left: 0; bottom: 0; right: 0;
+  //   height: 6px;
+  //   background: linear-gradient(90deg, #27A4D9 0%, #032164 46.35%, #DE252B 98.44%);
+  // }
 
   &__logo {
     position: relative;
@@ -80,6 +85,7 @@
 }
 
 .header-top {
+  position: relative;
   padding: 10px 0;
   margin-bottom: 20px;
   text-align: center;
@@ -87,12 +93,33 @@
   font-size: 16px;
   color: #fff;
 
+  a {
+    color: #fff;
+    text-decoration: underline;
+    &:hover {
+      color: #27A4D9;
+    }
+  }
+
+  .btn-close {
+    border: 0;
+    background: transparent;
+    outline: none;
+    fill: #fff;
+    margin: 5px auto 0;
+    display: flex;
+    right: 30px;
+    top: 50%;
+    cursor: pointer;
+
+    @include media-up(xl) {
+      position: absolute;
+      transform: translateY(-50%);
+    }
+  }
+
   @include media-up(xl) {
       padding: 20px 0;
       margin-bottom: 0;
-  }
-
-  p a {
-    color: #27a4d9;
   }
 }

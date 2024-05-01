@@ -1,9 +1,9 @@
 {
-    "key": "group_662db29ac6b98",
+    "key": "group_662de6ba0bcc5",
     "title": "Animation Settings",
     "fields": [
         {
-            "key": "field_662db29b57fa4",
+            "key": "field_662de6bb1cbed",
             "label": "Animation Settings",
             "name": "",
             "aria-label": "",
@@ -21,12 +21,12 @@
             "no_preference": 0
         },
         {
-            "key": "field_662db2db57fa5",
+            "key": "field_662de6e01cbee",
             "label": "Section Animation",
             "name": "section_animation",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "This is option for whole section.",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -42,7 +42,7 @@
             "style": ""
         },
         {
-            "key": "field_662db30957fa6",
+            "key": "field_662de7021cbef",
             "label": "Animation Type",
             "name": "animation_type",
             "aria-label": "",
@@ -52,7 +52,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_662db2db57fa5",
+                        "field": "field_662de6e01cbee",
                         "operator": "==",
                         "value": "1"
                     }
@@ -65,7 +65,14 @@
             },
             "choices": {
                 "fadeIn": "Fade In",
-                "fadeInUpShorter": "Fade In Up Shorter"
+                "fadeInUp": "Fade In Up",
+                "fadeInRight": "Fade In Right",
+                "fadeInLeft": "Fade In Left",
+                "fadeInDown": "Fade In Down",
+                "fadeInUpShorter": "Fade In Up Shorter",
+                "fadeInLeftShorter": "Fade In Left Shorter",
+                "fadeInRightShorter": "Fade In Right Shorter",
+                "fadeInDownShorter": "Fade In Down Shorter"
             },
             "default_value": false,
             "return_format": "value",
@@ -82,7 +89,7 @@
             "min": ""
         },
         {
-            "key": "field_662db8a657fa8",
+            "key": "field_662de7401cbf0",
             "label": "Animation Duration",
             "name": "animation_duration",
             "aria-label": "",
@@ -92,7 +99,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_662db2db57fa5",
+                        "field": "field_662de6e01cbee",
                         "operator": "==",
                         "value": "1"
                     }
@@ -123,7 +130,7 @@
             "min": ""
         },
         {
-            "key": "field_662db8d457fa9",
+            "key": "field_662de76d1cbf1",
             "label": "Animation Delay (ms)",
             "name": "animation_delay",
             "aria-label": "",
@@ -133,7 +140,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_662db2db57fa5",
+                        "field": "field_662de6e01cbee",
                         "operator": "==",
                         "value": "1"
                     }
@@ -183,5 +190,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1714276047
+    "modified": 1714501126
 }

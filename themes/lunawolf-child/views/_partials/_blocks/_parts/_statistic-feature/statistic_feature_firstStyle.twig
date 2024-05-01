@@ -18,7 +18,10 @@
             <div class="m__statistic__bot">
                 <div class="m__statistic__bot__inner">
                     {% if number %}
-                        <div class="m__statistic__bot__inner__numb">{{ number }}</div>
+                        <div class="m__statistic__bot__inner__numb">
+                            <span class="count-to" data-to="{{number}}" data-duration="2000">{{ number }}</span>%
+                            
+                        </div>
                     {% endif %}
                     {% if desc %}
                         <h3 class="m__statistic__bot__inner__desc">{{ desc }}</h3>

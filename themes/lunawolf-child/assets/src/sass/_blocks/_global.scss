@@ -81,9 +81,17 @@
 }
 
 .site {
-  padding-top: 123px;
+  padding-top: 84px;
 
   @include media-up(xl) {
-    padding-top: 149px;
+    padding-top: 85px;
+  }
+
+  &.--notification {
+    padding-top: 150px;
+
+    @include media-up(xl) {
+      padding-top: 157px;
+    }
   }
 }

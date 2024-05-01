@@ -62,9 +62,9 @@
                                             {% endif %}
                                         {% else %}
                                             {% if videoCode %}
-                                                <div id="video-{{ settings.block_id }}" style="width: 100%;" data-video="{{ settings.block_id }}-{{ loop.index }}">
-                                                    {{videoCode}}
-                                                </div>
+                                            <div id="video-{{ settings.block_id }}" style="width: 100%;" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ loop.index }}">
+                                                {{videoCode}}
+                                            </div>
                                             {% endif %}
                                         {% endif %}
                                         {# {% if videoUrl %}

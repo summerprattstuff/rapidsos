@@ -6,6 +6,12 @@ add_filter( 'acf/settings/save_json/type=acf-post-type',       'acf_json_save_pa
 add_filter( 'acf/settings/save_json/type=acf-taxonomy',        'acf_json_save_path_for_taxonomies' );
 add_filter( 'acf/json/save_file_name',                         'acf_json_filename', 10, 3 );
 add_action( 'acf/input/admin_head',                            'acf_backend_assets', 10, 0 );
+add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
+
+function enqueue_scripts() {
+	$jquery_count_js = get_stylesheet_directory_uri() . '/assets/src/js/jquery.count-to/jquery.count-to.min.js';
+	wp_enqueue_script('jquery-count-js', $jquery_count_js, array('jquery'));
+}
 
 function acf_backend_assets() {
 	$asset_config_file = LUNAWOLF_TEMPLATE_DIR_URI . '/build/acf/acf.asset.php';
@@ -36,8 +42,8 @@ function acf_backend_assets() {
 
 	wp_enqueue_script( 'lunawolf-acf-script-min' );
 
-	$magnific_popup_css = get_stylesheet_directory_uri() . '/magnific-popup/magnific-popup.css';
-	$magnific_popup_js = get_stylesheet_directory_uri() . '/magnific-popup/jquery.magnific-popup.min.js';
+	$magnific_popup_css = get_stylesheet_directory_uri() . '/assets/src/js/magnific-popup/magnific-popup.css';
+	$magnific_popup_js = get_stylesheet_directory_uri() . '/assets/src/js/magnific-popup/jquery.magnific-popup.min.js';
 
 	// Enqueue the Magnific Popup CSS and JS files.
 	wp_enqueue_style('magnific-popup-css', $magnific_popup_css);

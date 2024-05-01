@@ -10963,7 +10963,7 @@ function appear(el, fn, intObsOptions) {
     return;
   }
   var interSectionObserverOptions = {
-    rootMargin: '0px 0px 150px 0px',
+    rootMargin: '0px 0px 100px 0px',
     threshold: 0,
     alwaysObserve: false
   };
@@ -11026,6 +11026,40 @@ jQuery('.appear-animate').each(function () {
         }, settings._animation_delay ? settings._animation_delay + 500 : 500);
       });
     }
+  });
+});
+
+// theme.countTo = function( selector, runAsSoon = false ) {
+if (jQuery.fn.countTo) {
+  jQuery('.count-to').each(function () {
+    var el = this;
+    var $this = jQuery(this);
+    function runProgress() {
+      setTimeout(function () {
+        var options = {
+          onComplete: function onComplete() {
+            $this.addClass('complete');
+          }
+        };
+        $this.data('duration') && (options.speed = $this.data('duration'));
+        $this.data('from-value') && (options.from = $this.data('from-value'));
+        $this.data('to-value') && (options.to = $this.data('to-value'));
+        options.decimals = options.to && typeof options.to === 'string' && options.to.indexOf('.') >= 0 ? options.to.length - options.to.indexOf('.') - 1 : 0;
+        $this.countTo(options);
+      }, 300);
+    }
+    // runAsSoon ? runProgress() : appear( el, runProgress );
+    appear(el, runProgress);
+  });
+}
+// }
+
+jQuery('.header-top .btn-close').on('click', function (e) {
+  e.preventDefault();
+  var $this = jQuery(this);
+  $this.closest('.header-top').fadeOut(function () {
+    jQuery(this).closest('.site').removeClass('--notification');
+    jQuery(this).remove();
   });
 });
 }();

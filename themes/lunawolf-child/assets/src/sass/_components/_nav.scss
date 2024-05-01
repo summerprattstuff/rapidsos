@@ -1,6 +1,12 @@
 $breakpoint: xl;
 
 .site__navigation {
+  >ul>li> .menu {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+  }
+
   .-submenu a {
     padding: 10px 20px;
     -webkit-text-stroke: 0.5px transparent;
@@ -35,11 +41,15 @@ $breakpoint: xl;
   @include media-down($breakpoint) {
     display: none;
     position: fixed;
-    left: 0; top: 117px; right: 0; bottom: 0;
+    left: 0; top: 78px; right: 0; bottom: 0;
     background: $white;
     padding: 30px;
     overflow: auto;
     z-index: 5;
+
+    .--notification & {
+      top: 144px;
+    }
 
     &::before {
       position: absolute;
@@ -56,6 +66,7 @@ $breakpoint: xl;
     list-style: none;
     margin: 0;
     padding: 0;
+
 
     @include media-down($breakpoint) {
       flex-wrap: wrap;

@@ -28,7 +28,7 @@
         <div class="wrapper color-{{ text_color ?: 'primary' }}">
             <div class="_w">
                 {% if leftText or linkLeft %}
-                    {% if left_anim.element_animation %}
+                    {% if left_anim.enable_animation %}
                         {% set animation_type  = left_anim.animation_type %}
                         {% set animation_duration  = left_anim.animation_duration %}
                         {% set animation_delay  = left_anim.animation_delay %}
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 {% if rightText or linkRight %}
-                    {% if left_anim.element_animation %}
+                    {% if left_anim.enable_animation %}
                         {% set animation_type  = left_anim.animation_type %}
                         {% set animation_duration  = left_anim.animation_duration %}
                         {% set animation_delay  = left_anim.animation_delay %}

@@ -10,11 +10,12 @@
     <p>
       {{ top_banner_title ? top_banner_title : 'Join Intelligent Safety Live on April 30:' }} 
       {% if top_banner_link %}
-        <a style="text-decoration: underline;" href="{{top_banner_link.url}}">{{top_banner_link.title}}</a>
+        <a href="{{top_banner_link.url}}">{{top_banner_link.title}}</a>
       {% else %}
-        <a style="text-decoration: underline;" href="https://rapidsos.com/intelligent-safety-live-video-to-911/">Sharing Security Cameras with 911 During Emergencies</a>
+        <a href="https://rapidsos.com/intelligent-safety-live-video-to-911/">Sharing Security Cameras with 911 During Emergencies</a>
       {% endif %}
     </p>
+    <button class="btn-close">{% include 'icons/close.twig' %}</button>
   </div>
   <div class="wrapper">
     <div class="container">

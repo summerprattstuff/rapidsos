@@ -56,10 +56,15 @@
     &__inner {
       display: flex;
       flex-direction: column;
-      padding: 30px 50px 50px;
+      padding: 25px;
       height: 100%;
       border-radius: 10px;
       box-shadow: 2px 2px 10px 2px #0000001A;
+      transition: transform .3s;
+
+      &:hover {
+        transform: translateX(0) translateY(-10px);
+      }
 
       &__content {
         display: flex;

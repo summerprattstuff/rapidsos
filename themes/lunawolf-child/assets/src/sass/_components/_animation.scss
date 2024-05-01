@@ -16,10 +16,6 @@
     animation-name: fadeIn;
 }
 
-.fadeInUpShorter {
-    animation-name: fadeInUpShorter
-}
-
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -27,6 +23,70 @@
     100% {
         opacity: 100%;
     }
+}
+
+.fadeInLeft {
+    animation-name: fadeInLeft;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInDown {
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInUpShorter {
+    animation-name: fadeInUpShorter;
 }
 
 @keyframes fadeInUpShorter {
@@ -39,4 +99,52 @@
         opacity:1;
         transform:none
     }
-  }
+}
+
+.fadeInLeftShorter {
+    animation-name: fadeInLeftShorter;
+}
+
+@keyframes fadeInLeftShorter {
+    from {
+        opacity: 0;
+        transform: translate(-50px, 0);
+        transform-origin: 0 0;
+    }
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.fadeInRightShorter {
+    animation-name: fadeInRightShorter;
+}
+
+@keyframes fadeInRightShorter {
+    from {
+        opacity: 0;
+        transform: translate(50px, 0);
+        transform-origin: 0 0;
+    }
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+.fadeInDownShorter {
+    animation-name: fadeInDownShorter;
+}
+
+@keyframes fadeInDownShorter {
+    from {
+        opacity: 0;
+        transform: translate(0, -50px);
+        transform-origin: 0 0;
+    }
+    to {
+        opacity:1;
+        transform:none
+    }
+}

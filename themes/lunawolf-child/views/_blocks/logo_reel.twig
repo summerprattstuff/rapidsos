@@ -27,7 +27,7 @@
         <div class="wrapper color-{{ text_color ?: 'primary' }}">
             <div class="titleWrapper -short -center">
                 {% if title %}
-                    {% if title_animation.element_animation %}
+                    {% if title_animation.enable_animation %}
                         {% set animation_type  = title_animation.animation_type %}
                         {% set animation_duration  = title_animation.animation_duration %}
                         {% set animation_delay  = title_animation.animation_delay %}
@@ -38,7 +38,7 @@
                 {% endif %}
             </div>
             {% if desc %}
-                {% if desc_animation.element_animation %}
+                {% if desc_animation.enable_animation %}
                     {% set animation_type  = desc_animation.animation_type %}
                     {% set animation_duration  = desc_animation.animation_duration %}
                     {% set animation_delay  = desc_animation.animation_delay %}
@@ -52,7 +52,7 @@
                 <p class="m__logoReel__label">{{ label }}</p>
             {% endif %}
             {% if logo_gallery %}
-                {% if logos_animation.element_animation %}
+                {% if logos_animation.enable_animation %}
                     {% set animation_type  = logos_animation.animation_type %}
                     {% set animation_duration  = logos_animation.animation_duration %}
                     {% set animation_delay  = logos_animation.animation_delay %}
@@ -66,7 +66,7 @@
                             {% for logo in logo_gallery %}
                                 <div class="swiper-slide">
                                     <div class="m__logoReel__logos__block">
-                                        <img class="m__logoReel__logos__block__img" src="{{ get_image(logo) }}" alt="" >
+                                        <img class="m__logoReel__logos__block__img" src="{{ get_image(logo) | resize(300) }}" alt="" >
                                     </div>
                                 </div>
                             {% endfor %}

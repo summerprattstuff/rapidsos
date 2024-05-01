@@ -1,11 +1,11 @@
 {
-    "key": "group_662dbe5685cf3",
+    "key": "group_662de7d2e623b",
     "title": "Element Animation Settings",
     "fields": [
         {
-            "key": "field_662dc0954668e",
+            "key": "field_662de7d30795c",
             "label": "Enable Animation",
-            "name": "element_animation",
+            "name": "enable_animation",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -24,7 +24,7 @@
             "style": ""
         },
         {
-            "key": "field_662dbfce3326c",
+            "key": "field_662de7f10795d",
             "label": "Animation Type",
             "name": "animation_type",
             "aria-label": "",
@@ -34,7 +34,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_662dc0954668e",
+                        "field": "field_662de7d30795c",
                         "operator": "==",
                         "value": "1"
                     }
@@ -47,7 +47,14 @@
             },
             "choices": {
                 "fadeIn": "Fade In",
-                "fadeInUpShorter": "Fade In Up Shorter"
+                "fadeInUp": "Fade In Up",
+                "fadeInRight": "Fade In Right",
+                "fadeInLeft": "Fade In Left",
+                "fadeInDown": "Fade In Down",
+                "fadeInUpShorter": "Fade In Up Shorter",
+                "fadeInLeftShorter": "Fade In Left Shorter",
+                "fadeInRightShorter": "Fade In Right Shorter",
+                "fadeInDownShorter": "Fade In Down Shorter"
             },
             "default_value": false,
             "return_format": "value",
@@ -64,7 +71,7 @@
             "min": ""
         },
         {
-            "key": "field_662dc0353326d",
+            "key": "field_662de82d0795e",
             "label": "Animation Duration",
             "name": "animation_duration",
             "aria-label": "",
@@ -74,7 +81,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_662dc0954668e",
+                        "field": "field_662de7d30795c",
                         "operator": "==",
                         "value": "1"
                     }
@@ -105,7 +112,7 @@
             "min": ""
         },
         {
-            "key": "field_662dc06d3326e",
+            "key": "field_662de8730795f",
             "label": "Animation Delay (ms)",
             "name": "animation_delay",
             "aria-label": "",
@@ -115,7 +122,7 @@
             "conditional_logic": [
                 [
                     {
-                        "field": "field_662dc0954668e",
+                        "field": "field_662de7d30795c",
                         "operator": "==",
                         "value": "1"
                     }
@@ -165,5 +172,5 @@
     "acfe_display_title": "",
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1714284707
+    "modified": 1714501113
 }

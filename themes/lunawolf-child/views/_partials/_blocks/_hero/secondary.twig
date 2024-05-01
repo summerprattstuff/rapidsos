@@ -25,7 +25,7 @@
                 <div class="m__hero__secondary__left__box">
                     <div class="m__hero__secondary__left__inner">
                         {% if title %}
-                            {% if title_anim.element_animation %}
+                            {% if title_anim.enable_animation %}
                                 {% set animation_type  = title_anim.animation_type %}
                                 {% set animation_duration  = title_anim.animation_duration %}
                                 {% set animation_delay  = title_anim.animation_delay %}
@@ -35,7 +35,7 @@
                             {% endif %}
                         {% endif %}
                         {% if subtitle %}
-                            {% if sub_anim.element_animation %}
+                            {% if sub_anim.enable_animation %}
                                 {% set animation_type  = sub_anim.animation_type %}
                                 {% set animation_duration  = sub_anim.animation_duration %}
                                 {% set animation_delay  = sub_anim.animation_delay %}
@@ -45,7 +45,7 @@
                             {% endif %}                            
                         {% endif %}
                         {% if ctas %}
-                            {% if ctas_anim.element_animation %}
+                            {% if ctas_anim.enable_animation %}
                                 {% set animation_type  = ctas_anim.animation_type %}
                                 {% set animation_duration  = ctas_anim.animation_duration %}
                                 {% set animation_delay  = ctas_anim.animation_delay %}

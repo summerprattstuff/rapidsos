@@ -27,7 +27,7 @@
             <div class="container color-{{ text_color ?: 'primary' }}">
                 <div class="titleWrapper -center -short">
                     {% if title %}
-                        {% if title_animation.element_animation %}
+                        {% if title_animation.enable_animation %}
                             {% set animation_type  = title_animation.animation_type %}
                             {% set animation_duration  = title_animation.animation_duration %}
                             {% set animation_delay  = title_animation.animation_delay %}
@@ -37,7 +37,7 @@
                         {% endif %}
                     {% endif %}
                     {% if subtitle %}
-                        {% if subtitle_animation.element_animation %}
+                        {% if subtitle_animation.enable_animation %}
                             {% set animation_type  = subtitle_animation.animation_type %}
                             {% set animation_duration  = subtitle_animation.animation_duration %}
                             {% set animation_delay  = subtitle_animation.animation_delay %}
@@ -48,7 +48,7 @@
                         
                     {% endif %}
                     {% if link %}
-                        {% if link_animation.element_animation %}
+                        {% if link_animation.enable_animation %}
                             {% set animation_type  = link_animation.animation_type %}
                             {% set animation_duration  = link_animation.animation_duration %}
                             {% set animation_delay  = link_animation.animation_delay %}

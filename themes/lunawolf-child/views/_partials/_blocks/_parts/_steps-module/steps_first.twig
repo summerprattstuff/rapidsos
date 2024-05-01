@@ -1,4 +1,5 @@
 {% set steps  = block.steps %}
+{% set arrow_anim = block.steps_arrow_animation %}
 
 <div class="m__steps__wrapper">
     <div class="m__steps__wrap m__steps__full">
@@ -18,17 +19,36 @@
         {% endfor %}
     </div>
     <div class="m__steps__wrap m__steps__onlyText">
+    {% if arrow_anim.enable_animation %}
+        {% set animation_type  = arrow_anim.animation_type %}
+        {% set animation_duration  = arrow_anim.animation_duration %}
+        {% set animation_delay  = arrow_anim.animation_delay %}
+        <div class="appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    {% else %}
+        <div>
+    {% endif %}
         {% for step in steps %}
             {% set img         = step.step_img %}
             {% set banner_text = step.step_text %}
+            {% set banner_anim = step.step_text_animation %}
 
             {% if img %}
                 <div class="m__steps__blockWrap">
                     <div class="m__steps__blockWrap__banner m__steps__banner -bot">
-                        <div class="m__wyswyg m__steps__blockWrap__banner__text">{{ banner_text }}</div>
+                        {% if banner_anim.enable_animation %}
+                            {% set animation_type  = banner_anim.animation_type %}
+                            {% set animation_duration  = banner_anim.animation_duration %}
+                            {% set animation_delay  = banner_anim.animation_delay %}
+                            <div class="m__wyswyg m__steps__blockWrap__banner__text appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                        {% else %}
+                            <div class="m__wyswyg m__steps__blockWrap__banner__text">
+                        {% endif %}
+                            {{ banner_text }}
+                            </div>
                     </div>
                 </div>
             {% endif %}
         {% endfor %}
+        </div>
     </div>
 </div>

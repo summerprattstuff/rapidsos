@@ -51,9 +51,21 @@
             {% set column_width   = column.column_width %}
             {% set column_media   = column.media %}
             {% set column_form    = column.form %}
+            {% set column_anim    = column.column_animation %}
 
-            <div class="m__columns__column _m6{{ column_width ? ' ' ~ column_width }}">
-              <div class="m__columns__column__inner">
+            {% if column_width %}
+              <div class="m__columns__column {{column_width}}">
+            {% else %}
+              <div class="m__columns__column _m6">
+            {% endif %}
+              {% if column_anim.enable_animation %}
+                    {% set animation_type  = column_anim.animation_type %}
+                    {% set animation_duration  = column_anim.animation_duration %}
+                    {% set animation_delay  = column_anim.animation_delay %}
+                  <div class="m__columns__column__inner appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                {% else %}
+                    <div class="m__columns__column__inner">
+                {% endif %}
                 {% include '_partials/_blocks/_columns-layout/' ~ column_layout ~ '.twig' with {
                   column: column
                 } %}

@@ -59,6 +59,16 @@
       background: white;
       clip-path: polygon(92% 0%, 100% 50%, 92% 100%, 0% 100%, 0% 50%, 0% 0%);
       z-index: -1;
+      
+      @include media-up(m) {
+        left: -5px;
+        right: -5px;
+      }
+
+      @include media-up(l) {
+        left: -10px;
+        right: -10px;
+      }
     }
 
     @include media-down(m) {
@@ -129,7 +139,11 @@
   &__onlyText {
     display: none;
 
-    @include media-up(m) {
+    >div {
+      display: flex;
+    }
+
+    @include media-up(m) { 
       display: flex;
       position: absolute;
       top: 50%; left: 0;

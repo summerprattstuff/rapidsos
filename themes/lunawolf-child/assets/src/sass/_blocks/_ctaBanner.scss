@@ -7,6 +7,27 @@
     padding: 75px 67px;
   }
 
+  .color-white .btn {
+    background: transparent !important;
+    color: #fff !important;
+    &:hover {
+      opacity: 1;
+      background: #29A7DD !important;
+      border-color: #29A7DD !important;
+    }
+  }
+
+  .color-primary .btn {
+    background: transparent !important;
+    border-color: #001559 !important;
+    color: #001559 !important;
+    &:hover {
+      opacity: 1;
+      background: #29A7DD !important;
+      border-color: #29A7DD !important;
+    }
+  }
+
   &.-gradient {
     background: linear-gradient(97.03deg, #29A7DD 0%, #001559 92.23%);
   }
