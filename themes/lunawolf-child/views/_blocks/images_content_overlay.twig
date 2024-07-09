@@ -13,14 +13,14 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__imagesContentOverlay appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__imagesContentOverlay appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__imagesContentOverlay">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__imagesContentOverlay">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
   
     <div class="wrapper">
-      <div class="container color-{{ text_color ?: 'primary' }}">
+      <div class="container color-{{ text_color|e('html_attr') ?: 'primary' }}">
         <div class="_w">
           {% for row in images %}
             {% set column_width = row.column_width %}
@@ -28,10 +28,10 @@
             {% set desc         = row.description %}
 
             <div class="m__imagesContentOverlay__img _m6{{ column_width ? ' ' ~ column_width }}">
-              <div class="m__imagesContentOverlay__img__inner" style="background-image: url({{ image ? get_image(image) : theme.link ~ '/public/images/rapid-sos.png' }})">
+              <div class="m__imagesContentOverlay__img__inner" style="background-image: url({{ image ? get_image(image) : theme.link ~ '/public/images/rapid-sos.png'|e('esc_url') }})">
                 {% if desc %}
                   <div class="m__imagesContentOverlay__text">
-                    {{ desc }}
+                    {{ desc|e('esc_html') }}
                   </div>
                 {% endif %}
               </div>

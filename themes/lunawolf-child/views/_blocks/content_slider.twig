@@ -1,7 +1,9 @@
 {% set load_latest    = block.load_latest_resources %}
 {% set number         = block.number_of_resources %}
 {% set content_slider = block.content_slider %}
+{% set heading = block.heading %}
 {% set latest_posts   = false %}
+{% set bg_color = settings.bg_color %}
 
 {% set section_animation  = settings['section_animation'] %}
 
@@ -16,20 +18,34 @@
 {% endif %}
 
 {% if (load_latest and latest_posts) or content_slider | length %}  
+{% if (load_latest and latest_posts) %}
+  {% set adClass = latest_posts|length > 3 ? 'is-active' ~ '' %}
+{% else %}
+  {% set adClass = content_slider|length > 3 ? 'is-active' ~ '' %}
+{% endif %}
   {% if section_animation  %}
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__contentSlider appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__contentSlider appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__contentSlider">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__contentSlider">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
+        <style>
+          #{{ settings.block_id|e('esc_html') }} .swiper:before,
+          #{{ settings.block_id|e('esc_html') }} .swiper:after {
+            background: {{bg_color}};
+          }
+        </style>
   
-    <div class="wrapper color-{{ text_color ?: 'primary' }}">
+    <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
       <div class="content">
+        {% if heading %}
+          <h2 class="m__contentSlider__title _center">{{heading|e('esc_html')}}</h2>
+        {% endif %}
         <div class="contentSlider__wrapper">
-          <div class="swiper js-testimonialSlider">
+          <div class="swiper js-testimonialSlider {{adClass|e('html_attr')}}">
             <div class="swiper-wrapper">
               {% if load_latest and latest_posts %}
                 {% for slide in latest_posts %}
@@ -47,6 +63,7 @@
                 {% endfor %}
               {% endif %}
             </div>
+            <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
           </div>

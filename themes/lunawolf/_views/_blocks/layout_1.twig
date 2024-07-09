@@ -5,7 +5,7 @@
   {{ dump(settings) }}
 {% endif %}
 
-<section id="{{ settings.block_id }}">
+<section id="{{ settings.block_id|e('html_attr') }}">
   <div class="test">
     <div><h3>{{ text }}</h3></div>
     <div><img src="{{ image }}" alt=""></div>

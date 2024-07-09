@@ -6,6 +6,22 @@
     padding: 90px 0;
   }
 
+  &__quote_img {
+    width: 40px;
+    position: absolute;
+    top: -20px; left: 0;
+    pointer-events: none;
+    object-fit: contain;
+
+    @include media-up(m) {
+      width: 50px;
+    }
+
+    @include media-up(l) {
+      width: 90px;
+    }
+  }
+
   .testimonial {
     position: relative;
 
@@ -25,16 +41,11 @@
   }
 
   &__quote {
-    font-size: 20px;
+    font-size: 20px;   
 
     @include media-up(m) {
-      font-size: 34px;
-      line-height: 45px;
-    }
-
-    @include media-up(l) {
-      font-size: 38px;
-      line-height: 55px;
+      font-size: 24px;
+      line-height: 36px;
     }
 
     .-preview & {
@@ -47,11 +58,25 @@
     align-items: center;
     flex-wrap: wrap;
 
+    >img {
+      max-width: 80px;
+      margin-right: 20px;
+    }
+
     &:not(:first-child) {
       margin-top: 20px;
 
       @include media-up(m) {
         margin-top: 30px;
+      }
+    }
+
+    h4 {
+      font-size: 18px;
+      line-height: 24px;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
       }
     }
 

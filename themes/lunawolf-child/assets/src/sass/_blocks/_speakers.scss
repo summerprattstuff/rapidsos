@@ -11,7 +11,7 @@
   &__list {
     margin-top: 20px;
 
-    @include media-down(m) {
+    @include media-down(l) {
       gap: 23px 0;
     }
 

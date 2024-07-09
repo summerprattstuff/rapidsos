@@ -7,9 +7,9 @@ ul.social {
   margin: 0;
   padding: 0;
 
-  @include media-up(m) {
-    gap: 12px 24px;
-  }
+  // @include media-up(m) {
+  //   gap: 12px 24px;
+  // }
 
   a {
     transition: .2s;

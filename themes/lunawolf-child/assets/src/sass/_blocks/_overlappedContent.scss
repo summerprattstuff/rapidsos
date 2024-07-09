@@ -154,7 +154,7 @@
       text-overflow: ellipsis;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
-      text-wrap: balance;
+      // text-wrap: balance;
 
       @include media-up(xs) {
         width: 80%;

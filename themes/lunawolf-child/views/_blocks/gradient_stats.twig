@@ -14,21 +14,21 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__gradStats appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__gradStats appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__gradStats">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__gradStats">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
     
-        <div class="wrapper color-{{ text_color ?: 'primary' }}">
+        <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
             <div class="_w">
                 {% for stat in gradStats %}
                     {% set number = stat.count_number %}
                     {% set desc = stat.desc %}
                     <div class="m__gradStats__block _m4">
                         <div class="m__gradStats__stat">
-                            <div class="m__gradStats__numb" title="{{ number }}">{{ number }}</div>
-                            <div class="m__desc m__gradStats__desc">{{ desc }}</div>
+                            <div class="m__gradStats__numb" title="{{ number|e('html_attr') }}">{{ number|e('esc_html') }}</div>
+                            <div class="m__desc m__gradStats__desc">{{ desc|e('esc_html') }}</div>
                         </div>
                     </div>
                 {% endfor %}

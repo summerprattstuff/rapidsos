@@ -6,11 +6,15 @@
     .wrapper {
         position: relative;
         z-index: 1;
+
+        @include media-up(m) {
+            max-width: 90%;
+        }
     }
 
-    p {
-        font-size: 16px;
-    }
+    // p {
+    //     font-size: 16px;
+    // }
 
     h2 {
         margin-bottom: 15px;
@@ -27,7 +31,7 @@
         position: fixed;
         left: 0;
         right: 0;
-        top: 123px;
+        top: 0;
         background-repeat: no-repeat;
 
         img {
@@ -66,8 +70,7 @@
 
     svg {
         width: 100%;
-        margin-top: -15px;
-        margin-bottom: -15px;
+        margin-bottom: -5px;
     }
 
     &__title, &__date {
@@ -75,6 +78,7 @@
     }
 
     &__title {
+        margin-bottom: 15px;
         font-size: 60px;
         line-height: 1;
 
@@ -101,7 +105,7 @@
 .intro__report {
     border-top: 2px solid #E82629;
     border-bottom: 2px solid #E82629;
-    padding-top: 40px;
+    padding-top: 60px;
     padding-bottom: 40px;
 
     >.wrapper {
@@ -125,7 +129,7 @@
     padding-bottom: 50px;
 
     &__sub__wrapper {
-        margin-top: 60px;
+        margin-top: 80px;
     }
 
     &__sub__image {
@@ -153,17 +157,18 @@
         }
 
         &__heading {
-            font-size: 20px;
+            margin-bottom: 15px;
+            font-size: 16px;
             line-height: 1.2;
             font-weight: 400;
-            margin-bottom: 20px;
         }
 
         &__item:not(:last-child) {
-            margin-bottom: 20px;
+            margin-bottom: 12px;
         }
 
         &__item {
+            font-size: 12px;
             span {
                 font-size: 14px;
                 line-height: 20px;
@@ -222,5 +227,11 @@
 
     >.wrapper {
         padding: 0;  
+    }
+}
+
+.intro__report, .con__report, .ref__report {
+    >.wrapper {
+        max-width: 88%;
     }
 }

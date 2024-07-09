@@ -18,19 +18,19 @@
     {% set animation_type  = settings.animation_type %}
     {% set animation_duration  = settings.animation_duration %}
     {% set animation_delay  = settings.animation_delay %}
-<section class="m__popup appear-animate animated-{{animation_duration}}" id="{{ settings.block_id }}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+<section class="m__popup appear-animate animated-{{animation_duration|e('html_attr')}}" id="{{ settings.block_id|e('html_attr') }}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
 {% else %}
-<section id="{{ settings.block_id }}" class="m__popup">
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__popup">
 {% endif %}
     {% include '_components/settings_overlay.twig' %}
-    <div class="wrapper color-{{ text_color ?: 'primary' }}">
+    <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
         <div class="heading-wrapper">
             {% if section_title %}
                 {% if title_animation.enable_animation %}
                     {% set animation_type  = title_animation.animation_type %}
                     {% set animation_duration  = title_animation.animation_duration %}
                     {% set animation_delay  = title_animation.animation_delay %}
-                    <h2 class="m_title m__popup__title appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ section_title }}</h2>
+                    <h2 class="m_title m__popup__title appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">{{ section_title }}</h2>
                 {% else %}
                     <h2 class="m_title m__popup__title">{{ section_title }}</h2>
                 {% endif %}
@@ -42,7 +42,7 @@
                         {% set animation_type  = desc_animation.animation_type %}
                         {% set animation_duration  = desc_animation.animation_duration %}
                         {% set animation_delay  = desc_animation.animation_delay %}
-                        <p class="m_desc m__popup__desc appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ section_desc }}</p>
+                        <p class="m_desc m__popup__desc appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">{{ section_desc }}</p>
                     {% else %}
                         <p class="m_desc m__popup__desc">{{ section_desc }}</p>
                     {% endif %}
@@ -55,9 +55,9 @@
                 {% set animation_type  = items_animation.animation_type %}
                 {% set animation_duration  = items_animation.animation_duration %}
                 {% set animation_delay  = items_animation.animation_delay %}
-                <div class="grid m__popups__wrap m__popups__full {{wrapper_class}} appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                <div class="grid m__popups__wrap m__popups__full {{wrapper_class|e('html_attr')}} appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
             {% else %}
-                <div class="grid m__popups__wrap m__popups__full {{wrapper_class}}">
+                <div class="grid m__popups__wrap m__popups__full {{wrapper_class|e('html_attr')}}">
             {% endif %}
             
                 {% for popup in popups %}
@@ -77,13 +77,13 @@
                             {% if img %}
                                 <div>
                                     <a href="#" class="m__pitem__img">
-                                        <img src="{{ img.url }}" alt="{{ title }}" />
+                                        <img src="{{ img.url|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
                                     </a>
                                 </div>
                             {% endif %}
                             
                             <h2 class="m__pitem__title">
-                                <a href="#" style="color: #001559;">{{title}}</a>
+                                <a href="#" style="color: #001559;">{{title|e('esc_html')}}</a>
                             </h2>
                             <div>
                                 <a href="#" class="m__pitem__link">Read story</a>
@@ -92,22 +92,23 @@
                                 <div class="modal-content">
                                     <div class="images-row grid grid-xl-cols-2 grid-cols-1">
                                         <div>
-                                            <h1>{{title}}</h1>
+                                            <h2 style="margin-bottom: 20px;">{{title|e('esc_html')}}</h2>
                                             <div>
-                                                <div><strong>Location: </strong> {{location}}</div>
-                                                <strong>Industry: </strong> {{industry}}
+                                                <div style="margin-bottom: 5px;"><strong>Location: </strong> {{location|e('esc_html')}}</div>
+                                                <strong>Industry: </strong> {{industry|e('esc_html')}}
                                             </div>
                                         </div>
                                         <div>
-                                            <img src="{{ img.url }}" alt="{{ title }}" />
+                                            <img src="{{ img.url|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
                                         </div>
                                     </div>       
                                     <div class="description-row">
                                         <div style="margin-bottom: 20px;">
-                                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39 32" width="39" height="32"><defs><image width="39" height="32" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAgCAMAAACmeJG/AAAAAXNSR0IB2cksfwAAAfhQTFRFAAAAFGynFG2rFGupE2qnEFiPDlWVDlWTDlOSEHCfFG+sFG6rFG2qFGmoEFaWD1eVD1aUDlOSEFCPFXCqFXCtFG+sE2ypEGinDlmYD1iWD1eVDVWUFXOxFHGuFXCtE22qEGqqEFiXEFmYD1mXDlSTFnSxFXKvFXGuFW6rEFuZEFqYEFWVFnazFnSwFHCrEF2aEFuZD1mWEFiTFnWxFHCtEF2cEFyaD1qXEFqVFXW1FnayFHKtEV2cEF2bEFaZGHivFne0FHOwEF6fEV6cEFqXFni1FnezFnOwGHCvEGCfEV+dEFuaFXq1F3i0FXKvEGCdF3u2FnaxEGCbEWCeEF2bF3q2FnWyEmKfEGCXFnu3FnavEGCfEWGfEFycF3q3FHSvE2KfEF2bEmOgF3u2FnSxEmOgEF2bF3q2FXOwFXKtFHCrFWqqEmKgEFuZEFqXEFiXDFiTF3y2E26sFG6rD1WWDVWSF3u3E2upFWqlDlSUE2uoDlKSE2qnE2qnDlKSDFCPFnm2E2mmDlGPE2mmEGWlE2OgDlGPEICvEGijEmKfDlKRFny2DlGRGHi3EGGeF3i1EmqoEWCeDVKPFnm0FGinDVOTFGqnEGCdCFCPEHCvFnaxE22qD1SUFHKwFHGvFHCuEm2rEFybEFqaEFuYEFiYD1iXDlWXEFSTWpgJAAAAAKh0Uk5TAEC//2Agn//fEK///3BQ7///EDDf/+8gj///n1/v/98wIL//oH///6Df/2B//4Df/+9A/4Df/+8wMP+Av/9QIN+vf/+An//fICD/nzD/YK+/30D/j/+fnyCfUBD/z99AYLCfcIDP75CfYEAw/3BgYECv33+/YL/fMI/vj/+f/0Cg75D/ML+wEECA36/PIJCQz+9gz0C/gGAgEKDvv6+/v3BAkL+/v5BA1PK1xQAAAhZJREFUeJxt1E9IVEEcB/D5QovuolviiJISiXgJrwVBJAQdhAXDS5kUUUTpGlQHK/AglKxhf4T+IRRh/4gQgiIoiIJAkAgPhXQKE+zg5RHb9mZn2qDfm6dv/rRzenz5zJ83v5kBsxqoVZjXUhSWGUyQpkBkfnksG4UIjGsEQmSw6rIWSgX/YcZro34hx3dHtUd9Qx4EieskJhqXhctqIUM0LEZLj5MuSIhNn90527NQMosFlriuGiVR/8ljHErVY54lbiekkk1z3p/uolTxDyxx3TS84u89tkenb5lxe1GSHK9d1qPneMWMy0GWZOsLb7jeP1IVi0uW2/dXlpqfe6wPQqrmWWZcLl2WpbZnnttfIdf61HL9FXJbn7hsgHZdbn7ILHdYkOuccd2RCrkt9y2XS7Mq7qjy3bFi5Lbddd1xQa7j92PjTgSRk9tBp/RWEg//JKeKu+lIPgi0O7OiHdVXiEN4FB+/gQbtqG50Xg5iktzIknEh8piIXE+H5UJxtuA7ce7e6v8uMzTuuwu4WMWdAsYWXZeaEN76IrdhbV+Mq8EoDTj+1XW1KCx4LnWe3OUvrqsDm/xYxen6Wi4LdnXedTf1Fl6b8+Zl7Po72/HT8U7veGM7Tq5Q99JyLcNx5frKlruUT+7RmrsxtF7iO7OJw9RJfS+nMR27qUHruTrwDbG7MpK8G90be4H87UH33ZiBbv30+Q/LsrjlaHAnLwAAAABJRU5ErkJggg=="></image></defs><style></style><use href="#img1" x="0" y="0"></use></svg>
+                                            {# <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39 32" width="39" height="32"><defs><image width="39" height="32" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAgCAMAAACmeJG/AAAAAXNSR0IB2cksfwAAAfhQTFRFAAAAFGynFG2rFGupE2qnEFiPDlWVDlWTDlOSEHCfFG+sFG6rFG2qFGmoEFaWD1eVD1aUDlOSEFCPFXCqFXCtFG+sE2ypEGinDlmYD1iWD1eVDVWUFXOxFHGuFXCtE22qEGqqEFiXEFmYD1mXDlSTFnSxFXKvFXGuFW6rEFuZEFqYEFWVFnazFnSwFHCrEF2aEFuZD1mWEFiTFnWxFHCtEF2cEFyaD1qXEFqVFXW1FnayFHKtEV2cEF2bEFaZGHivFne0FHOwEF6fEV6cEFqXFni1FnezFnOwGHCvEGCfEV+dEFuaFXq1F3i0FXKvEGCdF3u2FnaxEGCbEWCeEF2bF3q2FnWyEmKfEGCXFnu3FnavEGCfEWGfEFycF3q3FHSvE2KfEF2bEmOgF3u2FnSxEmOgEF2bF3q2FXOwFXKtFHCrFWqqEmKgEFuZEFqXEFiXDFiTF3y2E26sFG6rD1WWDVWSF3u3E2upFWqlDlSUE2uoDlKSE2qnE2qnDlKSDFCPFnm2E2mmDlGPE2mmEGWlE2OgDlGPEICvEGijEmKfDlKRFny2DlGRGHi3EGGeF3i1EmqoEWCeDVKPFnm0FGinDVOTFGqnEGCdCFCPEHCvFnaxE22qD1SUFHKwFHGvFHCuEm2rEFybEFqaEFuYEFiYD1iXDlWXEFSTWpgJAAAAAKh0Uk5TAEC//2Agn//fEK///3BQ7///EDDf/+8gj///n1/v/98wIL//oH///6Df/2B//4Df/+9A/4Df/+8wMP+Av/9QIN+vf/+An//fICD/nzD/YK+/30D/j/+fnyCfUBD/z99AYLCfcIDP75CfYEAw/3BgYECv33+/YL/fMI/vj/+f/0Cg75D/ML+wEECA36/PIJCQz+9gz0C/gGAgEKDvv6+/v3BAkL+/v5BA1PK1xQAAAhZJREFUeJxt1E9IVEEcB/D5QovuolviiJISiXgJrwVBJAQdhAXDS5kUUUTpGlQHK/AglKxhf4T+IRRh/4gQgiIoiIJAkAgPhXQKE+zg5RHb9mZn2qDfm6dv/rRzenz5zJ83v5kBsxqoVZjXUhSWGUyQpkBkfnksG4UIjGsEQmSw6rIWSgX/YcZro34hx3dHtUd9Qx4EieskJhqXhctqIUM0LEZLj5MuSIhNn90527NQMosFlriuGiVR/8ljHErVY54lbiekkk1z3p/uolTxDyxx3TS84u89tkenb5lxe1GSHK9d1qPneMWMy0GWZOsLb7jeP1IVi0uW2/dXlpqfe6wPQqrmWWZcLl2WpbZnnttfIdf61HL9FXJbn7hsgHZdbn7ILHdYkOuccd2RCrkt9y2XS7Mq7qjy3bFi5Lbddd1xQa7j92PjTgSRk9tBp/RWEg//JKeKu+lIPgi0O7OiHdVXiEN4FB+/gQbtqG50Xg5iktzIknEh8piIXE+H5UJxtuA7ce7e6v8uMzTuuwu4WMWdAsYWXZeaEN76IrdhbV+Mq8EoDTj+1XW1KCx4LnWe3OUvrqsDm/xYxen6Wi4LdnXedTf1Fl6b8+Zl7Po72/HT8U7veGM7Tq5Q99JyLcNx5frKlruUT+7RmrsxtF7iO7OJw9RJfS+nMR27qUHruTrwDbG7MpK8G90be4H87UH33ZiBbv30+Q/LsrjlaHAnLwAAAABJRU5ErkJggg=="></image></defs><style></style><use href="#img1" x="0" y="0"></use></svg> #}
+                                            <img class="m__pitem__quote_img" src="{{ theme.link ~ '/public/images/quotes.png'|e('esc_url') }}" alt="Quote Image" width="146" height="127">
                                         </div>
                                         <div>{{desc}}</div>
-                                        <div style="gap: 20px; margin-top: 30px;">
+                                        <div style="gap: 20px; margin-top: 30px;" class="m__pitem__address">
                                             {% if mark %}
                                             <img style="height: 75px; width: 75px" src="{{mark.url}}" alt="Image" />
                                             {% endif %}
@@ -132,13 +133,13 @@
                             {% if video_bg %} 
                                 <div>
                                     <a href="#" class="m__pitem__img">
-                                        <img src="{{ video_bg.url }}" alt="{{ title }}" />
+                                        <img src="{{ video_bg.url }}" alt="{{ title|e('html_attr') }}" />
                                     </a>
                                 </div>
                             {% endif %}
                             
                             <h2 class="m__pitem__title">
-                                <a href="#" style="color: #001559;">{{title}}</a>
+                                <a href="#" style="color: #001559;">{{title|e('esc_html')}}</a>
                             </h2>
                             <div>
                                 <a href="#" class="m__pitem__link">Watch Video</a>
@@ -148,17 +149,17 @@
                                     {% if video_type == 'yv' and video %}
                                         <div>
                                             {% if video_url %}
-                                                <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+                                                <div id="video-{{ blockId|e('html_attr') }}" class="js-heroVideo" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url|e('esc_url') }}"></div>
                                             {% elseif video_file %}
-                                                <video id="video-{{ blockId }}" style="width: 100%;" playsinline controls data-poster="{{ get_image(bg_image) }}">
-                                                    <source src="{{ video_file.url }}" type="video/mp4" />
+                                                <video id="video-{{ blockId|e('html_attr') }}" style="width: 100%;" playsinline controls data-poster="{{ get_image(bg_image)|e('esc_url') }}">
+                                                    <source src="{{ video_file.url|e('esc_url') }}" type="video/mp4" />
                                                 </video>
                                             {% endif %}
                                         </div>
                                     {% else %}
                                         {% if video_code %}
-                                        <div id="video-{{ blockId }}" style="width: 100%;">
-                                            {{video_code}}
+                                        <div id="video-{{ blockId|e('html_attr') }}" style="width: 100%;">
+                                            {{video_code|e('wp_kses_post')}}
                                         </div>
                                         {% endif %}
                                     {% endif %}

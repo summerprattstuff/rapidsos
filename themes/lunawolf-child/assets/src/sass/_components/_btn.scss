@@ -45,9 +45,15 @@
     border-color: transparent;
 
     &:hover {
-      background: $white;
-      color: $primary;
-      border-color: $primary;
+      background: $light_blue;
+      color: $white;
+      border-color: $light_blue;
+    }
+
+    .btnWrapper &:hover {
+      color: $white;
+      border-color: $light_blue;
+      background: $light_blue;
     }
   }
 
@@ -57,10 +63,19 @@
     border: none;
     text-decoration: underline;
     padding: 0;
+    line-height: 1.7;
 
     &:hover {
       color: rgba(#001559, .7) !important;
       background: none !important;
+    }
+  }
+
+  &.-lightBlue {
+    &:hover {
+      background: $light_blue;
+      color: $white;
+      border-color: $light_blue;
     }
   }
 }

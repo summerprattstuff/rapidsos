@@ -16,51 +16,94 @@
 <div class="m__hero__secondary">
     {% if bg_image %}
         <div class="m__hero__secondary__imgWrapper">
-            <div class="m__hero__secondary__img" style="background-image: url({{ get_image(bg_image) }})"></div>
+            {# <div class="m__hero__secondary__img" style="background-image: url({{ get_image(bg_image)|e('esc_url') }})"></div> #}
+            <div class="m__hero__secondary__image">
+                <img src="{{get_image(bg_image)|e('esc_url')}}" alt="Image" />
+            </div>
         </div>
     {% endif %}
-    <div class="wrapper color-{{ text_color ?: 'primary' }}">
+    <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
         <div class="_w">
-            <div class="m__hero__secondary__left _l5">
+            <div class="m__hero__secondary__left _l6">
                 <div class="m__hero__secondary__left__box">
                     <div class="m__hero__secondary__left__inner">
-                        {% if title %}
-                            {% if title_anim.enable_animation %}
-                                {% set animation_type  = title_anim.animation_type %}
-                                {% set animation_duration  = title_anim.animation_duration %}
-                                {% set animation_delay  = title_anim.animation_delay %}
-                                <h1 class="m_title title appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ title }}</h1>
-                            {% else %}
-                                <h1 class="m_title title">{{ title }}</h1>
-                            {% endif %}
-                        {% endif %}
                         {% if subtitle %}
                             {% if sub_anim.enable_animation %}
                                 {% set animation_type  = sub_anim.animation_type %}
                                 {% set animation_duration  = sub_anim.animation_duration %}
                                 {% set animation_delay  = sub_anim.animation_delay %}
-                                <p class="subtitle appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ subtitle }}</p>
+                                <p class="subtitle appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">{{ subtitle|e('esc_html') }}</p>
                             {% else %}
-                                <p class="subtitle">{{ subtitle }}</p>
+                                <p class="subtitle">{{ subtitle|e('esc_html') }}</p>
                             {% endif %}                            
+                        {% endif %}
+                        {% if title %}
+                            {% if title_anim.enable_animation %}
+                                {% set animation_type  = title_anim.animation_type %}
+                                {% set animation_duration  = title_anim.animation_duration %}
+                                {% set animation_delay  = title_anim.animation_delay %}
+                                <h1 class="m_title title appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">{{ title|e('esc_html') }}</h1>
+                            {% else %}
+                                <h1 class="m_title title heading">{{ title|e('esc_html') }}</h1>
+                            {% endif %}
                         {% endif %}
                         {% if ctas %}
                             {% if ctas_anim.enable_animation %}
                                 {% set animation_type  = ctas_anim.animation_type %}
                                 {% set animation_duration  = ctas_anim.animation_duration %}
                                 {% set animation_delay  = ctas_anim.animation_delay %}
-                                <div class="m__ctas m__hero__secondary__left__inner__ctas appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                                <div class="m__ctas m__hero__secondary__left__inner__ctas appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
                             {% else %}
                                 <div class="m__ctas m__hero__secondary__left__inner__ctas">
                             {% endif %}
                             
                                 {% for row in ctas %}
                                     {% set link = row.cta %}
+                                    {% set enable = row.enable_popup_content %}
 
+                                    {% if enable %}
+                                    {% set popup_content = row.popup_content %}
+                                    {% set video_type = popup_content.popup_video_type %}
+                                    {% set video_file = popup_content.popup_video_file %}
+                                    {% set video_url = popup_content.popup_video_url %}
+                                    {% set video_code = popup_content.popup_video_code %}
+                                    {% set video = video_file or video_url %}  
+
+                                    <div class="btn-popup-wrapper">
+                                        {# <div class="btn-popup-link"> #}
+                                        {% include '_components/_advanced_link.twig' with {
+                                            link: link,
+                                            class: 'btn-popup-link -outline'
+                                        } %}
+                                        {# </div> #}
+                                        <div class="btn-popup-content mfp-hide">
+                                            <div class="modal-content">
+                                                {% if video_type == 'yv' and video %}
+                                                    <div>
+                                                        {% if video_url %}
+                                                            <div id="video-{{ blockId|e('html_attr') }}" class="js-heroVideo" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url|e('esc_url') }}"></div>
+                                                        {% elseif video_file %}
+                                                            <video id="video-{{ blockId|e('html_attr') }}" style="width: 100%;" playsinline controls data-poster="{{ get_image(bg_image)|e('esc_url') }}">
+                                                                <source src="{{ video_file.url|e('esc_url') }}" type="video/mp4" />
+                                                            </video>
+                                                        {% endif %}
+                                                    </div>
+                                                {% else %}
+                                                    {% if video_code %}
+                                                    <div id="video-{{ blockId|e('html_attr') }}" style="width: 100%;">
+                                                        {{video_code|e('wp_kses_post')}}
+                                                    </div>
+                                                    {% endif %}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% else %}
                                     {% include '_components/_advanced_link.twig' with {
                                         link: link,
                                         class: '-outline'
                                     } %}
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         {% endif %}
@@ -69,9 +112,13 @@
             </div>
             <div class="m__hero__secondary__right _l7">
                 <div class="m__hero__secondary__right__inner">
-                    {% if bg_image %}
+                    {% if bg_image_mobile %}
                         <div class="m__hero__secondary__right__inner__wrapImg">
-                            <div class="m__hero__secondary__right__inner__bgImg" style="background-image: url({{ get_image(bg_image) }})"></div>
+                            <div class="m__hero__secondary__right__inner__bgImg" style="background-image: url({{ get_image(bg_image_mobile)|e('esc_url') }})"></div>
+                        </div>
+                    {% else %}
+                        <div class="m__hero__secondary__right__inner__wrapImg">
+                            <div class="m__hero__secondary__right__inner__bgImg" style="background-image: url({{ get_image(bg_image)|e('esc_url') }})"></div>
                         </div>
                     {% endif %}
                 </div>

@@ -14,29 +14,32 @@
 {% set section_animation  = settings['section_animation'] %}
 
 {% set text_color  = settings.text_color %}
+{% set bg_color = settings.bg_color %}
+
+{% set text_color = (bg_color == '#F1F1F1' or bg_color == '#fff' ) ? text_color : 'white' %}
 
 {% if title or link %}
-    {% if section_animation  %}
-        {% set animation_type  = settings.animation_type %}
-        {% set animation_duration  = settings.animation_duration %}
-        {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__ctaBanner{{ bgColor ? ' -gradient' }} appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
-    {% else %}
-    <section id="{{ settings.block_id }}" class="m__ctaBanner{{ bgColor ? ' -gradient' }}">
-    {% endif %}
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__ctaBanner{{ bgColor ? ' -gradient' }}">
     {% include '_components/settings_overlay.twig' %}
-        <div class="wrapper color-{{ text_color ?: 'primary' }}">
+        {% if section_animation  %}
+            {% set animation_type  = settings.animation_type %}
+            {% set animation_duration  = settings.animation_duration %}
+            {% set animation_delay  = settings.animation_delay %}
+            <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }} appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+        {% else %}
+            <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
+        {% endif %}
             <div class="content">
                 {% if title %}
                     {% if title_animation.enable_animation %}
                         {% set animation_type  = title_animation.animation_type %}
                         {% set animation_duration  = title_animation.animation_duration %}
                         {% set animation_delay  = title_animation.animation_delay %}
-                        <div class="titleWrapper -center appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                        <div class="titleWrapper -center appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
                     {% else %}
                         <div class="titleWrapper -center">
                     {% endif %}
-                        <h2 class="m__ctaBanner__title">{{ title }}</h2>
+                        <h2 class="m__ctaBanner__title">{{ title|e('esc_html') }}</h2>
                     </div>
                 {% endif %}
                 {% if subtitle %}
@@ -44,9 +47,9 @@
                         {% set animation_type  = subtitle_animation.animation_type %}
                         {% set animation_duration  = subtitle_animation.animation_duration %}
                         {% set animation_delay  = subtitle_animation.animation_delay %}
-                        <h3 class="m__ctaBanner__subtitle appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ subtitle }}</h3>
+                        <h3 class="m__ctaBanner__subtitle appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">{{ subtitle|e('esc_html') }}</h3>
                     {% else %}
-                        <h3 class="m__ctaBanner__subtitle">{{ subtitle }}</h3>
+                        <h3 class="m__ctaBanner__subtitle">{{ subtitle|e('esc_html') }}</h3>
                     {% endif %}
                 {% endif %}
                 {% if link %}
@@ -54,7 +57,7 @@
                         {% set animation_type  = link_animation.animation_type %}
                         {% set animation_duration  = link_animation.animation_duration %}
                         {% set animation_delay  = link_animation.animation_delay %}
-                        <div class="btnWrapper appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                        <div class="btnWrapper appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
                     {% else %}
                         <div class="btnWrapper">
                     {% endif %}

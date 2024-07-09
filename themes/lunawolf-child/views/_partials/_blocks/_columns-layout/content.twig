@@ -1,24 +1,24 @@
 {% set column_content = column.content %}
 {% set label_above    = column_content['label_above'] %}
 {% set image    = column_content['image'] %}
-{% set title          = column_content['title'] %}
+{% set title          = column_content['title'] %}  
 {% set subtitle       = column_content['subtitle'] %}
 {% set link           = column_content['link'] %}
 
 <div class="m__columns__column__content">
   {% if label_above %}
-    <p class="m__columns__column__content__labelAbove">{{ label_above }}</p>
+    <p class="m__columns__column__content__labelAbove">{{ label_above|e('esc_html') }}</p>
   {% endif %}
   {% if image %}
     <div class="m__columns__column__content__img">
-      <img src="{{ get_image(image) }}" alt="Image" />
+      <img src="{{ get_image(image)|e('esc_url') }}" alt="Image" />
     </div>
   {% endif %}   
   {% if title %}
-    <h1 class="m__columns__column__content__title">{{ title }}</h1>
+    <h2 class="m__columns__column__content__title">{{ title|e('esc_html') }}</h2>
   {% endif %}
   {% if subtitle %}
-    <div class="m__columns__column__content__subtitle m__wyswyg ">{{ subtitle }}</div>
+    <div class="m__columns__column__content__subtitle m__wyswyg ">{{ subtitle|e('wp_kses_post') }}</div>
   {% endif %}
   {% if link %}
     <div class="m__columns__column__content__btnWrapper btnWrapper">

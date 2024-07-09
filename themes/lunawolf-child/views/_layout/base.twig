@@ -14,12 +14,26 @@
 </head>
 <body class="{{ body_class }}{{ bodyClass ? ' ' ~ bodyClass }}">
   {{ function('wp_body_open') }}
+  {% set top_banner = options['top_banner'] %}
+  {% set top_banner_title = top_banner['top_banner_title'] %}
+  {% set top_banner_link = top_banner['top_banner_link'] %}
+  {% set p_pages = options['popup_pages'] %}  
+
+{# {% if top_banner_title or top_banner_link %}
   <div id="page" class="site --notification">
+  {% else %} #}
+  <div id="page" class="site">
+  {# {% endif %} #}
+  {# <div class="header-temp"></div> #}
     {# Header #}
     {% include "_layout/_header.twig" %}
 
+
     <div id="content" class="site__content">
       <div id="main" role="main" class="site__main main">
+        {% if not is_home %}
+            <div class="top-gradient"></div>
+          {% endif %}
         <div class="page__content">
           {% block content %}{% endblock %}
         </div>
@@ -29,6 +43,11 @@
     {# Footer #}
     {% include "_layout/_footer.twig" %}
   </div>
+
+  {% if post.ID in p_pages %}        
+    {% include "_layout/_newsletter.twig" %}
+  {% endif %}
+  
   {{ function('wp_footer') }}
 </body>
 </html>

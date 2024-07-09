@@ -32,7 +32,7 @@
 .m__desc {
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .titleWrapper {
@@ -81,6 +81,7 @@
 }
 
 .site {
+  padding: 0 !important;
   padding-top: 84px;
 
   @include media-up(xl) {
@@ -88,7 +89,15 @@
   }
 
   &.--notification {
-    padding-top: 150px;
+    padding-top: 127px;
+
+    @media (max-width: 734px) {
+      padding-top: 154px;
+    }
+
+    @media (max-width: 395px) {
+      padding-top: 181px;
+    }
 
     @include media-up(xl) {
       padding-top: 157px;

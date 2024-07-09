@@ -41,8 +41,9 @@
   }
 
   &__desc {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1.7;
     color: $text-color-primary;
-    text-wrap: balance;
+    // text-wrap: balance;
   }
 }

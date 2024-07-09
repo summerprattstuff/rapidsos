@@ -1,0 +1,53 @@
+{% set s_title = block.title %}
+{% set s_subtitle = block.subtitle %}
+{% set videos  = block.medias %}
+
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
+{% if not is_preview %}
+    {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if section_animation  %}
+    {% set animation_type  = settings.animation_type %}
+    {% set animation_duration  = settings.animation_duration %}
+    {% set animation_delay  = settings.animation_delay %}
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__mediaCarousel appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+{% else %}
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__mediaCarousel">
+{% endif %}
+        {% include '_components/settings_overlay.twig' %}
+    <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
+        {% if s_title %}
+            <h4 class="m__mediaCarousel__title">{{ s_title|e('esc_html') }}</h4>
+        {% endif %}
+        {% if s_subtitle %}
+            <p class="m__mediaCarousel__subtitle">{{ s_subtitle|e('esc_html') }}</p>
+        {% endif %}
+        {% if videos %}
+            <div class="m__mediaCarousel__wrapper">
+                <div class="swiper js-videoSlider3">
+                    <div class="swiper-wrapper">
+                        {% for item in videos %}
+                            {% set image    = item.image %}
+
+                            <div class="swiper-slide">
+                                <div class="m__mediaCarousel__item">
+                                    <img src="{{get_image(image)|e('esc_url')}}" alt="Image" />
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
+</section>

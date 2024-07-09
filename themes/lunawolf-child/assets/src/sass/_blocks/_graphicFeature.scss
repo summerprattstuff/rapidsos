@@ -31,20 +31,19 @@
 
   &__bottom {
     text-align: center;
-    text-wrap: balance;
+    // text-wrap: balance;
     color: inherit;
 
     &:not(:first-child) {
       margin-top: 30px;
     }
 
-    &__desc {
-
-      p {
-        font-weight: 700;
-        line-height: 36px;
-      }
-    }
+    // &__desc {
+    //   p {
+    //     font-weight: 700;
+    //     line-height: 36px;
+    //   }
+    // }
   }
 
   .btnWrapper {

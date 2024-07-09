@@ -23,15 +23,15 @@
                 <div class="hero__podcast__left__box">
                     <div class="hero__podcast__left__inner">
                         <div class="titleWrapper">
-                            <h1 class="title">{{ customTitle ? customTitle : title }}</h1>
+                            <h1 class="title heading">{{ customTitle ? customTitle|e('esc_html') : title|e('esc_html') }}</h1>
                         </div>
                         {% if subtitle %}
-                            <h2 class="subtitle">{{ subtitle }}</h2>
+                            <h2 class="subtitle">{{ subtitle|e('esc_html') }}</h2>
                         {% endif %}
                         {% if logos %}
                         <div class="logos__block">
                             {% for logo in logos %}
-                                <img class="img" src="{{ get_image(logo) }}" alt="" >
+                                <img class="img" src="{{ get_image(logo)|e('esc_url') }}" alt="" >
                             {% endfor %}
                         </div>
                         {% endif %}
@@ -39,7 +39,7 @@
                             <span class="duration">{{ duration }}</span>
                         {% endif %}
                         {% if desc %}
-                            <p class="desc">{{ desc }}</p>
+                            <p class="desc">{{ desc|e('esc_html') }}</p>
                         {% endif %}
                         {% if links %}
                             <div class="btnWrapper">
@@ -66,10 +66,10 @@
                     {% if heroVideo %}
                         <div class="hero__podcast__right__inner__video">
                             {% if heroVideoUrl %}
-                                <div id="video-{{ blockId }}" class="js-cardVideo" data-plyr-provider="{{ 'youtu' in heroVideoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ heroVideoUrl }}"></div>
+                                <div id="video-{{ blockId|e('html_attr') }}" class="js-cardVideo" data-plyr-provider="{{ 'youtu' in heroVideoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ heroVideoUrl }}"></div>
                             {% endif %}
                             {% if heroVideoFile %}
-                                <video id="video-{{ blockId }}" class="js-cardVideo" playsinline controls data-poster="{{ get_image(heroImg) }}">
+                                <video id="video-{{ blockId|e('html_attr') }}" class="js-cardVideo" playsinline controls data-poster="{{ get_image(heroImg) }}">
                                     <source src="{{ heroVideoFile.url }}" type="video/mp4" />
                                 </video>
                             {% endif %}

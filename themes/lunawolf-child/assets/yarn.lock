@@ -9402,6 +9402,11 @@ regjsparser@^0.9.1:
   dependencies:
     jsesc "~0.5.0"
 
+rellax@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/rellax/-/rellax-1.12.1.tgz#1b433ef7ac4aa3573449a33efab391c112f6b34d"
+  integrity sha512-XBIi0CDpW5FLTujYjYBn1CIbK2CJL6TsAg/w409KghP2LucjjzBjsujXDAjyBLWgsfupfUcL5WzdnIPcGfK7XA==
+
 remove-accents@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/remove-accents/-/remove-accents-0.5.0.tgz#77991f37ba212afba162e375b627631315bed687"

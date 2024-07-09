@@ -3,15 +3,15 @@
 {% set thumbnail    = post.thumbnail %}
 {% set author       = post.author %}
 
-<section class="m__ptHero -{{ postType }}">
+<section class="m__ptHero -{{ postType|e('html_attr') }}">
   <div class="wrapper">
     <div class="container">
-      <h1>{{ post.title }}</h1>
+      <h1 class="heading">{{ post.title|e('esc_html') }}</h1>
       {% if author %}
-        <p>by {{ author.display_name }}</p>
+        <p>by {{ author.display_name|e('esc_html') }}</p>
       {% endif %}
       {% if thumbnail %}
-        <img src="{{ thumbnail.src | resize(820) }}" alt="{{ thumbnail.caption }}" />
+        <img src="{{ thumbnail.src | resize(820)|e('esc_url') }}" alt="{{ thumbnail.caption|e('html_attr') }}" />
       {% endif %}
       <div class="socialShare">
         {% include '_components/socialShare.twig' %}

@@ -5,7 +5,7 @@
 {% endif %}
 
 {% if image_gallery | length %}
-    <section id="{{ settings.block_id }}" class="m__imgGallery">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__imgGallery">
         <div class="wrapper">
             {% if image_gallery %}
                 <div class="m__imgGallery__images">

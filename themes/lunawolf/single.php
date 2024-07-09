@@ -13,6 +13,8 @@ $context            = Timber::context();
 $timber_post        = Timber::get_post();
 $context['post']    = $timber_post;
 $context['content'] = get_flexible('content');
+$context['is_home'] = is_singular('data-insight-report');
+$context['enable_post_layout'] = get_field_object('enable_new_layout') ? get_field_object('enable_new_layout')['value'] : false;
 
 if ( post_password_required( $timber_post->ID ) ) {
 	Timber::render( 'single-password.twig', $context );

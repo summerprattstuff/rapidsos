@@ -1,0 +1,55 @@
+{% set postType    = post.post_type %}
+{% set title       = post.title %}
+{% set logo        = post.meta.logo %}
+{% set customTitle = post.meta.custom_title %}
+{% set subtitle    = post.meta.subtitle %}
+{% set links       = post.meta('links') %}
+{% set heroImg     = post.meta.hero_img %}
+
+<section class="hero__cs">
+    <div class="wrapper">
+        <div class="postTag">
+            <span>Blog</span>
+        </div>
+        <div class="_w">
+            <div class="hero__cs__left _m6">
+                <div class="hero__cs__left__box">
+                    <div class="hero__cs__left__inner">
+                        {% if logo %}
+                            <div class="logoWrapper">
+                                <img src="{{ get_image(logo)|e('esc_url') }}" alt="">
+                            </div>
+                        {% endif %}
+                        <div class="titleWrapper">
+                            <h1 class="title heading">{{ customTitle ? customTitle|e('esc_html') : title|e('esc_html') }}</h1>
+                        </div>
+                        {% if subtitle %}
+                            <h2 class="subtitle">{{ subtitle|e('esc_html') }}</h2>
+                        {% endif %}
+                        {% if links %}
+                            <div class="btnWrapper">
+                                {% for item in links %}
+                                    {% set link = item.h_link %}
+
+                                    {% include '_components/_advanced_link.twig' with {
+                                        link: link,
+                                        class: loop.index == 1 ? '-outline -dark' : '-outline'
+                                    } %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% include '_components/socialShare.twig' %}
+                    </div>
+                </div>
+            </div>
+            <div class="hero__cs__right _m6">
+                {% if heroImg %}
+                    <div class="hero__cs__right__wrapImg">
+                        {# <div class="hero__cs__right__bgImg" style="background-image: url({{ get_image(heroImg) }})"></div> #}
+                        <img src="{{get_image(heroImg)|e('esc_url')}}" alt="Single Image" />
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

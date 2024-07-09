@@ -2,5 +2,5 @@
 {% set opacity  = settings.bg_opacity %}
 
 <div class="overlayBg{{ bg_color and bg_color == 'lg_bg_color' ? ' -linear'}}" style="
-{{ bg_color and bg_color != 'lg_bg_color' ? 'background: ' ~ bg_color ~ ';' }}
-        {{ opacity or opacity == 0 ? 'opacity: ' ~ opacity ~ ';' }}"></div>
+{{ bg_color and bg_color != 'lg_bg_color' ? 'background: ' ~ bg_color|e('html_attr') ~ ';' }}
+        {{ opacity or opacity == 0 ? 'opacity: ' ~ opacity|e('html_attr') ~ ';' }}"></div>

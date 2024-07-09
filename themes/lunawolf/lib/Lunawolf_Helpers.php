@@ -67,7 +67,7 @@ class Lunawolf_Helpers {
 
     $share_icons = [
       'fb' => get_stylesheet_directory_uri() . '/public/social/social-fb.svg',
-      'x' => get_stylesheet_directory_uri() . '/public/social/social-x.svg', 
+      'x' => get_stylesheet_directory_uri() . '/public/social/social-x.svg',
       'ln' => get_stylesheet_directory_uri() . '/public/social/social-li.svg',
       'ml' => get_stylesheet_directory_uri() . '/public/social/social-email.svg',
     ];

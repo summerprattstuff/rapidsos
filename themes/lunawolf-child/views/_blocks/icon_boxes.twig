@@ -13,25 +13,24 @@
 {% endif %}
 
 {% if icon_boxes %}
-    {% if section_animation  %}
-        {% set animation_type  = settings.animation_type %}
-        {% set animation_duration  = settings.animation_duration %}
-        {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__iconBoxes appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
-    {% else %}
-    <section id="{{ settings.block_id }}" class="m__iconBoxes">
-    {% endif %}
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__iconBoxes">
         {% include '_components/settings_overlay.twig' %}
-    
-        <div class="wrapper color-{{ text_color ?: 'primary' }}">
+        {% if section_animation  %}
+            {% set animation_type  = settings.animation_type %}
+            {% set animation_duration  = settings.animation_duration %}
+            {% set animation_delay  = settings.animation_delay %}
+            <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }} appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+        {% else %}
+            <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
+        {% endif %}
             {% if s_title %}
                 <div class="titleWrapper -center">
-                    <h1 class="m__iconBoxes__stitle">{{ s_title }}</h1>
+                    <h2 class="m__iconBoxes__stitle heading">{{ s_title|e('esc_html') }}</h2>
                 </div>
             {% endif %}
             {% if s_subtitle %}
                 <div class="subtitleWrapper">
-                    <h3 class="m__iconBoxes__subtitle">{{ s_subtitle }}</h3>
+                    <p class="m__iconBoxes__subtitle">{{ s_subtitle|e('esc_html') }}</p>
                 </div>
             {% endif %}
             <div class="m__iconBoxes__wrapper">
@@ -41,20 +40,26 @@
                         {% set title = icon_box.title %}
                         {% set desc  = icon_box.desc %}
                         {% set link  = icon_box.link %}
+                        {% set enable_col_num  = block.set_column_num %}
 
-                        <div class="m__iconBoxes__box{{ count > 2 ? ' _l4' : ' _m6' }}">
+                        {% if enable_col_num %}
+                            {% set col_width  = block.column_width %}
+                            <div class="m__iconBoxes__box {{col_width}}">
+                        {% else %}
+                            <div class="m__iconBoxes__box{{ count > 2 ? ' _l4' : ' _m6' }}">
+                        {% endif %}
                             <div class="m__iconBoxes__box__inner">
                                 {% if icon %}
                                     <div class="m__iconBoxes__box__iconWrapper">
-                                        <img class="icon" src="{{ get_image(icon) }}" alt="">
+                                        <img class="icon" src="{{ get_image(icon)|e('esc_url') }}" alt="">
                                     </div>
                                 {% endif %}
                                 <div class="m__iconBoxes__box__inner__content">
                                     {% if title %}
-                                        <h2 class="m__iconBoxes__box__title">{{ title }}</h2>
+                                        <h2 class="m__iconBoxes__box__title">{{ title|e('esc_html') }}</h2>
                                     {% endif %}
                                     {% if desc %}
-                                        <div class="m__wyswyg m__desc m__iconBoxes__box__desc">{{ desc }}</div>
+                                        <div class="m__wyswyg m__desc m__iconBoxes__box__desc">{{ desc|e('wp_kses_post') }}</div>
                                     {% endif %}
                                     {% if link %}
                                         <div class="btnWrapper">

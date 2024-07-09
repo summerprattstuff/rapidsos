@@ -1,13 +1,72 @@
-{% if items %}
-	<ul class="menu{{ submenu ? ' -submenu' }}">
-    {% for item in items %}
-      <li class="{{ item.classes | join(' ') }}">
-        <a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
-        {% include "_partials/_menu.twig" with {
-          items: item.children,
-          submenu: true
-        } %}
-      </li>
-    {% endfor %}
-	</ul>
+{% if enable_new_nav %}
+  {% if items %}
+    {# <div> #}
+      <ul class="menu megamenu">
+        {% for item in items %}
+          <li class="menu-item">
+            {% set link_title = item.nav_link %}
+            {% set box_items = item.box_items %}
+            {% set enable_extra_box = item.enable_extra_box %}
+            <a class="{{box_items ? 'has-child' : ''}}">{{ link_title }}</a>
+            {% if box_items %}
+            {% set box_title = item.box_title %}
+              <div class="menu -submegamenu {{enable_extra_box ? '-extrabox' : ''}}" style="display: none">
+                {% if enable_extra_box and item.extra_image and item.extra_label and item.extra_title %}
+                <div class="menu-item-extrabox">
+                    {% if item.extra_image %}
+                      <img src="{{get_image(item.extra_image)|e('esc_url')}}" alt="Image" />
+                    {% endif %}
+                    {% if item.extra_label %}
+                      <div class="menu-item-extrabox-label" style="margin-top: 20px">{{item.extra_label|e('esc_html')}}</div>
+                    {% endif %}
+                    {% if item.extra_title %}
+                      <h5 class="menu-item-extrabox-title">{{item.extra_title|e('esc_html')}}</h5>
+                    {% endif %}
+                    {% if item.extra_subtitle %}
+                      <p class="menu-item-extrabox-subtitle" style="margin-top: 0;">{{item.extra_subtitle|e('esc_html')}}</p>
+                    {% endif %}
+                    {% if item.extra_button %}
+                      <a href="{{item.extra_button.url}}" class="btn -outline" style="display: inline-block; margin-top: 15px; line-height: 1">{{item.extra_button.title}}</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+                <div class="menu-item-contentbox appear-animate" data-settings="{'_animation':'fadeIn','_animation_delay': 0}">
+                  {% if box_title %}
+                    <h4>{{ box_title|e('esc_html') }}</h4>
+                  {% endif %}
+                  {% if box_items %}
+                    <div class="_w">
+                      {% for box_item in box_items %}
+                        {% set title = box_item.box_item_title %}
+                        {% set url = box_item.secondary_link %}
+                        {% set desc = box_item.box_item_description %}
+                        <div class="_m6 menu-item-box">
+                          <a href="{{url|e('esc_url')}}">{{title|e('esc_html')}}</a>
+                          <a class="menu-item-desc" href="{{url|e('esc_url')}}">{{desc|e('esc_html')}}</a>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {# </div> #}
+  {% endif %}
+{% else %}
+  {% if items %}
+    <ul class="menu{{ submenu ? ' -submenu' }}">
+      {% for item in items %}
+        <li class="{{ item.classes | join(' ') }}">
+          <a target="{{ item.target }}" href="{{ item.link }}" class="has-child">{{ item.title }}</a>
+          {% include "_partials/_menu.twig" with {
+            items: item.children,
+            submenu: true
+          } %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 {% endif %}

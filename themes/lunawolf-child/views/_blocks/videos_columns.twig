@@ -1,4 +1,5 @@
 {% set s_title = block.s_title %}
+{% set s_subtitle = block.s_subtitle %}
 {% set videos  = block.videos %}
 {% set columns  = block.video_columns %}
 {% set count   = videos | length %}
@@ -16,16 +17,21 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__videosColumns appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__videosColumns appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__videosColumns">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__videosColumns">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
     
-        <div class="wrapper color-{{ text_color ?: 'primary' }}">
+        <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
             {% if s_title %}
                 <div class="titleWrapper -short -center">
-                    <h4 class="m__videosColumns__sTitle">{{ s_title }}</h4>
+                    <h2 class="m__videosColumns__sTitle">{{ s_title|e('esc_html') }}</h2>
+                </div>
+            {% endif %}
+            {% if s_subtitle %}
+                <div style="text-align: center">
+                    <p class="m__videosColumns__sSubtitle">{{ s_subtitle|e('esc_html') }}</p>
                 </div>
             {% endif %}
             <div class="m__videosColumns__wrapper">
@@ -47,32 +53,32 @@
                         <div class="m__videosColumns__box {{ columns }}">
                             <div class="m__videosColumns__box__inner">
                                 {# {% if video %} #}
-                                    <div class="m__videosColumns__box__inner__top">
+                                    <div class="m__videosColumns__box__inner__top" style="height: 100%;">
                                         {% if videoType == 'yv' and video %}
                                             {% if videoUrl %}
                                             <div class="m__dynamicMedia__video">
                                                 {% if videoUrl %}
-                                                <div id="video-{{ settings.block_id }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ loop.index }}" data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl }}"></div>
+                                                    <div id="video-{{ settings.block_id|e('html_attr') }}" class="js-cardVideoColumn" data-video="{{ settings.block_id|e('html_attr') }}-{{ loop.index|e('html_attr') }}  " data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl|e('esc_url') }}"></div>
                                                 {% endif %}
                                             </div>
                                             {% else %}
-                                            <video id="video-{{ settings.block_id }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ loop.index }}" playsinline controls data-poster="{{ get_image(videoPosterv) }}">
-                                                <source src="{{ videoFile.url }}" type="video/mp4" />
+                                            <video id="video-{{ settings.block_id|e('html_attr') }}" class="js-cardVideoColumn" data-video="{{ settings.block_id|e('html_attr') }}-{{ loop.index|e('html_attr') }}  " playsinline controls data-poster="{{ get_image(videoPosterv)|e('esc_url') }}">
+                                                <source src="{{ videoFile.url|e('esc_url') }}" type="video/mp4" />
                                             </video>
                                             {% endif %}
                                         {% else %}
                                             {% if videoCode %}
-                                            <div id="video-{{ settings.block_id }}" style="width: 100%;" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ loop.index }}">
-                                                {{videoCode}}
+                                            <div id="video-{{ settings.block_id|e('html_attr') }}" style="width: 100%;" data-video="{{ settings.block_id|e('html_attr') }}-{{ loop.index|e('html_attr') }}  ">
+                                                {{videoCode|e('wp_kses_post')}}
                                             </div>
                                             {% endif %}
                                         {% endif %}
                                         {# {% if videoUrl %}
-                                          <div id="video-{{ blockId }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ videoCount }}" data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl }}"></div>
+                                          <div id="video-{{ blockId|e('html_attr') }}" class="js-cardVideoColumn" data-video="{{ settings.block_id|e('html_attr') }}-{{ videoCount }}" data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl|e('esc_url') }}"></div>
                                         {% endif %}
                                         {% if videoFile %}
-                                            <video id="video-{{ blockId }}" class="js-cardVideoColumn" data-video="{{ settings.block_id }}-{{ videoCount }}" playsinline controls data-poster="{{ get_image(videoPoster) }}">
-                                                <source src="{{ videoFile.url }}" type="video/mp4" />
+                                            <video id="video-{{ blockId|e('html_attr') }}" class="js-cardVideoColumn" data-video="{{ settings.block_id|e('html_attr') }}-{{ videoCount }}" playsinline controls data-poster="{{ get_image(videoPoster) }}">
+                                                <source src="{{ videoFile.url|e('esc_url') }}" type="video/mp4" />
                                             </video>
                                         {% endif %} #}
                                     </div>
@@ -86,30 +92,32 @@
                                 <div class="m__videosColumns__box__inner__bottom">
                                     {% if logo %}
                                         <div class="logoWrapper">
-                                            <img src="{{ get_image(logo) }}" alt="">
+                                            <img src="{{ get_image(logo)|e('esc_url') }}" alt="">
                                         </div>
                                     {% endif %}
                                     {# {% if industry %}
                                         <div class="industry">
                                             <p class="iLabel">Industry: </p>
-                                            <p class="iContent">{{ industry }}</p>
+                                            <p class="iContent">{{ industry|e('esc_html') }}</p>
                                         </div>
                                     {% endif %} #}
                                     {% if videoContent %}
                                         <p class="content">{{ videoContent }}</p>
                                     {% endif %}
-                                    {% if customLink %}
-                                        <div class="m__videosColumns__box__inner btnWrapper">
-                                            {% include '_components/_advanced_link.twig' with {
-                                                link: customLink,
-                                                class: '-simpleLink',
-                                            } %}
-                                        </div>
-                                    {% else %}
-                                        <div class="m__videosColumns__box__inner btnWrapper">
-                                            <a class="btn -simpleLink js-videoColumnTrigger" href="{{ videoUrl }}" data-video-trigger="{{ settings.block_id }}-{{ loop.index }}">Watch video</a>
-                                        </div>
-                                    {% endif %}
+                                    {# {% if videoType == 'yv' and video %}
+                                        {% if customLink %}
+                                            <div class="m__videosColumns__box__inner btnWrapper">
+                                                {% include '_components/_advanced_link.twig' with {
+                                                    link: customLink,
+                                                    class: '-simpleLink',
+                                                } %}
+                                            </div>
+                                        {% else %}
+                                            <div class="m__videosColumns__box__inner btnWrapper">
+                                                <a class="btn -simpleLink js-videoColumnTrigger" href="{{ videoUrl|e('esc_url') }}" data-video-trigger="{{ settings.block_id|e('html_attr') }}-{{ loop.index|e('html_attr') }}  ">Watch video</a>
+                                            </div>
+                                        {% endif %}
+                                    {% endif %} #}
                                 </div>
                             </div>
                         </div>

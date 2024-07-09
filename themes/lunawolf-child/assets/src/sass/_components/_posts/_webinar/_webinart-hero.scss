@@ -3,13 +3,14 @@
 
   .wrapper {
     position: relative;
+    z-index: 10;
   }
 
   &__form__image {
-    margin-bottom: 15px;
+    margin-bottom: 32px;
 
     img {
-      max-width: 200px;
+      max-width: 300px;
     }
   }
 
@@ -26,20 +27,20 @@
       &__box {
         position: relative;
 
-        &:before {
-          position: absolute;
-          content: '';
-          top: 70%; left: 0;
-          height: 100%; width: 100%;
-          background: linear-gradient(0deg, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
-          transform: rotate(180deg);
-          z-index: 1;
+        // &:before {
+        //   position: absolute;
+        //   content: '';
+        //   top: 70%; left: 0;
+        //   height: 100%; width: 100%;
+        //   background: linear-gradient(0deg, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%);
+        //   transform: rotate(180deg);
+        //   z-index: 1;
 
-          @include media-up(l) {
-            transform: rotate(90deg);
-            top: 0; left: 55%;
-          }
-        }
+        //   @include media-up(l) {
+        //     transform: rotate(90deg);
+        //     top: 0; left: 55%;
+        //   }
+        // }
 
         &__inner {
           position: relative;
@@ -107,6 +108,12 @@
       left: 50%; top: 0; bottom: 0;
       width: 50%;
 
+      @media (min-width: 1920px) {
+        max-width: 1920px;
+        left: 50% !important;
+        transform: translateX(-50%);
+      }
+
       @include media-down(l) {
         display: none;
       }
@@ -115,23 +122,34 @@
     &__img {
       position: absolute;
       left: 0; top: 0; right: 0; bottom: 0;
-      background: 50% / cover no-repeat;
+      // background: 50% / cover no-repeat;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right 0 top;
     }
   }
 
   &__bottom {
 
+    .wrapper {
+      @include media-up(l) {
+        max-width: 1200px;
+      }
+    }
+
     &__left {
+      padding-bottom: 30px;
 
       @include media-up(l) {
         padding-right: 46px;
+        padding-top: 24px;
       }
     }
 
     .desc {
       margin-top: 30px;
-      font-size: 16px;
-      line-height: 24px;
+      // font-size: 16px;
+      // line-height: 24px;
 
       @include media-up(l) {
         margin-top: 0;
@@ -165,7 +183,7 @@
         &__inner {
           position: relative;
           padding: 40px;
-          height: 560px; //example
+          // height: 560px; //example
           border-radius: 20px;
           box-shadow: 4px 4px 10px 0 #00000040;
           background: $white;
@@ -195,7 +213,7 @@
     &:before {
       position: absolute;
       content: '';
-      top: 0; left: -3000px; right: 0; bottom: 0;
+      top: 0; left: -30px; right: 0; bottom: 0;
       background-color: $white;
       border-radius: 10px;
       box-shadow: 4px 4px 10px 0 #00000040;

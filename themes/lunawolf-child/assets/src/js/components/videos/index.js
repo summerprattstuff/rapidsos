@@ -58,7 +58,7 @@ export default () => {
 
     cardVideosColumn.forEach(video => {
       const dataVideo = video.dataset.video;
-      const videoTrigger = document.querySelector(`.js-videoColumnTrigger[data-video-trigger="${dataVideo}"]`);
+      // const videoTrigger = document.querySelector(`.js-videoColumnTrigger[data-video-trigger="${dataVideo}"]`);
 
       const player = new Plyr(video, {
         controls: [
@@ -68,19 +68,19 @@ export default () => {
         muted: false,
       });
 
-      player.on('pause', () => {
-        videoTrigger.textContent = 'Watch video';
-      });
+      // player.on('pause', () => {
+      //   videoTrigger.textContent = 'Watch video';
+      // });
 
-      player.on('play', () => {
-        videoTrigger.textContent = 'Pause video';
-      });
+      // player.on('play', () => {
+      //   videoTrigger.textContent = 'Pause video';
+      // });
 
-      videoTrigger.addEventListener('click', function (e) {
-        e.preventDefault();
+      // videoTrigger.addEventListener('click', function (e) {
+      //   e.preventDefault();
 
-        player.togglePlay();
-      });
+      //   player.togglePlay();
+      // });
     });
   })();
 
@@ -97,6 +97,41 @@ export default () => {
       player.on('ready', () => {
         player.play();
       })
+    })
+  })();
+
+  (() => {
+    let cardVideos = document.querySelectorAll('.js-videoCarousel');
+
+    cardVideos.forEach(video => {
+      let hasAutoplay = false;
+
+      const player = new Plyr(video, {
+        controls: !hasAutoplay ? [
+          'play-large', 'play', 'progress', 'current-time', 'mute', 'volume', 'captions', 'settings', 'pip', 'airplay', 'fullscreen'
+        ] : false,
+        autoplay: hasAutoplay,
+        muted: hasAutoplay
+      });
+
+      player.on('ready', () => {
+        if (hasAutoplay) {
+          player.play();
+        }
+      })
+
+      if (hasAutoplay) {
+        document.addEventListener('click', () => {
+          if (!player.playing) {
+            player.play();
+          }
+        }, { once: true });
+        window.addEventListener('scroll', () => {
+          if (!player.playing) {
+            player.play();
+          }
+        }, { once: true });
+      }
     })
   })();
 }

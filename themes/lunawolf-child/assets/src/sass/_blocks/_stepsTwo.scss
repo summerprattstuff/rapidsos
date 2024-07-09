@@ -22,9 +22,12 @@
       @include media-up(s) {
         display: block;
         position: absolute;
-        top: 305px; left: 50%;
+        top: 305px;
+        // top: 374px;
+        left: 50%;
         transform: translateX(-50%);
         z-index: 0;
+        width: 100%;
       }
 
       @include media-up(m) {
@@ -39,7 +42,7 @@
   }
 
   &__wrap {
-    overflow: hidden;
+    // overflow: hidden;
 
     @include media-up(s) {
       display: flex;
@@ -102,6 +105,16 @@
       .m__stepsTwo__blockWrap__imgWrap {
 
         &:after {
+          background-color: #235592;
+        }
+      }
+    }
+
+    &:nth-child(3) {
+
+      .m__stepsTwo__blockWrap__imgWrap {
+
+        &:after {
           background-color: #001559;
         }
       }
@@ -141,8 +154,11 @@
 
       &.video {
         height: 100%; 
-        min-height: 320px; 
-        max-height: 320px;
+        
+        @include media-up(s) {
+          min-height: 320px; 
+          max-height: 320px;
+        }        
 
         video {
           width: 100%; 
@@ -194,6 +210,10 @@
 
       &__text {
         font-size: 20px;
+
+        p:not(:last-child) {
+          margin-bottom: 5px;
+        }
 
         &:not(:first-child) {
           margin-top: 10px;

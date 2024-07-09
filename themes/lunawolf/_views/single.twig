@@ -7,10 +7,10 @@
 {% set content   = post.content %}
 
 {% block content %}
-  <article class="postType-{{ postType }}" id="post-{{ id }}">
+  <article class="postType-{{ postType }}" id="post-{{ id }}">=
     <img src="{{ thumbnail.src | resize(1200, 300) }}" alt="{{ thumbnail.caption }}" />
     <section class="article-content">
-      <h1>{{ title }}</h1>
+      <h2>{{ title|e('esc_html') }}</h2>
       <div class="redactor">
         {{ content }}
       </div>

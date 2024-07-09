@@ -15,17 +15,17 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__podcastContent appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__podcastContent appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__podcastContent">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__podcastContent">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
     
-        <div class="wrapper -limit color-{{ text_color ?: 'primary' }}">
+        <div class="wrapper -limit color-{{ text_color|e('html_attr') ?: 'primary' }}">
             <div class="content">
                 {% if sTitle %}
                     <div class="titleWrapper">
-                        <h2 class="title">{{ sTitle }}</h2>
+                        <h2 class="title">{{ sTitle|e('esc_html') }}</h2>
                     </div>
                 {% endif %}
                 <div class="m__podcastContent__blocks">
@@ -36,8 +36,8 @@
 
                             <div class="m__podcastContent__blocks__blocksWrapper{{ count == 3 ? ' _m4' : ' _m6'}}">
                                 <div class="m__podcastContent__blocks__blocksWrapper__inner">
-                                    <h2 class="value">{{ value }}</h2>
-                                    <p class="desc">{{ description }}</p>
+                                    <h2 class="value">{{ value|e('esc_html') }}</h2>
+                                    <p class="desc">{{ description|e('esc_html') }}</p>
                                 </div>
                             </div>
                         {% endfor %}

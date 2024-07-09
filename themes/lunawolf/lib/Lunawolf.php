@@ -11,7 +11,7 @@ use Timber\Site;
 class Lunawolf extends Site {
 	protected $settings;
 	protected $helpers;
-  protected $layout_count = 1;
+  	protected $layout_count = 1;
 
 	public function __construct() {
 		$this->settings = Lunawolf_Settings::instance();
@@ -28,12 +28,130 @@ class Lunawolf extends Site {
 		add_filter( 'acfe/flexible/render/template', [$this, 'acfe_preview_override_timber'], 10, 4 );
 //		add_filter( 'acfe/flexible/render/style', [$this, 'acfe_style_path'], 10, 4 );
 		add_filter( 'acfe/flexible/enqueue', [$this, 'acfe_style_path_enqueue'], 10, 4 );
-    add_filter( 'acfe/flexible/thumbnail', [$this, 'acfe_custom_layout_path'], 10, 3);
-    add_filter( 'acf/fields/wysiwyg/toolbars', [$this, 'custom_wysiwyg_toolbars'], 10, 4 );
+		add_filter( 'acfe/flexible/thumbnail', [$this, 'acfe_custom_layout_path'], 10, 3);
+		add_filter( 'acf/fields/wysiwyg/toolbars', [$this, 'custom_wysiwyg_toolbars'], 10, 4 );
+
+		add_action( 'wp_ajax_loadmore', [$this, 'loadmore'] );
+		add_action( 'wp_ajax_nopriv_loadmore', [$this, 'loadmore'] );
 
 		parent::__construct();
 
-		$this->load_components();
+			$this->load_components();
+	}
+
+	public function loadmore() {
+		
+		if(isset( $_POST['args'] )) {
+			$args  = $_POST['args'];
+			$props = $_POST['props'];
+			$cpt   = isset( $_POST['cpt'] ) && $_POST['cpt'] ? $_POST['cpt'] : 'post';
+			$paged = $args['paged'];
+			$post_type = $cpt;
+			$taxonomy = $_POST['taxonomy'];
+			
+			if($taxonomy) {
+				$term_ids = $_POST['terms'];
+				$posts = Timber::get_posts([
+					'post_type'      => $post_type,
+					'paged'          => $paged,
+					'posts_per_page' => 6,
+					'post_status'    => 'publish',
+					'tax_query' => array(
+						array(
+							'taxonomy' => $taxonomy,
+							'field'    => 'term_id',
+							'terms' => $term_ids
+						)
+					),
+				]);
+
+				$total_posts = Timber::get_posts([
+					'post_type'      => $post_type,
+					'posts_per_page' => -1,
+					'post_status'    => 'publish',
+					'tax_query' => array(
+						array(
+							'taxonomy' => $taxonomy,
+							'field'    => 'term_id',
+							'terms' => $term_ids
+						)
+					),
+				]);
+
+				$num = intval(count($total_posts));
+
+			} else {
+				$posts = Timber::get_posts([
+					'post_type'      => $post_type,
+					'paged'          => $paged,
+					'posts_per_page' => 6,
+					'post_status'    => 'publish',
+				]);
+
+				$post_count = wp_count_posts($cpt);
+				$num = $post_count->publish;
+			}			
+			
+			if($posts) {
+				$end = (intval($paged) * 6) >= $num ? true : false;
+				$html = '';
+
+				ob_start();
+
+				foreach($posts as $post) {
+					$post_id = $post->ID;
+					$title = $post->post_title;
+					$post_link = get_permalink($post_id);
+					$featured_image_url = esc_url(get_the_post_thumbnail_url($post_id));
+					$industry = get_post_meta($post_id, 'industry', true);
+					
+					$logo = get_post_meta($post_id, 'logo', true);
+					$hero_img = get_post_meta($post_id, 'hero_img', true);
+
+					?>
+					<article class="tease tease-post _ptCard" id="<?php echo $post_id; ?>">
+						<div class="inner">
+							<div>
+								<a href="<?php echo esc_url($post_link); ?>" class="slide-image">
+									<?php if($featured_image_url) : ?>
+										<img src="<?php echo esc_url($featured_image_url); ?>" alt="Image" />
+									<?php else : ?>
+										<img class="_ptCard__plch" src="<?php echo get_stylesheet_directory_uri() . '/public/images/rapid-sos.png'; ?>" alt="{{ title }}" />
+									<?php endif; ?>
+								</a>
+							</div>
+							<?php if($logo): ?>
+								<div class="logoWrapper">
+									<a href="<?php echo esc_url($post_link); ?>"><img src="<?php echo esc_url(wp_get_attachment_url($logo)); ?>" alt="Logo Image"></a>
+								</div>
+							<?php endif; ?>
+							<?php if($industry): ?>
+								<p>Industry: <span><?php echo $industry ?></span></p>
+							<?php endif; ?>
+							<p class="_ptCard__title">
+								<?php echo $title; ?>
+							</p>
+							<a href="<?php echo esc_url($post_link); ?>">
+								Read more
+							</a>
+							</div>
+					</article>
+					<?php
+
+				}
+
+				$html = ob_get_clean();
+				
+				if($html) {
+					wp_send_json_success(['html'=> $html, 'end'=> $end]);
+				} else {
+					wp_send_json_error();
+				}
+			}
+
+		}
+
+		die;
 	}
 
 	/**
@@ -169,7 +287,8 @@ class Lunawolf extends Site {
 				'posts' => json_encode( $wp_query->query_vars ),
 				'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
 				'max_page' => $wp_query->max_num_pages,
-				'found_posts' => $wp_query->found_posts
+				'found_posts' => $wp_query->found_posts,
+				'nonce'       => wp_create_nonce( 'alpha-admin' )
 			) );
 
 			wp_enqueue_script( 'lunawolf-script-min' );
@@ -252,38 +371,54 @@ class Lunawolf extends Site {
 		$context['settings'] = $this->settings->settings($settings, $this->layout_count);
 		
 		if($name == 'resource_module') {
-			
 			$post_type = $context['block']['post_types'];
-			$terms = $context['block']['taxonomies'];
+			$terms = $context['block'][''.$post_type.'_taxonomies'];
+			$taxonomy = 'category';
+			$term_ids = array();
+
+			if(is_array($terms)) {
+				foreach($terms as $item) {
+					$taxonomy = $item->taxonomy;
+					array_push($term_ids, $item->term_id);
+				}
+			}
+			
 			$page = get_query_var('paged');
 			if (!$page) {
 				$page = 1;
 			}
+			
 			if($terms && is_array($terms)) {
 				$context['posts'] = Timber::get_posts([
 					'post_type' => $post_type,
 					'tax_query' => array(
 						array(
-							'taxonomy' => 'category',
+							'taxonomy' => $taxonomy,
 							'field'    => 'term_id',
-							'terms' => $terms
+							'terms' => $term_ids
 						)
 					),
 					'paged' => $page,
+					'posts_per_page' => 6,
 				]);
+
+				$context['taxonomy'] = $taxonomy;
+				$context['terms'] = $term_ids;
 			} else {
 				$context['posts'] = Timber::get_posts([
 					'post_type' => $post_type,
 					'paged' => $page,
+					'posts_per_page' => 6,	
 				]);
 			}
-			
+
+			$context['post_type'] = $post_type;
 		}
 
 		Timber::render(sprintf('views/_blocks/%s.twig', $name), $context);
 
     // Hackish way to calculate layout count
-    $this->layout_count++;
+    	$this->layout_count++;
 	}
 
 	/**

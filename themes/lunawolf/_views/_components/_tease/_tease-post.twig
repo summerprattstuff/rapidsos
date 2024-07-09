@@ -2,7 +2,7 @@
 
 {% block content %}
   <h2 class="h2">
-    <a href="{{ url }}">{{ title }}</a>
+    <a href="{{ url|e('esc_url') }}">{{ title|e('esc_html') }}</a>
   </h2>
   <p>{{ post.excerpt({ words: 5, read_more: "Keep reading" }) }}</p>
   {% if post.thumbnail.src %}

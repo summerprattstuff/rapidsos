@@ -1,8 +1,8 @@
 ._ptCard {
 
-  &__title {
-    margin-top: 20px;
-  }
+  // &__title {
+  //   margin-top: 20px;
+  // }
 
   &__plch {
     width: 100%;
@@ -11,6 +11,7 @@
   }
 
   p {
+    margin-bottom: 7px;
     font-weight: 700;
 
     span {
@@ -18,13 +19,18 @@
     }
   }
 
+  .inner>div {
+    margin-bottom: 12px;
+  }
+
   a {
-    color: inherit;
     display: inline-block;
-    margin-top: 10px;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1.7;
 
     &:hover {
-      color: $arrow-color;
+      color: $underline_text_hover;
     }
   }
 }

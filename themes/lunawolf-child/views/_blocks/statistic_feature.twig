@@ -14,20 +14,20 @@
     {% set animation_type  = settings.animation_type %}
     {% set animation_duration  = settings.animation_duration %}
     {% set animation_delay  = settings.animation_delay %}
-<section id="{{ settings.block_id }}" class="m__statistic{{ aboveText ? ' -aboveText' }} appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__statistic{{ aboveText ? ' -aboveText' }} appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
 {% else %}
-<section id="{{ settings.block_id }}" class="m__statistic{{ aboveText ? ' -aboveText' }}">
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__statistic{{ aboveText ? ' -aboveText' }}">
 {% endif %}
         {% include '_components/settings_overlay.twig' %}
 
     <style>
-        #{{ settings.block_id }} {
+        #{{ settings.block_id|e('esc_html') }} {
             margin-top: {{top_mobile}}px;
             margin-bottom: {{bottom_mobile}}px;
         }
 
         @media (min-width: 768px) {
-            #{{ settings.block_id }} {
+            #{{ settings.block_id|e('esc_html') }} {
                 margin-top: {{top_desktop}}px;
                 margin-bottom: {{bottom_desktop}}px;
             }

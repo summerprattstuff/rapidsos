@@ -1,0 +1,30 @@
+{% set lists = column.check_lists %}
+{% set title = column.check_list_title %}
+
+<div class="m__columns__column__check">
+    {% if title %}
+        <h2 class="m__columns__column__content__title">{{ title|e('esc_html') }}</h2>
+    {% endif %}
+    {% if lists %}
+        <div class="m__columns__column__check__lists">
+        {% for list in lists %}
+            {% set list_title = list.check_title %}
+            {% set list_subtitle = list.check_subtitle %}
+
+            <div class="m__columns__column__check__list">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M22.2868 43.5555C34.1646 43.5555 43.7941 33.8546 43.7941 21.8888C43.7941 9.92306 34.1646 0.222168 22.2868 0.222168C10.409 0.222168 0.779419 9.92306 0.779419 21.8888C0.779419 33.8546 10.409 43.5555 22.2868 43.5555ZM33.5146 16.3311C34.1643 15.6672 34.1549 14.6007 33.4978 13.9481C32.8387 13.2936 31.7801 13.3031 31.1323 13.9651L18.6686 26.7166L13.6746 21.663C13.023 21.0028 11.9645 21.001 11.3092 21.6574C10.6538 22.3137 10.652 23.3801 11.3036 24.0403L16.8075 29.611C17.84 30.6549 19.5184 30.6492 20.5433 29.5998L33.5146 16.3311Z" fill="#29A7DD"/>
+                </svg>
+                <div>
+                    {% if list_title %}
+                        <h3 class="m__columns__column__check__list__title">{{list_title|e('esc_html')}}</h3>
+                    {% endif %}
+                    {% if list_subtitle %}
+                        <p>{{list_subtitle|e('esc_html')}}</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+</div>

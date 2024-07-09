@@ -57,7 +57,9 @@
       }
 
       .subtitle {
-        margin-top: 20px;
+        margin-top: 12px;
+        font-weight: 400;
+        font-size: 24px;
       }
 
       .btnWrapper {
@@ -102,6 +104,16 @@
     &__wrapImg {
       width: 100%;
       margin-top: 30px;
+
+      img {
+        max-height: 480px;
+        object-fit: cover;
+        width: 100%;
+
+        @include media-up(m) {
+          min-height: 480px;
+        }
+      }
     }
 
     &__bgImg {
@@ -136,6 +148,7 @@
     font-size: 18px;
     color: $white;
     z-index: 5;
+    font-weight: 400;
 
     @include media-up(m) {
       padding: 10px 30px 10px 0;
@@ -145,7 +158,7 @@
   &:before {
     position: absolute;
     content: '';
-    top: 0; left: -3000px; right: 0; bottom: 0;
+    top: 0; left: -30px; right: 0; bottom: 0;
     background-color: $primary;
     border-radius: 10px;
     box-shadow: 4px 4px 10px 0 #00000040;

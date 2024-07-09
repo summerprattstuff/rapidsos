@@ -3,6 +3,9 @@
 {% set footer_ctas  = options['footer_ctas'] %}
 {% set footer_menus = options['footer_menus'] %}
 {% set footer_copy  = options['footer_copy'] %}
+{# {% set socialShare = get_share_box() %} #}
+{% set global_social_media = options['g_social_media'] %}
+{% set social_media        = global_social_media['social_media'] %}
 
 <footer id="footer" class="site__footer">
   <div class="wrapper">
@@ -14,6 +17,22 @@
       </div>
       <div class="_w">
         <div class="site__footer__left _m4 _xl2">
+          {% if social_media %}
+            <div class="site__footer__social">
+              <ul class="social">
+                  {% for media in social_media %}
+                      {% set icon = media.icon %}
+                      {% set link = media.link %}
+
+                      <li>
+                          <a href="{{ link|e('esc_url') }}" target="_blank" aria-label="Go to our {{ link|e('html_attr') }} page">
+                              <img src="{{ get_image(icon)|e('esc_url') }}" alt="{{ icon.alt|e('html_attr') }}" />
+                          </a>
+                      </li>
+                  {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
           {% if footer_ctas | length %}
             <div class="site__footer__ctas">
               {% for link in footer_ctas %}

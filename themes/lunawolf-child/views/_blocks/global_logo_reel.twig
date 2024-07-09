@@ -7,23 +7,35 @@
 {% set custom_subtitle  = block.custom_subtitle %}
 {% set custom_label     = block.custom_label %}
 
+{% set section_animation  = settings['section_animation'] %}
+
+{% set text_color  = settings.text_color %}
+
 {% if not is_preview %}
     {#  {{ dump(settings) }}#}
 {% endif %}
 
 {% if g_logos | length %}
-    <section id="{{ settings.block_id }}" class="m__logoReel g__logoReel">
-        <div class="wrapper">
+    {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__logoReel g__logoReel appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+    {% else %}
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__logoReel g__logoReel">
+    {% endif %}
+    {% include '_components/settings_overlay.twig' %}   
+        <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
             <div class="titleWrapper -short -center">
                 {% if g_title or custom_title %}
-                    <h1 class="m__logoReel__title">{{ custom_title ? custom_title : g_title }}</h1>
+                    <h2 class="m__logoReel__title heading">{{ custom_title ? custom_title|e('esc_html') : g_title|e('esc_html') }}</h2>
                 {% endif %}
             </div>
             {% if g_subtitle or custom_subtitle %}
-                <h3 class="m__logoReel__desc">{{ custom_subtitle ? custom_subtitle : g_subtitle }}</h3>
+                <h3 class="m__logoReel__desc">{{ custom_subtitle ? custom_subtitle|e('esc_html') : g_subtitle|e('esc_html') }}</h3>
             {% endif %}
             {% if g_label or custom_label %}
-                <p class="m__logoReel__label">{{ custom_label ? custom_label : g_label }}</p>
+                <p class="m__logoReel__label">{{ custom_label ? custom_label|e('esc_html') : g_label|e('esc_html') }}</p>
             {% endif %}
             {% if g_logos %}
                 <div class="m__logoReel__logos">
@@ -32,7 +44,7 @@
                             {% for logo in g_logos %}
                                 <div class="swiper-slide">
                                     <div class="m__logoReel__logos__block">
-                                        <img class="m__logoReel__logos__block__img" src="{{ get_image(logo) }}" alt="" >
+                                        <img class="m__logoReel__logos__block__img" src="{{ get_image(logo)|e('esc_url') }}" alt="" >
                                     </div>
                                 </div>
                             {% endfor %}

@@ -5,7 +5,7 @@
 <section class="heroStory">
     {% if bg_image %}
         <div class="heroStory__imgWrapper">
-            <div class="heroStory__img" style="background-image: url({{ get_image(bg_image) }})"></div>
+            <div class="heroStory__img" style="background-image: url({{ get_image(bg_image)|e('esc_url') }})"></div>
         </div>
     {% endif %}
     <div class="wrapper">
@@ -15,10 +15,10 @@
                     <div class="heroStory__top__left__box">
                         <div class="heroStory__top__left__box__inner">
                             <div class="titleWrapper">
-                                <h1 class="title">{{ heroTitle ? heroTitle : title }}</h1>
+                                <h2 class="title">{{ heroTitle ? heroTitle|e('esc_html') : title|e('esc_html') }}</h2>
                             </div>
                             {% if subtitle %}
-                                <p class="subtitle">{{ subtitle }}</p>
+                                <p class="subtitle">{{ subtitle|e('esc_html') }}</p>
                             {% endif %}
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                     <div class="heroStory__top__right__inner">
                         {% if bg_image %}
                             <div class="heroStory__top__right__inner__wrapImg">
-                                <div class="heroStory__top__right__inner__bgImg" style="background-image: url({{ get_image(bg_image) }})"></div>
+                                <div class="heroStory__top__right__inner__bgImg" style="background-image: url({{ get_image(bg_image)|e('esc_url') }})"></div>
                             </div>
                         {% endif %}
                     </div>

@@ -5,12 +5,12 @@
 
 {% set text_color  = settings.text_color %}
 
-<div class="wrapper color-{{ text_color ?: 'primary' }}">
+<div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
     <div class="m__statistic__inner">
         {% if title %}
             <div class="m__statistic__top">
                 <div class="titleWrapper">
-                    <h1 class="m__statistic__top__title">{{ title }}</h1>
+                    <h2 class="m__statistic__top__title">{{ title|e('esc_html') }}</h2>
                 </div>
             </div>
         {% endif %}
@@ -19,12 +19,11 @@
                 <div class="m__statistic__bot__inner">
                     {% if number %}
                         <div class="m__statistic__bot__inner__numb">
-                            <span class="count-to" data-to="{{number}}" data-duration="2000">{{ number }}</span>%
-                            
+                            <span class="count-to" data-to="{{number|e('html_attr')}}" data-duration="2000">{{ number|e('esc_html') }}</span>%
                         </div>
                     {% endif %}
                     {% if desc %}
-                        <h3 class="m__statistic__bot__inner__desc">{{ desc }}</h3>
+                        <h3 class="m__statistic__bot__inner__desc">{{ desc|e('esc_html') }}</h3>
                     {% endif %}
                 </div>
             </div>

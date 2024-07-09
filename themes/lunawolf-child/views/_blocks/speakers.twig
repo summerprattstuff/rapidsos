@@ -15,20 +15,20 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__speakers appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__speakers appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__speakers">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__speakers">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
     
         <div class="wrapper{{ t_width ? ' -limit' : '' }}">
-            <div class="container color-{{ text_color ?: 'primary' }}">
+            <div class="container color-{{ text_color|e('html_attr') ?: 'primary' }}">
                 <div class="s_titleWrapper">
-                    <h1 class="s_title">{{ s_title ?: 'Speakers' }}</h1>
+                    <h2 class="s_title">{{ s_title|e('esc_html') ?: 'Speakers' }}</h2>
                 </div>
                 <div class="m__speakers__list _w">
                     {% if speakers_left | length %}
-                        <div class="m__speakers__list__left _m6">
+                        <div class="m__speakers__list__left _l6">
                             {% for speakerId in speakers_left %}
                                 {% set speaker = get_post(speakerId) %}
 
@@ -39,7 +39,7 @@
                         </div>
                     {% endif %}
                     {% if speakers_right | length %}
-                        <div class="m__speakers__list__right _m6">
+                        <div class="m__speakers__list__right _l6">
                             {% for speakerId in speakers_right %}
                                 {% set speaker = get_post(speakerId) %}
 

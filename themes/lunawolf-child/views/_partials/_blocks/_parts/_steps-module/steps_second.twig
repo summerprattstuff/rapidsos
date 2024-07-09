@@ -1,4 +1,5 @@
 {% set steps = block.steps %}
+{% set layout = block.set_layout %}
 
 <div class="m__stepsTwo__wrapper">
     <svg width="1036" height="4" viewBox="0 0 1036 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,10 +20,21 @@
             {% set stepTitle  = step.step_title %}
             {% set text_2     = step.step_text %}
 
-            <div class="m__stepsTwo__blockWrap _l4">
-                
+            {% if layout == '_l4' %}
+                {% set addClass = '_l4' %}
+            {% elseif layout == '_l3' %}
+                {% set addClass = '_l3' %}
+            {% else %}
+                {% if loop.index % 2 == 0 %}
+                    {% set addClass = '_l6' %}
+                {% else %}
+                    {% set addClass = '_l3' %}
+                {% endif %}
+            {% endif %}
+
+            <div class="m__stepsTwo__blockWrap {{addClass}}">                   
                     {% if type == 'image' %}
-                        {% if img and not video %}
+                        {% if img %}
                         <div class="m__stepsTwo__blockWrap__imgWrap">
                             <img class="m__stepsTwo__blockWrap__img" src="{{ get_image(img) }}" alt="Image" >
                         </div>
@@ -39,7 +51,7 @@
                 
                 <div class="m__stepsTwo__blockWrap__textWrap">
                     <div class="m__stepsTwo__blockWrap__textWrap__title">{{ stepTitle }}</div>
-                    <div class="m__wyswyg m__stepsTwo__blockWrap__textWrap__text m_wyText">{{ text_2 }}</div>
+                    <div class="m__wyswyg m__stepsTwo__blockWrap__textWrap__text">{{ text_2 }}</div>
                 </div>
             </div>
         {% endfor %}

@@ -1,38 +1,89 @@
 {% set logo = options['site_logo'] %}
 {% set top_banner = options['top_banner'] %}
+{% set links = options['header_buttons'] %}
 {% set top_banner_title = top_banner['top_banner_title'] %}
 {% set top_banner_link = top_banner['top_banner_link'] %}
 {% set logoURL = get_image(logo) %}
+{% set enable_new_nav = options['enable_new_nav'] %}
+{% set trans_header = options['transparent_header'] %}
+{% set pages = options['selected_pages'] %}
 
-
-<header id="header" class="site__header">
+  {% if enable_new_nav and trans_header and pages %}
+      {% set enable_logo_replace = options['replace_logo'] %}
+      {% set replace_logo = options['transparent_logo'] %}
+      {% if enable_logo_replace and replace_logo %}
+        {% set transparent_logo = get_image(replace_logo) %}
+      {% endif %}
+      {% if post.ID in pages %}        
+        <header id="header" class="site__header -megatype">
+      {% else %}
+        <header id="header" class="site__header">
+      {% endif %}
+    {% else %}
+      <header id="header" class="site__header">
+  {% endif %}
+{% if top_banner_title or top_banner_link %}
   <div class="header-top">
     <p>
-      {{ top_banner_title ? top_banner_title : 'Join Intelligent Safety Live on April 30:' }} 
+      {{ top_banner_title ? top_banner_title : '' }} 
       {% if top_banner_link %}
         <a href="{{top_banner_link.url}}">{{top_banner_link.title}}</a>
-      {% else %}
-        <a href="https://rapidsos.com/intelligent-safety-live-video-to-911/">Sharing Security Cameras with 911 During Emergencies</a>
+      {# {% else %}
+        <a href="https://rapidsos.com/intelligent-safety-live-video-to-911/">Sharing Security Cameras with 911 During Emergencies</a> #}
       {% endif %}
     </p>
     <button class="btn-close">{% include 'icons/close.twig' %}</button>
   </div>
-  <div class="wrapper">
-    <div class="container">
-      <a href="{{ siteUrl }}" class="site__header__logo">
-        <img src="{{ logoURL }}" alt="RapidSOS">
-      </a>
-      <div style="display: flex; align-items: center;">
-      {% include '_layout/_nav.twig' %}
-        {# <div> #}
-          <a href="https://rapidsosportal.com" class="btn -outline" style="padding: 5px 30px 4px; margin-left: 25px; margin-right: 20px; line-height: 1.7em; ">Login</a>
-          <a href="https://rapidsosportal.com" class="btn -dark" style="padding: 5px 30px 4px; line-height: 1.7em;">Book a demo</a>
-        {# </div> #}
+  {# {% else %}
+  <div></div> #}
+  {% endif %}
+  <div class="header-middle">
+    {% if enable_new_nav and trans_header and pages %}
+      {% set enable_logo_replace = options['replace_logo'] %}
+      {% set replace_logo = options['transparent_logo'] %}
+      {% if enable_logo_replace and replace_logo %}
+        {% set transparent_logo = get_image(replace_logo) %}
+      {% endif %}
+      {% if post.ID in pages %}
+        <div class="header-middle-wrapper -mega">
+      {% else %}
+        <div class="header-middle-wrapper">
+      {% endif %}
+    {% else %}
+      <div class="header-middle-wrapper">
+    {% endif %}
+      <div class="wrapper ">
+        <div class="container">
+          <a href="{{ siteUrl }}" class="site__header__logo">
+            <img src="{{ logoURL }}" alt="RapidSOS">
+            {% if enable_new_nav and trans_header and pages %}
+              {# {% set enable_logo_replace = options['replace_logo'] %}
+              {% set replace_logo = options['transparent_logo'] %}
+              {% if enable_logo_replace and replace_logo %} #}
+                <img src="{{ theme.link ~ '/public/images/white-logo.png'|e('esc_url') }}" alt="RapidSOS" class="trans_logo">
+              {# {% endif %} #}
+            {% endif %}
+          </a>
+          <div style="display: flex; align-items: center; margin-left: auto;">
+          {% include '_layout/_nav.twig' with {
+            links: links,
+           } %}
+            {# <div> #}
+            {% if links %}
+                {% for link in links %}
+                  {% set button = link.button %}
+                  {% set button_type = link.button_type %}
+                    <a href="{{button.url}}" class="btn header-link {{button_type}}">{{button.title}}</a>
+                {% endfor %}
+            {% endif %}
+            {# </div> #}
+          </div>
+          <a href="javascript:;" class="site__header__menuToggle js-activeTrigger" data-target="body" data-class="-menuOpen">
+            {% include 'icons/hamburger.twig' %}
+            {% include 'icons/close.twig' %}
+          </a>
+        </div>
       </div>
-      <a href="javascript:;" class="site__header__menuToggle js-activeTrigger" data-target="body" data-class="-menuOpen">
-        {% include 'icons/hamburger.twig' %}
-        {% include 'icons/close.twig' %}
-      </a>
     </div>
   </div>
 </header>

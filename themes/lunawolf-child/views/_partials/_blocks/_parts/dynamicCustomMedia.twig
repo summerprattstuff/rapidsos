@@ -3,10 +3,10 @@
 {% if bg_video %}
   <div class="m__dynamicMedia__video -background">
     {% if video_url %}
-      <div id="video-{{ blockId }}" class="js-cardVideo js-cardVideoAutoplay" data-plyr-muted="true" data-plyr-autoplay="true" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+      <div id="video-{{ blockId|e('html_attr') }}" class="js-cardVideo js-cardVideoAutoplay" data-plyr-muted="true" data-plyr-autoplay="true" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url|e('esc_url') }}"></div>
     {% else %}
-      <video id="video-{{ blockId }}" class="js-cardVideo js-cardVideoAutoplay" autoplay muted crossorigin playsinline data-poster="{{ get_image(bg_image) }}">
-        <source src="{{ video_file.url }}" type="video/mp4" />
+      <video id="video-{{ blockId|e('html_attr') }}" class="js-cardVideo js-cardVideoAutoplay" autoplay muted crossorigin playsinline data-poster="{{ get_image(bg_image)|e('esc_url') }}">
+        <source src="{{ video_file.url|e('esc_url') }}" type="video/mp4" />
       </video>
     {% endif %}
   </div>

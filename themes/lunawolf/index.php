@@ -14,10 +14,20 @@
  */
 
 $context          = Timber::context();
-$context['posts'] = Timber::get_posts();
+$context['posts'] = Timber::get_posts([
+    'post_type' => 'post',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'category',
+            'field'    => 'slug',
+            'terms' => ['blog', 'blog-2']
+        )
+    )
+]);
 $context['foo']   = 'bar';
 $templates        = array( 'index.twig' );
 if ( is_home() ) {
 	array_unshift( $templates, 'front-page.twig', 'home.twig' );
 }
+
 Timber::render( $templates, $context );

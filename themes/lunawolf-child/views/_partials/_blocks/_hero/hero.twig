@@ -26,19 +26,19 @@
     <div class="img" role="img">
       <picture>
         {% if bg_image_mobile %}
-          <source media="(max-width: 514px)" srcset="{{ get_image(bg_image_mobile) }} 514w" />
+          <source media="(max-width: 514px)" srcset="{{ get_image(bg_image_mobile)|e('esc_url') }} 514w" />
         {% endif %}
-        <img src="{{ get_image(bg_image) }}" alt="{{ bg_image.alt }}" srcset="{{ get_image(bg_image) }} 993w" />
+        <img src="{{ get_image(bg_image)|e('esc_url') }}" alt="{{ bg_image.alt|e('html_attr') }}" srcset="{{ get_image(bg_image)|e('esc_url') }} 993w" />
       </picture>
   </div>
   {% endif %}
   {% if bg_video %}
     <div class="video{{ full_screen ? ' -full' }}">
       {% if bg_video_url %}
-        <div id="video-{{ blockId }}" class="js-heroVideo" data-plyr-provider="{{ 'youtu' in bg_video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ bg_video_url }}"></div>
+        <div id="video-{{ blockId|e('html_attr') }}" class="js-heroVideo" data-plyr-provider="{{ 'youtu' in bg_video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ bg_video_url|e('esc_url') }}"></div>
       {% elseif bg_video_file %}
-        <video id="video-{{ blockId }}" class="js-heroVideo" playsinline controls autoplay loop data-poster="{{ get_image(bg_image) }}">
-          <source src="{{ bg_video_file.url }}" type="video/mp4" />
+        <video id="video-{{ blockId|e('html_attr') }}" class="js-heroVideo" playsinline controls autoplay loop data-poster="{{ get_image(bg_image)|e('esc_url') }}">
+          <source src="{{ bg_video_file.url|e('esc_url') }}" type="video/mp4" />
         </video>
       {% endif %}
     </div>
@@ -50,15 +50,15 @@
   {% include '_components/settings_overlay.twig' %}
   <div class="wrapper">
     {# <div class="container" style="{{ txt_color ? 'color: ' ~ txt_color ~ ';' }}"> #}
-    <div class="container color-{{ text_color ?: 'primary' }}">
+    <div class="container color-{{ text_color|e('html_attr') ?: 'primary' }}">
       {% if title %}
         {% if title_anim.enable_animation %}
             {% set animation_type  = title_anim.animation_type %}
             {% set animation_duration  = title_anim.animation_duration %}
             {% set animation_delay  = title_anim.animation_delay %}
-            <h1 class="m__title m__hero__hero__title appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ title }}</h1>
+            <h1 class="m__title m__hero__hero__title heading appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">{{ title|e('esc_html') }}</h1>
         {% else %}
-            <h1 class="m__title m__hero__hero__title">{{ title }}</h1>
+            <h1 class="m__title m__hero__hero__title heading">{{ title|e('esc_html') }}</h1>
         {% endif %}
       {% endif %}
       {% if subtitle %}
@@ -66,9 +66,9 @@
             {% set animation_type  = sub_anim.animation_type %}
             {% set animation_duration  = sub_anim.animation_duration %}
             {% set animation_delay  = sub_anim.animation_delay %}
-            <h2 class="m__subtitle m__hero__hero__subtitle appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">{{ subtitle }}</h2>
+            <h2 class="m__subtitle m__hero__hero__subtitle appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">{{ subtitle|e('esc_html') }}</h2>
         {% else %}
-            <h2 class="m__subtitle m__hero__hero__subtitle">{{ subtitle }}</h2>
+            <h2 class="m__subtitle m__hero__hero__subtitle">{{ subtitle|e('esc_html') }}</h2>
         {% endif %}
       {% endif %}
       {% if ctas %}
@@ -76,17 +76,57 @@
             {% set animation_type  = ctas_anim.animation_type %}
             {% set animation_duration  = ctas_anim.animation_duration %}
             {% set animation_delay  = ctas_anim.animation_delay %}
-            <div class="m__ctas m__hero__hero__ctas appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+            <div class="m__ctas m__hero__hero__ctas appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
         {% else %}
             <div class="m__ctas m__hero__hero__ctas">
         {% endif %}
         
           {% for row in ctas %}
             {% set link = row.cta %}
+            {% set enable = row.enable_popup_content %}
 
-            {% include '_components/_advanced_link.twig' with {
-              link: link
-            } %}
+            {% if enable %}
+              {% set popup_content = row.popup_content %}
+              {% set video_type = popup_content.popup_video_type %}
+              {% set video_file = popup_content.popup_video_file %}
+              {% set video_url = popup_content.popup_video_url %}
+              {% set video_code = popup_content.popup_video_code %}
+              {% set video = video_file or video_url %}  
+
+              <div class="btn-popup-wrapper">
+                {# <div class="btn-popup-link"> #}
+                  {% include '_components/_advanced_link.twig' with {
+                    link: link,
+                    class: 'btn-popup-link'
+                  } %}
+                {# </div> #}
+                <div class="btn-popup-content mfp-hide">
+                    <div class="modal-content">
+                        {% if video_type == 'yv' and video %}
+                            <div>
+                                {% if video_url %}
+                                    <div id="video-{{ blockId|e('html_attr') }}" class="js-heroVideo" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url|e('esc_url') }}"></div>
+                                {% elseif video_file %}
+                                    <video id="video-{{ blockId|e('html_attr') }}" style="width: 100%;" playsinline controls data-poster="{{ get_image(bg_image)|e('esc_url') }}">
+                                        <source src="{{ video_file.url|e('esc_url') }}" type="video/mp4" />
+                                    </video>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            {% if video_code %}
+                            <div id="video-{{ blockId|e('html_attr') }}" style="width: 100%;">
+                                {{video_code|e('wp_kses_post')}}
+                            </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+              </div>
+            {% else %}
+              {% include '_components/_advanced_link.twig' with {
+                link: link
+              } %}
+            {% endif %}            
           {% endfor %}
         </div>
       {% endif %}

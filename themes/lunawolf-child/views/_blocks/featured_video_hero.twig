@@ -1,0 +1,183 @@
+{% set label = block.label %}
+{% set title = block.title %}
+{% set subtitle = block.subtitle %}
+{% set link = block.button %}
+{% set videos  = block.videos %}
+
+{% set text_color  = settings.text_color %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__featured__video">
+{% include '_components/settings_overlay.twig' %}
+    <div class="m__featured__video__inner__wrapper">
+        
+        <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
+            <div class="container _center">
+                {% if label %}
+                    <p class="m__featured__video__label rellax appear-animate animated-slow" data-settings="{'_animation':'fadeIn','_animation_delay': 0}" data-rellax-speed="0" data-rellax-desktop-speed="1.5">{{ label|e('esc_html') }}</p>
+                {% endif %}
+                {% if title %}
+                    <h2 class="m__featured__video__title rellax appear-animate animated-slow" data-settings="{'_animation':'fadeIn','_animation_delay': 200}" data-rellax-speed="0" data-rellax-desktop-speed="-.3">{{ title|e('esc_html') }}</h2>
+                {% endif %}
+                {% if subtitle %}
+                    <h3 class="m__featured__video__subtitle rellax appear-animate animated-slow" data-settings="{'_animation':'fadeIn','_animation_delay': 400}" data-rellax-speed="0" data-rellax-desktop-speed="5">{{ subtitle|e('esc_html') }}</h3>
+                {% endif %}
+                {% if link %}
+                    <div class="m__featured__video__btn">
+                    {% include '_components/_advanced_link.twig' with {
+                        link: link,
+                        class: '-dark'
+                    } %}
+                    </div>
+                {% endif %}
+                {% if videos %}
+                    <div class="m__featured__video__wrapper rellax appear-animate animated-slow" data-settings="{'_animation':'fadeIn','_animation_delay': 600}" data-rellax-speed="0" data-rellax-desktop-speed="0.5">
+                        {% if videos|length > 1 %}
+                            <div class="m__featured__video__single__carousel">
+                                <div class="swiper js-videoSlider1">
+                                    <div class="swiper-wrapper">
+                                        {% for item in videos %}
+                                            {% set videoType    = item.video_type %}
+                                            {% set videoFile   = item.video_file %}
+                                            {% set videoUrl    = item.video_url %}
+                                            {% set videoCode    = item.video_code %}
+                                            {% set videoText    = item.video_text %}
+                                            {% set videoImage    = item.video_preview_image %}
+                                            {% set video = videoFile or videoUrl %}
+
+                                            <div class="swiper-slide">
+                                                <div class="m__videoCarousel__item">
+                                                    <div class="m__videoCarousel__item__top">
+                                                        {% if videoType == 'yv' and video %}
+                                                            {% if videoUrl %}
+                                                            <div class="m__videoCarousel__video">
+                                                                {% if videoUrl %}
+                                                                    <div id="video-{{ settings.block_id|e('html_attr') }}" class="js-videoCarousel" data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl|e('esc_url') }}"></div>
+                                                                {% endif %}
+                                                            </div>
+                                                            {% else %}
+                                                            <video id="video-{{ settings.block_id|e('html_attr') }}" class="js-videoCarousel" playsinline controls data-poster="{{ get_image(videoImage)|e('esc_url') }}">
+                                                                <source src="{{ videoFile.url|e('esc_url') }}" type="video/mp4" />
+                                                            </video>
+                                                            {% endif %}
+                                                        {% else %}
+                                                            {% if videoCode %}
+                                                                <div id="video-{{ settings.block_id|e('html_attr') }}" style="width: 100%;" class="m__featured__video__vidyard">
+                                                                    {{videoCode|e('wp_kses_post')}}
+                                                                </div>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                        
+                                                        {# <div class="m__featured__video__preview">
+                                                            <img src="{{get_image(videoImage)|e('esc_url')}}" alt="Video Image" />
+                                                        </div> #}
+                                                    </div>
+                                                    {# <div class="m__videoCarousel__item__bottom m__video__item__bottom">
+                                                        {% if videoText %}
+                                                            <h4 class="m__videoCarousel__item__title m__video__item__title">{{videoText|e('esc_html')}}</h4>
+                                                        {% endif %}
+                                                    </div> #}
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    {# <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div> #}
+                                </div>
+                            </div>
+                            <div class="m__featured__video__thumbnail__carousel m__video__thumbnail__carousel">
+                                <div class="swiper js-videoSlider6">
+                                    <div class="swiper-wrapper">
+                                        {% for item in videos %}
+                                            {% set videoType    = item.video_type %}
+                                            {% set videoFile   = item.video_file %}
+                                            {% set videoUrl    = item.video_url %}
+                                            {% set videoCode    = item.video_code %}
+                                            {% set videoText    = item.video_text %}
+                                            {% set videoImage    = item.video_preview_image %}
+                                            {% set video = videoFile or videoUrl %}
+
+                                            <div class="swiper-slide m__video__thumbnail">
+                                                <div class="m__videoCarousel__item m__video__item">
+                                                    <div class="m__videoCarousel__item__top m__video__item__top">
+                                                        {% if videoType == 'yv' and video %}
+                                                            {% if videoUrl %}
+                                                            <div class="m__videoCarousel__video">
+                                                                {% if videoUrl %}
+                                                                    <div id="video-{{ settings.block_id|e('html_attr') }}" class="js-videoCarousel" data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl|e('esc_url') }}"></div>
+                                                                {% endif %}
+                                                            </div>
+                                                            {% else %}
+                                                            <video id="video-{{ settings.block_id|e('html_attr') }}" class="js-videoCarousel" data-poster="{{ get_image(videoImage)|e('esc_url') }}">
+                                                                <source src="{{ videoFile.url|e('esc_url') }}" type="video/mp4" />
+                                                            </video>
+                                                            {% endif %}
+                                                        {% else %}
+                                                            {% if videoCode %}
+                                                            <div id="video-{{ settings.block_id|e('html_attr') }}" style="width: 100%;">
+                                                                {{videoCode|e('wp_kses_post')}}
+                                                            </div>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                        {# <img src="{{get_image(videoImage)|e('esc_url')}}" alt="Video Image"/> #}
+                                                    </div>
+                                                    <div class="m__videoCarousel__item__bottom m__video__item__bottom">
+                                                        {% if videoText %}
+                                                            <h4 class="m__video__item__title">{{videoText|e('esc_html')}}</h4>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    {# <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div> #}
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="m__featured__video__single__wrapper">
+                                {% for item in videos %}
+                                    {% set videoType    = item.video_type %}
+                                    {% set videoFile   = item.video_file %}
+                                    {% set videoUrl    = item.video_url %}
+                                    {% set videoCode    = item.video_code %}
+                                    {% set videoImage    = item.video_preview_image %}
+                                    {% set video = videoFile or videoUrl %}
+                                    <div class="m__featured__video__item">
+                                        {% if videoType == 'yv' and video %}
+                                            {% if videoUrl %}
+                                            <div class="m__featured__video__content">
+                                                {% if videoUrl %}
+                                                    <div id="video-{{ settings.block_id|e('html_attr') }}" class="js-videoCarousel" data-plyr-provider="{{ 'youtu' in videoUrl ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ videoUrl|e('esc_url') }}"></div>
+                                                {% endif %}
+                                            </div>
+                                            {% else %}
+                                            <video id="video-{{ settings.block_id|e('html_attr') }}" class="js-videoCarousel" playsinline controls data-poster="{{ get_image(videoImage)|e('esc_url') }}">
+                                                <source src="{{ videoFile.url|e('esc_url') }}" type="video/mp4" />
+                                            </video>
+                                            {% endif %}
+                                        {% else %}
+                                            {% if videoCode %}
+                                            <div id="video-{{ settings.block_id|e('html_attr') }}" style="width: 100%;">
+                                                {{videoCode|e('wp_kses_post')}}
+                                            </div>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}     
+                            </div>  
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% if not is_preview %}
+            {{ settings.styles | raw }}
+        {% endif %}
+    </div>
+</section>

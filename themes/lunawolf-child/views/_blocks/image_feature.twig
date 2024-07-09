@@ -18,14 +18,14 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__imageFeature appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__imageFeature appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__imageFeature">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__imageFeature">
     {% endif %}
   
     {% include '_components/settings_overlay.twig' %}
     <div class="wrapper{{ full_width ? ' -fullWidth' }}{{ side_padding ? ' -removePadding' }}">
-      <div class="container color-{{ text_color ?: 'primary' }}">
+      <div class="container color-{{ text_color|e('html_attr') ?: 'primary' }}">
         <picture>
           {% if image_mobile %}
             <source media="(max-width: 512px)" srcset="{{ get_image(image_mobile) }} 512w">

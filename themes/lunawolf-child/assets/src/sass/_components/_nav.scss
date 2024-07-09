@@ -1,12 +1,50 @@
 $breakpoint: xl;
 
 .site__navigation {
-  >ul>li> .menu {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
-    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
-    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+  + .header-link {
+    margin-left: 25px;
   }
+  >.nav-links {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
 
+    @include media-down(s) {
+      flex-direction: column;
+      width: 100%;
+
+      a {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+      }
+    }
+
+    a {
+      display: block;
+
+      @include media-up(s) {
+        &:first-child {
+          margin-right: 10px;
+        }
+      }
+
+      @include media-up($breakpoint) {
+        display: none;
+      }
+    }
+    
+  }
+  
+
+  @include media-up($breakpoint) {
+    >ul>li> .menu {
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+      -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .1);
+    }
+  }
+  
   .-submenu a {
     padding: 10px 20px;
     -webkit-text-stroke: 0.5px transparent;
@@ -27,8 +65,6 @@ $breakpoint: xl;
   >.menu-item>.-submenu { 
     width: 300px !important;
     border-top: 3px solid transparent; 
-
-    
   }
   
 
@@ -40,16 +76,23 @@ $breakpoint: xl;
 
   @include media-down($breakpoint) {
     display: none;
-    position: fixed;
-    left: 0; top: 78px; right: 0; bottom: 0;
+    position: absolute;
+    left: 0; 
+    top: 100%; 
+    right: 0; 
+    bottom: auto;
     background: $white;
-    padding: 30px;
+    // padding: 30px;
     overflow: auto;
     z-index: 5;
+    height: 100vh;
+    padding-top: 10px;
+    padding-left: 64px;
+    padding-right: 64px;
 
-    .--notification & {
-      top: 144px;
-    }
+    // .--notification & {
+    //   top: 125px;
+    // }
 
     &::before {
       position: absolute;
@@ -60,17 +103,74 @@ $breakpoint: xl;
     }
   }
 
+  @include media-down(l) {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  @include media-down(m) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  // @media(max-width: 733px) {
+  //   .--notification & {
+  //     top: 144px;      
+  //   }
+  //   padding: 10px 30px;
+  // }
+
+  // @media(max-width: 396px) {
+  //   .--notification & {
+  //     top: 181px;      
+  //   }
+  // }
+
   ul.menu:not(.-submenu) {
     display: flex;
     gap: 24px;
     list-style: none;
-    margin: 0;
+    // margin: 0;
     padding: 0;
+    // max-width: 915px;
+    margin: 0 auto;
 
+    &.megamenu {
+      li {
+        @include media-up(xl) {
+          border: none;
+        }
+      }
+
+      >li {
+        >a:before {
+          display: block;
+          position: absolute;
+          bottom: -12px;
+          left: 0;
+          width: 100%;
+          border-bottom: 2px solid $light-blue;
+          transform-origin: right center;
+          transform: scale(0, 1);
+          transition: transform 0.3s;
+
+          @include media-up(xl) {
+            content: "";
+          }
+        }
+
+        &:hover >a::before {
+          transform: scale(1, 1);
+          transform-origin: left center;
+        }
+      }
+    }
 
     @include media-down($breakpoint) {
       flex-wrap: wrap;
-      gap: 12px 24px;
+      // gap: 12px 24px;
+      gap: 0;
+      width: 100%;
 
       li {
 
@@ -92,9 +192,11 @@ $breakpoint: xl;
         }
 
         & > ul {
+          display: none;
           padding-left: 10px;
           list-style: none;
           margin: 0;
+          margin-bottom: 20px;
 
           & > li {
 
@@ -125,6 +227,16 @@ $breakpoint: xl;
       font-size: 16px;
       line-height: 22px;
       font-weight: 500;
+
+      .-mega & {
+        font-weight: 300;
+      }
+    }
+
+    @include media-up(xl) {
+      .-mega &>.menu-item>a {
+        color: $white;
+      }
     }
 
     li {
@@ -152,15 +264,38 @@ $breakpoint: xl;
     }
 
     & > li {
+      // padding-bottom: 20px;
       border-top: 5px solid transparent;
+      
+      @include media-down(xl) {
+        border-bottom: 1px solid $light-blue;
+      }
 
       >a {
+        position: relative;
+        pointer-events: none;
         -webkit-text-stroke: 0.5px transparent;
         transition: all .4s ease-in-out;
 
         &:hover {
           -webkit-text-stroke: 0.5px #001559;
         }
+
+        @include media-down(xl) {
+          padding: 20px 0;
+
+          &.has-child:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background: url(../img/caret.svg) 50% / contain no-repeat;
+          } 
+        }
+        
       }
 
       &.current-menu-item,
@@ -222,6 +357,19 @@ $breakpoint: xl;
           margin: 0;
           z-index: 1;
 
+          &.-submegamenu {
+            min-width: 800px;
+            padding: 30px 40px;
+            left: 50%;
+            border-radius: 20px;
+            transform: translateX(-50%);
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.25);
+
+            &.-extrabox {
+              min-width: 1200px;
+            }
+          }
+
           & > li {
             font-weight: 700;
 
@@ -241,9 +389,84 @@ $breakpoint: xl;
         &:hover {
 
           & > .menu {
-            display: block;
+            display: block !important;
+
+            &.-extrabox {
+              display: flex !important;
+              flex-wrap: nowrap;
+            }
           }
         }
+      }
+    }
+  }
+
+  ul.megamenu {
+    h4 {
+      margin-bottom: 15px;
+
+      @include media-down(xl) {
+        display: none;
+      }
+    }
+
+    .menu-item-contentbox {
+      padding-top: 8px;
+      width: 100%;
+
+      @include media-down(xl) {
+        padding: 0 0 10px 20px;
+      }
+    }
+
+    .menu-item-desc {
+      display: block !important;
+      font-weight: 300 !important;
+      font-size: 12px !important;
+    }
+
+    .menu-item-box {
+      margin-bottom: 15px;
+
+      a {
+        display: inline-block;
+        color: $primary !important;
+      }
+
+      a:hover {
+        color: $light-blue !important;
+      }
+    }
+
+    .menu-item-extrabox {
+      min-width: 350px;
+      max-width: 350px;
+      padding-right: 50px;
+      padding-top: 15px;
+      border-right: 2px solid $light-blue;
+      margin-right: 48px;
+
+      @include media-down(xl) {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 180px;
+        object-fit: cover;
+      }
+
+      &-label, &-subtitle {
+        font-size: 14px;
+      }
+
+      &-title {
+        font-size: 20px;
+      }
+
+      a:hover {
+        color: $white;
       }
     }
   }

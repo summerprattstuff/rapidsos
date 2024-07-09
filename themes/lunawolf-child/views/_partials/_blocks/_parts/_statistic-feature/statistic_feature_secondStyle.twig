@@ -5,17 +5,17 @@
 
 {% set text_color  = settings.text_color %}
 
-<div class="wrapper color-{{ text_color ?: 'primary' }}">
+<div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
     <div class="inner">
         {% if number %}
-            <div class="numb">{{ number }}</div>
+            <div class="numb">{{ number|e('esc_html') }}</div>
         {% endif %}
         <div class="text">
             {% if desc %}
-                <h3 class="desc">{{ desc }}</h3>
+                <h3 class="desc">{{ desc|e('esc_html') }}</h3>
             {% endif %}
             {% if label %}
-                <div class="label">{{ label }}</div>
+                <div class="label">{{ label|e('esc_html') }}</div>
             {% endif %}
         </div>
     </div>

@@ -16,16 +16,16 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__multiCS -caseStudy appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__multiCS -caseStudy appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__multiCS -caseStudy">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__multiCS -caseStudy">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
     
-        <div class="wrapper color-{{ text_color ?: 'primary' }}">
+        <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
             <div class="content">
                 <div class="s_titleWrapper">
-                    <h1 class="s_title">{{ s_title }}</h1>
+                    <h2 class="s_title">{{ s_title|e('esc_html') }}</h2>
                 </div>
                 <div class="contentInner">
                     <div class="_w">
@@ -33,7 +33,7 @@
                             {% set title        = case.title %}
                             {% set link         = case.link %}
                             {% set logo         = case.meta('logo') %}
-                            {% set heroTitle    = case.meta('hero_title') %}
+                            {% set heroTitle    = case.meta('custom_title') %}
                             {% set industry     = case.meta('industry') %}
                             {% set data_sources = case.meta('data_sources') %}
 
@@ -44,27 +44,27 @@
                                 <div class="m__multiCS__box__inner">
                                     <div class="logoWrapper">
                                         {% if logo %}
-                                            <img src="{{ get_image(logo) }}" alt="">
+                                            <img src="{{ get_image(logo)|e('esc_url') }}" alt="">
                                         {% endif %}
                                     </div>
                                     <div class="bot">
                                         <div class="titleWrapper">
-                                            <h3 class="title">{{ heroTitle ? heroTitle : title }}</h3>
+                                            <h3 class="title">{{ heroTitle ? heroTitle|e('esc_html') : title|e('esc_html') }}</h3>
                                         </div>
                                         {% if industry %}
                                             <div class="industry">
                                                 <p class="iLabel">Industry: </p>
-                                                <p class="iContent">{{ industry }}</p>
+                                                <p class="iContent">{{ industry|e('esc_html') }}</p>
                                             </div>
                                         {% endif %}
                                         {% if data_sources %}
                                             <div class="sources">
-                                                <p class="sLabel">{{ label }}</p>
-                                                <p class="sContent">{{ sources }}</p>
+                                                <p class="sLabel">{{ label|e('esc_html') }}</p>
+                                                <p class="sContent">{{ sources|e('wp_kses_post') }}</p>
                                             </div>
                                         {% endif %}
                                         <div class="btnWrapper">
-                                            <a class="btn -outline" href="{{ link }}">Read full case study</a>
+                                            <a class="btn -outline" href="{{ link|e('esc_url') }}">Read full case study</a>
                                         </div>
                                     </div>
                                 </div>

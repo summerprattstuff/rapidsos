@@ -9,18 +9,17 @@
   {#  {{ dump(settings) }}#}
 {% endif %}
 
-{% if section_animation  %}
-      {% set animation_type  = settings.animation_type %}
-      {% set animation_duration  = settings.animation_duration %}
-      {% set animation_delay  = settings.animation_delay %}
-  <section id="{{ settings.block_id }}" class="m__graphicFeature appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
-  {% else %}
-  <section id="{{ settings.block_id }}" class="m__graphicFeature">
-  {% endif %}
-
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__graphicFeature">
   {% include '_components/settings_overlay.twig' %}
-  <div class="wrapper">
-    <div class="container color-{{ text_color ?: 'primary' }}">
+  {% if section_animation  %}
+        {% set animation_type  = settings.animation_type %}
+        {% set animation_duration  = settings.animation_duration %}
+        {% set animation_delay  = settings.animation_delay %}
+        <div class="wrapper appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+    {% else %}
+        <div class="wrapper">
+    {% endif %}
+    <div class="container color-{{ text_color|e('html_attr') ?: 'primary' }}">
       {% if block %}
         <div class="m__graphicFeature__top">
           {% include '_partials/_blocks/_parts/dynamicMedia.twig' with {
@@ -31,7 +30,7 @@
       {% if desc or link %}
         <div class="m__graphicFeature__bottom">
           {% if desc %}
-            <div class="m__wyswyg m__graphicFeature__bottom__desc color-{{ text_color ?: 'primary' }}">{{ desc }}</div>
+            <div class="m__wyswyg m__graphicFeature__bottom__desc color-{{ text_color|e('html_attr') ?: 'primary' }}">{{ desc|e('wp_kses_post') }}</div>
           {% endif %}
           {% if link %}
             <div class="btnWrapper">

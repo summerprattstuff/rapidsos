@@ -1,0 +1,74 @@
+{% set left_title        = block.left_title %}
+{% set left_desc         = block.left_description %}
+{% set left_label        = block.left_label %}
+{% set left_link        = block.left_button %}
+
+{% set right_title        = block.right_title %}
+{% set right_desc         = block.right_description %}
+{% set right_label        = block.right_label %}
+{% set right_link        = block.right_button %}
+
+{% set color_inverse =  block.color_inverse %}
+
+{% set right_color = color_inverse ? 'primary' : 'white' %}
+{% set right_bg = color_inverse ? '#fff' : '#001559' %}
+
+{% set left_color = color_inverse ? 'white' : 'primary' %}
+{% set left_bg = color_inverse ? '#001559' : '#fff' %}
+
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__splitScreen">
+    {# <div> #}
+        <div class="m__splitScreen__left m__splitScreen__wrapper">
+            <div class="overlayBg" style="{{ left_bg ? 'background: ' ~ left_bg ~ ';' }}"></div>
+            <div class="m__splitScreen__content relative _center color-{{ left_color ?: 'primary' }}">
+                {% if left_label %}
+                    <div class="m__splitScreen__label">
+                        {{left_label|e('esc_html')}}
+                    </div>
+                {% endif %}
+                {% if left_title %}
+                    <h2 class="m__splitScreen__title">
+                        {{left_title|e('esc_html')}}
+                    </h2>
+                {% endif %}
+                {% if left_desc %}
+                    <div class="m__splitScreen__desc">
+                        {{left_desc|e('wp_kses_post')}}
+                    </div>
+                {% endif %}
+                {% if left_link %}
+                    {% include '_components/_advanced_link.twig' with {
+                        link: left_link,
+                        class: '-outline'
+                    } %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="m__splitScreen__right m__splitScreen__wrapper">
+            <div class="overlayBg" style="{{ right_bg ? 'background: ' ~ right_bg ~ ';' }}"></div>
+            <div class="m__splitScreen__content relative _center color-{{ right_color ?: 'primary' }}">
+                {% if right_label %}
+                    <div class="m__splitScreen__label">
+                        {{right_label|e('esc_html')}}
+                    </div>
+                {% endif %}
+                {% if right_title %}
+                    <h2 class="m__splitScreen__title">
+                        {{right_title|e('esc_html')}}
+                    </h2>
+                {% endif %}
+                {% if right_desc %}
+                    <div class="m__splitScreen__desc">
+                        {{right_desc|e('wp_kses_post')}}
+                    </div>
+                {% endif %}
+                {% if right_link %}
+                    {% include '_components/_advanced_link.twig' with {
+                        link: right_link,
+                        class: '-outline'
+                    } %}
+                {% endif %}
+            </div>
+        </div>
+    {# </div> #}
+</section>

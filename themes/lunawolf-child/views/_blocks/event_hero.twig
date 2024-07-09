@@ -1,0 +1,109 @@
+{% set title       = block.title %}
+{% set label       = block.label %}
+{% set tag_logo       = block.tag_logo %}
+{% set tag_logo_hide       = block.tag_logo_hide %}
+{% set customTitle = block.custom_title %}
+{% set subtitle    = block.subtitle %}
+{% set date    = block.date %}
+{% set form_image    = block.form_image %}
+{% set form_code    = block.form_code %}
+{% set form_content   = block.form_content %}
+{% set heroImg     = block.hero_img %}
+{% set desc        = block.desc %}
+{% set text        = block.text_box %}
+
+<section class="hero__webinar">
+    <div id="{{ settings.block_id|e('html_attr') }}" class="hero__webinar__top">
+        {% if heroImg %}
+            <div class="hero__webinar__top__imgWrapper hero__gradient_imgWrapper">
+                <div class="hero__gradient_image">
+                    <img src="{{get_image(heroImg)|e('esc_url')}}" alt="Image" />
+                </div>
+                {# <div class="hero__webinar__top__img" style="background-image: url({{ get_image(heroImg) }})"></div> #}
+            </div>
+        {% endif %}
+        <div class="wrapper">
+            {% if tag_logo_hide == false %}
+            <div class="postTag">
+                {% if tag_logo %}
+                    <img class="tagLogo" src="{{ get_image(tag_logo)|e('esc_url') }}" alt="Webniar Tag Logo">
+                {% else %}
+                    <img class="tagLogo" src="{{ theme.link ~ '/public/podcast/podcast_tag.png'|e('esc_url') }}" alt="Webniar Tag Logo">
+                {% endif %} 
+            </div>
+            {% else %}
+            <style>
+                .hero__webinar__top__left__box__inner {padding-top: 70px;}
+            </style>
+            {% endif %}
+            <div class="_w">
+                <div class="hero__webinar__top__left _l6">
+                    <div class="hero__webinar__top__left__box">
+                        <div class="hero__webinar__top__left__box__inner">
+                            <div style="font-size: 16px; font-weight: 400;">{{label|e('esc_html')}}</div>
+                            <div class="titleWrapper">
+                                <h2 class="title heading">{{ customTitle ? customTitle|e('esc_html') : title|e('esc_html') }}</h2>
+                            </div>
+                            {% if subtitle %}
+                                <h2 class="subtitle">{{ subtitle|e('esc_html') }}</h2>
+                            {% endif %}
+                            {% if date %}
+                                <h4 class="date" style="font-weight: 400;">{{ date|e('esc_html') }}</h4>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__webinar__top__right _l6">
+                    <div class="hero__webinar__top__right__inner hero__gradient__right__inner">
+                        {% if heroImg %}
+                            <div class="hero__webinar__top__right__inner__wrapImg hero__gradient__right__image">
+                                <div class="hero__webinar__top__right__inner__bgImg" style="background-image: url({{ get_image(heroImg)|e('esc_url') }})"></div>
+                                {# <img src="{{get_image(heroImg)|e('esc_url')}}" alt="Single Image" /> #}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero__webinar__bottom">
+        <div class="wrapper">
+            <div class="_w">
+                <div class="hero__webinar__bottom__left _l6">
+                    <div class="hero__webinar__bottom__left__box">
+                        <div class="hero__webinar__bottom__left__box__inner">
+                            {# {% if desc %}
+                                <p class="desc">{{ desc|e('esc_html') }}</p>
+                            {% endif %} #}
+                            {% if text %}
+                                <div class="textBox">
+                                    <div class="m__wyswyg">{{ text|e('wp_kses_post') }}</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__webinar__bottom__right _l6">
+                    <div class="hero__webinar__bottom__right__box">
+                        <div class="hero__webinar__bottom__right__box__inner">
+                            {% if form_image %}
+                                <div class="hero__webinar__form__image">
+                                    <img src="{{ get_image(form_image)|e('esc_url') }}" alt="Image" />
+                                </div> 
+                            {% endif %}
+                            {% if form_content %}
+                                <div style="margin-bottom: 20px;">
+                                    {{form_content|e('wp_kses_post')}}
+                                </div>
+                            {% endif %}
+                            {{form_code}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
+</section>

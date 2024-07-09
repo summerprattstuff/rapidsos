@@ -1,19 +1,118 @@
-.site__header {
-  position: fixed;
-  padding: 25px 0;
-  top: 0; left: 0;
-  width: 100%;
-  z-index: 1001;
+.header-middle-wrapper {
+  transition: opacity 0.4s,transform 0.4s;
   background-color: $white;
-  box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.14);
 
-  .--notification & {
-    padding: 0 0 25px;
+  &.-mega {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+
+    @include media-down(xl) {
+      background-color: $white;
+    }
+
+    @include media-up(xl) {
+      .site__header & .site__header__logo img {
+        display: none;
+  
+        &:last-child {
+          display: block;
+        }
+      }
+  
+      @include media-up(xl) {
+        .header-link.-outline {
+          background: transparent;
+          border-color: $white;
+          color: $white;
+    
+          &:hover {
+            border-color: $primary;
+            background: $primary;
+          }
+        }
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 175px;
+      background: linear-gradient(to bottom, rgb(0,0,0) 30%, rgba(0,0,0,0) 100%);
+      z-index: -1;
+
+      @include media-down(xl) {
+        content: none;
+      }
+    }
   }
 
-  @include media-up(xl) {
-    padding: 0 !important;
+  &.fixed {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background-color: $white;
+    z-index: 1001;
+    // animation: fixedTop 0.4s;
+    box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.14);
+
+    @include media-up(xl) {
+      &.fade {
+        animation: fadeIn .5s;
+      }
+      &::before {
+        content: none;
+      }
+    }
   }
+
+}
+
+.site__header {
+  position: static;
+  z-index: 1000;
+  // padding: 25px 0;
+  
+  // .header-temp {
+  //   display: none;
+
+  //   &.enable {
+  //     display: block;
+  //   }
+  // }
+
+  .trans_logo {
+    display: none;
+  }
+
+  .header-link {
+    padding: 5px 30px 4px; 
+    margin: 0 10px;
+    line-height: 1.7;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  @include media-down(xl) {
+    .wrapper {
+      position: relative;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  // .--notification & {
+  //   padding: 0 0 25px;
+  // }
+
+  // @include media-up(xl) {
+  //   padding: 0 !important;
+  // }
 
   // &::before {
   //   position: absolute;
@@ -60,7 +159,15 @@
     }
 
     svg {
+      color: $primary;
       height: 30px;
+
+      @include media-up(xl) {
+        .-mega & {
+          color: $white;
+          fill: $white;
+        }
+      }
     }
   }
 
@@ -81,13 +188,34 @@
 
   .-menuOpen & .site__navigation {
     display: flex;
+
+    @include media-down(xl) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
   } 
 }
 
+
+
+@keyframes fixedTop {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+    transform-origin: center top 0px;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .header-top {
+  display: flex;
+  justify-content: center;
   position: relative;
-  padding: 10px 0;
-  margin-bottom: 20px;
+  padding: 10px;
+  // margin-bottom: 20px;
   text-align: center;
   background-color: $primary;
   font-size: 16px;
@@ -102,18 +230,20 @@
   }
 
   .btn-close {
+    min-width: 40px;
     border: 0;
     background: transparent;
     outline: none;
     fill: #fff;
-    margin: 5px auto 0;
+    // margin: 5px auto 0;
     display: flex;
     right: 30px;
     top: 50%;
     cursor: pointer;
 
-    @include media-up(xl) {
+    @include media-up(l) {
       position: absolute;
+      // margin: 0;
       transform: translateY(-50%);
     }
   }

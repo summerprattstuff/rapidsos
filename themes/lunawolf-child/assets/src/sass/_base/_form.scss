@@ -1,5 +1,4 @@
 form {
-
   fieldset,
   .hs_email {
     max-width: 100% !important;
@@ -9,12 +8,11 @@ form {
 
       .input {
         margin-right: 20px !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 10px !important;
       }
     }
 
     label {
-
       &:not(.hs-error-msg) {
         @include sr-only;
       }
@@ -76,9 +74,9 @@ form {
 
 .hbspt-form {
   width: 100% !important;
-  background-color: #fff;
+  // padding: 16px;
+  // background-color: #fff;
   border-radius: 8px;
-  padding: 16px;
 
 }
 

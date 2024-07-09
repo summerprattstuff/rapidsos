@@ -9,7 +9,7 @@
       {% include '_partials/_post/_data-insight-report/_con-ref.twig' %}
     </div>
     <div class="stick-bg">
-      <img src="{{ theme.link ~ '/public/images/data-report.png' }}" alt="DataReport Background" />
+      <img src="{{ theme.link ~ '/public/images/data-report.png'|e('esc_url') }}" alt="DataReport Background" />
     </div>
     {# <div class="svg-right">
       <svg xmlns="http://www.w3.org/2000/svg" width="979" height="1082" viewBox="0 0 979 1082" fill="none">

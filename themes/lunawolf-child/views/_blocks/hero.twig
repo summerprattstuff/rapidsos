@@ -10,9 +10,9 @@
     {% set animation_type  = settings.animation_type %}
     {% set animation_duration  = settings.animation_duration %}
     {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__hero -{{ hero_type }} appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__hero -{{ hero_type|e('html_attr') }} appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
   {% else %}
-  <section id="{{ settings.block_id }}" class="m__hero -{{ hero_type }}">
+  <section id="{{ settings.block_id|e('html_attr') }}" class="m__hero -{{ hero_type|e('html_attr') }}">
 {% endif %}
   {% include '_partials/_blocks/_hero/' ~ hero_type ~ '.twig' with {
     blockId: settings.block_id

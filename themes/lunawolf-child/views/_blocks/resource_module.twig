@@ -1,38 +1,119 @@
+{% set section_animation  = settings['section_animation'] %}
+{% set load_type  = block.load_more_type %}
 
-<section id="{{ settings.block_id }}">
-    <div class="wrapper">
-		<div class="archive_wrapper">
-			{% for post in posts %}
-				{% if post.post_type == 'post' %}
-					{% include ['_components/_tease/_tease-post.twig', '_tease.twig'] %}
-				{% elseif post.post_type == 'video' %}
-					<article class="tease tease-post" id="tease-{{ post.ID }}">
-						<h2 class="post_title">
-							<a href="{{ post.link }}">{{post.title}}</a>
-						</h2>
-					</article>
-				{% else %}
-					<article class="tease tease-post" id="tease-{{ post.ID }}">
-						{% if post.meta.hero_img %}
-						<div>
-							<a href="{{ post.link }}"><img src="{{ get_image(post.meta.hero_img) }}" /></a>
-						</div>
-						{% endif %}
-						<h2 class="post_title">
-							{{ post.title }}
-						</h2>
-					</article>
-				{% endif %}
+{% set text_color  = settings.text_color %}
+
+{% if section_animation  %}
+	{% set animation_type  = settings.animation_type %}
+	{% set animation_duration  = settings.animation_duration %}
+	{% set animation_delay  = settings.animation_delay %}
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__resourceModule product-archive appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+{% else %}
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__resourceModule product-archive">
+{% endif %}
+	{# {% include '_components/settings_overlay.twig' %} #}
+    <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
+		{# <div>
+			<form role="search" method="get" class="search-form" action="#">
 				
-				{# {% if post.post_type == 'case-study' %} #}
+			</form>
+		</div> #}
+
+		{% set myData = {
+			'args': {
+				'paged': 1,
+			},
+			'cpt': post_type,
+		} %}
+
+		{% if taxonomy %}
+			{% set myData = {
+			'args': {
+				'paged': 1,
+			},
+			'cpt': post_type,
+			'taxonomy': taxonomy,
+			'terms': terms,
+		} %}
+
+		{% endif %}
+		<div class="archive_wrapper -rs_module" data-load='{{ myData|json_encode }}'>
+			{% if posts %}
+				{% for post in posts %}
+					{# {% if post.post_type == 'post' %}
+						{% include ['_components/_tease/_tease-post.twig', '_tease.twig'] %}
+					{% elseif post.post_type == 'video' %}
+						<article class="tease tease-post" id="tease-{{ post.ID }}">
+							<h2 class="post_title">
+								<a href="{{ post.link }}">{{post.title}}</a>
+							</h2>
+						</article>
+					{% else %} #}
+						<article class="tease tease-post _ptCard" id="tease-{{ post.ID|e('html_attr') }}">
+							{# {% if post.thumbnail.src %}
+							<div>
+								<a href="{{ post.link }}"><img src="{{ post.thumbnail.src }}" /></a>
+							</div>
+							{% endif %}
+							<h2 class="post_title">
+								<a href="{{ post.link }}">{{post.title}}</a>
+							</h2> #}
+							{% set title   = post.title %}
+							{% set link   = post.link %}
+							{% set thumbnail   = post.thumbnail %}
+							{% set hero_img    = post.meta('hero_img') %}
+							{% set logo        = post.meta('logo') %}
+							{# {% set subtitle    = post.meta('subtitle') %} #}
+							{% set industry    = post.meta('industry') %}
+							<div class="inner">
+							<div>
+								<a href="{{ link|e('esc_url') }}" class="slide-image">
+								{% if thumbnail or hero_img %}
+									{# <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title|e('html_attr') }}" /> #}
+									<img src="{{ thumbnail ? thumbnail.src | resize(820)|e('esc_url') : get_image(hero_img) | resize(820)|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
+								{% else %}
+									<img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png'|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
+								{% endif %}
+								</a>
+							</div>
+							{% if logo %}
+								<div class="logoWrapper">
+									<a href="{{ link|e('esc_url') }}"><img src="{{ get_image(logo)|e('esc_url') }}" alt="Logo Image"></a>
+								</div>
+							{% endif %}
+							{% if industry %}
+								<p>Industry: <span>{{industry|e('esc_html')}}</span></p>
+							{% endif %}
+							<p class="_ptCard__title">
+								{{ title|e('esc_html') }}
+							</p>
+							<a href="{{ link|e('esc_url') }}">
+								Read more
+							</a>
+							</div>
+						</article>
+					{# {% endif %} #}
 					
-				{# {% endif %} #}
-				
-				{# {% include ['_components/_tease/_tease-' ~ post.post_type ~ '.twig', '_tease.twig'] %} #}
-			{% endfor %}
+					{# {% if post.post_type == 'case-study' %} #}
+						
+					{# {% endif %} #}
+					
+					{# {% include ['_components/_tease/_tease-' ~ post.post_type ~ '.twig', '_tease.twig'] %} #}
+				{% endfor %}
+			{% else %}
+				<div>Nothing</div>
+			{% endif %}
 		</div>
 	</div>
 	
-	{% include '_partials/_pagination.twig' with {
-    pagination: posts.pagination({ show_all: false, mid_size: 3, end_size: 2 }) } %}
+	{% if load_type == 'pagination' %}
+		{% include '_partials/_pagination.twig' with {
+		pagination: posts.pagination({ show_all: false, mid_size: 3, end_size: 2 }) } %}
+	{% else %}
+		<button class="btn btn-load -outline" style="margin: auto; text-align: center; display: flex;">Load More</button>
+	{% endif %}
+
+	{% if not is_preview %}
+		{{ settings.styles | raw }}
+	{% endif %}
 </section>

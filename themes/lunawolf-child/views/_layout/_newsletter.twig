@@ -1,0 +1,55 @@
+{% set logos = options['popup_logos'] %}
+{% set title = options['popup_title'] %}
+{% set subtitle = options['popup_subtitle'] %}
+{% set form = options['popup_form'] %}
+{% set form_type = options['popup_form_type'] %}
+{% set form_button = options['popup_button'] %}
+{% set image = options['popup_image'] %}
+{% set msg = options['thank_msg'] %}
+
+{# <div class="newsletter" style="background-image: url({{ get_image(image)|e('esc_url') }})" data-popup-options="{'popup_id':'9647','popup_delay':'10','popup_animation':'fadeIn','popup_duration':'400ms'}"> #}
+<div class="newsletter appear-animate" style="background-image: url({{ get_image(image)|e('esc_url') }})" data-settings="{'_animation':'fadeIn','_animation_delay': 0}">
+    <div class="newsletter-wrapper">
+        <div class="sub">
+        {# <div class="_m7"> #}
+            {% if logos %}
+                <div class="newsletter-logo-wrapper">
+                    {% for logo in logos %}
+                        {% set item = logo.popup_logo %}
+                        <div class="newsletter-logo">
+                            <img src="{{get_image(item)|e('esc_url')}}" alt="Logo" />
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if title %}
+                <h2 class="newsletter-title">{{title}}</h2>
+            {% endif %}
+            {% if subtitle %}
+                <p class="newsletter-subtitle">{{subtitle}}</p>
+            {% endif %}
+            {% if form_type == 'form' %}
+                {% if form %}
+                    <div class="newsletter-form">{{form}}</div>
+                {% endif %}
+            {% else %}
+                {% if form_button %}
+                    <div class="newsletter-btn">
+                        <a href="{{form_button.url}}" class="btn -outline">{{form_button.title}}</a>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+        {# </div>
+        <div class="_m5"> #}
+            {# {% if image %}
+                <div class="newsletter-img">
+                    <img src="{{get_image(image)|e('esc_url')}}" alt="Image" />
+                </div>
+            {% endif %} #}
+        {# </div> #}
+    </div>
+    <div class="thank-msg">
+        {{msg}}
+    </div>
+</div>

@@ -1,6 +1,7 @@
 {% set title      = block.title %}
 {% set titleLeft  = block.left %}
 {% set images_row = block.images_row %}
+{% set spacing    = block.row_spacing / 2 %}
 
 {% set section_animation  = settings['section_animation'] %}
 
@@ -15,32 +16,44 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__imgRows appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__imgRows appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__imgRows">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__imgRows">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
-  
-    <div class="wrapper -limit color-{{ text_color ?: 'primary' }}">
+    <style>
+      #{{ settings.block_id|e('esc_html') }} ._w {
+        margin-left: -{{spacing}}px;
+        margin-right: -{{spacing}}px;
+      }
+      #{{ settings.block_id|e('esc_html') }} ._w>.m__imgRows__wrapper {
+        padding-left: {{spacing}}px;
+        padding-right: {{spacing}}px;
+      }
+    </style>
+    <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
+    <div>
       {% if title %}
         <div class="titleWrapper{{ titleLeft ? ' -left' }}">
-          <h2 class="title">{{ title }}</h2>
+          <h2 class="title">{{ title|e('esc_html') }}</h2>
         </div>
       {% endif %}
       <div class="_w">
         {% for img_row in images_row %}
           {% set column_width = img_row.column_width %}
           {% set image        = img_row.image %}
+          {% set image_fit       = img_row.image_fit %}
           {% set s_numb       = img_row.serial_numb %}
           {% set title         = img_row.title %}
           {% set desc         = img_row.desc %}
+          {% set link         = img_row.link %}
 
           <div class="m__imgRows__wrapper _m6{{ column_width ? ' ' ~ column_width }}">
             <div class="m__imgRows__wrapper__box">
               <div class="m__imgRows__wrapper__inner">
                 <div class="m__imgRows__wrapper__inner__wrapImg">
                   {% if image %}
-                    <img class="m__imgRows__wrapper__inner__bgImg" src="{{ get_image(image) }}" alt="{{ image.alt }}" />
+                    <img class="m__imgRows__wrapper__inner__bgImg {{image_fit}}" src="{{ get_image(image) }}" alt="{{ image.alt }}" />
                   {% endif %}
                 </div>
                 {% if desc or s_numb %}
@@ -50,10 +63,16 @@
                     {% endif %}
                     <div class="content_wrapper">
                       {% if title %}
-                      <h2 class="m__imgRow__title">{{title}}</h2>
+                      <h2 class="m__imgRow__title">{{title|e('esc_html')}}</h2>
                       {% endif %}
                       {% if desc %}
-                      <p class="m__imgRow__desc">{{ desc }}</p>
+                      <div class="m__imgRow__desc">{{ desc|e('wp_kses_post') }}</div>
+                      {% endif %}
+                      {% if link %}
+                          {% include '_components/_advanced_link.twig' with {
+                            link: link,
+                            class: '-outline'
+                          } %}
                       {% endif %}
                     </div>
                   </div>
@@ -63,6 +82,7 @@
           </div>
         {% endfor %}
       </div>
+    </div>
     </div>
     {% if not is_preview %}
       {{ settings.styles | raw }}

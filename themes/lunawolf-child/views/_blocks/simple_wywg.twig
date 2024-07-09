@@ -9,19 +9,19 @@
 {% endif %}
 
 {% if wyswyg %}
-    {% if section_animation  %}
-        {% set animation_type  = settings.animation_type %}
-        {% set animation_duration  = settings.animation_duration %}
-        {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__wyswyg block__wyswyg appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
-    {% else %}
-    <section id="{{ settings.block_id }}" class="m__wyswyg block__wyswyg">
-    {% endif %}
-    
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__wyswyg block__wyswyg">
         {% include '_components/settings_overlay.twig' %}
-        <div class="wrapper -limit">
-           <div class="content color-{{ text_color ?: 'primary' }}">
-               <div class="m__wyswyg">{{ wyswyg }}</div>
+        {% if section_animation  %}
+            {% set animation_type  = settings.animation_type %}
+            {% set animation_duration  = settings.animation_duration %}
+            {% set animation_delay  = settings.animation_delay %}
+            <div class="wrapper appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+        {% else %}
+            <div class="wrapper">
+        {% endif %}
+        
+           <div class="content color-{{ text_color|e('html_attr') ?: 'primary' }}">
+               <div class="m__wyswyg__content">{{ wyswyg|e('wp_kses_post') }}</div>
            </div>
         </div>
         {% if not is_preview %}

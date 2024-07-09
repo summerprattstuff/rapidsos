@@ -2,6 +2,7 @@
     position: relative;
     max-width: 400px;
     margin: auto;
+    padding: 10px;
     text-align: center;
     width: 90%;
     color: #fff;
@@ -27,13 +28,57 @@
 }
 
 .m__sbHero {
+    position: relative;
     padding-top: 96px;
     padding-bottom: 96px;
+    overflow: hidden;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .overlayBg {
+        top: 20px;
+        bottom: 20px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: 1;
+    }
+
+    .bg-lottie {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+
+        @include media-down(l) {
+            width: 150%;
+            transform: translateX(-25%);
+        }
+
+        @include media-down(m) {
+            display: none;
+            // width: 200%;
+            // transform: translateX(-30%);
+        }
+
+        // @include media-down(s) {
+        //     width: 260%;
+        // }
+    }
 }
 
 .m__sbHero__cta a {
     color: #fff;
+    &:hover {
+        color: #fff;
+        background-color: #27A4D9;
+        border-color: #27A4D9;
+    }
 }

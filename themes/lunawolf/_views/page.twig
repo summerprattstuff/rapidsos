@@ -8,7 +8,7 @@
 
 {% block content %}
 	<div class="content">
-    This is page: {{ title }}
-    {{ content }}
+    This is page: {{ title|e('esc_html') }}
+    {{ content|e('wp_kses_post') }}
   </div>
 {% endblock %}

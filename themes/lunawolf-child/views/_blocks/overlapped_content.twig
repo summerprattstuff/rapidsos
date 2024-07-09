@@ -20,24 +20,24 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__ovrContent appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__ovrContent appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__ovrContent">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__ovrContent">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
-        <div class="wrapper color-{{ text_color ?: 'primary' }}">
+        <div class="wrapper color-{{ text_color|e('html_attr') ?: 'primary' }}">
             <div class="_w">
                 {% if leftText or linkLeft %}
                     {% if left_anim.enable_animation %}
                         {% set animation_type  = left_anim.animation_type %}
                         {% set animation_duration  = left_anim.animation_duration %}
                         {% set animation_delay  = left_anim.animation_delay %}
-                        <div class="left appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                        <div class="left appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
                     {% else %}
                         <div class="left">
                     {% endif %}
                         <div class="m__ovrContent__left">
-                            <h3 class="m__ovrContent__left__text">{{ leftText }}</h3>
+                            <h3 class="m__ovrContent__left__text">{{ leftText|e('esc_html') }}</h3>
                             {% if linkLeft %}
                                 <div class="btnWrapper">
                                     {% include '_components/_advanced_link.twig' with {
@@ -51,7 +51,7 @@
                 {% endif %}
                 <div class="wrapImg m__ovrContent__wrapImg">
                     <div class="innerImg m__ovrContent__wrapImg__innerImg">
-                        <div class="bgImg m__ovrContent__wrapImg__innerImg__bgImg" style="{% if bgImg %}background-image: url({{ get_image(bgImg) }}){% endif %}"></div>
+                        <div class="bgImg m__ovrContent__wrapImg__innerImg__bgImg" style="{% if bgImg %}background-image: url({{ get_image(bgImg)|e('esc_url') }}){% endif %}"></div>
                     </div>
                 </div>
                 {% if rightText or linkRight %}
@@ -59,11 +59,11 @@
                         {% set animation_type  = left_anim.animation_type %}
                         {% set animation_duration  = left_anim.animation_duration %}
                         {% set animation_delay  = left_anim.animation_delay %}
-                        <div class="m__ovrContent__right appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+                        <div class="m__ovrContent__right appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
                     {% else %}
                         <div class="m__ovrContent__right">
                     {% endif %}
-                        <h3 class="m__ovrContent__right__text">{{ rightText }}</h3>
+                        <h3 class="m__ovrContent__right__text">{{ rightText|e('esc_html') }}</h3>
                         {% if linkRight %}
                             <div class="btnWrapper">
                                 {% include '_components/_advanced_link.twig' with {

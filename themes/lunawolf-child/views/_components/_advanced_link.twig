@@ -7,7 +7,7 @@
   {% set target = link.target %}
   {% set class  = class ? ' ' ~ class : '' %}
 
-  <a href="{{ url }}" target="{{ target }}" class="btn type-{{ type }}{{ class }}">
-    {{ title ?: name ?: 'Read more' }}
+  <a href="{{ url|e('esc_url') }}" target="{{ target|e('html_attr') }}" class="btn type-{{ type|e('html_attr') }}{{ class|e('html_attr') }}">
+    {{ title ?: name|e('esc_html') ?: 'Read more'|e('esc_html') }}
   </a>
 {% endif %}

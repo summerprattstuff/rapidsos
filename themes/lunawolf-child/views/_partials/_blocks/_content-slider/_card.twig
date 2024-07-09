@@ -13,44 +13,44 @@
     {% set industry    = current_post.meta('industry') %}
     <div class="inner">
       <div>
-        <a href="{{ link }}" class="slide-image">
+        <a href="{{ link|e('esc_url') }}" class="slide-image">
           {% if thumbnail or hero_img %}
-            {# <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title }}" /> #}
-            <img src="{{ thumbnail ? thumbnail.src | resize(820) : get_image(hero_img) | resize(820) }}" alt="{{ title }}" />
+            {# <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title|e('html_attr') }}" /> #}
+            <img src="{{ thumbnail ? thumbnail.src | resize(820)|e('esc_url') : get_image(hero_img) | resize(820)|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
           {% else %}
-            <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png' }}" alt="{{ title }}" />
+            <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png'|e('esc_url')|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
           {% endif %}
         </a>
       </div>
       {% if logo %}
           <div class="logoWrapper">
-              <img src="{{ get_image(logo) }}" alt="">
+              <a href="{{ link|e('esc_url') }}"><img src="{{ get_image(logo)|e('esc_url') }}" alt="Logo Image"></a>
           </div>
       {% endif %}
-      <p>Industry: <span>{{industry}}</span></p>
+      <p>Industry: <span>{{industry|e('esc_html')}}</span></p>
       <p class="_ptCard__title">
-        {{ subtitle }}
+        {{ subtitle|e('esc_html') }}
       </p>
-      <a href="{{ link }}">
+      <a href="{{ link|e('esc_url') }}">
         Read case study
       </a>
     </div>
   {% else %}
     <div class="inner">
       <div>
-        <a href="{{ link }}" class="slide-image">
+        <a href="{{ link|e('esc_url') }}" class="slide-image">
           {% if thumbnail or hero_img %}
-            {# <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title }}" /> #}
-            <img src="{{ thumbnail ? thumbnail.src | resize(820) : get_image(hero_img) | resize(820) }}" alt="{{ title }}" />
+            {# <img src="{{ thumbnail ? thumbnail.src | resize(512, 455, true) : get_image(hero_img) | resize(512) }}" alt="{{ title|e('html_attr') }}" /> #}
+            <img src="{{ thumbnail ? thumbnail.src | resize(820)|e('esc_url') : get_image(hero_img) | resize(820)|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
           {% else %}
-            <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png' }}" alt="{{ title }}" />
+            <img class="_ptCard__plch" src="{{ theme.link ~ '/public/images/rapid-sos.png'|e('esc_url')|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
           {% endif %}
         </a>
       </div>
       <p class="_ptCard__title">
-        {{ title }}
+        {{ title|e('esc_html') }}
       </p>
-      <a href="{{ link }}">
+      <a href="{{ link|e('esc_url') }}">
         Read more
       </a>
     </div>

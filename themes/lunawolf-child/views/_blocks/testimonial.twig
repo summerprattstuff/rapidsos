@@ -13,23 +13,24 @@
     {% set testimonial  = get_post(testimonialID) %}
     {% set author       = testimonial.title %}
     {% set author_title = testimonial.meta('author_title') %}
-    {% set author_icon  = testimonial.meta('author_icon') %}
+    {% set author_icon  = testimonial.meta('logo') %}
     {% set quote        = testimonial.meta('quote') %}
+    {# {% set author_image  = block.author_image %} #}
 
     {% if section_animation  %}
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__testimonial appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__testimonial appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__testimonial">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__testimonial">
     {% endif %}
         {% include '_components/settings_overlay.twig' %}
     
         <div class="wrapper{{ t_width ? ' -limit' : '' }}">
-            <div class="container color-{{ text_color ?: 'primary' }}">
+            <div class="container color-{{ text_color|e('html_attr') ?: 'primary' }}">
                 <div class="testimonial">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="94" height="77" viewBox="0 0 94 77" fill="none">
+                    {# <svg xmlns="http://www.w3.org/2000/svg" width="94" height="77" viewBox="0 0 94 77" fill="none">
                         <path d="M0.5 49.6582C0.5 31.6895 9.04492 16.6016 26.1348 4.39453C30.1387 1.46484 33.1172 0 35.0703 0C36.4375 0 37.1211 0.878906 37.1211 2.63672C37.1211 4.29688 36.8281 5.51758 36.2422 6.29883C35.7539 6.98242 35.1191 7.61719 34.3379 8.20312C33.5566 8.78906 32.7754 9.32617 31.9941 9.81445C31.2129 10.3027 30.2852 11.0352 29.2109 12.0117C19.6406 20.2148 14.8555 28.2227 14.8555 36.0352C14.8555 40.2344 16.5645 42.334 19.9824 42.334C34.3379 42.334 41.5156 48.2422 41.5156 60.0586C41.5156 64.6484 39.7578 68.5547 36.2422 71.7773C32.7266 74.9023 28.8691 76.4648 24.6699 76.4648C16.9551 76.4648 10.998 73.4863 6.79883 67.5293C2.59961 61.4746 0.5 55.5176 0.5 49.6582ZM52.3555 49.6582C52.3555 31.3965 60.6562 16.4551 77.2578 4.83398C81.1641 1.61133 84.0938 0 86.0469 0C88 0 88.9766 0.878906 88.9766 2.63672C88.9766 4.29688 88.6836 5.46875 88.0977 6.15234C87.6094 6.83594 86.9746 7.51953 86.1934 8.20312C85.4121 8.78906 84.6309 9.32617 83.8496 9.81445C83.0684 10.3027 82.1895 11.0352 81.2129 12.0117C71.3496 20.8008 66.418 28.8086 66.418 36.0352C66.418 40.2344 68.2246 42.334 71.8379 42.334C86.0957 42.334 93.2246 48.1934 93.2246 59.9121C93.2246 64.4043 91.4668 68.3105 87.9512 71.6309C84.5332 74.8535 80.6758 76.4648 76.3789 76.4648C68.8594 76.4648 62.9512 73.5352 58.6543 67.6758C54.4551 61.7188 52.3555 55.7129 52.3555 49.6582Z" fill="url(#paint0_linear_1255_4854)"/>
                         <defs>
                         <linearGradient id="paint0_linear_1255_4854" x1="52.7949" y1="22.543" x2="52.7949" y2="201.708" gradientUnits="userSpaceOnUse">
@@ -37,16 +38,24 @@
                         <stop offset="1" stop-color="#105D9B"/>
                         </linearGradient>
                         </defs>
-                    </svg>
+                    </svg> #}
+                    <img class="m__testimonial__quote_img" src="{{ theme.link ~ '/public/images/quotes.png'|e('esc_url') }}" alt="Quote Image" width="146" height="127">
                     <div class="m__testimonial__content">
-                        <h3 class="m__testimonial__quote">{{ quote }}</h3>
-                        {% if author_title %}
+                        <h3 class="m__testimonial__quote">{{ quote|e('esc_html') }}</h3>
+                        {% if author_title or author %}
                             <div class="authorWrapper">
-                                {% if icon %}
-                                    <img src="{{ get_image(author_icon) }}" alt="">
+                            
+                                {% if author_icon %}
+                                    <img src="{{ get_image(author_icon)|e('esc_url') }}" alt="Testimonial Logo">
                                 {% endif %}
-                                <h4 class="author">{{ author }},</h4>
-                                <h4 class="author_title">{{ author_title }}</h4>
+                                <div>
+                                    {% if author_title %}
+                                        <h4 class="author">{{ author|e('esc_html') }},</h4>
+                                    {% else %}
+                                        <h4 class="author">{{ author|e('esc_html') }}</h4>
+                                    {% endif %}
+                                    <h4 class="author_title">{{ author_title|e('esc_html') }}</h4>
+                                </div>
                             </div>
                         {% endif %}
                     </div>

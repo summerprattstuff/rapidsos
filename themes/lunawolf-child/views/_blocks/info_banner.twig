@@ -1,0 +1,67 @@
+{% set img = block.image %}
+{% set title = block.title %}
+{% set location = block.location %}
+{% set industry = block.industry %}
+{% set link = block.button %}
+{% set desc = block.description %}
+{% set mark = block.mark %}
+{% set address = block.address %}
+
+{% set section_animation  = settings['section_animation'] %}
+
+{% if not is_preview %}
+  {#  {{ dump(settings) }}#}
+{% endif %}
+
+{% if section_animation  %}
+    {% set animation_type  = settings.animation_type %}
+    {% set animation_duration  = settings.animation_duration %}
+    {% set animation_delay  = settings.animation_delay %}
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__info__banner appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+{% else %}
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__info__banner">
+{% endif %}
+    <div class="wrapper">
+        <div class="container">
+            <div class="m__info__banner__wrapper">
+                <div class="m__info__banner__top grid grid-xl-cols-2 grid-cols-1">
+                    <div>
+                        <h2 style="margin-bottom: 20px;">{{title|e('esc_html')}}</h2>
+                        <div>
+                            <div style="margin-bottom: 5px;"><strong>Location: </strong> {{location|e('esc_html')}}</div>
+                            <strong>Industry: </strong> {{industry|e('esc_html')}}
+                        </div>
+                        {% if link %}
+                            {% set url    = link.url %}
+                            {% set name   = link.title %}
+                            {% set target = link.target %}
+                            <div class="m__info__banner__button">
+                                 <a href="{{ url|e('esc_url') }}" target="{{ target }}" class="btn -outline">
+                                    {{name}}
+                                 </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <img src="{{ img.url|e('esc_url') }}" alt="{{ title|e('html_attr') }}" />
+                    </div>
+                </div>       
+                <div class="m__info__banner__bottom">
+                    <div style="margin-bottom: 20px;">
+                        <img class="m__info__banner__quote_img" src="{{ theme.link ~ '/public/images/quotes.png'|e('esc_url') }}" alt="Quote Image" width="146" height="127">
+                    </div>
+                    <div>{{desc}}</div>
+                    <div style="gap: 20px; margin-top: 30px;" class="m__info__banner__address">
+                        {% if mark %}
+                            <img style="height: 75px; width: 75px" src="{{mark.url}}" alt="Image" />
+                        {% endif %}
+                        <span class="m__info__banner__address">{{address}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
+</section>

@@ -1,10 +1,29 @@
+{% set enable_new_nav        = options['enable_new_nav'] %}
 {% set main_menu        = options['main_menu'] %}
 {% set main_menu_timber = main_menu ? get_timber_menu(main_menu) : false %}
 
 <nav id="navigation" class="site__navigation">
-  {% if main_menu_timber %}
-    {% include "_partials/_menu.twig" with {
-      items: main_menu_timber.get_items
-    } %}
+  {% if enable_new_nav %}
+    {% set nav_items = options['nav_items'] %}
+      {% include "_partials/_menu.twig" with {
+        items: nav_items,
+        enable_new_nav: true
+      } %}
+  {% else %}
+    {% if main_menu_timber %}
+      {% include "_partials/_menu.twig" with {
+        items: main_menu_timber.get_items
+      } %}
+    {% endif %}
   {% endif %}
+  
+  {% if links %}
+    <div class="nav-links">
+        {% for link in links %}
+          {% set button = link.button %}
+          {% set button_type = link.button_type %}
+            <a href="{{button.url}}" class="btn header-link {{button_type}}">{{button.title}}</a>
+        {% endfor %}
+    </div>
+  {% endif %} 
 </nav>

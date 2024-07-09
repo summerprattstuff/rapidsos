@@ -25,6 +25,7 @@
   }
 
   .title {
+    font-weight: 700;
 
     @include media-up(m) {
       line-height: 28px;
@@ -59,8 +60,12 @@
       flex-direction: column;
       border-radius: 20px;
       box-shadow: 4px 4px 10px 0 #00000040;
-      padding: 30px 20px;
+      padding: 32px;
       height: 100%;
+
+      .iContent {
+        margin-top: 1px;
+      }
 
       .bot {
         margin-top: 20px;

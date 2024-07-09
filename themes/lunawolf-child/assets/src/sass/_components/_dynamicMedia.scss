@@ -2,7 +2,7 @@
   position: relative;
 
   &__video {
-    margin-top: 30px;
+    // margin-top: 30px;
 
     &.-background {
       position: absolute;
@@ -15,29 +15,35 @@
       }
     }
 
-    @include media-up(m) {
-      margin-top: 50px;
-    }
+    // @include media-up(m) {
+    //   margin-top: 50px;
+    // }
   }
 
   &.-background {
     position: absolute;
     left: 0; top: 0; right: 0; bottom: 0;
   }
+
+  &__wrapImg__innerImg.-enable-mobile {
+    img:last-child {
+      display: none;
+    }
+
+    @include media-down(m) {
+      img:first-child {
+        display: none;
+      }
+      img:last-child {
+        display: block;
+      }
+    }
+  }
 }
 
 .m__graphicFeature {
 
-  .m__dynamicMedia__wrapImg{
-    max-width: 80%;
-    margin: 0 auto;
-
-    &__bgImg {
-      padding-top: 52.03%;
-    }
-  }
-
-  .m__dynamicMedia__video {
+  .m__dynamicMedia {
     max-width: 80%;
     margin: 0 auto;
   }

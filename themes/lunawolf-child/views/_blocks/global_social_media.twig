@@ -9,13 +9,13 @@
     {#  {{ dump(settings) }}#}
 {% endif %}
 
-<section id="{{ settings.block_id }}" class="m__globalSocialMedia">
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__globalSocialMedia">
     <div class="wrapper">
         <div class="container">
             {% if show_share_box or social_media | length %}
-                <span>{{ block_title ? block_title : custom_title ? custom_title : show_share_box ? 'Share now:' : 'Visit us:' }}</span>
+                <span>{{ block_title ? block_title|e('esc_html') : custom_title ? custom_title|e('esc_html') : show_share_box ? 'Share now:' : 'Visit us:' }}</span>
                 {% if show_share_box %}
-                    {{ social_share }}
+                    {{ social_share|e('wp_kses_post') }}
                 {% else %}
                     <ul class="social">
                         {% for media in social_media %}
@@ -23,8 +23,8 @@
                             {% set link = media.link %}
 
                             <li>
-                                <a href="{{ link }}" target="_blank" aria-label="Go to our {{ link }} page">
-                                    <img src="{{ get_image(icon) }}" alt="{{ icon.alt }}" />
+                                <a href="{{ link|e('esc_url') }}" target="_blank" aria-label="Go to our {{ link|e('html_attr') }} page">
+                                    <img src="{{ get_image(icon)|e('esc_url') }}" alt="{{ icon.alt|e('html_attr') }}" />
                                 </a>
                             </li>
                         {% endfor %}

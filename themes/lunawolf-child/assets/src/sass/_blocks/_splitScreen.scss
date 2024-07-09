@@ -1,0 +1,61 @@
+.m__splitScreen {
+    display: flex;
+    flex-wrap: nowrap;
+
+    @include media-down(l) {
+        display: block;
+    }
+
+    &__right {
+        .m__splitScreen__title {
+            font-size: 60px;
+            font-weight: 400;
+            letter-spacing: .15em;
+        }
+    }
+
+    &__label {
+        margin-bottom: 20px;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+    &__title {
+        margin-bottom: 30px;
+        font-size: 70px;
+        line-height: 1;
+        word-break: break-all;
+    }
+
+    &__desc {
+        margin-bottom: 30px;
+    }
+
+    &__content {
+        max-width: 410px;
+    }
+
+    &__wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        padding: 50px 20px;
+
+        @include media-up(l) {
+            padding: 5%;
+        }
+    }
+
+    .color-white .btn {
+        background: $primary !important;
+        color: #fff !important;
+        opacity: 1; 
+
+        &:hover {
+            background: $light_blue !important;
+            color: $white !important;
+            border-color: $light_blue !important;
+        }
+    }
+}

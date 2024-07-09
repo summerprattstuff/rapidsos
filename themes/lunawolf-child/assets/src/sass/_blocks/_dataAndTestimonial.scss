@@ -51,11 +51,14 @@
       }
 
       li {
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: capitalize;
         list-style-type: none;
 
         &:not(:last-child) {
-          padding-bottom: 10px;
-          margin-bottom: 18px;
+          padding-bottom: 17px;
+          // margin-bottom: 18px;
         }
       }
     }
@@ -63,13 +66,18 @@
 
   &__testimonialBox {
 
+    &__img {
+      width: 56px;
+      height: auto;
+    }
+
     &__testimonialWrapper {
       padding: 40px 0;
 
       .quote {
         margin-top: 20px;
         font-size: 24px;
-        line-height: 34px;
+        line-height: 36px;
       }
 
       .authorWrapper {
@@ -77,12 +85,16 @@
         flex-wrap: wrap;
         font-weight: 700;
 
+        >p {
+          font-weight: 700;
+        }
+
         &:not(first-child) {
           margin-top: 20px;
         }
 
         .author {
-          margin-right: 10px;
+          margin-right: 4px;
         }
       }
     }

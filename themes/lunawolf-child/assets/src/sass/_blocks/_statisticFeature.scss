@@ -40,9 +40,13 @@
       margin-top: -50px;
       align-items: flex-end;
 
+      @include media-down(xl) {
+        margin-top: -15px;
+      }
+
       @include media-up(m) {
         flex-direction: row;
-        align-items: center;
+        align-items: flex-end;
       }
 
       .-preview & {
@@ -63,6 +67,11 @@
           letter-spacing: -.05em;
         }
 
+        @include media-down(m) {
+          margin-right: auto;
+          margin-bottom: 5px;
+        }
+
         @include media-up(xs) {
           font-size: 130px;
         }
@@ -76,6 +85,7 @@
 
         @include media-up(l) {
           font-size: 200px;
+          width: 45%;
           // top: 55px;
         }
 
@@ -91,7 +101,7 @@
       }
 
       &__desc {
-        padding: 0px 0px 24px 24px;
+        padding: 0;
         font-weight: 400;
         font-size: 28px !important;
         line-height: 1.4;
@@ -111,6 +121,12 @@
 
         @include media-up(l) {
           font-size: 36px;
+          width: 55%;
+          padding-bottom: 24px;
+        }
+
+        @include media-up(xl) {
+          padding-bottom: 40px;
         }
       }
     }

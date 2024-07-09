@@ -1,0 +1,44 @@
+ {% set quote = block.quote %}
+ {% set title = block.speaker_title %}
+ {% set name = block.speaker_name %}
+ {% set image = block.speaker_image %}
+ {% set logo = block.company_logo %}
+ 
+{% set section_animation  = settings['section_animation'] %}
+
+{% if section_animation  %}
+    {% set animation_type  = settings.animation_type %}
+    {% set animation_duration  = settings.animation_duration %}
+    {% set animation_delay  = settings.animation_delay %}
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__fullTestimonial appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
+{% else %}
+<section id="{{ settings.block_id|e('html_attr') }}" class="m__fullTestimonial">
+{% endif %}
+    {% if image %}
+        <div class="m__fullTestimonial__bg">
+            <img src="{{get_image(image)|e('esc_url')}}" alt="Image" />
+        </div>
+    {% endif %}
+    <div class="wrapper">
+        <div class="m__fullTestimonial__content">
+            {% if quote %}
+                <div class="m__fullTestimonial__quote">
+                    <img class="m__fullTestimonial__quote_img" src="{{ theme.link ~ '/public/images/quotes.png'|e('esc_url') }}" alt="Quote Image" width="146" height="127">
+                    <div>{{quote|e('wp_kses_post')}}</div>
+                </div>
+            {% endif %}
+            {% if name %}
+                <h4 class="m__fullTestimonial__name">{{name|e('esc_html')}},&nbsp;<span>{{title|e('esc_html')}}</span></h4>
+            {% else %}
+                <h4 class="m__fullTestimonial__name">{{title|e('esc_html')}}</h4>
+            {% endif %}
+
+            {% if logo %}
+                <img class="m__fullTestimonial__logo" src={{ get_image(logo)|e('esc_url') }} alt="Company Logo"/>
+            {% endif %}
+        </div>
+    </div>
+    {% if not is_preview %}
+        {{ settings.styles | raw }}
+    {% endif %}
+ </section>

@@ -6,16 +6,16 @@
     <div class="wrapper">
         <h3 class="report__heading">Introduction</h3>
         <div>
-            {{ introduction }}
+            {{ introduction|e('wp_kses_post') }}
         </div>    
         <div class="_w intro__report__data__wrapper">
             <div class="_m6">
                 <h3 class="report__heading">Data Collection</h3>
-                <p>{{ data_collection }}</p>
+                <p>{{ data_collection|e('esc_html') }}</p>
             </div>
             <div class="_m6">
                 <h3 class="report__heading">Methodology</h3>
-                <p>{{ methodology }}</p>
+                <p>{{ methodology|e('esc_html') }}</p>
             </div>
         </div>
     </div>

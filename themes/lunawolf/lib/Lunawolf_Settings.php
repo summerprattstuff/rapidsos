@@ -16,7 +16,6 @@ class Lunawolf_Settings {
 
 	public function settings($settings, $count): array
 	{
-		
     if (!$settings) return [
       'block_id' => 'block-' . $count,
 			'styles' => '',
@@ -37,7 +36,6 @@ class Lunawolf_Settings {
     $animation_type = isset($settings['animation_type']) && $settings['animation_type'] ? $settings['animation_type'] : '';
     $animation_duration = isset($settings['animation_duration']) && $settings['animation_duration'] ? $settings['animation_duration'] : '';
     $animation_delay = isset($settings['animation_delay']) && is_numeric($settings['animation_delay']) ? $settings['animation_delay'] : 0;
-	
 
 		return [
 			'block_id' => $block_id,
@@ -60,15 +58,11 @@ class Lunawolf_Settings {
 			'padding_top' => 'padding-top',
 			'padding_bottom' => 'padding-bottom',
 		];
-		
-		
 
 		$styles = '';
 
 		foreach ($property_names as $key => $value) {
-			
 			if (isset($settings[$key]) && is_numeric($settings[$key]))
-			
 				$styles .= '#' . $settings['block_id'] . '{' . $value . ':' . $settings[$key] . 'px;}';
 		}
 

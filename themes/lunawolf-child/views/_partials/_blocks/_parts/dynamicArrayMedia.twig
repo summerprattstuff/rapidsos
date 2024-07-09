@@ -11,7 +11,8 @@
   <div class="m__dynamicMedia">
     <div class="wrapImg m__dynamicMedia__wrapImg">
       <div class="innerImg m__dynamicMedia__wrapImg__innerImg">
-        <div class="bgImg m__dynamicMedia__wrapImg__innerImg__bgImg" style="{% if bg_image %}background-image: url({{ get_image(bg_image) }}){% endif %}"></div>
+        {# <div class="bgImg m__dynamicMedia__wrapImg__innerImg__bgImg" style="{% if bg_image %}background-image: url({{ get_image(bg_image)|e('esc_url') }}){% endif %}"></div> #}
+        <img src="{{get_image(bg_image)|e('esc_url')}}" alt="Image" />
       </div>
     </div>
   </div>
@@ -20,18 +21,18 @@
     {% if video_url %}
       <div class="m__dynamicMedia__video">
         {% if video_url %}
-          <div id="video-{{ blockId }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url }}"></div>
+          <div id="video-{{ blockId|e('html_attr') }}" class="js-cardVideo{{ autoplay ? ' js-cardVideoAutoplay' }}" data-plyr-provider="{{ 'youtu' in video_url ? 'youtube' : 'vimeo' }}" data-plyr-embed-id="{{ video_url|e('esc_url') }}"></div>
         {% endif %}
       </div>
     {% else %}
-      <video id="video-{{ blockId }}" style="width: 100%;" {{ autoplay ? ' autoplay loop muted' : 'controls crossorigin playsinline'}}  data-poster="{{ get_image(bg_image) }}">
-        <source src="{{ video_file.url }}" type="video/mp4" />
+      <video id="video-{{ blockId|e('html_attr') }}" style="width: 100%;" {{ autoplay ? ' autoplay loop muted' : 'controls crossorigin playsinline'}}  data-poster="{{ get_image(bg_image)|e('esc_url') }}">
+        <source src="{{ video_file.url|e('esc_url') }}" type="video/mp4" />
       </video>
     {% endif %}
   {% else %}
     {% if video_code %}
-      <div id="video-{{ blockId }}" style="width: 100%;">
-        {{video_code}}
+      <div id="video-{{ blockId|e('html_attr') }}" style="width: 100%;">
+        {{video_code|e('wp_kses_post')}}
       </div>
     {% endif %}
   {% endif %}

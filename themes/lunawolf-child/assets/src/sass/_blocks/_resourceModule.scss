@@ -1,0 +1,46 @@
+.m__resourceModule {
+    .inner>.logoWrapper {
+        margin: 20px 0 15px;
+
+        img {
+            min-height: 0;
+            max-height: none;
+            height: 32px;
+            width: auto;
+        }
+    } 
+
+    ._ptCard {
+        .slide-image {
+            width: 100%;
+            img {
+                max-height: 240px;
+                min-height: 240px;
+                -o-object-fit: cover;
+                object-fit: cover;
+                width: 100%;
+                -o-object-position: left center;
+                object-position: left center;
+            }
+        }
+    } 
+
+    .archive_wrapper {
+        margin-bottom: 5%;
+    }
+}
+
+.archive_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 70px 5%;
+
+    @include media-down(m) {
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 20px;
+    }
+
+    @include media-down(s) {
+        grid-template-columns: auto;
+    }
+  }

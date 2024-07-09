@@ -1,11 +1,15 @@
 .m__wyswyg {
   .wrapper.-limit, ._wr.-limit {
       max-width: 80%;
+
+      @media (min-width: 1920px) {
+        max-width: 1488px;
+      }
   }
 
   li {
-    font-size: 16px;
-    line-height: 24px;
+    // font-size: 16px;
+    // line-height: 1.7;
 
     &:not(last-child) {
       margin-bottom: 12px;
@@ -15,23 +19,23 @@
   h2 {
     margin-bottom: 10px;
 
-    @include media-up(m) {
-      font-size: 24px;
-    }
+    // @include media-up(m) {
+    //   font-size: 24px;
+    // }
 
-    @include media-up(l) {
-      font-size: 28px;
-    };
+    // @include media-up(l) {
+    //   font-size: 28px;
+    // };
 
-    @include media-up(xl) {
-      font-size: 30px;
-    };
+    // @include media-up(xl) {
+    //   font-size: 32px;
+    // };
   }
 
-  p {
-    font-size: 16px;
-    line-height: 24px;
-  }
+  // p {
+  //   font-size: 16px;
+  //   line-height: 24px;
+  // }
 
   a {
     color: #27a4d9;

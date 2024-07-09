@@ -1,8 +1,10 @@
+{% set bg_type     = block.background_type %}
 {% set bg          = block.section_hero_bg %}
 {% set bg_mobile   = block.section_mobile_bg %}
 {% set title       = block.section_hero_title %}
 {% set subtitle    = block.section_hero_desc %}
 {% set link        = block.section_hero_cta %}
+{% set lottie      = block.section_lottie %}
 
 {% set section_animation  = settings['section_animation'] %}
 
@@ -17,29 +19,42 @@
         {% set animation_type  = settings.animation_type %}
         {% set animation_duration  = settings.animation_duration %}
         {% set animation_delay  = settings.animation_delay %}
-    <section id="{{ settings.block_id }}" class="m__sbHero appear-animate animated-{{animation_duration}}" data-settings="{'_animation':'{{animation_type}}','_animation_delay':{{animation_delay}}}">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__sbHero appear-animate animated-{{animation_duration|e('html_attr')}}" data-settings="{'_animation':'{{animation_type|e('html_attr')}}','_animation_delay':{{animation_delay|e('html_attr')}}}">
     {% else %}
-    <section id="{{ settings.block_id }}" class="m__sbHero">
+    <section id="{{ settings.block_id|e('html_attr') }}" class="m__sbHero ">
     {% endif %}
-        {% include '_components/settings_overlay.twig' %}
-        <style>
-            .m__sbHero {
-                background-image: url('{{ bg_mobile.url }}');
-            }
-            @media (min-width: 1200px) {
+        {# {% include '_components/settings_overlay.twig' %} #}
+        {% if bg_type == 'image' %}
+            <style>
                 .m__sbHero {
-                    background-image: url('{{ bg.url }}');
+                    background-image: url('{{ bg_mobile.url }}');
                 }
-            }
-        </style>
+                @media (min-width: 1200px) {
+                    .m__sbHero {
+                        background-image: url('{{ bg.url }}');  
+                    }
+                }
+            </style>
+        {% else %}
+            <div class="overlayBg"></div>
+            <style>
+                .m__sbHero .overlayBg {
+                    background-image: url("{{ theme.link ~ '/public/images/rapidsos-badge.png'|e('esc_url') }}");
+                }
+            </style>
+        {% endif %}
+
+        {% if bg_type == 'lottie' %}
+            <div class="bg-lottie">{{lottie}}</div>
+        {% endif %}
         {# <div class="wrapper"> #}
-            <div class="container color-{{ text_color ?: 'primary' }}">
+            <div class="container color-{{ text_color|e('html_attr') ?: 'primary' }}">
                 <div class="m__sbHero__wrapper">
                     {% if title %}
-                        <h1 class="m__sbHero__title">{{ title }}</h1>
+                        <h2 class="m__sbHero__title">{{ title|e('esc_html') }}</h2>
                     {% endif %}
                     {% if subtitle %}
-                        <p class="m__text m__sbHero__text">{{ subtitle }}</p>
+                        <p class="m__text m__sbHero__text">{{ subtitle|e('esc_html') }}</p>
                     {% endif %}
                     {% if link %}
                         <div class="m__sbHero__cta">

@@ -5,7 +5,7 @@
     <div class="wrapper">
         <h3 class="report__heading">Conclusion</h3>
         <div>
-            {{ conclusion }}
+            {{ conclusion|e('wp_kses_post') }}
         </div>    
     </div>
 </section>
@@ -14,7 +14,7 @@
     <div class="wrapper">
         <h3 class="report__heading">Reference</h3>
         <div>
-            {{ reference }}
+            {{ reference|e('wp_kses_post') }}
         </div>    
     </div>
 </section>
